@@ -8,15 +8,14 @@
 
 build() {
   make \
+    CFLAGS="$CFLAGS -DZSTD_NOBENCH -DZSTD_NODICT -DZSTD_NOTRACE -UZSTD_LEGACY_SUPPORT -DZSTD_LEGACY_SUPPORT=0" \
     HAVE_PTHREAD=1 \
     ZSTD_LEGACY_SUPPORT=0 \
     HAVE_ZLIB=0 \
     HAVE_LZMA=0 \
     HAVE_LZ4=0 \
+    ZSTD_NOBENCH=0 \
     BACKTRACE=0
-
-  make \
-    lib-mt
 }
 
 package() {
