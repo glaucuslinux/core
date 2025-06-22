@@ -69,7 +69,7 @@ package() {
     "$CRSD"/var/cache/rad/src \
     "$CRSD"/var/lib/hwclock \
     "$CRSD"/var/lib/misc \
-    "$CRSD"/var/lib/rad/clusters \
+    "$CRSD"/var/lib/rad/repo \
     "$CRSD"/var/lib/rad/pkg
   ln -fs ../run/lock "$CRSD"/var/lock
   mkdir -p \

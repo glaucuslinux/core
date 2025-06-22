@@ -71,7 +71,7 @@ package() {
     "$SACD"/var/cache/rad/src \
     "$SACD"/var/lib/hwclock \
     "$SACD"/var/lib/misc \
-    "$SACD"/var/lib/rad/clusters \
+    "$SACD"/var/lib/rad/repo \
     "$SACD"/var/lib/rad/pkg
   ln -fs ../run/lock "$SACD"/var/lock
   mkdir -p \
