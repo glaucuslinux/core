@@ -7,5 +7,5 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 package() {
-  cp -fPpR "$CERD" "$CRSD"/var/lib/rad/clusters
+  cp -fPpR "$CERD" "$CRSD"/var/lib/rad/repo
 }
