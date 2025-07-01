@@ -1,0 +1,10 @@
+# SPDX-License-Identifier: MPL-2.0
+
+# Copyright © 2018-2025 Firas Khana
+
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
+nom="native"
+run="fs core linux-headers musl perl automake bash byacc curl cmake gmp gperf mpfr mpc isl acl attr aws-lc libcap shadow bzip2 pigz libarchive lz4 xz zlib-ng zstd autoconf binutils expat file gcc gettext-tiny libedit m4 make mawk muon netbsd-curses pcre2 reflex slibtool u-config eiwd fping iproute2 openresolv sdhcp dash grep hwdata kmod less libudev-zero neatvi pciutils toybox util-linux xxhash yash skalibs execline mdevd s6 utmps s6-linux-init s6-rc s6-boot-scripts linux-cachyos"
