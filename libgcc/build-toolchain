@@ -10,7 +10,7 @@ prepare() {
   cd "$TMPD"/gcc/gcc-$ver/build
 
   make \
-    -C $TGT/$nom \
+    -C $CTARGET/$nom \
     distclean
 }
 
@@ -25,6 +25,6 @@ package() {
 
   # Remove static libraries
   rm -fv \
-    "$TLCD"/usr/lib/gcc/$TGT/$ver/${nom}_eh.a \
-    "$TLCD"/usr/lib/gcc/$TGT/$ver/libgcov.a
+    "$TLCD"/usr/lib/gcc/$CTARGET/$ver/${nom}_eh.a \
+    "$TLCD"/usr/lib/gcc/$CTARGET/$ver/libgcov.a
 }

@@ -14,7 +14,7 @@ prepare() {
 
 configure() {
   ./configure \
-    --host=$TGT \
+    --host=$CTARGET \
     --prefix=/usr \
     --exec-prefix=/usr \
     --dynlibdir=/usr/lib \

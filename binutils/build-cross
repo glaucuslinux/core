@@ -26,9 +26,9 @@ configure() {
     --sharedstatedir=/var/lib \
     --localstatedir=/var \
     --libdir=/usr/lib \
-    --build=$BLD \
-    --host=$TGT \
-    --target=$TGT \
+    --build=$BUILD \
+    --host=$CTARGET \
+    --target=$CTARGET \
     --disable-multilib \
     --enable-install-libiberty \
     --enable-plugins \

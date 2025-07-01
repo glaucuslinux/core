@@ -14,7 +14,7 @@ package() {
   mv -f $nom "$CRSD"/usr/bin
 
   # Compatibility symlinks
-  for i in pkg-config $TGT-pkg-config; do
+  for i in pkg-config $CTARGET-pkg-config; do
     ln -fs $nom "$CRSD"/usr/bin/$i
   done
 

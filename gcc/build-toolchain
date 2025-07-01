@@ -33,7 +33,7 @@ prepare() {
   done
 
   patch \
-    -i "$CERD"/$nom/patches/glaucus/0001-pure64-for-$ARCH.patch \
+    -i "$CERD"/$nom/patches/glaucus/0001-pure64-for-x86-64.patch \
     -p 0
 
   mkdir -p build
@@ -51,9 +51,9 @@ configure() {
     --sharedstatedir="$TLCD"/var/lib \
     --localstatedir="$TLCD"/var \
     --libdir="$TLCD"/usr/lib \
-    --build=$BLD \
-    --host=$BLD \
-    --target=$TGT \
+    --build=$BUILD \
+    --host=$BUILD \
+    --target=$CTARGET \
     --disable-bootstrap \
     --enable-checking=release \
     --disable-multilib \
@@ -84,7 +84,7 @@ configure() {
     --enable-clocale=generic \
     --enable-libstdcxx-time=rt \
     --enable-libstdcxx-threads \
-    --with-arch=$CARCH \
+    --with-arch=x86-64-v3 \
     --with-sysroot="$CRSD" \
     --with-pkgversion="$PRETTY_NAME" \
     --with-bugurl=https://github.com/glaucuslinux/glaucus/issues \
@@ -111,28 +111,28 @@ package() {
     install-strip-$nom \
     install-strip-target-lib$nom
 
-  ln -fs $TGT-g++ "$TLCD"/usr/bin/$TGT-c++
+  ln -fs $CTARGET-g++ "$TLCD"/usr/bin/$CTARGET-c++
 
-  sed "s/$nom/$TGT-&/" "$CERD"/$nom/files/c89 > "$TLCD"/usr/bin/$TGT-c89
-  sed "s/$nom/$TGT-&/" "$CERD"/$nom/files/c99 > "$TLCD"/usr/bin/$TGT-c99
+  sed "s/$nom/$CTARGET-&/" "$CERD"/$nom/files/c89 > "$TLCD"/usr/bin/$CTARGET-c89
+  sed "s/$nom/$CTARGET-&/" "$CERD"/$nom/files/c99 > "$TLCD"/usr/bin/$CTARGET-c99
 
   chmod 755 \
-    "$TLCD"/usr/bin/$TGT-c89 \
-    "$TLCD"/usr/bin/$TGT-c99
+    "$TLCD"/usr/bin/$CTARGET-c89 \
+    "$TLCD"/usr/bin/$CTARGET-c99
 
-  ln -fs $TGT-$nom "$TLCD"/usr/bin/$TGT-cc
-  ln -fs $TGT-$nom "$TLCD"/usr/bin/$TGT-$nom-$ver
+  ln -fs $CTARGET-$nom "$TLCD"/usr/bin/$CTARGET-cc
+  ln -fs $CTARGET-$nom "$TLCD"/usr/bin/$CTARGET-$nom-$ver
 
   # `$TLCD/usr/lib/bfd-plugins` is already provided by `binutils`
-  ln -fs ../$nom/$TGT/$ver/liblto_plugin.so "$TLCD"/usr/lib/bfd-plugins
+  ln -fs ../$nom/$CTARGET/$ver/liblto_plugin.so "$TLCD"/usr/lib/bfd-plugins
 
   # Remove libtool archives
   rm -fv \
-    "$TLCD"/usr/lib/$nom/$TGT/$ver/liblto_plugin.la \
-    "$TLCD"/usr/$TGT/lib/libstdc++.la \
-    "$TLCD"/usr/$TGT/lib/libstdc++fs.la \
-    "$TLCD"/usr/$TGT/lib/libsupc++.la
+    "$TLCD"/usr/lib/$nom/$CTARGET/$ver/liblto_plugin.la \
+    "$TLCD"/usr/$CTARGET/lib/libstdc++.la \
+    "$TLCD"/usr/$CTARGET/lib/libstdc++fs.la \
+    "$TLCD"/usr/$CTARGET/lib/libsupc++.la
 
   # Compatibility symlink
-  ln -fs ../bin/$TGT-cpp "$TLCD"/usr/lib
+  ln -fs ../bin/$CTARGET-cpp "$TLCD"/usr/lib
 }

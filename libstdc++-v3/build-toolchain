@@ -21,12 +21,12 @@ package() {
 
   # Remove static libraries and libtool archives
   rm -fv \
-    "$TLCD"/usr/$TGT/lib/libstdc++.a \
-    "$TLCD"/usr/$TGT/lib/libstdc++.la \
-    "$TLCD"/usr/$TGT/lib/libstdc++exp.a \
-    "$TLCD"/usr/$TGT/lib/libstdc++exp.la \
-    "$TLCD"/usr/$TGT/lib/libstdc++fs.a \
-    "$TLCD"/usr/$TGT/lib/libstdc++fs.la \
-    "$TLCD"/usr/$TGT/lib/libsupc++.a \
-    "$TLCD"/usr/$TGT/lib/libsupc++.la
+    "$TLCD"/usr/$CTARGET/lib/libstdc++.a \
+    "$TLCD"/usr/$CTARGET/lib/libstdc++.la \
+    "$TLCD"/usr/$CTARGET/lib/libstdc++exp.a \
+    "$TLCD"/usr/$CTARGET/lib/libstdc++exp.la \
+    "$TLCD"/usr/$CTARGET/lib/libstdc++fs.a \
+    "$TLCD"/usr/$CTARGET/lib/libstdc++fs.la \
+    "$TLCD"/usr/$CTARGET/lib/libsupc++.a \
+    "$TLCD"/usr/$CTARGET/lib/libsupc++.la
 }

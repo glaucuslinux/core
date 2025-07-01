@@ -18,8 +18,8 @@ configure() {
   LDFLAGS="$LDFLAGS -lutmps" \
   ADJTIME_PATH=/var/lib/hwclock/adjtime \
   "$CERD"/autoconf/files/glaucus-configure \
-    --build=$BLD \
-    --host=$TGT \
+    --build=$BUILD \
+    --host=$CTARGET \
     --disable-static \
     --enable-pic \
     --disable-symvers \

@@ -8,8 +8,8 @@
 
 configure() {
   "$CERD"/autoconf/files/glaucus-configure \
-    --build=$BLD \
-    --host=$TGT \
+    --build=$BUILD \
+    --host=$CTARGET \
     --without-man2html \
     --without-builtin-regex
 }

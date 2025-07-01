@@ -19,8 +19,8 @@ prepare() {
 
 configure() {
   "$CERD"/autoconf/files/glaucus-configure \
-    --build=$BLD \
-    --host=$TGT \
+    --build=$BUILD \
+    --host=$CTARGET \
     --enable-zlib \
     --enable-bzlib \
     --enable-xzlib \

@@ -14,7 +14,7 @@ configure() {
     --disable-multi-os-directory \
     --disable-symvers \
     --with-pic \
-    --with-gcc-arch=$CARCH
+    --with-gcc-arch=x86-64-v3
 }
 
 build() {

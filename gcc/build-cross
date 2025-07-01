@@ -33,7 +33,7 @@ prepare() {
   done
 
   patch \
-    -i "$CERD"/$nom/patches/glaucus/0001-pure64-for-$ARCH.patch \
+    -i "$CERD"/$nom/patches/glaucus/0001-pure64-for-x86-64.patch \
     -p 0
 
   mkdir -p build
@@ -51,9 +51,9 @@ configure() {
     --sharedstatedir=/var/lib \
     --localstatedir=/var \
     --libdir=/usr/lib \
-    --build=$BLD \
-    --host=$TGT \
-    --target=$TGT \
+    --build=$BUILD \
+    --host=$CTARGET \
+    --target=$CTARGET \
     --disable-bootstrap \
     --enable-checking=release \
     --disable-multilib \
@@ -84,7 +84,7 @@ configure() {
     --enable-clocale=generic \
     --enable-libstdcxx-time=rt \
     --enable-libstdcxx-threads \
-    --with-arch=$CARCH \
+    --with-arch=x86-64-v3 \
     --with-stage1-ldflags="$LDFLAGS" \
     --with-pkgversion="$PRETTY_NAME" \
     --with-bugurl=https://github.com/glaucuslinux/glaucus/issues \
@@ -114,26 +114,26 @@ package() {
     "$CERD"/$nom/files/c99 \
     "$CRSD"/usr/bin
 
-  for i in cc $nom-$ver $TGT-$nom; do
+  for i in cc $nom-$ver $CTARGET-$nom; do
     ln -fs $nom "$CRSD"/usr/bin/$i
   done
 
-  ln -fs $TGT-g++ "$CRSD"/usr/bin/$TGT-c++
-  ln -fs $TGT-$nom "$CRSD"/usr/bin/$TGT-cc
-  ln -fs $TGT-$nom "$CRSD"/usr/bin/$TGT-$nom-$ver
-  ln -fs g++ "$CRSD"/usr/bin/$TGT-g++
+  ln -fs $CTARGET-g++ "$CRSD"/usr/bin/$CTARGET-c++
+  ln -fs $CTARGET-$nom "$CRSD"/usr/bin/$CTARGET-cc
+  ln -fs $CTARGET-$nom "$CRSD"/usr/bin/$CTARGET-$nom-$ver
+  ln -fs g++ "$CRSD"/usr/bin/$CTARGET-g++
 
   for i in ar nm ranlib; do
-    ln -fs $nom-$i "$CRSD"/usr/bin/$TGT-$nom-$i
+    ln -fs $nom-$i "$CRSD"/usr/bin/$CTARGET-$nom-$i
   done
 
   # `"$CRSD"/usr/lib/bfd-plugins` is already provided by `binutils`
-  ln -fs ../$nom/$TGT/$ver/liblto_plugin.so "$CRSD"/usr/lib/bfd-plugins
+  ln -fs ../$nom/$CTARGET/$ver/liblto_plugin.so "$CRSD"/usr/lib/bfd-plugins
 
   # Remove static libraries and libtool archives
   rm -fv \
-    "$CRSD"/usr/lib/$nom/$TGT/$ver/lib${nom}_eh.a \
-    "$CRSD"/usr/lib/$nom/$TGT/$ver/liblto_plugin.la \
+    "$CRSD"/usr/lib/$nom/$CTARGET/$ver/lib${nom}_eh.a \
+    "$CRSD"/usr/lib/$nom/$CTARGET/$ver/liblto_plugin.la \
     "$CRSD"/usr/lib/libatomic.a \
     "$CRSD"/usr/lib/libatomic.la \
     "$CRSD"/usr/lib/libgomp.a \

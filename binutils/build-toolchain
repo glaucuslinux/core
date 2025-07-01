@@ -26,9 +26,9 @@ configure() {
     --sharedstatedir="$TLCD"/var/lib \
     --localstatedir="$TLCD"/var \
     --libdir="$TLCD"/usr/lib \
-    --build=$BLD \
-    --host=$BLD \
-    --target=$TGT \
+    --build=$BUILD \
+    --host=$BUILD \
+    --target=$CTARGET \
     --disable-multilib \
     --enable-install-libiberty \
     --enable-plugins \
@@ -68,9 +68,9 @@ package() {
     install-strip-gas \
     install-strip-ld
 
-  ln -fs $TGT-ld.bfd "$TLCD"/usr/bin/$TGT-ld
+  ln -fs $CTARGET-ld.bfd "$TLCD"/usr/bin/$CTARGET-ld
 
   for i in ar as ld ld.bfd nm objcopy objdump ranlib readelf strip; do
-    ln -fs ../../bin/$TGT-$i "$TLCD"/usr/$TGT/bin/$i
+    ln -fs ../../bin/$CTARGET-$i "$TLCD"/usr/$CTARGET/bin/$i
   done
 }
