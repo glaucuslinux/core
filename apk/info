@@ -1,0 +1,12 @@
+# SPDX-License-Identifier: MPL-2.0
+
+# Copyright © 2018-2025 Firas Khana
+
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
+nom="apk"
+ver="3.0.0_rc4"
+url="https://gitlab.alpinelinux.org/alpine/apk-tools/-/archive/v3.0.0_rc4/apk-tools-v3.0.0_rc4.tar.gz"
+sum="47ad3bd7dbc023971fe34ada38046ccc"
