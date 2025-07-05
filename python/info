@@ -6,7 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-nom="python"
 ver="3.13.2"
 url="https://python.org/ftp/python/3.13.2/Python-3.13.2.tgz"
 sum="9e963724d025c9fdb6a1fefebace4705"

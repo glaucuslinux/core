@@ -6,7 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-nom="grep"
 ver="3.11"
 url="https://ftpmirror.gnu.org/grep/grep-3.11.tar.gz"
 sum="2a03d9531392c07a0c8d5f1fb9fa454f"

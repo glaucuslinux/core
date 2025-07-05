@@ -6,7 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-nom="utmps"
 ver="0.1.2.3"
 url="https://skarnet.org/software/utmps/utmps-0.1.2.3.tar.gz"
 sum="4045bb4242eacedce3957557b0d86693"

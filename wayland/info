@@ -6,7 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-nom="wayland"
 ver="1.23.1"
 url="https://gitlab.freedesktop.org/wayland/wayland/-/archive/1.23.1/wayland-1.23.1.tar.gz"
 sum="8c9794289e55317545dbc378b6a9e857"

@@ -6,7 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-nom="mtdev"
 ver="1.1.7"
 url="https://bitmath.org/code/mtdev/mtdev-1.1.7.tar.gz"
 sum="963fdfbe40229960d505f3d62f9bc7c6"

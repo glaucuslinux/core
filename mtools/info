@@ -6,7 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-nom="mtools"
 ver="4.0.48"
 url="https://ftpmirror.gnu.org/mtools/mtools-4.0.48.tar.gz"
 sum="67ff2478dc2c69d9b2600dc14cb4485e"

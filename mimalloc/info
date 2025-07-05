@@ -6,7 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-nom="mimalloc"
 ver="2.2.2"
 url="https://github.com/microsoft/mimalloc/archive/v2.2.2.tar.gz"
 sum="81793e6c4018d2b9f08cf9498303e09a"

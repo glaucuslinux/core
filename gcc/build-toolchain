@@ -28,12 +28,12 @@ prepare() {
   0015-build-fix-CXXFLAGS_FOR_BUILD-passing \
   0029-libstdc-do-not-throw-exceptions-for-non-C-locales-on; do
     patch \
-      -i "$CERD"/$nom/patches/alpine/$i.patch \
+      -i "$REPO"/$nom/patches/alpine/$i.patch \
       -p 1
   done
 
   patch \
-    -i "$CERD"/$nom/patches/glaucus/0001-pure64-for-x86-64.patch \
+    -i "$REPO"/$nom/patches/glaucus/0001-pure64-for-x86-64.patch \
     -p 0
 
   mkdir -p build
@@ -113,8 +113,8 @@ package() {
 
   ln -fs $CTARGET-g++ "$TLCD"/usr/bin/$CTARGET-c++
 
-  sed "s/$nom/$CTARGET-&/" "$CERD"/$nom/files/c89 > "$TLCD"/usr/bin/$CTARGET-c89
-  sed "s/$nom/$CTARGET-&/" "$CERD"/$nom/files/c99 > "$TLCD"/usr/bin/$CTARGET-c99
+  sed "s/$nom/$CTARGET-&/" "$REPO"/$nom/files/c89 > "$TLCD"/usr/bin/$CTARGET-c89
+  sed "s/$nom/$CTARGET-&/" "$REPO"/$nom/files/c99 > "$TLCD"/usr/bin/$CTARGET-c99
 
   chmod 755 \
     "$TLCD"/usr/bin/$CTARGET-c89 \

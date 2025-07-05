@@ -6,7 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-nom="libevdev"
 ver="1.13.3"
 url="https://freedesktop.org/software/libevdev/libevdev-1.13.3.tar.xz"
 sum="e4d3b5fa34fb3bdd5cf2875cd6c8b4c4"

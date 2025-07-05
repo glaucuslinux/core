@@ -6,7 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-nom="libxml2"
 ver="2.13.7"
 url="https://download.gnome.org/sources/libxml2/2.13/libxml2-2.13.7.tar.xz"
 sum="ec56cc1f82a776cb69a3ced138e2ff80"

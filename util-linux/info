@@ -6,7 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-nom="util-linux"
 ver="2.41"
 url="https://cdn.kernel.org/pub/linux/utils/util-linux/v2.41/util-linux-2.41.tar.gz"
 sum="35e26542ff60eadfec4ea8b7fe5ee187"

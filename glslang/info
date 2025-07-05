@@ -6,7 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-nom="glslang"
 ver="1.4.309.0"
 url="https://github.com/KhronosGroup/glslang/archive/vulkan-sdk-1.4.309.0.tar.gz"
 sum="188095d7a2c51dc13e2c46fb9340a55c"

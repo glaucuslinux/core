@@ -6,7 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-nom="lz4"
 ver="1.10.0"
 url="https://github.com/lz4/lz4/archive/v1.10.0.tar.gz"
 sum="68b380e6af48f215d0a5e19798164a65"

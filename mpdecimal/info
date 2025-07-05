@@ -6,7 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-nom="mpdecimal"
 ver="4.0.0"
 url="https://www.bytereef.org/software/mpdecimal/releases/mpdecimal-4.0.0.tar.gz"
 sum="8d4eda0f70bb3762866930ce4089a136"

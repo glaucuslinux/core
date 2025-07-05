@@ -6,7 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-nom="pigz"
 ver="2.8"
 url="https://zlib.net/pigz/pigz-2.8.tar.gz"
 sum="81759da31bdb8e187a778fa2a84c4988"

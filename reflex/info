@@ -6,7 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-nom="reflex"
 ver="20241231"
 url="https://invisible-mirror.net/archives/reflex/reflex-20241231.tgz"
 sum="1aff6b16c50e1430b16aa6984e888242"

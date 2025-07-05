@@ -6,7 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-nom="file"
 ver="5.46"
 url="https://astron.com/pub/file/file-5.46.tar.gz"
 sum="6fa7305c7d4ecb09713ac4fa46cf9f92"

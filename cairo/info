@@ -6,7 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-nom="cairo"
 ver="1.18.4"
 url="https://cairographics.org/releases/cairo-1.18.4.tar.xz"
 sum="a16a51f98a224b80a9c7e22b8877cca2"

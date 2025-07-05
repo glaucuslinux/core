@@ -6,7 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-nom="libxkbcommon"
 ver="1.8.1"
 url="https://github.com/xkbcommon/libxkbcommon/archive/xkbcommon-1.8.1.tar.gz"
 sum="b646bea4967e7d0e086b6346cbe617ba"

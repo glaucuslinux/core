@@ -6,7 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-nom="pciutils"
 ver="3.13.0"
 url="https://mj.ucw.cz/download/linux/pci/pciutils-3.13.0.tar.gz"
 sum="7f26256816b7f52d56105c891d2da387"

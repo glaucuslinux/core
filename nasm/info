@@ -6,7 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-nom="nasm"
 ver="2.16.03"
 url="https://nasm.us/pub/nasm/releasebuilds/2.16.03/nasm-2.16.03.tar.gz"
 sum="ea8cfa0421fe9ab2beba18b8a660db53"

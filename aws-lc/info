@@ -6,8 +6,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-nom="aws-lc"
-ver="1.51.2"
-url="https://github.com/aws/aws-lc/archive/v1.51.2.tar.gz"
-sum="3dda9d642145473756472f0f729e119a"
+ver="1.55.0"
+url="https://github.com/aws/aws-lc/archive/v1.55.0.tar.gz"
+sum="96ba580ac47afff04609607af30fdfcb"
 opt="no-lto"

@@ -6,7 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-nom="skalibs"
 ver="2.14.3.0"
 url="https://skarnet.org/software/skalibs/skalibs-2.14.3.0.tar.gz"
 sum="351ded3b02fe46d4b1fcab63addce381"

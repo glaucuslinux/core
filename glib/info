@@ -6,7 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-nom="glib"
 ver="2.84.0"
 url="https://download.gnome.org/sources/glib/2.84/glib-2.84.0.tar.xz"
 sum="681a705a60571037a072d440a294f025"

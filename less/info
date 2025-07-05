@@ -6,7 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-nom="less"
 ver="668"
 url="https://greenwoodsoftware.com/less/less-668.tar.gz"
 sum="de035a93876864716cf3047fcfe4a8f7"

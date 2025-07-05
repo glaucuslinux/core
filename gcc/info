@@ -6,7 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-nom="gcc"
 ver="14.2.0"
 url="https://ftpmirror.gnu.org/gcc/gcc-14.2.0/gcc-14.2.0.tar.gz"
 sum="15c6aceabdfdaaec919dca8bdced7e22"

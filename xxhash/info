@@ -6,7 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-nom="xxhash"
 ver="0.8.3"
 url="https://github.com/Cyan4973/xxHash/archive/v0.8.3.tar.gz"
 sum="af5c00e3786ba3b5c94e5cca7478e30b"

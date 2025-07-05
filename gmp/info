@@ -6,7 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-nom="gmp"
 ver="6.3.0"
 url="https://gmplib.org/download/gmp/gmp-6.3.0.tar.zst"
 sum="9f1f9703babcd67802d40310748741c4"

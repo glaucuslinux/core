@@ -6,7 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-nom="s6-rc"
 ver="0.5.5.0"
 url="https://skarnet.org/software/s6-rc/s6-rc-0.5.5.0.tar.gz"
 sum="8851aa2fa77685c2c45b145b29a46a7a"

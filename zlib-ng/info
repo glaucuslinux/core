@@ -6,7 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-nom="zlib-ng"
 ver="2.2.4"
 url="https://github.com/zlib-ng/zlib-ng/archive/2.2.4.tar.gz"
 sum="756686b2beebc5679e807cec661255e2"

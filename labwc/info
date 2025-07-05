@@ -6,7 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-nom="labwc"
 ver="0.8.3"
 url="https://github.com/labwc/labwc/archive/0.8.3.tar.gz"
 sum="9b0677c9e31511862b3aaef2a551b4ca"

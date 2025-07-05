@@ -6,7 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-nom="bkeymaps"
 ver="1.13"
 url="https://dev.alpinelinux.org/bkeymaps/bkeymaps-1.13.tar.gz"
 sum="13ebf793925eec89c7e6a179e385ece3"

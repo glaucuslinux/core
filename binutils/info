@@ -6,7 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-nom="binutils"
 ver="2.44"
 url="https://ftpmirror.gnu.org/binutils/binutils-2.44.tar.zst"
 sum="8f3090be30baec3b8b4dcbee43276d6f"

@@ -6,7 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-nom="bash"
 ver="5.2.32"
 url="https://ftpmirror.gnu.org/bash/bash-5.2.32.tar.gz"
 sum="729c5b722f5ce8634f34a6008f226d4d"

@@ -8,7 +8,7 @@
 
 prepare() {
   patch \
-    -i "$CERD"/$nom/patches/alpine/$nom-ld-fix-static-linking.patch \
+    -i "$REPO"/$nom/patches/alpine/$nom-ld-fix-static-linking.patch \
     -p 1
 
   mkdir -p build

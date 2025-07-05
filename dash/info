@@ -6,7 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-nom="dash"
 ver="0.5.12"
 url="http://gondor.apana.org.au/~herbert/dash/files/dash-0.5.12.tar.gz"
 sum="8ff48be4b09f04c7c02e2985a2482458"

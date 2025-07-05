@@ -6,7 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-nom="mesa"
 ver="25.0.0"
 url="https://archive.mesa3d.org/mesa-25.0.0.tar.xz"
 sum="7acc94edef3f80d217cf2a071ea0803b"

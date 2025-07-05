@@ -6,7 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-nom="mpfr"
 ver="4.2.2"
 url="https://ftpmirror.gnu.org/mpfr/mpfr-4.2.2.tar.gz"
 sum="429d5bc9817afc01ef7ff008b1450561"

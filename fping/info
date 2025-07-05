@@ -6,7 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-nom="fping"
 ver="5.3"
 url="https://fping.org/dist/fping-5.3.tar.gz"
 sum="80b3d490c2fc87528cd7679d77f7155c"
