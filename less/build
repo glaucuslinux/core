@@ -27,9 +27,9 @@ check() {
 
 package() {
   make \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     install-strip
 
   # Compatibility symlink
-  ln -fs $nom "$SACD"/usr/bin/more
+  ln -fs $nom "$dir"/usr/bin/more
 }

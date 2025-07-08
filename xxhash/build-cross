@@ -7,10 +7,10 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
-  cd "$TMPD"/$nom/xxHash-$ver
+  cd "$tmp"/$nom/xxHash-$ver
 
   patch \
-    -i "$CERD"/$nom/patches/glaucus/0001-disable-static.patch \
+    -i "$core"/$nom/patches/glaucus/0001-disable-static.patch \
     -p 0
 }
 
@@ -23,7 +23,7 @@ build() {
 package() {
     make \
     LIBXXH_DISPATCH=1 \
-    DESTDIR="$CRSD" \
+    DESTDIR="$cross" \
     prefix=/usr \
     exec_prefix=/usr \
     libdir=/usr/lib \

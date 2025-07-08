@@ -24,10 +24,10 @@ package() {
     libdir=/usr/lib \
     sysconfdir=/etc \
     LIBINTL=MUSL \
-    DESTDIR="$CRSD" \
+    DESTDIR="$cross" \
     install
 
-  cp -fPp "$CERD"/$nom/files/config.rpath "$CRSD"/usr/share/$nom
+  cp -fPp "$core"/$nom/files/config.rpath "$cross"/usr/share/$nom
 
-  ln -fs $nom "$CRSD"/usr/share/gettext
+  ln -fs $nom "$cross"/usr/share/gettext
 }

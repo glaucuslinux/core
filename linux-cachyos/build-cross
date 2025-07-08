@@ -7,8 +7,8 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 package() {
-  cp -fPpR "$TMPD"/$nom/usr "$CRSD"
-  mv -f "$CRSD"/usr/lib/modules/$ver-cachyos/vmlinuz "$CRSD"/boot
+  cp -fPpR "$tmp"/$nom/usr "$cross"
+  mv -f "$cross"/usr/lib/modules/$ver-cachyos/vmlinuz "$cross"/boot
 
-  depmod -b "$CRSD" $ver-cachyos
+  depmod -b "$cross" $ver-cachyos
 }

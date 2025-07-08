@@ -32,7 +32,7 @@ check() {
 }
 
 package() {
-  DESTDIR="$SACD" \
+  DESTDIR="$dir" \
   muon \
     -C build \
     install

@@ -8,10 +8,10 @@
 
 prepare() {
   patch \
-    -i "$CERD"/$nom/patches/glaucus/0001-fix-utmp-file-path.patch \
+    -i "$core"/$nom/patches/glaucus/0001-fix-utmp-file-path.patch \
     -p 0
   patch \
-    -i "$CERD"/$nom/patches/upstream/CVE-2025-26519.patch \
+    -i "$core"/$nom/patches/upstream/CVE-2025-26519.patch \
     -p 1
 }
 
@@ -29,33 +29,33 @@ configure() {
 build() {
   make
 
-  $CC $CFLAGS $LDFLAGS "$CERD"/$nom/files/gencat.c -o gencat
-  $CC $CFLAGS $LDFLAGS "$CERD"/$nom/files/getent.c -o getent
+  $CC $CFLAGS $LDFLAGS "$core"/$nom/files/gencat.c -o gencat
+  $CC $CFLAGS $LDFLAGS "$core"/$nom/files/getent.c -o getent
 }
 
 package() {
   make \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     install
 
   mkdir -p \
-    "$SACD"/etc \
-    "$SACD"/usr/bin
+    "$dir"/etc \
+    "$dir"/usr/bin
 
-  cp -fPp "$CERD"/$nom/files/ld-$nom-x86_64.path "$SACD"/etc
+  cp -fPp "$core"/$nom/files/ld-$nom-x86_64.path "$dir"/etc
 
   mv -f \
     gencat \
     getent \
-    "$SACD"/usr/bin
-  cp -fPp "$CERD"/$nom/files/true "$SACD"/usr/bin/ldconfig
-  cp -fPp "$CERD"/$nom/files/ldd "$SACD"/usr/bin
+    "$dir"/usr/bin
+  cp -fPp "$core"/$nom/files/true "$dir"/usr/bin/ldconfig
+  cp -fPp "$core"/$nom/files/ldd "$dir"/usr/bin
 
   # BSD compatibility header
-  cp -fPp "$CERD"/$nom/files/queue.h "$SACD"/usr/include/sys
+  cp -fPp "$core"/$nom/files/queue.h "$dir"/usr/include/sys
 
   # `utmps` provides `utmpx.h`
-  rm -fv "$SACD"/usr/include/utmpx.h
+  rm -fv "$dir"/usr/include/utmpx.h
 
-  ln -fs libc.so "$SACD"/usr/lib/ld-$nom-x86_64.so.1
+  ln -fs libc.so "$dir"/usr/lib/ld-$nom-x86_64.so.1
 }

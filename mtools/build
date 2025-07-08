@@ -8,10 +8,10 @@
 
 prepare() {
   patch \
-    -i "$CERD"/$nom/patches/alpine/fix-uninitialized.patch \
+    -i "$core"/$nom/patches/alpine/fix-uninitialized.patch \
     -p 1
   patch \
-    -i "$CERD"/$nom/patches/glaucus/0001-disable-sample-file.patch \
+    -i "$core"/$nom/patches/glaucus/0001-disable-sample-file.patch \
     -p 0
 
   autoreconf -vfis
@@ -33,9 +33,9 @@ check() {
 
 package() {
   make \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     install
 
-  mkdir -p "$SACD"/etc
-  mv $nom.conf "$SACD"/etc
+  mkdir -p "$dir"/etc
+  mv $nom.conf "$dir"/etc
 }

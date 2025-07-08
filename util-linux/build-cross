@@ -8,7 +8,7 @@
 
 prepare() {
   patch \
-    -i "$CERD"/$nom/patches/glaucus/0001-fix-utmp-file-path.patch \
+    -i "$core"/$nom/patches/glaucus/0001-fix-utmp-file-path.patch \
     -p 0
 
   autoreconf -vfis
@@ -17,7 +17,7 @@ prepare() {
 configure() {
   LDFLAGS="$LDFLAGS -lutmps" \
   ADJTIME_PATH=/var/lib/hwclock/adjtime \
-  "$CERD"/autoconf/files/glaucus-configure \
+  "$core"/autoconf/files/glaucus-configure \
     --build=$BUILD \
     --host=$CTARGET \
     --disable-static \
@@ -59,15 +59,15 @@ build() {
 
 package() {
   make \
-    DESTDIR="$CRSD" \
+    DESTDIR="$cross" \
     usrsbin_execdir=/usr/bin \
     install-strip
 
   # Remove libtool archives
   rm -fv \
-    "$CRSD"/usr/lib/libblkid.la \
-    "$CRSD"/usr/lib/libfdisk.la \
-    "$CRSD"/usr/lib/libmount.la \
-    "$CRSD"/usr/lib/libsmartcols.la \
-    "$CRSD"/usr/lib/libuuid.la
+    "$cross"/usr/lib/libblkid.la \
+    "$cross"/usr/lib/libfdisk.la \
+    "$cross"/usr/lib/libmount.la \
+    "$cross"/usr/lib/libsmartcols.la \
+    "$cross"/usr/lib/libuuid.la
 }

@@ -8,7 +8,7 @@
 
 prepare() {
   patch \
-    -i "$CERD"/$nom/patches/glaucus/0001-fix-pkg-config-directory.patch \
+    -i "$core"/$nom/patches/glaucus/0001-fix-pkg-config-directory.patch \
     -p 0
 }
 
@@ -31,7 +31,7 @@ check() {
 }
 
 package() {
-  DESTDIR="$SACD" \
+  DESTDIR="$dir" \
   muon \
     -C build \
     install

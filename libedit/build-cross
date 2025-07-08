@@ -11,7 +11,7 @@ prepare() {
 }
 
 configure() {
-  "$CERD"/autoconf/files/glaucus-configure \
+  "$core"/autoconf/files/glaucus-configure \
     --build=$BUILD \
     --host=$CTARGET \
     --disable-static \
@@ -25,25 +25,25 @@ build() {
 
 package() {
   make \
-    DESTDIR="$CRSD" \
+    DESTDIR="$cross" \
     install-strip
 
   cp -fPp \
-    "$CERD"/$nom/files/editrc \
-    "$CERD"/$nom/files/inputrc \
-    "$CRSD"/etc
+    "$core"/$nom/files/editrc \
+    "$core"/$nom/files/inputrc \
+    "$cross"/etc
 
   # Replace `readline`
-  mkdir -p "$CRSD"/usr/include/readline
+  mkdir -p "$cross"/usr/include/readline
   for i in history readline tilde; do
-    ln -fs ../editline/readline.h "$CRSD"/usr/include/readline/$i.h
+    ln -fs ../editline/readline.h "$cross"/usr/include/readline/$i.h
   done
 
   # Remove libtool archive
-  rm -fv "$CRSD"/usr/lib/$nom.la
+  rm -fv "$cross"/usr/lib/$nom.la
 
-  ln -fs $nom.so "$CRSD"/usr/lib/libhistory.so
-  ln -fs $nom.so "$CRSD"/usr/lib/libreadline.so
+  ln -fs $nom.so "$cross"/usr/lib/libhistory.so
+  ln -fs $nom.so "$cross"/usr/lib/libreadline.so
 
   ln -fs $nom.pc "$PKG_CONFIG_LIBDIR"/readline.pc
 }

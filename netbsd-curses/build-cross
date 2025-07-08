@@ -8,7 +8,7 @@
 
 prepare() {
   patch \
-    -i "$CERD"/$nom/patches/glaucus/0001-optimize-more.patch \
+    -i "$core"/$nom/patches/glaucus/0001-optimize-more.patch \
     -p 0
 }
 
@@ -25,19 +25,19 @@ package() {
     PREFIX=/usr \
     BINDIR=/usr/bin \
     LIBDIR=/usr/lib \
-    DESTDIR="$CRSD" \
+    DESTDIR="$cross" \
     install-dynamic
 
-  ln -fs tic "$CRSD"/usr/bin/captoinfo
-  ln -fs tic "$CRSD"/usr/bin/infotocap
+  ln -fs tic "$cross"/usr/bin/captoinfo
+  ln -fs tic "$cross"/usr/bin/infotocap
 
   chmod 755 \
-    "$CRSD"/usr/lib/libcurses.so \
-    "$CRSD"/usr/lib/libform.so \
-    "$CRSD"/usr/lib/libmenu.so \
-    "$CRSD"/usr/lib/libpanel.so \
-    "$CRSD"/usr/lib/libterminfo.so
+    "$cross"/usr/lib/libcurses.so \
+    "$cross"/usr/lib/libform.so \
+    "$cross"/usr/lib/libmenu.so \
+    "$cross"/usr/lib/libpanel.so \
+    "$cross"/usr/lib/libterminfo.so
 
   # `util-linux` and `yash` link against this
-  ln -fs libterminfo.so "$CRSD"/usr/lib/libtinfo.so
+  ln -fs libterminfo.so "$cross"/usr/lib/libtinfo.so
 }

@@ -20,7 +20,7 @@ build() {
 
 package() {
   make \
-    DESTDIR="$CRSD" \
+    DESTDIR="$cross" \
     prefix=/usr \
     exec_prefix=/usr \
     bindir=/usr/bin \
@@ -29,5 +29,5 @@ package() {
     install
 
   # Remove static library
-  rm -fv "$CRSD"/usr/lib/lib$nom.a
+  rm -fv "$cross"/usr/lib/lib$nom.a
 }

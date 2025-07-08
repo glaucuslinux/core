@@ -8,19 +8,19 @@
 
 prepare() {
   patch \
-    -i "$CERD"/$nom/patches/glaucus/0001-disable-static.patch \
+    -i "$core"/$nom/patches/glaucus/0001-disable-static.patch \
     -p 0
 }
 
 build() {
   BUILD_CC=$HOSTCC \
   make \
-    DESTDIR="$CRSD" \
+    DESTDIR="$cross" \
     lib=lib \
     sbin=bin \
     prefix=/usr \
     exec_prefix=/usr \
-    KERNEL_HEADERS="$CRSD"/usr/include \
+    KERNEL_HEADERS="$cross"/usr/include \
     PAM_CAP=no \
     DYNAMIC=yes \
     GOLANG=no
@@ -28,12 +28,12 @@ build() {
 
 package() {
   make \
-    DESTDIR="$CRSD" \
+    DESTDIR="$cross" \
     lib=lib \
     sbin=bin \
     prefix=/usr \
     exec_prefix=/usr \
-    KERNEL_HEADERS="$CRSD"/usr/include \
+    KERNEL_HEADERS="$cross"/usr/include \
     PAM_CAP=no \
     DYNAMIC=yes \
     GOLANG=no \

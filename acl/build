@@ -24,6 +24,6 @@ build() {
 
 package() {
   make \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     install-strip
 }

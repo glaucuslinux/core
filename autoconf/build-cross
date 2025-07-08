@@ -11,7 +11,7 @@ prepare() {
 }
 
 configure() {
-  "$CERD"/$nom/files/glaucus-configure \
+  "$core"/$nom/files/glaucus-configure \
     --build=$BUILD \
     --host=$CTARGET
 }
@@ -31,8 +31,8 @@ build() {
 
 package() {
   make \
-    DESTDIR="$CRSD" \
+    DESTDIR="$cross" \
     install-strip
 
-  cp -fPp "$CERD"/$nom/files/glaucus-configure "$CRSD"/usr/bin
+  cp -fPp "$core"/$nom/files/glaucus-configure "$cross"/usr/bin
 }

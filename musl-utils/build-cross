@@ -7,22 +7,22 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
-  mkdir -p "$TMPD"/$nom
-  cd "$TMPD"/$nom
+  mkdir -p "$tmp"/$nom
+  cd "$tmp"/$nom
 }
 
 build() {
-  $CC $CFLAGS $LDFLAGS "$CERD"/musl/files/gencat.c -o gencat
-  $CC $CFLAGS $LDFLAGS "$CERD"/musl/files/getent.c -o getent
+  $CC $CFLAGS $LDFLAGS "$core"/musl/files/gencat.c -o gencat
+  $CC $CFLAGS $LDFLAGS "$core"/musl/files/getent.c -o getent
 }
 
 package() {
   mv -f \
     gencat \
     getent \
-    "$CRSD"/usr/bin
+    "$cross"/usr/bin
 
   for i in a2x asciidoc gtkdocize help2man ldconfig makeinfo po4a texi2dvi; do
-    cp -fPp "$CERD"/musl/files/true "$CRSD"/usr/bin/$i
+    cp -fPp "$core"/musl/files/true "$cross"/usr/bin/$i
   done
 }

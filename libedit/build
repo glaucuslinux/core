@@ -28,23 +28,23 @@ check() {
 
 package() {
   make \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     install-strip
 
-  mkdir -p "$SACD"/etc
+  mkdir -p "$dir"/etc
   cp -fPp \
-    "$CERD"/$nom/files/editrc \
-    "$CERD"/$nom/files/inputrc \
-    "$SACD"/etc
+    "$core"/$nom/files/editrc \
+    "$core"/$nom/files/inputrc \
+    "$dir"/etc
 
   # Replace `readline`
-  mkdir -p "$SACD"/usr/include/readline
+  mkdir -p "$dir"/usr/include/readline
   for i in history readline tilde; do
-    ln -fs ../editline/readline.h "$SACD"/usr/include/readline/$i.h
+    ln -fs ../editline/readline.h "$dir"/usr/include/readline/$i.h
   done
 
-  ln -fs $nom.so "$SACD"/usr/lib/libhistory.so
-  ln -fs $nom.so "$SACD"/usr/lib/libreadline.so
+  ln -fs $nom.so "$dir"/usr/lib/libhistory.so
+  ln -fs $nom.so "$dir"/usr/lib/libreadline.so
 
-  ln -fs $nom.pc "$SACD"/usr/lib/pkgconfig/readline.pc
+  ln -fs $nom.pc "$dir"/usr/lib/pkgconfig/readline.pc
 }

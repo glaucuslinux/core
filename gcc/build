@@ -17,12 +17,12 @@ prepare() {
   0015-build-fix-CXXFLAGS_FOR_BUILD-passing \
   0029-libstdc-do-not-throw-exceptions-for-non-C-locales-on; do
     patch \
-      -i "$CERD"/$nom/patches/alpine/$i.patch \
+      -i "$core"/$nom/patches/alpine/$i.patch \
       -p 1
   done
 
   patch \
-    -i "$CERD"/$nom/patches/glaucus/0001-pure64-for-x86-64.patch \
+    -i "$core"/$nom/patches/glaucus/0001-pure64-for-x86-64.patch \
     -p 0
 
   mkdir -p build
@@ -90,44 +90,44 @@ build() {
 
 package() {
   make \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     install-strip
 
-  ln -fs g++ "$SACD"/usr/bin/c++
+  ln -fs g++ "$dir"/usr/bin/c++
 
   cp -fPp \
-    "$CERD"/$nom/files/c89 \
-    "$CERD"/$nom/files/c99 \
-    "$SACD"/usr/bin
+    "$core"/$nom/files/c89 \
+    "$core"/$nom/files/c99 \
+    "$dir"/usr/bin
 
   for i in cc $nom-$ver $TARGET-$nom; do
-    ln -fs $nom "$SACD"/usr/bin/$i
+    ln -fs $nom "$dir"/usr/bin/$i
   done
 
-  ln -fs $TARGET-g++ "$SACD"/usr/bin/$TARGET-c++
-  ln -fs $TARGET-$nom "$SACD"/usr/bin/$TARGET-cc
-  ln -fs $TARGET-$nom "$SACD"/usr/bin/$TARGET-$nom-$ver
-  ln -fs g++ "$SACD"/usr/bin/$TARGET-g++
+  ln -fs $TARGET-g++ "$dir"/usr/bin/$TARGET-c++
+  ln -fs $TARGET-$nom "$dir"/usr/bin/$TARGET-cc
+  ln -fs $TARGET-$nom "$dir"/usr/bin/$TARGET-$nom-$ver
+  ln -fs g++ "$dir"/usr/bin/$TARGET-g++
 
   for i in ar nm ranlib; do
-    ln -fs $nom-$i "$SACD"/usr/bin/$TARGET-$nom-$i
+    ln -fs $nom-$i "$dir"/usr/bin/$TARGET-$nom-$i
   done
 
-  mkdir -p "$SACD"/usr/lib/bfd-plugins
-  ln -fs ../$nom/$TARGET/$ver/liblto_plugin.so "$SACD"/usr/lib/bfd-plugins
+  mkdir -p "$dir"/usr/lib/bfd-plugins
+  ln -fs ../$nom/$TARGET/$ver/liblto_plugin.so "$dir"/usr/lib/bfd-plugins
 
   # Remove static libraries
   rm -fv \
-    "$SACD"/usr/lib/$nom/$TARGET/$ver/lib${nom}_eh.a \
-    "$SACD"/usr/lib/libatomic.a \
-    "$SACD"/usr/lib/libgomp.a \
-    "$SACD"/usr/lib/libitm.a \
-    "$SACD"/usr/lib/libquadmath.a \
-    "$SACD"/usr/lib/libstdc++.a \
-    "$SACD"/usr/lib/libstdc++exp.a \
-    "$SACD"/usr/lib/libstdc++fs.a \
-    "$SACD"/usr/lib/libsupc++.a
+    "$dir"/usr/lib/$nom/$TARGET/$ver/lib${nom}_eh.a \
+    "$dir"/usr/lib/libatomic.a \
+    "$dir"/usr/lib/libgomp.a \
+    "$dir"/usr/lib/libitm.a \
+    "$dir"/usr/lib/libquadmath.a \
+    "$dir"/usr/lib/libstdc++.a \
+    "$dir"/usr/lib/libstdc++exp.a \
+    "$dir"/usr/lib/libstdc++fs.a \
+    "$dir"/usr/lib/libsupc++.a
 
   # Compatibility symlink
-  ln -fs ../bin/cpp "$SACD"/usr/lib
+  ln -fs ../bin/cpp "$dir"/usr/lib
 }

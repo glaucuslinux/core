@@ -9,7 +9,7 @@
 prepare() {
   for i in pcf-family-names subpixel table-validation-modules; do
     patch \
-      -i "$CERD"/freetype/patches/alpine/$i.patch \
+      -i "$core"/freetype/patches/alpine/$i.patch \
       -p 1
   done
 
@@ -41,6 +41,6 @@ build() {
 
 package() {
   make \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     install
 }

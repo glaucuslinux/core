@@ -8,7 +8,7 @@
 
 prepare() {
   patch \
-    -i "$CERD"/$nom/patches/glaucus/0001-disable-static.patch \
+    -i "$core"/$nom/patches/glaucus/0001-disable-static.patch \
     -p 0
 }
 
@@ -29,6 +29,6 @@ build() {
 
 package() {
   make \
-    DESTDIR="$CRSD" \
+    DESTDIR="$cross" \
     install
 }

@@ -9,7 +9,7 @@
 build() {
   make \
     BUILD_STATIC=no \
-    DESTDIR="$CRSD" \
+    DESTDIR="$cross" \
     PREFIX=/usr \
     EXEC_PREFIX=/usr \
     BINDIR=/usr/bin \
@@ -19,7 +19,7 @@ build() {
 package() {
   make \
     BUILD_STATIC=no \
-    DESTDIR="$CRSD" \
+    DESTDIR="$cross" \
     PREFIX=/usr \
     EXEC_PREFIX=/usr \
     BINDIR=/usr/bin \

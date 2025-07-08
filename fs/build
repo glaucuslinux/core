@@ -7,79 +7,79 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 package() {
-  ln -fs usr/bin "$SACD"/bin
+  ln -fs usr/bin "$dir"/bin
 
   mkdir -p \
-    "$SACD"/boot \
-    "$SACD"/dev
+    "$dir"/boot \
+    "$dir"/dev
 
-  mkdir -p "$SACD"/etc
-  cp -fPp "$CERD"/$nom/files/fstab "$SACD"/etc
-  ln -fs lsb-release "$SACD"/etc/glaucus-release
+  mkdir -p "$dir"/etc
+  cp -fPp "$core"/$nom/files/fstab "$dir"/etc
+  ln -fs lsb-release "$dir"/etc/glaucus-release
   cp -fPp \
-    "$CERD"/$nom/files/group \
-    "$CERD"/$nom/files/hostname \
-    "$CERD"/$nom/files/hosts \
-    "$CERD"/$nom/files/issue \
-    "$SACD"/etc
+    "$core"/$nom/files/group \
+    "$core"/$nom/files/hostname \
+    "$core"/$nom/files/hosts \
+    "$core"/$nom/files/issue \
+    "$dir"/etc
   sed -e "s/^DISTRIB_RELEASE=/&$(date +%Y%m%d)/" \
     -e "s/^DISTRIB_DESCRIPTION=/&$PRETTY_NAME/" \
-    "$CERD"/$nom/files/lsb-release > "$SACD"/etc/lsb-release
-  ln -fs ../usr/lib/os-release "$SACD"/etc
+    "$core"/$nom/files/lsb-release > "$dir"/etc/lsb-release
+  ln -fs ../usr/lib/os-release "$dir"/etc
   cp -fPp \
-    "$CERD"/$nom/files/passwd \
-    "$CERD"/$nom/files/profile \
-    "$CERD"/$nom/files/resolv.conf \
-    "$CERD"/$nom/files/securetty \
-    "$CERD"/$nom/files/shadow \
-    "$CERD"/$nom/files/shells \
-    "$SACD"/etc
+    "$core"/$nom/files/passwd \
+    "$core"/$nom/files/profile \
+    "$core"/$nom/files/resolv.conf \
+    "$core"/$nom/files/securetty \
+    "$core"/$nom/files/shadow \
+    "$core"/$nom/files/shells \
+    "$dir"/etc
 
-  mkdir -p "$SACD"/home
+  mkdir -p "$dir"/home
 
-  ln -fs usr/lib "$SACD"/lib
+  ln -fs usr/lib "$dir"/lib
 
-  mkdir -p "$SACD"/mnt
+  mkdir -p "$dir"/mnt
 
-  mkdir -m 555 -p "$SACD"/proc
+  mkdir -m 555 -p "$dir"/proc
 
-  mkdir -m 750 -p "$SACD"/root
+  mkdir -m 750 -p "$dir"/root
 
-  mkdir -p "$SACD"/run
+  mkdir -p "$dir"/run
 
-  ln -fs usr/bin "$SACD"/sbin
+  ln -fs usr/bin "$dir"/sbin
 
-  mkdir -m 555 -p "$SACD"/sys
+  mkdir -m 555 -p "$dir"/sys
 
-  mkdir -m 1777 -p "$SACD"/tmp
+  mkdir -m 1777 -p "$dir"/tmp
 
   mkdir -p \
-    "$SACD"/usr/bin \
-    "$SACD"/usr/lib
+    "$dir"/usr/bin \
+    "$dir"/usr/lib
   sed -e "s/^VERSION=/&$(date +%Y%m%d)/" \
     -e "s/^VERSION_ID=/&$(date +%Y%m%d)/" \
     -e "s/^PRETTY_NAME=/&$PRETTY_NAME/" \
-    "$CERD"/$nom/files/os-release > "$SACD"/usr/lib/os-release
-  mkdir -p "$SACD"/usr/lib/pkgconfig
-  ln -fs lib "$SACD"/usr/libexec
-  ln -fs bin "$SACD"/usr/sbin
-  mkdir -p "$SACD"/usr/share
-  ln -fs ../lib/pkgconfig "$SACD"/usr/share
+    "$core"/$nom/files/os-release > "$dir"/usr/lib/os-release
+  mkdir -p "$dir"/usr/lib/pkgconfig
+  ln -fs lib "$dir"/usr/libexec
+  ln -fs bin "$dir"/usr/sbin
+  mkdir -p "$dir"/usr/share
+  ln -fs ../lib/pkgconfig "$dir"/usr/share
 
   mkdir -p \
-    "$SACD"/var/cache/rad/pkg \
-    "$SACD"/var/cache/rad/src \
-    "$SACD"/var/lib/hwclock \
-    "$SACD"/var/lib/misc \
-    "$SACD"/var/lib/rad/repo \
-    "$SACD"/var/lib/rad/pkg
-  ln -fs ../run/lock "$SACD"/var/lock
+    "$dir"/var/cache/rad/pkg \
+    "$dir"/var/cache/rad/src \
+    "$dir"/var/lib/hwclock \
+    "$dir"/var/lib/misc \
+    "$dir"/var/lib/rad/repo \
+    "$dir"/var/lib/rad/pkg
+  ln -fs ../run/lock "$dir"/var/lock
   mkdir -p \
-    "$SACD"/var/log/rad \
-    "$SACD"/var/mail
-  ln -fs ../run "$SACD"/var/run
-  mkdir -p "$SACD"/var/spool
-  ln -fs ../mail "$SACD"/var/spool/mail
-  mkdir -m 1777 -p "$SACD"/var/tmp
-  mkdir -p "$SACD"/var/tmp/rad
+    "$dir"/var/log/rad \
+    "$dir"/var/mail
+  ln -fs ../run "$dir"/var/run
+  mkdir -p "$dir"/var/spool
+  ln -fs ../mail "$dir"/var/spool/mail
+  mkdir -m 1777 -p "$dir"/var/tmp
+  mkdir -p "$dir"/var/tmp/rad
 }

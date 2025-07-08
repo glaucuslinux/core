@@ -8,7 +8,7 @@
 
 prepare() {
   patch \
-    -i "$CERD"/$nom/patches/alpine/$nom-ld-fix-static-linking.patch \
+    -i "$core"/$nom/patches/alpine/$nom-ld-fix-static-linking.patch \
     -p 1
 
   mkdir -p build
@@ -63,21 +63,21 @@ build() {
 package() {
   make \
     tooldir=/usr \
-    DESTDIR="$CRSD" \
+    DESTDIR="$cross" \
     install-strip
 
-  ln -fs ld.bfd "$CRSD"/usr/bin/ld
+  ln -fs ld.bfd "$cross"/usr/bin/ld
 
   # Remove static libraries and libtool archives
   rm -fv \
-    "$CRSD"/usr/lib/libbfd.a \
-    "$CRSD"/usr/lib/libbfd.la \
-    "$CRSD"/usr/lib/libctf.a \
-    "$CRSD"/usr/lib/libctf.la \
-    "$CRSD"/usr/lib/libctf-nobfd.a \
-    "$CRSD"/usr/lib/libctf-nobfd.la \
-    "$CRSD"/usr/lib/libopcodes.a \
-    "$CRSD"/usr/lib/libopcodes.la \
-    "$CRSD"/usr/lib/libsframe.a \
-    "$CRSD"/usr/lib/libsframe.la
+    "$cross"/usr/lib/libbfd.a \
+    "$cross"/usr/lib/libbfd.la \
+    "$cross"/usr/lib/libctf.a \
+    "$cross"/usr/lib/libctf.la \
+    "$cross"/usr/lib/libctf-nobfd.a \
+    "$cross"/usr/lib/libctf-nobfd.la \
+    "$cross"/usr/lib/libopcodes.a \
+    "$cross"/usr/lib/libopcodes.la \
+    "$cross"/usr/lib/libsframe.a \
+    "$cross"/usr/lib/libsframe.la
 }

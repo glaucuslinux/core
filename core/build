@@ -7,6 +7,6 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 package() {
-  mkdir -p "$SACD"/var/lib/rad/repo
-  cp -fPpR "$CERD" "$SACD"/var/lib/rad/repo
+  mkdir -p "$dir"/var/lib/rad/repo
+  cp -fPpR "$core" "$dir"/var/lib/rad/repo
 }

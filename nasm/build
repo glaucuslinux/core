@@ -26,7 +26,7 @@ check() {
 
 package() {
   make \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     strip \
     install
 }

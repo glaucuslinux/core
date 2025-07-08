@@ -8,7 +8,7 @@
 
 prepare() {
   patch \
-    -i "$CERD"/$nom/patches/glaucus/0001-use-gnu-hash-style.patch \
+    -i "$core"/$nom/patches/glaucus/0001-use-gnu-hash-style.patch \
     -p 0
 }
 
@@ -33,9 +33,9 @@ build() {
 
 package() {
   make \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     install
 
-  mkdir -p "$SACD"/usr/lib/pkgconfig
-  cp -fPp "$CERD"/$nom/files/$nom.pc "$SACD"/usr/lib/pkgconfig
+  mkdir -p "$dir"/usr/lib/pkgconfig
+  cp -fPp "$core"/$nom/files/$nom.pc "$dir"/usr/lib/pkgconfig
 }

@@ -8,7 +8,7 @@
 
 prepare() {
   patch \
-    -i "$CERD"/$nom/patches/alpine/musl-stacksize.patch \
+    -i "$core"/$nom/patches/alpine/musl-stacksize.patch \
     -p 1
 }
 
@@ -37,7 +37,7 @@ build() {
 }
 
 package() {
-  DESTDIR="$SACD" \
+  DESTDIR="$dir" \
   muon \
     -C build \
     install

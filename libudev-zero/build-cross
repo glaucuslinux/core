@@ -21,8 +21,8 @@ package() {
     PREFIX=/usr \
     LIBDIR=/usr/lib \
     PKGCONFIGDIR=/usr/lib/pkgconfig \
-    DESTDIR="$CRSD" \
+    DESTDIR="$cross" \
     install-shared
 
-  mv -f $nom-helper "$CRSD"/usr/bin
+  mv -f $nom-helper "$cross"/usr/bin
 }

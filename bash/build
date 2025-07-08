@@ -8,7 +8,7 @@
 
 prepare() {
   patch \
-    -i "$CERD"/$nom/patches/alpine/$nom-noinfo.patch \
+    -i "$core"/$nom/patches/alpine/$nom-noinfo.patch \
     -p 1
 }
 
@@ -44,8 +44,8 @@ check() {
 
 package() {
   make \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     install-strip
 
-  ln -fs $nom "$SACD"/usr/bin/r$nom
+  ln -fs $nom "$dir"/usr/bin/r$nom
 }

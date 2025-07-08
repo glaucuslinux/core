@@ -23,10 +23,10 @@ build() {
 }
 
 package() {
-  DESTDIR="$SACD" \
+  DESTDIR="$dir" \
   muon \
     -C build \
     install
 
-  cp -fPp "$CERD"/$nom/files/search.conf "$SACD"/usr/lib/depmod.d
+  cp -fPp "$core"/$nom/files/search.conf "$dir"/usr/lib/depmod.d
 }

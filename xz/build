@@ -9,7 +9,7 @@
 prepare() {
   for i in default-threading io-size minor-optimization speedup; do
     patch \
-      -i "$CERD"/$nom/patches/clear/$i.patch \
+      -i "$core"/$nom/patches/clear/$i.patch \
       -p 1
   done
 
@@ -27,7 +27,7 @@ configure() {
     --disable-rpath
 
   patch \
-    -i "$CERD"/$nom/patches/alpine/0001-disable-rpath.patch \
+    -i "$core"/$nom/patches/alpine/0001-disable-rpath.patch \
     -p 0
 }
 
@@ -42,6 +42,6 @@ check() {
 
 package() {
   make \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     install-strip
 }

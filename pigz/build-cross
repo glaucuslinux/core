@@ -14,7 +14,7 @@ build() {
 }
 
 package() {
-  mv -f $nom "$CRSD"/usr/bin
-  ln -fs $nom "$CRSD"/usr/bin/gzip
-  ln -fs $nom "$CRSD"/usr/bin/un$nom
+  mv -f $nom "$cross"/usr/bin
+  ln -fs $nom "$cross"/usr/bin/gzip
+  ln -fs $nom "$cross"/usr/bin/un$nom
 }

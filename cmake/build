@@ -8,7 +8,7 @@
 
 prepare() {
   patch \
-    -i "$CERD"/$nom/patches/glaucus/0001-pure64.patch \
+    -i "$core"/$nom/patches/glaucus/0001-pure64.patch \
     -p 0
 }
 
@@ -45,8 +45,8 @@ check() {
 
 package() {
   make \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     install
 
-  cp -fPp "$CERD"/$nom/files/glaucus-$nom "$SACD"/usr/bin
+  cp -fPp "$core"/$nom/files/glaucus-$nom "$dir"/usr/bin
 }

@@ -11,14 +11,14 @@ build() {
 }
 
 package() {
-  mkdir -p "$SACD"/usr/bin
-  mv -f $nom "$SACD"/usr/bin
+  mkdir -p "$dir"/usr/bin
+  mv -f $nom "$dir"/usr/bin
 
   # Compatibility symlinks
   for i in pkg-config $TARGET-pkg-config; do
-    ln -fs $nom "$SACD"/usr/bin/$i
+    ln -fs $nom "$dir"/usr/bin/$i
   done
 
-  mkdir -p "$SACD"/usr/share/aclocal
-  cp -fPp "$CERD"/$nom/files/pkg.m4 "$SACD"/usr/share/aclocal
+  mkdir -p "$dir"/usr/share/aclocal
+  cp -fPp "$core"/$nom/files/pkg.m4 "$dir"/usr/share/aclocal
 }

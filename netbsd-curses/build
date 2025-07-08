@@ -8,7 +8,7 @@
 
 prepare() {
   patch \
-    -i "$CERD"/$nom/patches/glaucus/0001-optimize-more.patch \
+    -i "$core"/$nom/patches/glaucus/0001-optimize-more.patch \
     -p 0
 }
 
@@ -25,19 +25,19 @@ package() {
     PREFIX=/usr \
     BINDIR=/usr/bin \
     LIBDIR=/usr/lib \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     install-dynamic
 
-  ln -fs tic "$SACD"/usr/bin/captoinfo
-  ln -fs tic "$SACD"/usr/bin/infotocap
+  ln -fs tic "$dir"/usr/bin/captoinfo
+  ln -fs tic "$dir"/usr/bin/infotocap
 
   chmod 755 \
-    "$SACD"/usr/lib/libcurses.so \
-    "$SACD"/usr/lib/libform.so \
-    "$SACD"/usr/lib/libmenu.so \
-    "$SACD"/usr/lib/libpanel.so \
-    "$SACD"/usr/lib/libterminfo.so
+    "$dir"/usr/lib/libcurses.so \
+    "$dir"/usr/lib/libform.so \
+    "$dir"/usr/lib/libmenu.so \
+    "$dir"/usr/lib/libpanel.so \
+    "$dir"/usr/lib/libterminfo.so
 
   # `util-linux` and `yash` link against this
-  ln -fs libterminfo.so "$SACD"/usr/lib/libtinfo.so
+  ln -fs libterminfo.so "$dir"/usr/lib/libtinfo.so
 }

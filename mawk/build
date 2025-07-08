@@ -23,10 +23,10 @@ check() {
 
 package() {
   make \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     install
 
   # Compatibility symlinks
-  ln -fs $nom "$SACD"/usr/bin/awk
-  ln -fs $nom "$SACD"/usr/bin/gawk
+  ln -fs $nom "$dir"/usr/bin/awk
+  ln -fs $nom "$dir"/usr/bin/gawk
 }

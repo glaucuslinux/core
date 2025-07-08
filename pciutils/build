@@ -40,15 +40,15 @@ package() {
     PKGCFDIR=/usr/lib/pkgconfig \
     PCI_IDS=pci.ids \
     PCI_COMPRESSED_IDS=0 \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     install \
     install-lib
 
   # ids are provided by `hwdata`
   rm -fRv \
-    "$SACD"/usr/bin/update-pciids \
-    "$SACD"/usr/share/hwdata
+    "$dir"/usr/bin/update-pciids \
+    "$dir"/usr/share/hwdata
 
   # Fix library permissions
-  chmod 755 "$SACD"/usr/lib/libpci.so.$ver
+  chmod 755 "$dir"/usr/lib/libpci.so.$ver
 }

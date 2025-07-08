@@ -28,8 +28,8 @@ check() {
 
 package() {
   make \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     install-strip
 
-  ln -fs $nom "$SACD"/usr/bin/sh
+  ln -fs $nom "$dir"/usr/bin/sh
 }

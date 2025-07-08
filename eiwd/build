@@ -7,10 +7,10 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
-  cd "$TMPD"/$nom/iwd-$ver
+  cd "$tmp"/$nom/iwd-$ver
 
   patch \
-    -i "$CERD"/$nom/patches/alpine/fix-crash-in-the-RSSI-polling-fallback-workaround.patch \
+    -i "$core"/$nom/patches/alpine/fix-crash-in-the-RSSI-polling-fallback-workaround.patch \
     -p 1
 
   autoreconf -vfis
@@ -43,11 +43,11 @@ check() {
 
 package() {
   make \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     install-strip
 
-  mkdir -p "$SACD"/etc/iwd
-  cp -fPp "$CERD"/$nom/files/main.conf "$SACD"/etc/iwd
+  mkdir -p "$dir"/etc/iwd
+  cp -fPp "$core"/$nom/files/main.conf "$dir"/etc/iwd
 
-  cp -fPp "$CERD"/$nom/files/iwd_passphrase "$SACD"/usr/bin
+  cp -fPp "$core"/$nom/files/iwd_passphrase "$dir"/usr/bin
 }

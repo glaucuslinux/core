@@ -8,9 +8,9 @@
 
 package() {
   make \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     install
 
-  mkdir -p "$SACD"/usr/share/$nom/colemak
-  cp -fPp "$CERD"/$nom/files/en-latin9.bmap "$SACD"/usr/share/$nom/colemak
+  mkdir -p "$dir"/usr/share/$nom/colemak
+  cp -fPp "$core"/$nom/files/en-latin9.bmap "$dir"/usr/share/$nom/colemak
 }

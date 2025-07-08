@@ -8,34 +8,34 @@
 
 package() {
   cp -fPpR \
-    "$TMPD"/$nom/etc \
-    "$TMPD"/$nom/usr \
-    "$CRSD"
+    "$tmp"/$nom/etc \
+    "$tmp"/$nom/usr \
+    "$cross"
 
-  mkdir -p "$CRSD"/etc/s6/current/env
+  mkdir -p "$cross"/etc/s6/current/env
 
   mkfifo -m 600 \
-    "$CRSD"/etc/s6/current/run-image/sv/s6-linux-init-shutdownd/fifo \
-    "$CRSD"/etc/s6/current/run-image/sv/s6-svscan-log/fifo
+    "$cross"/etc/s6/current/run-image/sv/s6-linux-init-shutdownd/fifo \
+    "$cross"/etc/s6/current/run-image/sv/s6-svscan-log/fifo
 
-  mkdir -m 2750 -p "$CRSD"/etc/s6/current/run-image/uncaught-logs
+  mkdir -m 2750 -p "$cross"/etc/s6/current/run-image/uncaught-logs
 
-  # `"$CRSD"/etc/s6/skel` is already created by `s6-linux-init`
+  # `"$cross"/etc/s6/skel` is already created by `s6-linux-init`
   cp -fPp \
-    "$TMPD"/$nom/etc/s6/current/scripts/rc.init \
-    "$TMPD"/$nom/etc/s6/current/scripts/rc.shutdown \
-    "$TMPD"/$nom/etc/s6/current/scripts/rc.shutdown.final \
-    "$TMPD"/$nom/etc/s6/current/scripts/runlevel \
-    "$CRSD"/etc/s6/skel
+    "$tmp"/$nom/etc/s6/current/scripts/rc.init \
+    "$tmp"/$nom/etc/s6/current/scripts/rc.shutdown \
+    "$tmp"/$nom/etc/s6/current/scripts/rc.shutdown.final \
+    "$tmp"/$nom/etc/s6/current/scripts/runlevel \
+    "$cross"/etc/s6/skel
 
   for i in btmp faillog lastlog wtmp; do
-    ln -fs wtmpd/$i "$CRSD"/var/log/$i
+    ln -fs wtmpd/$i "$cross"/var/log/$i
   done
 
-  mkdir -p "$CRSD"/var/log/wtmpd
+  mkdir -p "$cross"/var/log/wtmpd
   touch \
-    "$CRSD"/var/log/wtmpd/btmp \
-    "$CRSD"/var/log/wtmpd/faillog \
-    "$CRSD"/var/log/wtmpd/lastlog \
-    "$CRSD"/var/log/wtmpd/wtmp
+    "$cross"/var/log/wtmpd/btmp \
+    "$cross"/var/log/wtmpd/faillog \
+    "$cross"/var/log/wtmpd/lastlog \
+    "$cross"/var/log/wtmpd/wtmp
 }

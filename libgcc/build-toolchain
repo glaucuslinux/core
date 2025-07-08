@@ -7,7 +7,7 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
-  cd "$TMPD"/gcc/gcc-$ver/build
+  cd "$tmp"/gcc/gcc-$ver/build
 
   make \
     -C $CTARGET/$nom \
@@ -25,6 +25,6 @@ package() {
 
   # Remove static libraries
   rm -fv \
-    "$TLCD"/usr/lib/gcc/$CTARGET/$ver/${nom}_eh.a \
-    "$TLCD"/usr/lib/gcc/$CTARGET/$ver/libgcov.a
+    "$toolchain"/usr/lib/gcc/$CTARGET/$ver/${nom}_eh.a \
+    "$toolchain"/usr/lib/gcc/$CTARGET/$ver/libgcov.a
 }

@@ -24,10 +24,10 @@ package() {
     libdir=/usr/lib \
     sysconfdir=/etc \
     LIBINTL=MUSL \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     install
 
-  cp -fPp "$CERD"/$nom/files/config.rpath "$SACD"/usr/share/$nom
+  cp -fPp "$core"/$nom/files/config.rpath "$dir"/usr/share/$nom
 
-  ln -fs $nom "$SACD"/usr/share/gettext
+  ln -fs $nom "$dir"/usr/share/gettext
 }

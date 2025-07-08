@@ -8,7 +8,7 @@
 
 prepare() {
   patch \
-    -i "$CERD"/$nom/patches/upstream/0001-c++17-compliant.patch \
+    -i "$core"/$nom/patches/upstream/0001-c++17-compliant.patch \
     -p 1
 }
 
@@ -34,6 +34,6 @@ check() {
 
 package() {
   make \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     install
 }

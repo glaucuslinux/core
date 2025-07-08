@@ -7,11 +7,11 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 configure() {
-  "$CERD"/muon/files/glaucus-meson \
-    --cross-file="$CERD"/muon/files/meson.cross \
-    -Dcompressed-help=disabled \
+  "$core"/muon/files/glaucus-meson \
+    --cross-file="$core"/muon/files/meson.cross \
+    -Dcompressed-help=false \
     -Ddocs=disabled \
-    -Dhelp=enabled \
+    -Dhelp=disabled \
     -Dlua=disabled \
     -Dpython=disabled \
     -Dtests=disabled \
@@ -24,7 +24,7 @@ build() {
 }
 
 package() {
-  DESTDIR="$CRSD" \
+  DESTDIR="$cross" \
   meson install \
     -C build
 }

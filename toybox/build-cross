@@ -8,12 +8,12 @@
 
 prepare() {
   patch \
-    -i "$CERD"/$nom/patches/glaucus/0001-extend-long-iso-format.patch \
+    -i "$core"/$nom/patches/glaucus/0001-extend-long-iso-format.patch \
     -p 0
 }
 
 configure() {
-  cp -fPp "$CERD"/$nom/files/glaucus.config .config
+  cp -fPp "$core"/$nom/files/glaucus.config .config
 }
 
 build() {
@@ -48,8 +48,8 @@ package() {
   w watch wc which who whoami \
   xargs \
   yes; do
-    ln -fs $nom "$CRSD"/usr/bin/$i
+    ln -fs $nom "$cross"/usr/bin/$i
   done
 
-  mv -f $nom "$CRSD"/usr/bin
+  mv -f $nom "$cross"/usr/bin
 }

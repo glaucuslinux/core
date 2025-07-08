@@ -7,77 +7,77 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 package() {
-  ln -fs usr/bin "$CRSD"/bin
+  ln -fs usr/bin "$cross"/bin
 
   mkdir -p \
-    "$CRSD"/boot \
-    "$CRSD"/dev
+    "$cross"/boot \
+    "$cross"/dev
 
-  # `"$CRSD"/etc` was already created by toolchain `musl`
-  cp -fPp "$CERD"/$nom/files/fstab "$CRSD"/etc
-  ln -fs lsb-release "$CRSD"/etc/glaucus-release
+  # `"$cross"/etc` was already created by toolchain `musl`
+  cp -fPp "$core"/$nom/files/fstab "$cross"/etc
+  ln -fs lsb-release "$cross"/etc/glaucus-release
   cp -fPp \
-    "$CERD"/$nom/files/group \
-    "$CERD"/$nom/files/hostname \
-    "$CERD"/$nom/files/hosts \
-    "$CERD"/$nom/files/issue \
-    "$CRSD"/etc
+    "$core"/$nom/files/group \
+    "$core"/$nom/files/hostname \
+    "$core"/$nom/files/hosts \
+    "$core"/$nom/files/issue \
+    "$cross"/etc
   sed -e "s/^DISTRIB_RELEASE=/&$(date +%Y%m%d)/" \
     -e "s/^DISTRIB_DESCRIPTION=/&$PRETTY_NAME/" \
-    "$CERD"/$nom/files/lsb-release > "$CRSD"/etc/lsb-release
-  ln -fs ../usr/lib/os-release "$CRSD"/etc
+    "$core"/$nom/files/lsb-release > "$cross"/etc/lsb-release
+  ln -fs ../usr/lib/os-release "$cross"/etc
   cp -fPp \
-    "$CERD"/$nom/files/passwd \
-    "$CERD"/$nom/files/profile \
-    "$CERD"/$nom/files/resolv.conf \
-    "$CERD"/$nom/files/securetty \
-    "$CERD"/$nom/files/shadow \
-    "$CERD"/$nom/files/shells \
-    "$CRSD"/etc
+    "$core"/$nom/files/passwd \
+    "$core"/$nom/files/profile \
+    "$core"/$nom/files/resolv.conf \
+    "$core"/$nom/files/securetty \
+    "$core"/$nom/files/shadow \
+    "$core"/$nom/files/shells \
+    "$cross"/etc
 
-  mkdir -p "$CRSD"/home
+  mkdir -p "$cross"/home
 
-  ln -fs usr/lib "$CRSD"/lib
+  ln -fs usr/lib "$cross"/lib
 
-  mkdir -p "$CRSD"/mnt
+  mkdir -p "$cross"/mnt
 
-  mkdir -m 555 -p "$CRSD"/proc
+  mkdir -m 555 -p "$cross"/proc
 
-  mkdir -m 750 -p "$CRSD"/root
+  mkdir -m 750 -p "$cross"/root
 
-  mkdir -p "$CRSD"/run
+  mkdir -p "$cross"/run
 
-  ln -fs usr/bin "$CRSD"/sbin
+  ln -fs usr/bin "$cross"/sbin
 
-  mkdir -m 555 -p "$CRSD"/sys
+  mkdir -m 555 -p "$cross"/sys
 
-  mkdir -m 1777 -p "$CRSD"/tmp
+  mkdir -m 1777 -p "$cross"/tmp
 
-  # `"$CRSD"/usr` is already created in toolchain
+  # `"$cross"/usr` is already created in toolchain
   sed -e "s/^VERSION=/&$(date +%Y%m%d)/" \
     -e "s/^VERSION_ID=/&$(date +%Y%m%d)/" \
     -e "s/^PRETTY_NAME=/&$PRETTY_NAME/" \
-    "$CERD"/$nom/files/os-release > "$CRSD"/usr/lib/os-release
+    "$core"/$nom/files/os-release > "$cross"/usr/lib/os-release
   mkdir -p "$PKG_CONFIG_LIBDIR"
-  ln -fs lib "$CRSD"/usr/libexec
-  ln -fs bin "$CRSD"/usr/sbin
-  mkdir -p "$CRSD"/usr/share
-  ln -fs ../lib/pkgconfig "$CRSD"/usr/share
+  ln -fs lib "$cross"/usr/libexec
+  ln -fs bin "$cross"/usr/sbin
+  mkdir -p "$cross"/usr/share
+  ln -fs ../lib/pkgconfig "$cross"/usr/share
 
   mkdir -p \
-    "$CRSD"/var/cache/rad/pkg \
-    "$CRSD"/var/cache/rad/src \
-    "$CRSD"/var/lib/hwclock \
-    "$CRSD"/var/lib/misc \
-    "$CRSD"/var/lib/rad/repo \
-    "$CRSD"/var/lib/rad/pkg
-  ln -fs ../run/lock "$CRSD"/var/lock
+    "$cross"/var/cache/rad/pkg \
+    "$cross"/var/cache/rad/src \
+    "$cross"/var/lib/hwclock \
+    "$cross"/var/lib/misc \
+    "$cross"/var/lib/rad/repo \
+    "$cross"/var/lib/rad/pkg
+  ln -fs ../run/lock "$cross"/var/lock
   mkdir -p \
-    "$CRSD"/var/log/rad \
-    "$CRSD"/var/mail
-  ln -fs ../run "$CRSD"/var/run
-  mkdir -p "$CRSD"/var/spool
-  ln -fs ../mail "$CRSD"/var/spool/mail
-  mkdir -m 1777 -p "$CRSD"/var/tmp
-  mkdir -p "$CRSD"/var/tmp/rad
+    "$cross"/var/log/rad \
+    "$cross"/var/mail
+  ln -fs ../run "$cross"/var/run
+  mkdir -p "$cross"/var/spool
+  ln -fs ../mail "$cross"/var/spool/mail
+  mkdir -m 1777 -p "$cross"/var/tmp
+  mkdir -p "$cross"/var/tmp/rad
 }

@@ -8,28 +8,28 @@
 
 prepare() {
   patch \
-    -i "$CERD"/$nom/patches/smaclennan/0001-optimize-strlcpy.patch \
+    -i "$core"/$nom/patches/smaclennan/0001-optimize-strlcpy.patch \
     -p 0
   patch \
-    -i "$CERD"/$nom/patches/upstream/0001-statify-some-variables.patch \
+    -i "$core"/$nom/patches/upstream/0001-statify-some-variables.patch \
     -p 0
   patch \
-    -i "$CERD"/$nom/patches/zeppe-lin/0001-remove-congratz-message.patch \
+    -i "$core"/$nom/patches/zeppe-lin/0001-remove-congratz-message.patch \
     -p 1
   patch \
-    -i "$CERD"/$nom/patches/zeppe-lin/0002-remove-unused-enprintf-function.patch \
+    -i "$core"/$nom/patches/zeppe-lin/0002-remove-unused-enprintf-function.patch \
     -p 1
 }
 
 build() {
   make \
     PREFIX=/usr \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     CFLAGS="$CFLAGS" \
     LDFLAGS="$LDFLAGS"
 }
 
 package() {
-  mkdir -p "$SACD"/usr/bin
-  mv -f $nom "$SACD"/usr/bin
+  mkdir -p "$dir"/usr/bin
+  mv -f $nom "$dir"/usr/bin
 }

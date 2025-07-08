@@ -26,10 +26,10 @@ check() {
 
 package() {
   make \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     install
 
   # Compatibility symlinks
-  ln -fs $nom "$SACD"/usr/bin/bison
-  ln -fs $nom "$SACD"/usr/bin/yacc
+  ln -fs $nom "$dir"/usr/bin/bison
+  ln -fs $nom "$dir"/usr/bin/yacc
 }

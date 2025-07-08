@@ -27,8 +27,8 @@ prepare() {
 }
 
 configure() {
-  PATH="$TMPD/$nom/build-bootstrap:$PATH" \
-  "$CERD"/$nom/files/glaucus-$nom \
+  PATH="$tmp/$nom/build-bootstrap:$PATH" \
+  "$core"/$nom/files/glaucus-$nom \
     -Dlibcurl=disabled \
     -Dlibarchive=disabled \
     -Dpkgconfig=exec \
@@ -47,18 +47,18 @@ build() {
 }
 
 package() {
-  DESTDIR="$SACD" \
+  DESTDIR="$dir" \
   build/$nom \
     -C build \
     install
 
   cp -fPp \
-    "$CERD"/$nom/files/glaucus-meson \
-    "$CERD"/$nom/files/glaucus-$nom \
-    "$CERD"/$nom/files/samu \
-    "$SACD"/usr/bin
+    "$core"/$nom/files/glaucus-meson \
+    "$core"/$nom/files/glaucus-$nom \
+    "$core"/$nom/files/samu \
+    "$dir"/usr/bin
 
   # Compatibility symlinks
-  ln -fs $nom "$SACD"/usr/bin/meson
-  ln -fs samu "$SACD"/usr/bin/ninja
+  ln -fs $nom "$dir"/usr/bin/meson
+  ln -fs samu "$dir"/usr/bin/ninja
 }

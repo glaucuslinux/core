@@ -7,7 +7,7 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
-  cd "$TMPD"/$nom/linux-$ver
+  cd "$tmp"/$nom/linux-$ver
 
   make \
     ARCH=x86_64 \
@@ -23,7 +23,7 @@ build() {
 package() {
   find usr/include ! -name '*.h' -type f -delete
 
-  mkdir -p "$SACD"/usr
-  mv -f usr/include "$SACD"/usr
-  rm -fRv "$SACD"/usr/include/drm
+  mkdir -p "$dir"/usr
+  mv -f usr/include "$dir"/usr
+  rm -fRv "$dir"/usr/include/drm
 }

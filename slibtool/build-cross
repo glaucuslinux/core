@@ -8,15 +8,15 @@
 
 prepare() {
   patch \
-    -i "$CERD"/$nom/patches/aeryn/0001-Revert-build-system-ccenv_set_cc_underscore-rewrite-.patch \
+    -i "$core"/$nom/patches/aeryn/0001-Revert-build-system-ccenv_set_cc_underscore-rewrite-.patch \
     -p 1
   patch \
-    -i "$CERD"/$nom/patches/aeryn/0001-Work-if-invoked-as-libtoolize.patch \
+    -i "$core"/$nom/patches/aeryn/0001-Work-if-invoked-as-libtoolize.patch \
     -p 1
 }
 
 configure() {
-  "$CERD"/autoconf/files/glaucus-configure \
+  "$core"/autoconf/files/glaucus-configure \
     --build=$BUILD \
     --host=$CTARGET \
     --disable-static
@@ -28,34 +28,34 @@ build() {
 
 package() {
   make \
-    DESTDIR="$CRSD" \
+    DESTDIR="$cross" \
     install
 
-  ln -fs ../share/$nom/$nom.sh "$CRSD"/usr/bin/libtool
-  cp -fPp "$CERD"/$nom/files/libtoolize "$CRSD"/usr/bin
+  ln -fs ../share/$nom/$nom.sh "$cross"/usr/bin/libtool
+  cp -fPp "$core"/$nom/files/libtoolize "$cross"/usr/bin
 
-  # `"$CRSD"/usr/share/aclocal` was already created by cross `u-config`
-  mkdir -p "$CRSD"/usr/share/libtool/build-aux
-
-  cp -fPp \
-    "$CERD"/$nom/files/libtool.m4 \
-    "$CERD"/$nom/files/ltargz.m4 \
-    "$CERD"/$nom/files/ltdl.m4 \
-    "$CERD"/$nom/files/lt~obsolete.m4 \
-    "$CERD"/$nom/files/ltoptions.m4 \
-    "$CERD"/$nom/files/ltsugar.m4 \
-    "$CERD"/$nom/files/ltversion.m4 \
-    "$CRSD"/usr/share/aclocal
+  # `"$cross"/usr/share/aclocal` was already created by cross `u-config`
+  mkdir -p "$cross"/usr/share/libtool/build-aux
 
   cp -fPp \
-    "$CERD"/$nom/files/compile \
-    "$CERD"/$nom/files/config.guess \
-    "$CERD"/$nom/files/config.sub \
-    "$CERD"/$nom/files/depcomp \
-    "$CERD"/$nom/files/install-sh \
-    "$CERD"/$nom/files/ltmain.sh \
-    "$CERD"/$nom/files/missing \
-    "$CRSD"/usr/share/libtool/build-aux
+    "$core"/$nom/files/libtool.m4 \
+    "$core"/$nom/files/ltargz.m4 \
+    "$core"/$nom/files/ltdl.m4 \
+    "$core"/$nom/files/lt~obsolete.m4 \
+    "$core"/$nom/files/ltoptions.m4 \
+    "$core"/$nom/files/ltsugar.m4 \
+    "$core"/$nom/files/ltversion.m4 \
+    "$cross"/usr/share/aclocal
 
-  ln -fs ../$nom/$nom.m4 "$CRSD"/usr/share/aclocal
+  cp -fPp \
+    "$core"/$nom/files/compile \
+    "$core"/$nom/files/config.guess \
+    "$core"/$nom/files/config.sub \
+    "$core"/$nom/files/depcomp \
+    "$core"/$nom/files/install-sh \
+    "$core"/$nom/files/ltmain.sh \
+    "$core"/$nom/files/missing \
+    "$cross"/usr/share/libtool/build-aux
+
+  ln -fs ../$nom/$nom.m4 "$cross"/usr/share/aclocal
 }

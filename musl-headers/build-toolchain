@@ -7,13 +7,13 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
-  cd "$TMPD"/musl/musl-$ver
+  cd "$tmp"/musl/musl-$ver
 
   patch \
-    -i "$REPO"/musl/patches/glaucus/0001-fix-utmp-file-path.patch \
+    -i "$core"/musl/patches/glaucus/0001-fix-utmp-file-path.patch \
     -p 0
   patch \
-    -i "$REPO"/musl/patches/upstream/CVE-2025-26519.patch \
+    -i "$core"/musl/patches/upstream/CVE-2025-26519.patch \
     -p 1
 }
 
@@ -25,12 +25,12 @@ package() {
     libdir=/usr/lib \
     syslibdir=/usr/lib \
     ARCH=x86_64 \
-    DESTDIR="$CRSD" \
+    DESTDIR="$cross" \
     install-headers
 
   # BSD compatibility header
-  cp -fPp "$REPO"/musl/files/queue.h "$CRSD"/usr/include/sys
+  cp -fPp "$core"/musl/files/queue.h "$cross"/usr/include/sys
 
   # `utmps` provides `utmpx.h`
-  rm -fv "$CRSD"/usr/include/utmpx.h
+  rm -fv "$cross"/usr/include/utmpx.h
 }

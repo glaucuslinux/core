@@ -8,7 +8,7 @@
 
 prepare() {
   patch \
-    -i "$CERD"/$nom/patches/upstream/$nom-$ver-apng.patch \
+    -i "$core"/$nom/patches/upstream/$nom-$ver-apng.patch \
     -p 1
 
   autoreconf -vfis
@@ -33,13 +33,13 @@ check() {
 
 package() {
   make \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     install-strip
 
   make \
     CFLAGS="$CFLAGS" \
     LDFLAGS="$LDFLAGS" \
-    PNGLIB_SHARED="-L$SACD/usr/lib -lpng" \
+    PNGLIB_SHARED="-L$dir/usr/lib -lpng" \
     -C contrib/pngminus \
     png2pnm \
     pnm2png
@@ -47,5 +47,5 @@ package() {
   mv -f \
     contrib/pngminus/png2pnm \
     contrib/pngminus/pnm2png \
-    "$SACD"/usr/bin
+    "$dir"/usr/bin
 }

@@ -8,10 +8,10 @@
 
 prepare() {
   patch \
-    -i "$CERD"/$nom/patches/glaucus/0001-customize-login-defaults.patch \
+    -i "$core"/$nom/patches/glaucus/0001-customize-login-defaults.patch \
     -p 0
   patch \
-    -i "$CERD"/$nom/patches/glaucus/0002-customize-useradd-defaults.patch \
+    -i "$core"/$nom/patches/glaucus/0002-customize-useradd-defaults.patch \
     -p 0
 
   autoreconf -vfis
@@ -51,6 +51,6 @@ check() {
 
 package() {
   make \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     install-strip
 }

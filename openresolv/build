@@ -8,7 +8,7 @@
 
 prepare() {
   patch \
-    -i "$CERD"/$nom/patches/alpine/detect_init-remove-irrelevant.patch \
+    -i "$core"/$nom/patches/alpine/detect_init-remove-irrelevant.patch \
     -p 1
 }
 
@@ -30,6 +30,6 @@ build() {
 
 package() {
   make \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     install
 }

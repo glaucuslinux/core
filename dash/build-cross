@@ -11,7 +11,7 @@ prepare() {
 }
 
 configure() {
-  "$CERD"/autoconf/files/glaucus-configure \
+  "$core"/autoconf/files/glaucus-configure \
     --build=$BUILD \
     --host=$CTARGET \
     --with-libedit
@@ -23,9 +23,9 @@ build() {
 
 package() {
   make \
-    DESTDIR="$CRSD" \
+    DESTDIR="$cross" \
     install-strip
 
-  ln -fs $nom "$CRSD"/usr/bin/sh
-  ln -fs $nom "$CRSD"/usr/bin/yash
+  ln -fs $nom "$cross"/usr/bin/sh
+  ln -fs $nom "$cross"/usr/bin/yash
 }

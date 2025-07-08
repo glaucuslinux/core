@@ -25,11 +25,11 @@ check() {
 
 package() {
   make \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     install-strip
 
   # Compatibility symlink
-  ln -fs $nom "$SACD"/usr/bin/${nom}6
+  ln -fs $nom "$dir"/usr/bin/${nom}6
 
-  cp -fPp "$CERD"/$nom/files/ping "$SACD"/usr/bin
+  cp -fPp "$core"/$nom/files/ping "$dir"/usr/bin
 }

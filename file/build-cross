@@ -8,17 +8,17 @@
 
 prepare() {
   patch \
-    -i "$CERD"/$nom/patches/upstream/0001-PR-579-net147-Fix-stack-overrun.patch \
+    -i "$core"/$nom/patches/upstream/0001-PR-579-net147-Fix-stack-overrun.patch \
     -p 1
   patch \
-    -i "$CERD"/$nom/patches/upstream/0002-PR-571-jschleus-Some-zip-files-are-misclassified-as-data.patch \
+    -i "$core"/$nom/patches/upstream/0002-PR-571-jschleus-Some-zip-files-are-misclassified-as-data.patch \
     -p 1
 
   autoreconf -vfis
 }
 
 configure() {
-  "$CERD"/autoconf/files/glaucus-configure \
+  "$core"/autoconf/files/glaucus-configure \
     --build=$BUILD \
     --host=$CTARGET \
     --enable-zlib \
@@ -38,9 +38,9 @@ build() {
 
 package() {
   make \
-    DESTDIR="$CRSD" \
+    DESTDIR="$cross" \
     install-strip
 
   # Remove libtool archive
-  rm -fv "$CRSD"/usr/lib/libmagic.la
+  rm -fv "$cross"/usr/lib/libmagic.la
 }

@@ -7,7 +7,7 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 configure() {
-  "$CERD"/autoconf/files/glaucus-configure \
+  "$core"/autoconf/files/glaucus-configure \
     --build=$BUILD \
     --host=$CTARGET \
     --without-man2html \
@@ -20,10 +20,10 @@ build() {
 
 package() {
   make \
-    DESTDIR="$CRSD" \
+    DESTDIR="$cross" \
     install
 
   # Compatibility symlinks
-  ln -fs $nom "$CRSD"/usr/bin/awk
-  ln -fs $nom "$CRSD"/usr/bin/gawk
+  ln -fs $nom "$cross"/usr/bin/awk
+  ln -fs $nom "$cross"/usr/bin/gawk
 }

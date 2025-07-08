@@ -7,9 +7,9 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 package() {
-  mkdir -p "$SACD"/boot
-  mv -f "$TMPD"/$nom/usr "$SACD"
-  mv -f "$SACD"/usr/lib/modules/$ver-cachyos/vmlinuz "$SACD"/boot
+  mkdir -p "$dir"/boot
+  mv -f "$tmp"/$nom/usr "$dir"
+  mv -f "$dir"/usr/lib/modules/$ver-cachyos/vmlinuz "$dir"/boot
 
-  depmod -b "$SACD" $ver-cachyos
+  depmod -b "$dir" $ver-cachyos
 }

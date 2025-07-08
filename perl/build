@@ -8,10 +8,10 @@
 
 prepare() {
   patch \
-    -i $CERD/$nom/patches/alpine/digest-sha-cflags.patch \
+    -i $core/$nom/patches/alpine/digest-sha-cflags.patch \
     -p 1
   patch \
-    -i $CERD/$nom/patches/alpine/dont-write-packlist.patch \
+    -i $core/$nom/patches/alpine/dont-write-packlist.patch \
     -p 1
 }
 
@@ -57,9 +57,9 @@ check() {
 
 package() {
   make \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     install-strip
 
-  ln -fs $nom "$SACD"/usr/bin/$nom$ver
-  ln -fs ${nom}bug "$SACD"/usr/bin/${nom}thanks
+  ln -fs $nom "$dir"/usr/bin/$nom$ver
+  ln -fs ${nom}bug "$dir"/usr/bin/${nom}thanks
 }

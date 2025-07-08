@@ -8,7 +8,7 @@
 
 prepare() {
   patch \
-    -i "$CERD"/$nom/patches/glaucus/0001-remove-arpd.patch \
+    -i "$core"/$nom/patches/glaucus/0001-remove-arpd.patch \
     -p 0
 }
 
@@ -27,6 +27,6 @@ build() {
 package() {
   make \
     SBINDIR=/usr/bin \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     install
 }

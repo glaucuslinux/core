@@ -11,7 +11,7 @@ prepare() {
 }
 
 configure() {
-  "$CERD"/autoconf/files/glaucus-configure \
+  "$core"/autoconf/files/glaucus-configure \
     --build=$BUILD \
     --host=$CTARGET \
     --without-man2html
@@ -23,11 +23,11 @@ build() {
 
 package() {
   make \
-    DESTDIR="$CRSD" \
+    DESTDIR="$cross" \
     install
 
   # Compatibility symlinks
   for i in flex flex++ lex; do
-    ln -fs $nom "$CRSD"/usr/bin/$i
+    ln -fs $nom "$cross"/usr/bin/$i
   done
 }

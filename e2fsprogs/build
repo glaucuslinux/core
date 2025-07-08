@@ -34,15 +34,15 @@ check() {
 
 package() {
   make \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     install-strip \
     install-libs
 
   rm -fv \
-    "$SACD"/usr/bin/chattr \
-    "$SACD"/usr/bin/lsattr \
-    "$SACD"/usr/lib/libcom_err.a \
-    "$SACD"/usr/lib/libe2p.a \
-    "$SACD"/usr/lib/libext2fs.a \
-    "$SACD"/usr/lib/libss.a
+    "$dir"/usr/bin/chattr \
+    "$dir"/usr/bin/lsattr \
+    "$dir"/usr/lib/libcom_err.a \
+    "$dir"/usr/lib/libe2p.a \
+    "$dir"/usr/lib/libext2fs.a \
+    "$dir"/usr/lib/libss.a
 }

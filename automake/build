@@ -20,10 +20,10 @@ build() {
 
 package() {
   make \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     install-strip
 
   # Replace hard links with symbolic links
-  ln -fs aclocal "$SACD"/usr/bin/aclocal-$ver
-  ln -fs $nom "$SACD"/usr/bin/$nom-$ver
+  ln -fs aclocal "$dir"/usr/bin/aclocal-$ver
+  ln -fs $nom "$dir"/usr/bin/$nom-$ver
 }

@@ -8,14 +8,14 @@
 
 prepare() {
   patch \
-    -i "$CERD"/$nom/patches/clear/prime.patch \
+    -i "$core"/$nom/patches/clear/prime.patch \
     -p 1
 
   autoreconf -vfis
 }
 
 configure() {
-  "$CERD"/autoconf/files/glaucus-configure \
+  "$core"/autoconf/files/glaucus-configure \
     --build=$BUILD \
     --host=$CTARGET \
     --enable-threads=posix \
@@ -31,6 +31,6 @@ build() {
 
 package() {
   make \
-    DESTDIR="$CRSD" \
+    DESTDIR="$cross" \
     install-strip
 }

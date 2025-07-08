@@ -8,7 +8,7 @@
 
 prepare() {
   patch \
-    -i "$CERD"/$nom/patches/glaucus/0001-fix-utmp-file-path.patch \
+    -i "$core"/$nom/patches/glaucus/0001-fix-utmp-file-path.patch \
     -p 0
 
   autoreconf -vfis
@@ -62,7 +62,7 @@ check() {
 
 package() {
   make \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     usrsbin_execdir=/usr/bin \
     install-strip
 }

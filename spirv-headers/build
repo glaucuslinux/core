@@ -7,7 +7,7 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
-  cd "$TMPD"/$nom/SPIRV-Headers-vulkan-sdk-$ver
+  cd "$tmp"/$nom/SPIRV-Headers-vulkan-sdk-$ver
 }
 
 configure() {
@@ -22,7 +22,7 @@ build() {
 }
 
 package() {
-  DESTDIR="$SACD" \
+  DESTDIR="$dir" \
   make \
     -C build \
     install/strip

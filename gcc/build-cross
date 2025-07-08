@@ -28,12 +28,12 @@ prepare() {
   0015-build-fix-CXXFLAGS_FOR_BUILD-passing \
   0029-libstdc-do-not-throw-exceptions-for-non-C-locales-on; do
     patch \
-      -i "$CERD"/$nom/patches/alpine/$i.patch \
+      -i "$core"/$nom/patches/alpine/$i.patch \
       -p 1
   done
 
   patch \
-    -i "$CERD"/$nom/patches/glaucus/0001-pure64-for-x86-64.patch \
+    -i "$core"/$nom/patches/glaucus/0001-pure64-for-x86-64.patch \
     -p 0
 
   mkdir -p build
@@ -104,53 +104,53 @@ build() {
 
 package() {
   make \
-    DESTDIR="$CRSD" \
+    DESTDIR="$cross" \
     install-strip
 
-  ln -fs g++ "$CRSD"/usr/bin/c++
+  ln -fs g++ "$cross"/usr/bin/c++
 
   cp -fPp \
-    "$CERD"/$nom/files/c89 \
-    "$CERD"/$nom/files/c99 \
-    "$CRSD"/usr/bin
+    "$core"/$nom/files/c89 \
+    "$core"/$nom/files/c99 \
+    "$cross"/usr/bin
 
   for i in cc $nom-$ver $CTARGET-$nom; do
-    ln -fs $nom "$CRSD"/usr/bin/$i
+    ln -fs $nom "$cross"/usr/bin/$i
   done
 
-  ln -fs $CTARGET-g++ "$CRSD"/usr/bin/$CTARGET-c++
-  ln -fs $CTARGET-$nom "$CRSD"/usr/bin/$CTARGET-cc
-  ln -fs $CTARGET-$nom "$CRSD"/usr/bin/$CTARGET-$nom-$ver
-  ln -fs g++ "$CRSD"/usr/bin/$CTARGET-g++
+  ln -fs $CTARGET-g++ "$cross"/usr/bin/$CTARGET-c++
+  ln -fs $CTARGET-$nom "$cross"/usr/bin/$CTARGET-cc
+  ln -fs $CTARGET-$nom "$cross"/usr/bin/$CTARGET-$nom-$ver
+  ln -fs g++ "$cross"/usr/bin/$CTARGET-g++
 
   for i in ar nm ranlib; do
-    ln -fs $nom-$i "$CRSD"/usr/bin/$CTARGET-$nom-$i
+    ln -fs $nom-$i "$cross"/usr/bin/$CTARGET-$nom-$i
   done
 
-  # `"$CRSD"/usr/lib/bfd-plugins` is already provided by `binutils`
-  ln -fs ../$nom/$CTARGET/$ver/liblto_plugin.so "$CRSD"/usr/lib/bfd-plugins
+  # `"$cross"/usr/lib/bfd-plugins` is already provided by `binutils`
+  ln -fs ../$nom/$CTARGET/$ver/liblto_plugin.so "$cross"/usr/lib/bfd-plugins
 
   # Remove static libraries and libtool archives
   rm -fv \
-    "$CRSD"/usr/lib/$nom/$CTARGET/$ver/lib${nom}_eh.a \
-    "$CRSD"/usr/lib/$nom/$CTARGET/$ver/liblto_plugin.la \
-    "$CRSD"/usr/lib/libatomic.a \
-    "$CRSD"/usr/lib/libatomic.la \
-    "$CRSD"/usr/lib/libgomp.a \
-    "$CRSD"/usr/lib/libgomp.la \
-    "$CRSD"/usr/lib/libitm.a \
-    "$CRSD"/usr/lib/libitm.la \
-    "$CRSD"/usr/lib/libquadmath.a \
-    "$CRSD"/usr/lib/libquadmath.la \
-    "$CRSD"/usr/lib/libstdc++.a \
-    "$CRSD"/usr/lib/libstdc++.la \
-    "$CRSD"/usr/lib/libstdc++exp.a \
-    "$CRSD"/usr/lib/libstdc++exp.la \
-    "$CRSD"/usr/lib/libstdc++fs.a \
-    "$CRSD"/usr/lib/libstdc++fs.la \
-    "$CRSD"/usr/lib/libsupc++.a \
-    "$CRSD"/usr/lib/libsupc++.la
+    "$cross"/usr/lib/$nom/$CTARGET/$ver/lib${nom}_eh.a \
+    "$cross"/usr/lib/$nom/$CTARGET/$ver/liblto_plugin.la \
+    "$cross"/usr/lib/libatomic.a \
+    "$cross"/usr/lib/libatomic.la \
+    "$cross"/usr/lib/libgomp.a \
+    "$cross"/usr/lib/libgomp.la \
+    "$cross"/usr/lib/libitm.a \
+    "$cross"/usr/lib/libitm.la \
+    "$cross"/usr/lib/libquadmath.a \
+    "$cross"/usr/lib/libquadmath.la \
+    "$cross"/usr/lib/libstdc++.a \
+    "$cross"/usr/lib/libstdc++.la \
+    "$cross"/usr/lib/libstdc++exp.a \
+    "$cross"/usr/lib/libstdc++exp.la \
+    "$cross"/usr/lib/libstdc++fs.a \
+    "$cross"/usr/lib/libstdc++fs.la \
+    "$cross"/usr/lib/libsupc++.a \
+    "$cross"/usr/lib/libsupc++.la
 
   # Compatibility symlink
-  ln -fs ../bin/cpp "$CRSD"/usr/lib
+  ln -fs ../bin/cpp "$cross"/usr/lib
 }

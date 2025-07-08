@@ -28,6 +28,6 @@ check() {
 
 package() {
   $nom \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     install-strip
 }

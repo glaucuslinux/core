@@ -11,7 +11,7 @@ prepare() {
 }
 
 configure() {
-  "$CERD"/autoconf/files/glaucus-configure \
+  "$core"/autoconf/files/glaucus-configure \
     --build=$BUILD \
     --host=$CTARGET \
     --disable-static \
@@ -28,9 +28,9 @@ build() {
 
 package() {
   make \
-    DESTDIR="$CRSD" \
+    DESTDIR="$cross" \
     install-strip
 
   # Remove libtool archive
-  rm -fv "$CRSD"/usr/lib/lib$nom.la
+  rm -fv "$cross"/usr/lib/lib$nom.la
 }

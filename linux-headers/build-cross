@@ -7,7 +7,7 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
-  cd "$TMPD"/$nom/linux-$ver
+  cd "$tmp"/$nom/linux-$ver
 
   make \
     ARCH=x86_64 \
@@ -23,6 +23,6 @@ build() {
 package() {
   find usr/include ! -name '*.h' -type f -delete
 
-  cp -fPpR usr/include "$CRSD"/usr
-  rm -fRv "$CRSD"/usr/include/drm
+  cp -fPpR usr/include "$cross"/usr
+  rm -fRv "$cross"/usr/include/drm
 }

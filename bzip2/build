@@ -8,7 +8,7 @@
 
 prepare() {
   patch \
-    -i "$CERD"/$nom/patches/chimera/make.patch \
+    -i "$core"/$nom/patches/chimera/make.patch \
     -p 1
 }
 
@@ -19,16 +19,16 @@ build() {
 
 package() {
   mkdir -p \
-    "$SACD"/usr/include \
-    "$SACD"/usr/lib/pkgconfig
+    "$dir"/usr/include \
+    "$dir"/usr/lib/pkgconfig
 
-  mv -f bzlib.h "$SACD"/usr/include
+  mv -f bzlib.h "$dir"/usr/include
 
-  mv -f libbz2.so.$ver "$SACD"/usr/lib
+  mv -f libbz2.so.$ver "$dir"/usr/lib
 
   for i in libbz2.so libbz2.so.1 libbz2.so.1.0; do
-    ln -fs libbz2.so.$ver "$SACD"/usr/lib/$i
+    ln -fs libbz2.so.$ver "$dir"/usr/lib/$i
   done
 
-  cp -fPp "$CERD"/$nom/files/$nom.pc "$SACD"/usr/lib/pkgconfig
+  cp -fPp "$core"/$nom/files/$nom.pc "$dir"/usr/lib/pkgconfig
 }

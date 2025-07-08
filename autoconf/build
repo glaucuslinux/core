@@ -29,8 +29,8 @@ build() {
 
 package() {
   make \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     install-strip
 
-  cp -fPp "$CERD"/$nom/files/glaucus-configure "$SACD"/usr/bin
+  cp -fPp "$core"/$nom/files/glaucus-configure "$dir"/usr/bin
 }

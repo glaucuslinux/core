@@ -8,10 +8,10 @@
 
 prepare() {
   patch \
-    -i "$CERD"/$nom/patches/alpine/rowhammer.patch \
+    -i "$core"/$nom/patches/alpine/rowhammer.patch \
     -p 1
   patch \
-    -i "$CERD"/$nom/patches/glaucus/0001-remove-chown.patch \
+    -i "$core"/$nom/patches/glaucus/0001-remove-chown.patch \
     -p 0
 }
 
@@ -31,14 +31,14 @@ build() {
 
 package() {
   make \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     install
 
-  mkdir -p "$SACD"/etc
-  cp -fPp "$CERD"/$nom/files/doas.conf "$SACD"/etc
-  chmod 400 "$SACD"/etc/doas.conf
+  mkdir -p "$dir"/etc
+  cp -fPp "$core"/$nom/files/doas.conf "$dir"/etc
+  chmod 400 "$dir"/etc/doas.conf
 
-  mv -f "$SACD"/usr/bin/doas "$SACD"/usr/bin/$nom
-  ln -fs $nom "$SACD"/usr/bin/doas
-  ln -fs $nom "$SACD"/usr/bin/sudo
+  mv -f "$dir"/usr/bin/doas "$dir"/usr/bin/$nom
+  ln -fs $nom "$dir"/usr/bin/doas
+  ln -fs $nom "$dir"/usr/bin/sudo
 }

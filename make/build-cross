@@ -11,7 +11,7 @@ prepare() {
 }
 
 configure() {
-  "$CERD"/autoconf/files/glaucus-configure \
+  "$core"/autoconf/files/glaucus-configure \
     --build=$BUILD \
     --host=$CTARGET \
     --disable-nls \
@@ -25,6 +25,6 @@ build() {
 
 package() {
   $nom \
-    DESTDIR="$CRSD" \
+    DESTDIR="$cross" \
     install-strip
 }

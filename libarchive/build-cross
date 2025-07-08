@@ -8,17 +8,17 @@
 
 prepare() {
   patch \
-    -i "$CERD"/$nom/patches/glaucus/0001-fix-pkg-config-file.patch \
+    -i "$core"/$nom/patches/glaucus/0001-fix-pkg-config-file.patch \
     -p 0
   patch \
-    -i "$CERD"/$nom/patches/void/filter-xz-enable-threads.patch \
+    -i "$core"/$nom/patches/void/filter-xz-enable-threads.patch \
     -p 1
 
   ./build/autogen.sh
 }
 
 configure() {
-  "$CERD"/autoconf/files/glaucus-configure \
+  "$core"/autoconf/files/glaucus-configure \
     --build=$BUILD \
     --host=$CTARGET \
     --disable-static \
@@ -40,13 +40,13 @@ build() {
 
 package() {
   make \
-    DESTDIR="$CRSD" \
+    DESTDIR="$cross" \
     install-strip
 
   # Compatibility symlinks
-  ln -fs bsdtar "$CRSD"/usr/bin/tar
-  ln -fs bsdunzip "$CRSD"/usr/bin/unzip
+  ln -fs bsdtar "$cross"/usr/bin/tar
+  ln -fs bsdunzip "$cross"/usr/bin/unzip
 
   # Remove libtool archive
-  rm -fv "$CRSD"/usr/lib/$nom.la
+  rm -fv "$cross"/usr/lib/$nom.la
 }

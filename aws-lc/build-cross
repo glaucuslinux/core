@@ -7,7 +7,7 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 configure() {
-  "$CERD"/cmake/files/glaucus-cmake \
+  "$core"/cmake/files/glaucus-cmake \
     -B build \
     -DBUILD_SHARED_LIBS=ON \
     -DBUILD_TESTING=OFF \
@@ -20,7 +20,7 @@ build() {
 }
 
 package() {
-  DESTDIR="$CRSD" \
+  DESTDIR="$cross" \
   make \
     -C build \
     install/strip

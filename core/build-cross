@@ -7,5 +7,5 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 package() {
-  cp -fPpR "$CERD" "$CRSD"/var/lib/rad/repo
+  cp -fPpR "$core" "$cross"/var/lib/rad/repo
 }

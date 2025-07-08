@@ -11,7 +11,7 @@ prepare() {
 }
 
 configure() {
-  "$CERD"/autoconf/files/glaucus-configure \
+  "$core"/autoconf/files/glaucus-configure \
     --build=$BUILD \
     --host=$CTARGET \
     --disable-static \
@@ -30,13 +30,13 @@ build() {
 
 package() {
   make \
-    DESTDIR="$CRSD" \
+    DESTDIR="$cross" \
     install-strip
 
   # Remove libtool archives
   rm -fv \
-    "$CRSD"/usr/lib/lib$nom-8.la \
-    "$CRSD"/usr/lib/lib$nom-16.la \
-    "$CRSD"/usr/lib/lib$nom-32.la \
-    "$CRSD"/usr/lib/lib$nom-posix.la
+    "$cross"/usr/lib/lib$nom-8.la \
+    "$cross"/usr/lib/lib$nom-16.la \
+    "$cross"/usr/lib/lib$nom-32.la \
+    "$cross"/usr/lib/lib$nom-posix.la
 }

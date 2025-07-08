@@ -26,11 +26,11 @@ check() {
 
 package() {
   make \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     install
 
   # Compatibility symlinks
   for i in flex flex++ lex; do
-    ln -fs $nom "$SACD"/usr/bin/$i
+    ln -fs $nom "$dir"/usr/bin/$i
   done
 }

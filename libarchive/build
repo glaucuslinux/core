@@ -8,10 +8,10 @@
 
 prepare() {
   patch \
-    -i "$CERD"/$nom/patches/glaucus/0001-fix-pkg-config-file.patch \
+    -i "$core"/$nom/patches/glaucus/0001-fix-pkg-config-file.patch \
     -p 0
   patch \
-    -i "$CERD"/$nom/patches/void/filter-xz-enable-threads.patch \
+    -i "$core"/$nom/patches/void/filter-xz-enable-threads.patch \
     -p 1
 
   ./build/autogen.sh
@@ -43,10 +43,10 @@ check() {
 
 package() {
   make \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     install-strip
 
   # Compatibility symlinks
-  ln -fs bsdtar "$SACD"/usr/bin/tar
-  ln -fs bsdunzip "$SACD"/usr/bin/unzip
+  ln -fs bsdtar "$dir"/usr/bin/tar
+  ln -fs bsdunzip "$dir"/usr/bin/unzip
 }

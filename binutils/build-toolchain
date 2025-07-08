@@ -8,7 +8,7 @@
 
 prepare() {
   patch \
-    -i "$REPO"/$nom/patches/alpine/$nom-ld-fix-static-linking.patch \
+    -i "$core"/$nom/patches/alpine/$nom-ld-fix-static-linking.patch \
     -p 1
 
   mkdir -p build
@@ -17,15 +17,15 @@ prepare() {
 
 configure() {
   ../configure \
-    --prefix="$TLCD"/usr \
-    --exec-prefix="$TLCD"/usr \
-    --bindir="$TLCD"/usr/bin \
-    --sbindir="$TLCD"/usr/bin \
-    --libexecdir="$TLCD"/usr/lib \
-    --sysconfdir="$TLCD"/etc \
-    --sharedstatedir="$TLCD"/var/lib \
-    --localstatedir="$TLCD"/var \
-    --libdir="$TLCD"/usr/lib \
+    --prefix="$toolchain"/usr \
+    --exec-prefix="$toolchain"/usr \
+    --bindir="$toolchain"/usr/bin \
+    --sbindir="$toolchain"/usr/bin \
+    --libexecdir="$toolchain"/usr/lib \
+    --sysconfdir="$toolchain"/etc \
+    --sharedstatedir="$toolchain"/var/lib \
+    --localstatedir="$toolchain"/var \
+    --libdir="$toolchain"/usr/lib \
     --build=$BUILD \
     --host=$BUILD \
     --target=$CTARGET \
@@ -47,7 +47,7 @@ configure() {
     --disable-rpath \
     --with-pic \
     --with-mmap \
-    --with-sysroot="$CRSD" \
+    --with-sysroot="$cross" \
     --with-pkgversion="$PRETTY_NAME" \
     --with-bugurl=https://github.com/glaucuslinux/glaucus/issues \
     --without-debuginfod \
@@ -68,9 +68,9 @@ package() {
     install-strip-gas \
     install-strip-ld
 
-  ln -fs $CTARGET-ld.bfd "$TLCD"/usr/bin/$CTARGET-ld
+  ln -fs $CTARGET-ld.bfd "$toolchain"/usr/bin/$CTARGET-ld
 
   for i in ar as ld ld.bfd nm objcopy objdump ranlib readelf strip; do
-    ln -fs ../../bin/$CTARGET-$i "$TLCD"/usr/$CTARGET/bin/$i
+    ln -fs ../../bin/$CTARGET-$i "$toolchain"/usr/$CTARGET/bin/$i
   done
 }

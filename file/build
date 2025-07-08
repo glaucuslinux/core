@@ -8,10 +8,10 @@
 
 prepare() {
   patch \
-    -i "$CERD"/$nom/patches/upstream/0001-PR-579-net147-Fix-stack-overrun.patch \
+    -i "$core"/$nom/patches/upstream/0001-PR-579-net147-Fix-stack-overrun.patch \
     -p 1
   patch \
-    -i "$CERD"/$nom/patches/upstream/0002-PR-571-jschleus-Some-zip-files-are-misclassified-as-data.patch \
+    -i "$core"/$nom/patches/upstream/0002-PR-571-jschleus-Some-zip-files-are-misclassified-as-data.patch \
     -p 1
 
   autoreconf -vfis
@@ -41,6 +41,6 @@ check() {
 
 package() {
   make \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     install-strip
 }

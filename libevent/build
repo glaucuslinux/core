@@ -7,7 +7,7 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
-  cd "$TMPD"/$nom/$nom-$ver-stable
+  cd "$tmp"/$nom/$nom-$ver-stable
 
   ./autogen.sh
 }
@@ -33,6 +33,6 @@ check() {
 
 package() {
   make \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     install-strip
 }

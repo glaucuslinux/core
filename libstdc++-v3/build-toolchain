@@ -7,7 +7,7 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
-  cd "$TMPD"/gcc/gcc-$ver/build
+  cd "$tmp"/gcc/gcc-$ver/build
 }
 
 build() {
@@ -21,12 +21,12 @@ package() {
 
   # Remove static libraries and libtool archives
   rm -fv \
-    "$TLCD"/usr/$CTARGET/lib/libstdc++.a \
-    "$TLCD"/usr/$CTARGET/lib/libstdc++.la \
-    "$TLCD"/usr/$CTARGET/lib/libstdc++exp.a \
-    "$TLCD"/usr/$CTARGET/lib/libstdc++exp.la \
-    "$TLCD"/usr/$CTARGET/lib/libstdc++fs.a \
-    "$TLCD"/usr/$CTARGET/lib/libstdc++fs.la \
-    "$TLCD"/usr/$CTARGET/lib/libsupc++.a \
-    "$TLCD"/usr/$CTARGET/lib/libsupc++.la
+    "$toolchain"/usr/$CTARGET/lib/libstdc++.a \
+    "$toolchain"/usr/$CTARGET/lib/libstdc++.la \
+    "$toolchain"/usr/$CTARGET/lib/libstdc++exp.a \
+    "$toolchain"/usr/$CTARGET/lib/libstdc++exp.la \
+    "$toolchain"/usr/$CTARGET/lib/libstdc++fs.a \
+    "$toolchain"/usr/$CTARGET/lib/libstdc++fs.la \
+    "$toolchain"/usr/$CTARGET/lib/libsupc++.a \
+    "$toolchain"/usr/$CTARGET/lib/libsupc++.la
 }

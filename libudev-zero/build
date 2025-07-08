@@ -21,9 +21,9 @@ package() {
     PREFIX=/usr \
     LIBDIR=/usr/lib \
     PKGCONFIGDIR=/usr/lib/pkgconfig \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     install-shared
 
-  mkdir -p "$SACD"/usr/bin
-  mv -f $nom-helper "$SACD"/usr/bin
+  mkdir -p "$dir"/usr/bin
+  mv -f $nom-helper "$dir"/usr/bin
 }

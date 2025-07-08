@@ -8,7 +8,7 @@
 
 prepare() {
   patch \
-    -i "$CERD"/$nom/patches/alpine/$nom-ld-fix-static-linking.patch \
+    -i "$core"/$nom/patches/alpine/$nom-ld-fix-static-linking.patch \
     -p 1
 
   mkdir -p build
@@ -65,16 +65,16 @@ check() {
 package() {
   make \
     tooldir=/usr \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     install-strip
 
-  ln -fs ld.bfd "$SACD"/usr/bin/ld
+  ln -fs ld.bfd "$dir"/usr/bin/ld
 
   # Remove static libraries
   rm -fv \
-    "$SACD"/usr/lib/libbfd.a \
-    "$SACD"/usr/lib/libctf.a \
-    "$SACD"/usr/lib/libctf-nobfd.a \
-    "$SACD"/usr/lib/libopcodes.a \
-    "$SACD"/usr/lib/libsframe.a
+    "$dir"/usr/lib/libbfd.a \
+    "$dir"/usr/lib/libctf.a \
+    "$dir"/usr/lib/libctf-nobfd.a \
+    "$dir"/usr/lib/libopcodes.a \
+    "$dir"/usr/lib/libsframe.a
 }

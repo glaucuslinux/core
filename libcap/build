@@ -8,13 +8,13 @@
 
 prepare() {
   patch \
-    -i "$CERD"/$nom/patches/glaucus/0001-disable-static.patch \
+    -i "$core"/$nom/patches/glaucus/0001-disable-static.patch \
     -p 0
 }
 
 build() {
   make \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     lib=lib \
     sbin=bin \
     prefix=/usr \
@@ -32,7 +32,7 @@ check() {
 
 package() {
   make \
-    DESTDIR="$SACD" \
+    DESTDIR="$dir" \
     lib=lib \
     sbin=bin \
     prefix=/usr \
