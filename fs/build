@@ -41,7 +41,9 @@ package() {
 
   mkdir -p "$dir"/mnt
 
-  mkdir -m 555 -p "$dir"/proc
+  mkdir -m 555 -p \
+    "$dir"/proc \
+    "$dir"/sys
 
   mkdir -m 750 -p "$dir"/root
 
@@ -49,9 +51,9 @@ package() {
 
   ln -fs usr/bin "$dir"/sbin
 
-  mkdir -m 555 -p "$dir"/sys
-
-  mkdir -m 1777 -p "$dir"/tmp
+  mkdir -m 1777 -p \
+    "$dir"/tmp \
+    "$dir"/var/tmp
 
   mkdir -p \
     "$dir"/usr/bin \
@@ -80,6 +82,5 @@ package() {
   ln -fs ../run "$dir"/var/run
   mkdir -p "$dir"/var/spool
   ln -fs ../mail "$dir"/var/spool/mail
-  mkdir -m 1777 -p "$dir"/var/tmp
   mkdir -p "$dir"/var/tmp/rad
 }

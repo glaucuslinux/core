@@ -41,7 +41,9 @@ package() {
 
   mkdir -p "$cross"/mnt
 
-  mkdir -m 555 -p "$cross"/proc
+  mkdir -m 555 -p \
+    "$cross"/proc \
+    "$cross"/sys
 
   mkdir -m 750 -p "$cross"/root
 
@@ -49,9 +51,9 @@ package() {
 
   ln -fs usr/bin "$cross"/sbin
 
-  mkdir -m 555 -p "$cross"/sys
-
-  mkdir -m 1777 -p "$cross"/tmp
+  mkdir -m 1777 -p \
+    "$cross"/tmp \
+    "$cross"/var/tmp
 
   # `"$cross"/usr` is already created in toolchain
   sed -e "s/^VERSION=/&$(date +%Y%m%d)/" \
@@ -78,6 +80,5 @@ package() {
   ln -fs ../run "$cross"/var/run
   mkdir -p "$cross"/var/spool
   ln -fs ../mail "$cross"/var/spool/mail
-  mkdir -m 1777 -p "$cross"/var/tmp
   mkdir -p "$cross"/var/tmp/rad
 }
