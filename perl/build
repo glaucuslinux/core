@@ -8,10 +8,10 @@
 
 prepare() {
   patch \
-    -i $core/$nom/patches/alpine/digest-sha-cflags.patch \
+    -i "$core"/$nom/patches/alpine/digest-sha-cflags.patch \
     -p 1
   patch \
-    -i $core/$nom/patches/alpine/dont-write-packlist.patch \
+    -i "$core"/$nom/patches/alpine/dont-write-packlist.patch \
     -p 1
 }
 
