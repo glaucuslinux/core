@@ -9,3 +9,4 @@
 ver="3.0.0_rc4"
 url="https://gitlab.alpinelinux.org/alpine/apk-tools/-/archive/v3.0.0_rc4/apk-tools-v3.0.0_rc4.tar.gz"
 sum="47ad3bd7dbc023971fe34ada38046ccc"
+opt="no-check"
