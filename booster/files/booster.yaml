@@ -1,3 +1,2 @@
 modules: e1000
-compression: zstd
 strip: true
