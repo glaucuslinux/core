@@ -8,8 +8,11 @@
 
 prepare() {
   patch \
-    -i "$core"/$nom/patches/alpine/$nom-ld-fix-static-linking.patch \
+    -i /var/lib/rad/repo/core/binutils/patches/alpine/binutils-ld-fix-static-linking.patch \
     -p 1
+  patch \
+    -i /var/lib/rad/repo/core/binutils/patches/glaucus/test.patch \
+    -p 0
 
   mkdir -p build
   cd build
@@ -17,18 +20,18 @@ prepare() {
 
 configure() {
   ../configure \
-    --prefix="$toolchain"/usr \
-    --exec-prefix="$toolchain"/usr \
-    --bindir="$toolchain"/usr/bin \
-    --sbindir="$toolchain"/usr/bin \
-    --libexecdir="$toolchain"/usr/lib \
-    --sysconfdir="$toolchain"/etc \
-    --sharedstatedir="$toolchain"/var/lib \
-    --localstatedir="$toolchain"/var \
-    --libdir="$toolchain"/usr/lib \
-    --build=$BUILD \
-    --host=$BUILD \
-    --target=$CTARGET \
+    --prefix="$GLAUCUS_TOOLCHAIN"/usr \
+    --exec-prefix="$GLAUCUS_TOOLCHAIN"/usr \
+    --bindir="$GLAUCUS_TOOLCHAIN"/usr/bin \
+    --sbindir="$GLAUCUS_TOOLCHAIN"/usr/bin \
+    --libexecdir="$GLAUCUS_TOOLCHAIN"/usr/lib \
+    --sysconfdir="$GLAUCUS_TOOLCHAIN"/etc \
+    --sharedstatedir="$GLAUCUS_TOOLCHAIN"/var/lib \
+    --localstatedir="$GLAUCUS_TOOLCHAIN"/var \
+    --libdir="$GLAUCUS_TOOLCHAIN"/usr/lib \
+    --build=$GLAUCUS_BUILD \
+    --host=$GLAUCUS_BUILD \
+    --target=$GLAUCUS_HOST \
     --disable-multilib \
     --enable-install-libiberty \
     --enable-plugins \
@@ -47,7 +50,7 @@ configure() {
     --disable-rpath \
     --with-pic \
     --with-mmap \
-    --with-sysroot="$cross" \
+    --with-sysroot="$GLAUCUS_CROSS" \
     --with-pkgversion="$PRETTY_NAME" \
     --with-bugurl=https://github.com/glaucuslinux/glaucus/issues \
     --without-debuginfod \
@@ -57,20 +60,20 @@ configure() {
 
 build() {
   make \
-    all-$nom \
+    all-binutils \
     all-gas \
     all-ld
 }
 
 package() {
   make \
-    install-strip-$nom \
+    install-strip-binutils \
     install-strip-gas \
     install-strip-ld
 
-  ln -fs $CTARGET-ld.bfd "$toolchain"/usr/bin/$CTARGET-ld
+  ln -fs $GLAUCUS_HOST-ld.bfd "$GLAUCUS_TOOLCHAIN"/usr/bin/$GLAUCUS_HOST-ld
 
   for i in ar as ld ld.bfd nm objcopy objdump ranlib readelf strip; do
-    ln -fs ../../bin/$CTARGET-$i "$toolchain"/usr/$CTARGET/bin/$i
+    ln -fs ../../bin/$GLAUCUS_HOST-$i "$GLAUCUS_TOOLCHAIN"/usr/$GLAUCUS_HOST/bin/$i
   done
 }

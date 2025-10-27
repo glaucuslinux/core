@@ -24,16 +24,16 @@ prepare() {
   0005-On-linux-targets-pass-as-needed-by-default-to-the-li \
   0006-Enable-Wformat-and-Wformat-security-by-default \
   0007-Enable-Wtrampolines-by-default \
-  0012-lib${nom}_s \
+  0012-libgcc_s \
   0015-build-fix-CXXFLAGS_FOR_BUILD-passing \
   0029-libstdc-do-not-throw-exceptions-for-non-C-locales-on; do
     patch \
-      -i "$core"/$nom/patches/alpine/$i.patch \
+      -i /var/lib/rad/repo/core/gcc/patches/alpine/$i.patch \
       -p 1
   done
 
   patch \
-    -i "$core"/$nom/patches/glaucus/0001-pure64-for-x86-64.patch \
+    -i /var/lib/rad/repo/core/gcc/patches/glaucus/0001-pure64-for-x86-64.patch \
     -p 0
 
   mkdir -p build
@@ -42,18 +42,18 @@ prepare() {
 
 configure() {
   ../configure \
-    --prefix="$toolchain"/usr \
-    --exec-prefix="$toolchain"/usr \
-    --bindir="$toolchain"/usr/bin \
-    --sbindir="$toolchain"/usr/bin \
-    --libexecdir="$toolchain"/usr/lib \
-    --sysconfdir="$toolchain"/etc \
-    --sharedstatedir="$toolchain"/var/lib \
-    --localstatedir="$toolchain"/var \
-    --libdir="$toolchain"/usr/lib \
-    --build=$BUILD \
-    --host=$BUILD \
-    --target=$CTARGET \
+    --prefix="$GLAUCUS_TOOLCHAIN"/usr \
+    --exec-prefix="$GLAUCUS_TOOLCHAIN"/usr \
+    --bindir="$GLAUCUS_TOOLCHAIN"/usr/bin \
+    --sbindir="$GLAUCUS_TOOLCHAIN"/usr/bin \
+    --libexecdir="$GLAUCUS_TOOLCHAIN"/usr/lib \
+    --sysconfdir="$GLAUCUS_TOOLCHAIN"/etc \
+    --sharedstatedir="$GLAUCUS_TOOLCHAIN"/var/lib \
+    --localstatedir="$GLAUCUS_TOOLCHAIN"/var \
+    --libdir="$GLAUCUS_TOOLCHAIN"/usr/lib \
+    --build=$GLAUCUS_BUILD \
+    --host=$GLAUCUS_BUILD \
+    --target=$GLAUCUS_HOST \
     --disable-bootstrap \
     --enable-checking=release \
     --disable-multilib \
@@ -85,7 +85,7 @@ configure() {
     --enable-libstdcxx-time=rt \
     --enable-libstdcxx-threads \
     --with-arch=x86-64-v3 \
-    --with-sysroot="$cross" \
+    --with-sysroot="$GLAUCUS_CROSS" \
     --with-pkgversion="$PRETTY_NAME" \
     --with-bugurl=https://github.com/glaucuslinux/glaucus/issues \
     --with-zstd \
@@ -96,43 +96,43 @@ configure() {
 
 build() {
   make \
-    all-$nom
+    all-gcc
 
   CFLAGS='-pipe -O0' \
   CXXFLAGS='-pipe -O0' \
   LDFLAGS=-Wl,-s \
   make \
     enable_shared=no \
-    all-target-lib$nom
+    all-target-libgcc
 }
 
 package() {
   make \
-    install-strip-$nom \
-    install-strip-target-lib$nom
+    install-strip-gcc \
+    install-strip-target-libgcc
 
-  ln -fs $CTARGET-g++ "$toolchain"/usr/bin/$CTARGET-c++
+  ln -fs $GLAUCUS_HOST-g++ "$GLAUCUS_TOOLCHAIN"/usr/bin/$GLAUCUS_HOST-c++
 
-  sed "s/$nom/$CTARGET-&/" "$core"/$nom/files/c89 > "$toolchain"/usr/bin/$CTARGET-c89
-  sed "s/$nom/$CTARGET-&/" "$core"/$nom/files/c99 > "$toolchain"/usr/bin/$CTARGET-c99
+  sed "s/gcc/$GLAUCUS_HOST-&/" /var/lib/rad/repo/core/gcc/files/c89 > "$GLAUCUS_TOOLCHAIN"/usr/bin/$GLAUCUS_HOST-c89
+  sed "s/gcc/$GLAUCUS_HOST-&/" /var/lib/rad/repo/core/gcc/files/c99 > "$GLAUCUS_TOOLCHAIN"/usr/bin/$GLAUCUS_HOST-c99
 
   chmod 755 \
-    "$toolchain"/usr/bin/$CTARGET-c89 \
-    "$toolchain"/usr/bin/$CTARGET-c99
+    "$GLAUCUS_TOOLCHAIN"/usr/bin/$GLAUCUS_HOST-c89 \
+    "$GLAUCUS_TOOLCHAIN"/usr/bin/$GLAUCUS_HOST-c99
 
-  ln -fs $CTARGET-$nom "$toolchain"/usr/bin/$CTARGET-cc
-  ln -fs $CTARGET-$nom "$toolchain"/usr/bin/$CTARGET-$nom-$ver
+  ln -fs $GLAUCUS_HOST-gcc "$GLAUCUS_TOOLCHAIN"/usr/bin/$GLAUCUS_HOST-cc
+  ln -fs $GLAUCUS_HOST-gcc "$GLAUCUS_TOOLCHAIN"/usr/bin/$GLAUCUS_HOST-gcc-14.2.0
 
-  # `$toolchain/usr/lib/bfd-plugins` is already provided by `binutils`
-  ln -fs ../$nom/$CTARGET/$ver/liblto_plugin.so "$toolchain"/usr/lib/bfd-plugins
+  # `$GLAUCUS_TOOLCHAIN/usr/lib/bfd-plugins` is already provided by `binutils`
+  ln -fs ../gcc/$GLAUCUS_HOST/14.2.0/liblto_plugin.so "$GLAUCUS_TOOLCHAIN"/usr/lib/bfd-plugins
 
   # Remove libtool archives
   rm -fv \
-    "$toolchain"/usr/lib/$nom/$CTARGET/$ver/liblto_plugin.la \
-    "$toolchain"/usr/$CTARGET/lib/libstdc++.la \
-    "$toolchain"/usr/$CTARGET/lib/libstdc++fs.la \
-    "$toolchain"/usr/$CTARGET/lib/libsupc++.la
+    "$GLAUCUS_TOOLCHAIN"/usr/lib/gcc/$GLAUCUS_HOST/14.2.0/liblto_plugin.la \
+    "$GLAUCUS_TOOLCHAIN"/usr/$GLAUCUS_HOST/lib/libstdc++.la \
+    "$GLAUCUS_TOOLCHAIN"/usr/$GLAUCUS_HOST/lib/libstdc++fs.la \
+    "$GLAUCUS_TOOLCHAIN"/usr/$GLAUCUS_HOST/lib/libsupc++.la
 
   # Compatibility symlink
-  ln -fs ../bin/$CTARGET-cpp "$toolchain"/usr/lib
+  ln -fs ../bin/$GLAUCUS_HOST-cpp "$GLAUCUS_TOOLCHAIN"/usr/lib
 }
