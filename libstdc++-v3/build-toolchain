@@ -7,26 +7,26 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
-  cd /var/tmp/rad/gcc/gcc-14.2.0/build
+  cd "$tmp"/gcc/gcc-$ver/build
 }
 
 build() {
   make \
-    all-target-libstdc++-v3
+    all-target-$nom
 }
 
 package() {
   make \
-    install-strip-target-libstdc++-v3
+    install-strip-target-$nom
 
   # Remove static libraries and libtool archives
   rm -fv \
-    "$GLAUCUS_TOOLCHAIN"/usr/$GLAUCUS_HOST/lib/libstdc++.a \
-    "$GLAUCUS_TOOLCHAIN"/usr/$GLAUCUS_HOST/lib/libstdc++.la \
-    "$GLAUCUS_TOOLCHAIN"/usr/$GLAUCUS_HOST/lib/libstdc++exp.a \
-    "$GLAUCUS_TOOLCHAIN"/usr/$GLAUCUS_HOST/lib/libstdc++exp.la \
-    "$GLAUCUS_TOOLCHAIN"/usr/$GLAUCUS_HOST/lib/libstdc++fs.a \
-    "$GLAUCUS_TOOLCHAIN"/usr/$GLAUCUS_HOST/lib/libstdc++fs.la \
-    "$GLAUCUS_TOOLCHAIN"/usr/$GLAUCUS_HOST/lib/libsupc++.a \
-    "$GLAUCUS_TOOLCHAIN"/usr/$GLAUCUS_HOST/lib/libsupc++.la
+    "$toolchain"/usr/$host/lib/libstdc++.a \
+    "$toolchain"/usr/$host/lib/libstdc++.la \
+    "$toolchain"/usr/$host/lib/libstdc++exp.a \
+    "$toolchain"/usr/$host/lib/libstdc++exp.la \
+    "$toolchain"/usr/$host/lib/libstdc++fs.a \
+    "$toolchain"/usr/$host/lib/libstdc++fs.la \
+    "$toolchain"/usr/$host/lib/libsupc++.a \
+    "$toolchain"/usr/$host/lib/libsupc++.la
 }

@@ -7,24 +7,24 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
-  cd /var/tmp/rad/gcc/gcc-14.2.0/build
+  cd "$tmp"/gcc/gcc-$ver/build
 
   make \
-    -C $GLAUCUS_HOST/libgcc \
+    -C $host/$nom \
     distclean
 }
 
 build() {
   make \
-    all-target-libgcc
+    all-target-$nom
 }
 
 package() {
   make \
-    install-strip-target-libgcc
+    install-strip-target-$nom
 
   # Remove static libraries
   rm -fv \
-    "$GLAUCUS_TOOLCHAIN"/usr/lib/gcc/$GLAUCUS_HOST/14.2.0/libgcc_eh.a \
-    "$GLAUCUS_TOOLCHAIN"/usr/lib/gcc/$GLAUCUS_HOST/14.2.0/libgcov.a
+    "$toolchain"/usr/lib/gcc/$host/$ver/${nom}_eh.a \
+    "$toolchain"/usr/lib/gcc/$host/$ver/libgcov.a
 }
