@@ -6,7 +6,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="6.14.4"
-url="https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.14.4.tar.gz"
-sum="800814b9379ba87660ff7fd6c369b2e6"
+ver="6.17.4"
+url="https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.17.4.tar.gz"
+sum="6ad15c96c2f2e0df37d9c57c8877e066"
 opt="no-check"
