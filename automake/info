@@ -6,9 +6,10 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="1.17"
-url="https://ftpmirror.gnu.org/automake/automake-1.17.tar.gz"
-sum="727a5a8feaa3b27864d3ee6d7886079f"
+ver="1.18.1"
+url="https://ftpmirror.gnu.org/automake/automake-1.18.1.tar.gz"
+sum="2eb4b10c84c5458fe68dd413a27893a5"
 bld="autoconf perl"
 run="autoconf perl"
 opt="bootstrap no-check"
+lic="GPL-2.0-or-later"
