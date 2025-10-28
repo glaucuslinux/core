@@ -9,3 +9,4 @@
 ver="latest"
 url="https://git.sr.ht/~emersion/basu"
 bld="gperf libcap muon python"
+lic="LGPL-2.1-or-later"
