@@ -6,7 +6,8 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="7.0.3"
-url="https://github.com/gavinhoward/bc/releases/download/7.0.3/bc-7.0.3.tar.gz"
-sum="218f570642c77f0ba1cc60f9744019e1"
+ver="7.1.0"
+url="https://github.com/gavinhoward/bc/releases/download/7.1.0/bc-7.1.0.tar.gz"
+sum="b561f64e8a7668486fe3b75771e91768"
 bld="libedit netbsd-curses"
+lic="BSD-2-Clause"
