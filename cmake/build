@@ -18,7 +18,7 @@ configure() {
     --bindir=bin \
     --datadir=share/$nom \
     --docdir=share/doc/$nom \
-    --parallel=4 \
+    --parallel=5 \
     --system-libs \
     --no-system-cppdap \
     --system-curl \
