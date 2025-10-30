@@ -9,10 +9,6 @@
 prepare() {
   cd "$tmp"/$nom/iwd-$ver
 
-  patch \
-    -i "$core"/$nom/patches/alpine/fix-crash-in-the-RSSI-polling-fallback-workaround.patch \
-    -p 1
-
   autoreconf -vfis
 }
 
