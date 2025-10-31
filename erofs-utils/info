@@ -6,7 +6,8 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="1.8.5"
-url="https://git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git/snapshot/erofs-utils-1.8.5.tar.gz"
-sum="12dde99ce9a2a47d0c2b165a13645fd9"
+ver="1.8.10"
+url="https://git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git/snapshot/erofs-utils-1.8.10.tar.gz"
+sum="655d08e1f29a46b7d3475a4980f8554f"
 bld="lz4 util-linux xxhash xz zlib-ng zstd"
+lic="Apache-2.0 GPL-2.0-or-later"
