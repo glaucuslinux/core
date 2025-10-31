@@ -6,9 +6,8 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="2.9.7.0"
-url="https://skarnet.org/software/execline/execline-2.9.6.1.tar.gz"
-sum="fd03fd8865afa9cb3589ca98b01b5ea8"
+ver="c7c284e"
+url="https://github.com/skarnet/execline"
 bld="skalibs"
 run="skalibs"
 opt="no-check"
