@@ -19,8 +19,8 @@ prepare() {
 
 configure() {
   "$core"/autoconf/files/glaucus-configure \
-    --build=$BUILD \
-    --host=$CTARGET \
+    --build=$build \
+    --host=$host \
     --enable-zlib \
     --enable-bzlib \
     --enable-xzlib \
