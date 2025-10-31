@@ -10,7 +10,6 @@ prepare() {
   patch \
     -i "$core"/$nom/patches/glaucus/0001-use-gnu-hash-style.patch \
     -p 0
-
   patch \
     -i "$core"/$nom/patches/upstream/fix-configure.patch \
     -p 0
