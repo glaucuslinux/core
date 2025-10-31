@@ -15,7 +15,8 @@ configure() {
     --enable-pic \
     --disable-nls \
     --disable-rpath \
-    --disable-docs
+    --disable-docs \
+    --disable-cache-build
 }
 
 build() {
