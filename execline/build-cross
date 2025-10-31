@@ -10,25 +10,33 @@ prepare() {
   patch \
     -i "$core"/$nom/patches/glaucus/0001-use-gnu-hash-style.patch \
     -p 0
+
+  patch \
+    -i "$core"/$nom/patches/upstream/fix-configure.patch \
+    -p 0
 }
 
 configure() {
   ./configure \
-    --host=$CTARGET \
+    --host=$host \
     --prefix=/usr \
     --exec-prefix=/usr \
     --dynlibdir=/usr/lib \
     --bindir=/usr/bin \
     --libexecdir=/usr/lib \
     --libdir=/usr/lib \
+    --sysconfdir=/etc \
+    --pkgconfdir=/usr/lib/pkgconfig \
     --shebangdir=/usr/bin \
     --with-sysdeps="$cross"/usr/lib/skalibs/sysdeps \
     --with-include="$cross"/usr/include \
     --with-lib="$cross"/usr/lib \
     --with-dynlib="$cross"/usr/lib \
+    --with-pkgconfig \
     --enable-shared \
     --disable-static \
     --disable-allstatic \
+    --enable-pkgconfig \
     --enable-multicall
 }
 
@@ -41,6 +49,4 @@ package() {
   make \
     DESTDIR="$cross" \
     install
-
-  cp -fPp "$core"/$nom/files/$nom.pc "$PKG_CONFIG_LIBDIR"
 }
