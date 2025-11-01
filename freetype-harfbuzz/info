@@ -6,8 +6,9 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="2.13.3"
-url="https://download.savannah.nongnu.org/releases/freetype/freetype-2.13.3.tar.gz"
-sum="c28906c9aab98f2913781d09eabd9142"
+ver="2.14.1"
+url="https://download.savannah.nongnu.org/releases/freetype/freetype-2.14.1.tar.gz"
+sum="3e188ffd50538d37239bcd7b1a370981"
 bld="bzip2 harfbuzz libpng zlib-ng"
 opt="no-check"
+lic="FTL GPL-2.0-or-later"

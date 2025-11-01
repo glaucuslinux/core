@@ -7,9 +7,12 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
-  for i in pcf-family-names subpixel table-validation-modules; do
+  for i in \
+  0001-Enable-table-validation-modules \
+  0002-Enable-subpixel-rendering \
+  0003-Enable-long-PCF-family-names; do
     patch \
-      -i "$core"/freetype/patches/alpine/$i.patch \
+      -i "$core"/freetype/patches/arch/$i.patch \
       -p 1
   done
 
