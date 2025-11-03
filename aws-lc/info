@@ -6,7 +6,8 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="1.55.0"
-url="https://github.com/aws/aws-lc/archive/v1.55.0.tar.gz"
-sum="96ba580ac47afff04609607af30fdfcb"
+ver="1.63.0"
+url="https://github.com/aws/aws-lc/archive/v1.63.0.tar.gz"
+sum="60453d6b131c86ef8914a40d6686d2f8"
 opt="no-lto"
+lic="Apache-2.0 BSD-3-Clause ISC MIT OpenSSL"
