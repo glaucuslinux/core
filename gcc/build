@@ -13,9 +13,9 @@ prepare() {
   0005-On-linux-targets-pass-as-needed-by-default-to-the-li \
   0006-Enable-Wformat-and-Wformat-security-by-default \
   0007-Enable-Wtrampolines-by-default \
-  0012-lib${nom}_s \
-  0015-build-fix-CXXFLAGS_FOR_BUILD-passing \
-  0029-libstdc-do-not-throw-exceptions-for-non-C-locales-on; do
+  0009-$nom-params-set-default-ssp-buffer-size-to-4 \
+  0013-lib${nom}_s \
+  0016-build-fix-CXXFLAGS_FOR_BUILD-passing; do
     patch \
       -i "$core"/$nom/patches/alpine/$i.patch \
       -p 1
@@ -100,25 +100,25 @@ package() {
     "$core"/$nom/files/c99 \
     "$dir"/usr/bin
 
-  for i in cc $nom-$ver $TARGET-$nom; do
+  for i in cc $nom-$ver $target-$nom; do
     ln -fs $nom "$dir"/usr/bin/$i
   done
 
-  ln -fs $TARGET-g++ "$dir"/usr/bin/$TARGET-c++
-  ln -fs $TARGET-$nom "$dir"/usr/bin/$TARGET-cc
-  ln -fs $TARGET-$nom "$dir"/usr/bin/$TARGET-$nom-$ver
-  ln -fs g++ "$dir"/usr/bin/$TARGET-g++
+  ln -fs $target-g++ "$dir"/usr/bin/$target-c++
+  ln -fs $target-$nom "$dir"/usr/bin/$target-cc
+  ln -fs $target-$nom "$dir"/usr/bin/$target-$nom-$ver
+  ln -fs g++ "$dir"/usr/bin/$target-g++
 
   for i in ar nm ranlib; do
-    ln -fs $nom-$i "$dir"/usr/bin/$TARGET-$nom-$i
+    ln -fs $nom-$i "$dir"/usr/bin/$target-$nom-$i
   done
 
   mkdir -p "$dir"/usr/lib/bfd-plugins
-  ln -fs ../$nom/$TARGET/$ver/liblto_plugin.so "$dir"/usr/lib/bfd-plugins
+  ln -fs ../$nom/$target/$ver/liblto_plugin.so "$dir"/usr/lib/bfd-plugins
 
   # Remove static libraries
   rm -fv \
-    "$dir"/usr/lib/$nom/$TARGET/$ver/lib${nom}_eh.a \
+    "$dir"/usr/lib/$nom/$target/$ver/lib${nom}_eh.a \
     "$dir"/usr/lib/libatomic.a \
     "$dir"/usr/lib/libgomp.a \
     "$dir"/usr/lib/libitm.a \

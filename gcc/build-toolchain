@@ -24,9 +24,9 @@ prepare() {
   0005-On-linux-targets-pass-as-needed-by-default-to-the-li \
   0006-Enable-Wformat-and-Wformat-security-by-default \
   0007-Enable-Wtrampolines-by-default \
-  0012-lib${nom}_s \
-  0015-build-fix-CXXFLAGS_FOR_BUILD-passing \
-  0029-libstdc-do-not-throw-exceptions-for-non-C-locales-on; do
+  0009-$nom-params-set-default-ssp-buffer-size-to-4 \
+  0013-lib${nom}_s \
+  0016-build-fix-CXXFLAGS_FOR_BUILD-passing; do
     patch \
       -i "$core"/$nom/patches/alpine/$i.patch \
       -p 1
