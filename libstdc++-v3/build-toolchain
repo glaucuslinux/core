@@ -17,16 +17,17 @@ build() {
 
 package() {
   make \
+    DESTDIR="$toolchain" \
     install-strip-target-$nom
 
   # Remove static libraries and libtool archives
   rm -fv \
-    "$toolchain"/usr/$host/lib/libstdc++.a \
-    "$toolchain"/usr/$host/lib/libstdc++.la \
-    "$toolchain"/usr/$host/lib/libstdc++exp.a \
-    "$toolchain"/usr/$host/lib/libstdc++exp.la \
-    "$toolchain"/usr/$host/lib/libstdc++fs.a \
-    "$toolchain"/usr/$host/lib/libstdc++fs.la \
-    "$toolchain"/usr/$host/lib/libsupc++.a \
-    "$toolchain"/usr/$host/lib/libsupc++.la
+    "$toolchain"/$host/lib/libstdc++.a \
+    "$toolchain"/$host/lib/libstdc++.la \
+    "$toolchain"/$host/lib/libstdc++exp.a \
+    "$toolchain"/$host/lib/libstdc++exp.la \
+    "$toolchain"/$host/lib/libstdc++fs.a \
+    "$toolchain"/$host/lib/libstdc++fs.la \
+    "$toolchain"/$host/lib/libsupc++.a \
+    "$toolchain"/$host/lib/libsupc++.la
 }
