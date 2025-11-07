@@ -17,15 +17,15 @@ prepare() {
 
 configure() {
   ../configure \
-    --prefix="$toolchain"/usr \
-    --exec-prefix="$toolchain"/usr \
-    --bindir="$toolchain"/usr/bin \
-    --sbindir="$toolchain"/usr/bin \
-    --libexecdir="$toolchain"/usr/lib \
-    --sysconfdir="$toolchain"/etc \
-    --sharedstatedir="$toolchain"/var/lib \
-    --localstatedir="$toolchain"/var \
-    --libdir="$toolchain"/usr/lib \
+    --prefix= \
+    --exec-prefix= \
+    --bindir=/bin \
+    --sbindir=/bin \
+    --libexecdir=/lib \
+    --sysconfdir=/etc \
+    --sharedstatedir=/var/lib \
+    --localstatedir=/var \
+    --libdir=/lib \
     --build=$build \
     --host=$build \
     --target=$host \
@@ -65,13 +65,14 @@ build() {
 
 package() {
   make \
+    DESTDIR="$toolchain" \
     install-strip-$nom \
     install-strip-gas \
     install-strip-ld
 
-  ln -fs $host-ld.bfd "$toolchain"/usr/bin/$host-ld
+  ln -fs $host-ld.bfd "$toolchain"/bin/$host-ld
 
   for i in ar as ld ld.bfd nm objcopy objdump ranlib readelf strip; do
-    ln -fs ../../bin/$host-$i "$toolchain"/usr/$host/bin/$i
+    ln -fs ../../bin/$host-$i "$toolchain"/$host/bin/$i
   done
 }
