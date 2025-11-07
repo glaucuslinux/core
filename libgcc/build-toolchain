@@ -21,10 +21,11 @@ build() {
 
 package() {
   make \
+    DESTDIR="$toolchain" \
     install-strip-target-$nom
 
   # Remove static libraries
   rm -fv \
-    "$toolchain"/usr/lib/gcc/$host/$ver/${nom}_eh.a \
-    "$toolchain"/usr/lib/gcc/$host/$ver/libgcov.a
+    "$toolchain"/lib/gcc/$host/$ver/${nom}_eh.a \
+    "$toolchain"/lib/gcc/$host/$ver/libgcov.a
 }
