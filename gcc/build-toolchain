@@ -42,15 +42,15 @@ prepare() {
 
 configure() {
   ../configure \
-    --prefix="$toolchain"/usr \
-    --exec-prefix="$toolchain"/usr \
-    --bindir="$toolchain"/usr/bin \
-    --sbindir="$toolchain"/usr/bin \
-    --libexecdir="$toolchain"/usr/lib \
-    --sysconfdir="$toolchain"/etc \
-    --sharedstatedir="$toolchain"/var/lib \
-    --localstatedir="$toolchain"/var \
-    --libdir="$toolchain"/usr/lib \
+    --prefix= \
+    --exec-prefix= \
+    --bindir=/bin \
+    --sbindir=/bin \
+    --libexecdir=/lib \
+    --sysconfdir=/etc \
+    --sharedstatedir=/var/lib \
+    --localstatedir=/var \
+    --libdir=/lib \
     --build=$build \
     --host=$build \
     --target=$host \
@@ -108,31 +108,32 @@ build() {
 
 package() {
   make \
+    DESTDIR="$toolchain" \
     install-strip-$nom \
     install-strip-target-lib$nom
 
-  ln -fs $host-g++ "$toolchain"/usr/bin/$host-c++
+  ln -fs $host-g++ "$toolchain"/bin/$host-c++
 
-  sed "s/$nom/$host-&/" "$core"/$nom/files/c89 > "$toolchain"/usr/bin/$host-c89
-  sed "s/$nom/$host-&/" "$core"/$nom/files/c99 > "$toolchain"/usr/bin/$host-c99
+  sed "s/$nom/$host-&/" "$core"/$nom/files/c89 > "$toolchain"/bin/$host-c89
+  sed "s/$nom/$host-&/" "$core"/$nom/files/c99 > "$toolchain"/bin/$host-c99
 
   chmod 755 \
-    "$toolchain"/usr/bin/$host-c89 \
-    "$toolchain"/usr/bin/$host-c99
+    "$toolchain"/bin/$host-c89 \
+    "$toolchain"/bin/$host-c99
 
-  ln -fs $host-$nom "$toolchain"/usr/bin/$host-cc
-  ln -fs $host-$nom "$toolchain"/usr/bin/$host-$nom-$ver
+  ln -fs $host-$nom "$toolchain"/bin/$host-cc
+  ln -fs $host-$nom "$toolchain"/bin/$host-$nom-$ver
 
-  # `"$toolchain"/usr/lib/bfd-plugins` is already provided by `binutils`
-  ln -fs ../$nom/$host/$ver/liblto_plugin.so "$toolchain"/usr/lib/bfd-plugins
+  # `"$toolchain"/lib/bfd-plugins` is already provided by `binutils`
+  ln -fs ../$nom/$host/$ver/liblto_plugin.so "$toolchain"/lib/bfd-plugins
 
   # Remove libtool archives
   rm -fv \
-    "$toolchain"/usr/lib/$nom/$host/$ver/liblto_plugin.la \
-    "$toolchain"/usr/$host/lib/libstdc++.la \
-    "$toolchain"/usr/$host/lib/libstdc++fs.la \
-    "$toolchain"/usr/$host/lib/libsupc++.la
+    "$toolchain"/lib/$nom/$host/$ver/liblto_plugin.la \
+    "$toolchain"/$host/lib/libstdc++.la \
+    "$toolchain"/$host/lib/libstdc++fs.la \
+    "$toolchain"/$host/lib/libsupc++.la
 
   # Compatibility symlink
-  ln -fs ../bin/$host-cpp "$toolchain"/usr/lib
+  ln -fs ../bin/$host-cpp "$toolchain"/lib
 }
