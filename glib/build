@@ -7,10 +7,6 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
-  patch \
-    -i "$core"/$nom/patches/arch/0001-glib-compile-schemas-Remove-noisy-deprecation-warnin.patch \
-    -p 1
-
   rm -fv subprojects/gvdb.wrap
 }
 
