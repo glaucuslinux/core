@@ -6,7 +6,8 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="3.1"
-url="https://ftpmirror.gnu.org/gperf/gperf-3.1.tar.gz"
-sum="2f8aebe1c11aa6bd68dee612fbf037d9"
+ver="3.3"
+url="https://ftpmirror.gnu.org/gperf/gperf-3.3.tar.gz"
+sum="3b271fd3e19f071e17a1c3b063f20ab5"
 opt="bootstrap"
+lic="GPL-3.0-or-later"

@@ -7,20 +7,11 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
-  patch \
-    -i "$core"/$nom/patches/upstream/0001-c++17-compliant.patch \
-    -p 1
+  ./autogen.sh --skip-gnulib
 }
 
 configure() {
-  ./configure \
-    --prefix=/usr \
-    --sbindir=/usr/bin \
-    --libexecdir=/usr/lib \
-    --sysconfdir=/etc \
-    --sharedstatedir=/var/lib \
-    --localstatedir=/var \
-    --libdir=/usr/lib
+  glaucus-configure
 }
 
 build() {
