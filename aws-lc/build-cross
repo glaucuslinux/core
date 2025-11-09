@@ -20,8 +20,8 @@ build() {
 }
 
 package() {
-  DESTDIR="$cross" \
   make \
     -C build \
+    DESTDIR="$cross" \
     install/strip
 }
