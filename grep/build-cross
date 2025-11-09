@@ -7,20 +7,17 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
-  patch \
-    -i "$core"/$nom/patches/clear/prime.patch \
-    -p 1
-
   autoreconf -vfis
 }
 
 configure() {
   "$core"/autoconf/files/glaucus-configure \
-    --build=$BUILD \
-    --host=$CTARGET \
+    --build=$build \
+    --host=$host \
     --enable-threads=posix \
     --disable-rpath \
     --disable-nls \
+    --without-libsigsegv \
     --with-packager="$PRETTY_NAME" \
     --with-packager-bug-reports=https://github.com/glaucuslinux/glaucus/issues
 }
