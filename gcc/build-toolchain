@@ -98,10 +98,10 @@ build() {
   make \
     all-$nom
 
-  CFLAGS='-pipe -O0' \
-  CXXFLAGS='-pipe -O0' \
-  LDFLAGS=-Wl,-s \
   make \
+    CFLAGS='-pipe -O0' \
+    CXXFLAGS='-pipe -O0' \
+    LDFLAGS=-Wl,-s \
     enable_shared=no \
     all-target-lib$nom
 }
