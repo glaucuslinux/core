@@ -25,9 +25,9 @@ build() {
 }
 
 package() {
-  DESTDIR="$dir" \
   make \
     -C build \
+    DESTDIR="$dir" \
     install/strip
 
   ln -fs $nom "$dir"/usr/bin/${nom}Validator
