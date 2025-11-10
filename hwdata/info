@@ -6,6 +6,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="0.393"
-url="https://github.com/vcrhonek/hwdata/archive/v0.393.tar.gz"
-sum="4cec0d03780db1df8248ff1813349db9"
+ver="0.401"
+url="https://github.com/vcrhonek/hwdata/archive/v0.401.tar.gz"
+sum="18fccc004fd8d5c8f892a66910b81ec1"
+lic="GPL-2.0-or-later"
