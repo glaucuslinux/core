@@ -6,8 +6,9 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="2.4.124"
-url="https://dri.freedesktop.org/libdrm/libdrm-2.4.124.tar.xz"
-sum="cbbbf50aa16bd450701bdcd360e356e3"
+ver="2.4.128"
+url="https://dri.freedesktop.org/libdrm/libdrm-2.4.128.tar.xz"
+sum="e128902f5d9b1a39d9f1bd9f75e5957d"
 bld="libpciaccess muon"
 opt="no-check"
+lic="MIT"
