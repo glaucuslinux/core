@@ -13,7 +13,6 @@ prepare() {
 }
 
 build() {
-  BUILD_CC=$HOSTCC \
   make \
     DESTDIR="$cross" \
     lib=lib \
@@ -21,6 +20,7 @@ build() {
     prefix=/usr \
     exec_prefix=/usr \
     KERNEL_HEADERS="$cross"/usr/include \
+    BUILD_CC=$HOSTCC \
     PAM_CAP=no \
     DYNAMIC=yes \
     GOLANG=no

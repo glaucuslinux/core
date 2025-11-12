@@ -6,7 +6,8 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="2.75"
-url="https://cdn.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.75.tar.gz"
-sum="540c7c3a0c01c787a45025f0bc8be97d"
+ver="2.77"
+url="https://cdn.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.77.tar.gz"
+sum="87c254a4b4244147f8eedcf1ade4e9cb"
 opt="no-parallel"
+lic="BSD-3-Clause GPL-2.0-only"
