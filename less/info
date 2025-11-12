@@ -6,8 +6,9 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="668"
-url="https://greenwoodsoftware.com/less/less-668.tar.gz"
-sum="de035a93876864716cf3047fcfe4a8f7"
+ver="685"
+url="https://greenwoodsoftware.com/less/less-685.tar.gz"
+sum="7fb7495f86f05c2433323b19ce7463c8"
 bld="netbsd-curses pcre2"
 run="pcre2"
+lic="BSD-2-Clause GPL-3.0-or-later"
