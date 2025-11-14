@@ -6,8 +6,9 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="1.27.1"
-url="https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.27.1/libinput-1.27.1.tar.gz"
-sum="44a8dc4ebf56a4d8e7ae021af4126d07"
+ver="1.29.2"
+url="https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.29.2/libinput-1.29.2.tar.gz"
+sum="904dadedd6227a4f81660e648708b35e"
 bld="libevdev libudev-zero mtdev muon"
 opt="no-check"
+lic="MIT"
