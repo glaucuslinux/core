@@ -6,7 +6,8 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="1.6.47"
-url="https://github.com/pnggroup/libpng/archive/v1.6.47.tar.gz"
-sum="099b8cf464436a3949b0d286f9d2a9a8"
+ver="1.6.50"
+url="https://github.com/pnggroup/libpng/archive/v1.6.50.tar.gz"
+sum="0d842160e56213c9001034e0d25a2a36"
 bld="zlib-ng"
+lic="libpng-2.0"

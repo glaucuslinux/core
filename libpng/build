@@ -37,10 +37,10 @@ package() {
     install-strip
 
   make \
+    -C contrib/pngminus \
     CFLAGS="$CFLAGS" \
     LDFLAGS="$LDFLAGS" \
     PNGLIB_SHARED="-L$dir/usr/lib -lpng" \
-    -C contrib/pngminus \
     png2pnm \
     pnm2png
 
