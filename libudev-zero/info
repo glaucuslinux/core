@@ -9,3 +9,4 @@
 ver="latest"
 url="https://github.com/illiliti/libudev-zero"
 opt="no-check"
+lic="ISC"
