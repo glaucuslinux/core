@@ -6,7 +6,8 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="1.8.1"
-url="https://github.com/xkbcommon/libxkbcommon/archive/xkbcommon-1.8.1.tar.gz"
-sum="b646bea4967e7d0e086b6346cbe617ba"
+ver="1.13.0"
+url="https://github.com/xkbcommon/libxkbcommon/archive/xkbcommon-1.13.0.tar.gz"
+sum="362131e2dfc232ec2f208b54260a5fca"
 bld="libxml2 muon wayland"
+lic="HPND HPND-sell-variant LicenseRef-digital-equipment-corporation MIT MIT-open-group"
