@@ -6,7 +6,8 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="2.13.7"
-url="https://download.gnome.org/sources/libxml2/2.13/libxml2-2.13.7.tar.xz"
-sum="ec56cc1f82a776cb69a3ced138e2ff80"
+ver="2.15.1"
+url="https://download.gnome.org/sources/libxml2/2.15/libxml2-2.15.1.tar.xz"
+sum="0253954906ff536a00c105325b6a5613"
 bld="libedit netbsd-curses python zlib-ng"
+lic="MIT"
