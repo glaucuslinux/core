@@ -6,8 +6,9 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="9.2.0"
-url="https://github.com/limine-bootloader/limine/releases/download/v9.2.0/limine-9.2.0.tar.zst"
-sum="6f22f22cf0003f5c6d4b1dcd436b74ce"
+ver="10.3.0"
+url="https://codeberg.org/Limine/Limine/releases/download/v10.3.0/limine-10.3.0.tar.zst"
+sum="8cd66ce08dc0c43fef702c263d766947"
 bld="mtools nasm"
 opt="no-check"
+lic="BSD-2-Clause"
