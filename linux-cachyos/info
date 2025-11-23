@@ -6,7 +6,8 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="6.17.4-2"
-url="https://mirror.cachyos.org/repo/x86_64_v3/cachyos-v3/linux-cachyos-6.17.4-4-x86_64_v3.pkg.tar.zst"
-sum="dfaf2c21faf58ada30723dca97a27b09"
+ver="6.17.8-2"
+url="https://mirror.cachyos.org/repo/x86_64_v3/cachyos-v3/linux-cachyos-6.17.8-2-x86_64_v3.pkg.tar.zst"
+sum="336075780a035a2aa34213b4958c7b9d"
 opt="no-check"
+lic="GPL-2.0-only"
