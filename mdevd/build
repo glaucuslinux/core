@@ -20,9 +20,13 @@ configure() {
     --bindir=/usr/bin \
     --libexecdir=/usr/lib \
     --libdir=/usr/lib \
+    --sysconfdir=/etc \
+    --pkgconfdir=/usr/lib/pkgconfig \
+    --with-pkgconfig \
     --enable-shared \
     --disable-static \
-    --disable-allstatic
+    --disable-allstatic \
+    --enable-pkgconfig
 }
 
 build() {
