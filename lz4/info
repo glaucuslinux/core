@@ -9,3 +9,4 @@
 ver="1.10.0"
 url="https://github.com/lz4/lz4/archive/v1.10.0.tar.gz"
 sum="68b380e6af48f215d0a5e19798164a65"
+lic="BSD-2-Clause GPL-2.0-or-later"
