@@ -8,8 +8,8 @@
 
 configure() {
   "$core"/autoconf/files/glaucus-configure \
-    --build=$BUILD \
-    --host=$CTARGET \
+    --build=$build \
+    --host=$host \
     --without-man2html \
     --without-builtin-regex
 }
