@@ -9,3 +9,4 @@
 ver="4.4.1"
 url="https://ftpmirror.gnu.org/make/make-4.4.1.tar.gz"
 sum="475032a21a025a45beeaac80a7175ffc"
+lic="GPL-3.0-or-later"
