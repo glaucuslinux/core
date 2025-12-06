@@ -23,7 +23,8 @@ prepare() {
     build-bootstrap
 
   build-bootstrap/$nom-bootstrap \
-    -C build-bootstrap samu
+    -C build-bootstrap \
+    samu
 }
 
 configure() {
@@ -42,8 +43,9 @@ configure() {
 }
 
 build() {
-  build-bootstrap/$nom samu \
-    -C build
+  build-bootstrap/$nom \
+    -C build \
+    samu
 }
 
 package() {
