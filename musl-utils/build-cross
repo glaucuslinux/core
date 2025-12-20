@@ -6,11 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-prepare() {
-  mkdir -p "$tmp"/$nom
-  cd "$tmp"/$nom
-}
-
 package() {
   for i in \
   a2x asciidoc \
