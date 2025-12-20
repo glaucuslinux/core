@@ -14,10 +14,10 @@ prepare() {
     -p 0
 
   for i in \
-  0001_isatty_do_not_collapse_all_non_EBADF_errors_to_ENOTTY \
-  0002_iconv_fix_erroneous_input_validation_in_EUC_KR_decoder \
-  0003_iconv_harden_UTF_8_output_code_path_against_input_decoder_bugs \
-  0004_stdio_skip_empty_iovec_when_buffering_is_disabled; do
+  0001-isatty-do-not-collapse-all-non-EBADF-errors-to-ENOTTY \
+  0002-iconv-fix-erroneous-input-validation-in-EUC-KR-decoder \
+  0003-iconv-harden-UTF-8-output-code-path-against-input-decoder-bugs \
+  0004-stdio-skip-empty-iovec-when-buffering-is-disabled; do
     patch \
       -i "$core"/musl/patches/upstream/$i.patch \
       -p 1
@@ -38,9 +38,6 @@ package() {
     ARCH=x86_64 \
     DESTDIR="$cross" \
     install-headers
-
-  # BSD compatibility header
-  cp -fPp "$core"/musl/files/queue.h "$cross"/usr/include/sys
 
   # `utmps` provides `utmpx.h`
   rm -fv "$cross"/usr/include/utmpx.h

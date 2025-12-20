@@ -11,18 +11,15 @@ prepare() {
   cd "$tmp"/$nom
 }
 
-build() {
-  $CC $CFLAGS $LDFLAGS "$core"/musl/files/gencat.c -o gencat
-  $CC $CFLAGS $LDFLAGS "$core"/musl/files/getent.c -o getent
-}
-
 package() {
-  mv -f \
-    gencat \
-    getent \
-    "$cross"/usr/bin
-
-  for i in a2x asciidoc gtkdocize help2man ldconfig makeinfo po4a texi2dvi; do
+  for i in \
+  a2x asciidoc \
+  gtkdocize \
+  help2man \
+  ldconfig \
+  makeinfo \
+  po4a \
+  texi2dvi texi2pdf; do
     cp -fPp "$core"/musl/files/true "$cross"/usr/bin/$i
   done
 }
