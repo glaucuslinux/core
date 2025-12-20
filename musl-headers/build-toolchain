@@ -12,9 +12,20 @@ prepare() {
   patch \
     -i "$core"/musl/patches/glaucus/0001-fix-utmp-file-path.patch \
     -p 0
-  patch \
-    -i "$core"/musl/patches/upstream/CVE-2025-26519.patch \
-    -p 1
+
+  for i in \
+  0001_isatty_do_not_collapse_all_non_EBADF_errors_to_ENOTTY \
+  0002_iconv_fix_erroneous_input_validation_in_EUC_KR_decoder \
+  0003_iconv_harden_UTF_8_output_code_path_against_input_decoder_bugs \
+  0004_stdio_skip_empty_iovec_when_buffering_is_disabled; do
+    patch \
+      -i "$core"/musl/patches/upstream/$i.patch \
+      -p 1
+  done
+
+  rm -fv \
+    src/string/x86_64/memcpy.s \
+    src/string/x86_64/memmove.s
 }
 
 package() {
