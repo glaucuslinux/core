@@ -38,6 +38,16 @@ package() {
   cp -fPp "$core"/$nom/files/ld-$nom-x86_64.path "$cross"/etc
 
   cp -fPp "$core"/$nom/files/ldd "$cross"/usr/bin
+  for i in \
+  a2x asciidoc \
+  gtkdocize \
+  help2man \
+  ldconfig \
+  makeinfo \
+  po4a \
+  texi2dvi texi2pdf; do
+    cp -fPp "$core"/$nom/files/true "$cross"/usr/bin/$i
+  done
 
   ln -fs libc.so "$cross"/usr/lib/ld-$nom-x86_64.so.1
 }

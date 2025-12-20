@@ -53,7 +53,16 @@ package() {
   cp -fPp "$core"/$nom/files/ld-$nom-x86_64.path "$dir"/etc
 
   cp -fPp "$core"/$nom/files/ldd "$dir"/usr/bin
-  cp -fPp "$core"/$nom/files/true "$dir"/usr/bin/ldconfig
+  for i in \
+  a2x asciidoc \
+  gtkdocize \
+  help2man \
+  ldconfig \
+  makeinfo \
+  po4a \
+  texi2dvi texi2pdf; do
+    cp -fPp "$core"/$nom/files/true "$dir"/usr/bin/$i
+  done
 
   # `utmps` provides `utmpx.h`
   rm -fv "$dir"/usr/include/utmpx.h
