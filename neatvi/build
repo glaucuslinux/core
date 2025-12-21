@@ -6,16 +6,11 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-prepare() {
-  patch \
-    -i "$core"/$nom/patches/glaucus/0001-configure-ecmd.patch \
-    -p 0
-}
-
 build() {
   make \
     CFLAGS="$CFLAGS" \
-    LDFLAGS="$LDFLAGS"
+    LDFLAGS="$LDFLAGS" \
+    vi
 }
 
 check() {
@@ -23,13 +18,8 @@ check() {
 }
 
 package() {
-  mkdir -p \
-    "$dir"/usr/bin \
-    "$dir"/usr/share/$nom
-
+  mkdir -p "$dir"/usr/bin
   mv -f vi "$dir"/usr/bin/$nom
   ln -fs $nom "$dir"/usr/bin/ex
   ln -fs $nom "$dir"/usr/bin/vi
-
-  mv -f $nom.sh "$dir"/usr/share/$nom
 }
