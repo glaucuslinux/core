@@ -8,7 +8,7 @@
 
 prepare() {
   patch \
-    -i "$core"/$nom/patches/alpine/conf.patch \
+    -i "$core"/$nom/patches/glaucus/conf.patch \
     -p 1
 }
 
@@ -31,5 +31,5 @@ package() {
   ln -fs $nom "$dir"/usr/bin/ex
   ln -fs $nom "$dir"/usr/bin/vi
 
-  mv -f ecmd.sh "$dir"/usr/share/$nom
+  mv -f $nom.sh "$dir"/usr/share/$nom
 }

@@ -1,8 +1,0 @@
---- a/conf.h
-+++ b/conf.h
-@@ -235,4 +235,4 @@
- };
- 
- /* external commands */
--#define ECMD	"neatvi.sh"
-+#define ECMD	"/usr/share/neatvi/ecmd.sh"
