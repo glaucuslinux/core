@@ -11,7 +11,10 @@ prepare() {
     -i "$core"/$nom/patches/alpine/rowhammer.patch \
     -p 1
   patch \
-    -i "$core"/$nom/patches/glaucus/0001-remove-chown.patch \
+    -i "$core"/$nom/patches/glaucus/0001-inherit-more-variables.patch \
+    -p 0
+  patch \
+    -i "$core"/$nom/patches/glaucus/0002-remove-chown.patch \
     -p 0
 }
 

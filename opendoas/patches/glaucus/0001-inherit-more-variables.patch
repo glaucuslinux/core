@@ -1,0 +1,11 @@
+--- env.c
++++ env.c
+@@ -91,7 +91,7 @@
+     const struct passwd *targpw)
+ {
+ 	static const char *copyset[] = {
+-		"DISPLAY", "TERM",
++		"DISPLAY", "TERM", "WAYLAND_DISPLAY", "XDG_RUNTIME_DIR",
+ 		NULL
+ 	};
+ 	struct env *env;
