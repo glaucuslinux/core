@@ -6,8 +6,9 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="1.56.3"
-url="https://download.gnome.org/sources/pango/1.56/pango-1.56.3.tar.xz"
-sum="04057112893d311e156b09c68bf111c0"
+ver="1.57.0"
+url="https://download.gnome.org/sources/pango/1.57/pango-1.57.0.tar.xz"
+sum="36fb1d97793d4690fdf7d4f44a6d9e74"
 bld="cairo fontconfig freetype-harfbuzz fribidi glib muon"
 opt="no-check"
+lic="LGPL-2.1-or-later"
