@@ -7,8 +7,8 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 ver="0.18.1"
-url="https://x.org/releases/individual/lib/libpciaccess-0.18.1.tar.xz"
-sum="cef6ef8b2f3743ea1d75fc8b82e2def0"
+url="https://gitlab.freedesktop.org/xorg/lib/libpciaccess/-/archive/libpciaccess-0.18.1/libpciaccess-libpciaccess-0.18.1.tar.gz"
+sum="75416369604808e82a5e4ba7a7b2898d"
 bld="muon zlib-ng"
 run="hwdata"
 lic="MIT"
