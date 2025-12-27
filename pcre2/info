@@ -6,7 +6,8 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="10.45"
-url="https://github.com/PCRE2Project/pcre2/releases/download/pcre2-10.45/pcre2-10.45.tar.gz"
-sum="06b671a7a22a68ea077da5961e0762c0"
+ver="10.47"
+url="https://github.com/PCRE2Project/pcre2/releases/download/pcre2-10.47/pcre2-10.47.tar.gz"
+sum="e817929b772d88a9113480f763eb043e"
 bld="bzip2 libedit zlib-ng"
+lic="BSD-3-Clause"

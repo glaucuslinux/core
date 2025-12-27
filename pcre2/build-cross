@@ -12,10 +12,11 @@ prepare() {
 
 configure() {
   "$core"/autoconf/files/glaucus-configure \
-    --build=$BUILD \
-    --host=$CTARGET \
+    --build=$build \
+    --host=$host \
     --disable-static \
     --enable-pic \
+    --disable-symvers \
     --enable-pcre2-16 \
     --enable-pcre2-32 \
     --enable-jit \
