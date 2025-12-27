@@ -6,6 +6,12 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
+prepare() {
+  patch \
+    -i "$core"/$nom/patches/glaucus/0001-support-arrow-keys.patch \
+    -p 0
+}
+
 build() {
   make \
     CFLAGS="$CFLAGS" \
