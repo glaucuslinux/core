@@ -6,8 +6,9 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="0.44.2"
-url="https://cairographics.org/releases/pixman-0.44.2.tar.gz"
-sum="25ba9760aac2beb00317497fe200e5e1"
+ver="0.46.4"
+url="https://cairographics.org/releases/pixman-0.46.4.tar.gz"
+sum="5bae4b6bf6af4cd116889e97d372da27"
 bld="libpng muon"
 opt="no-check"
+lic="MIT"
