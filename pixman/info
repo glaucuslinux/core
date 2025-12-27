@@ -7,8 +7,8 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 ver="0.46.4"
-url="https://cairographics.org/releases/pixman-0.46.4.tar.gz"
-sum="5bae4b6bf6af4cd116889e97d372da27"
+url="https://gitlab.freedesktop.org/pixman/pixman/-/archive/pixman-0.46.4/pixman-pixman-0.46.4.tar.gz"
+sum="f8de431496c59e3a15dbb6467ff9cbeb"
 bld="libpng muon"
 opt="no-check"
 lic="MIT"
