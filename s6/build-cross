@@ -14,20 +14,25 @@ prepare() {
 
 configure() {
   ./configure \
-    --host=$CTARGET \
+    --host=$host \
     --prefix=/usr \
     --exec-prefix=/usr \
     --dynlibdir=/usr/lib \
     --bindir=/usr/bin \
     --libexecdir=/usr/lib \
     --libdir=/usr/lib \
+    --sysconfdir=/etc \
+    --pkgconfdir=/usr/lib/pkgconfig \
     --with-sysdeps="$cross"/usr/lib/skalibs/sysdeps \
     --with-include="$cross"/usr/include \
     --with-lib="$cross"/usr/lib \
     --with-dynlib="$cross"/usr/lib \
+    --with-pkgconfig \
     --enable-shared \
     --disable-static \
-    --disable-allstatic
+    --disable-allstatic \
+    --enable-pkgconfig \
+    --disable-aliases-symlinks
 }
 
 build() {
@@ -39,6 +44,4 @@ package() {
   make \
     DESTDIR="$cross" \
     install
-
-  cp -fPp "$core"/$nom/files/$nom.pc "$PKG_CONFIG_LIBDIR"
 }
