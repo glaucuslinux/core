@@ -6,7 +6,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="0.9.1"
-url="https://git.sr.ht/~kennylevinsen/seatd/archive/0.9.1.tar.gz"
-sum="cfbca03300598fdb69c7dd5819ee67b8"
+ver="latest"
+url="https://git.sr.ht/~kennylevinsen/seatd"
 bld="muon"
+lic="MIT"
