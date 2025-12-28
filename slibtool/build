@@ -6,15 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-prepare() {
-  patch \
-    -i "$core"/$nom/patches/aeryn/0001-Revert-build-system-ccenv_set_cc_underscore-rewrite-.patch \
-    -p 1
-  patch \
-    -i "$core"/$nom/patches/aeryn/0001-Work-if-invoked-as-libtoolize.patch \
-    -p 1
-}
-
 configure() {
   glaucus-configure \
     --disable-static
