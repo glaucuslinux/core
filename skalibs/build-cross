@@ -14,18 +14,21 @@ prepare() {
 
 configure() {
   ./configure \
-    --host=$CTARGET \
+    --host=$host \
     --prefix=/usr \
     --dynlibdir=/usr/lib \
     --libdir=/usr/lib \
     --sysconfdir=/etc \
+    --pkgconfdir=/usr/lib/pkgconfig \
     --sysdepdir=/usr/lib/$nom/sysdeps \
     --with-include="$cross"/usr/include \
     --with-lib="$cross"/usr/lib \
     --with-dynlib="$cross"/usr/lib \
     --disable-static \
+    --enable-pkgconfig \
     --with-sysdep-devurandom=yes \
-    --with-sysdep-posixspawnearlyreturn=no
+    --with-sysdep-posixspawnearlyreturn=no \
+    --with-sysdep-procselfexe=/proc/self/exe
 }
 
 build() {
@@ -37,6 +40,4 @@ package() {
   make \
     DESTDIR="$cross" \
     install
-
-  cp -fPp "$core"/$nom/files/$nom.pc "$PKG_CONFIG_LIBDIR"
 }

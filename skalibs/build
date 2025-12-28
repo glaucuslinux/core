@@ -18,8 +18,10 @@ configure() {
     --dynlibdir=/usr/lib \
     --libdir=/usr/lib \
     --sysconfdir=/etc \
+    --pkgconfdir=/usr/lib/pkgconfig \
     --sysdepdir=/usr/lib/$nom/sysdeps \
-    --disable-static
+    --disable-static \
+    --enable-pkgconfig
 }
 
 build() {
@@ -31,7 +33,4 @@ package() {
   make \
     DESTDIR="$dir" \
     install
-
-  mkdir -p "$dir"/usr/lib/pkgconfig
-  cp -fPp "$core"/$nom/files/$nom.pc "$dir"/usr/lib/pkgconfig
 }
