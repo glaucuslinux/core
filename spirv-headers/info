@@ -6,9 +6,9 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="1.4.328.1"
-url="https://github.com/KhronosGroup/SPIRV-Headers/archive/vulkan-sdk-1.4.328.1.tar.gz"
-sum="20150babf6a86f90a6f3c98152639909"
+ver="1.4.335.0"
+url="https://github.com/KhronosGroup/SPIRV-Headers/archive/vulkan-sdk-1.4.335.0.tar.gz"
+sum="621b6fa0bda60d950a54997caf09b03d"
 bld="cmake"
 opt="no-check"
 lic="MIT"
