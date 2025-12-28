@@ -9,3 +9,4 @@
 ver="latest"
 url="https://github.com/michaelforney/sdhcp"
 opt="no-check"
+lic="MIT"
