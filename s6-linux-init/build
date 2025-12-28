@@ -20,12 +20,16 @@ configure() {
     --bindir=/usr/bin \
     --libexecdir=/usr/lib \
     --libdir=/usr/lib \
+    --sysconfdir=/etc \
+    --pkgconfdir=/usr/lib/pkgconfig \
     --skeldir=/etc/s6/skel \
     --tmpfsdir=/run \
     --scandir=sv \
+    --with-pkgconfig \
     --enable-shared \
     --disable-static \
     --disable-allstatic \
+    --enable-pkgconfig \
     --enable-utmps
 }
 
@@ -38,7 +42,4 @@ package() {
   make \
     DESTDIR="$dir" \
     install
-
-  mkdir -p "$dir"/usr/lib/pkgconfig
-  cp -fPp "$core"/$nom/files/$nom.pc "$dir"/usr/lib/pkgconfig
 }

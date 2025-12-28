@@ -14,13 +14,15 @@ prepare() {
 
 configure() {
   ./configure \
-    --host=$CTARGET \
+    --host=$host \
     --prefix=/usr \
     --exec-prefix=/usr \
     --dynlibdir=/usr/lib \
     --bindir=/usr/bin \
     --libexecdir=/usr/lib \
     --libdir=/usr/lib \
+    --sysconfdir=/etc \
+    --pkgconfdir=/usr/lib/pkgconfig \
     --skeldir=/etc/s6/skel \
     --tmpfsdir=/run \
     --scandir=sv \
@@ -28,9 +30,11 @@ configure() {
     --with-include="$cross"/usr/include \
     --with-lib="$cross"/usr/lib \
     --with-dynlib="$cross"/usr/lib \
+    --with-pkgconfig \
     --enable-shared \
     --disable-static \
     --disable-allstatic \
+    --enable-pkgconfig \
     --enable-utmps
 }
 
@@ -43,6 +47,4 @@ package() {
   make \
     DESTDIR="$cross" \
     install
-
-  cp -fPp "$core"/$nom/files/$nom.pc "$PKG_CONFIG_LIBDIR"
 }
