@@ -20,10 +20,14 @@ configure() {
     --bindir=/usr/bin \
     --libexecdir=/usr/lib \
     --libdir=/usr/lib \
+    --sysconfdir=/etc \
+    --pkgconfdir=/usr/lib/pkgconfig \
     --livedir=/run/s6 \
+    --with-pkgconfig \
     --enable-shared \
     --disable-static \
-    --disable-allstatic
+    --disable-allstatic \
+    --enable-pkgconfig
 }
 
 build() {
@@ -35,7 +39,4 @@ package() {
   make \
     DESTDIR="$dir" \
     install
-
-  mkdir -p "$dir"/usr/lib/pkgconfig
-  cp -fPp "$core"/$nom/files/$nom.pc "$dir"/usr/lib/pkgconfig
 }
