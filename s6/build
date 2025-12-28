@@ -22,6 +22,7 @@ configure() {
     --libdir=/usr/lib \
     --sysconfdir=/etc \
     --pkgconfdir=/usr/lib/pkgconfig \
+    --with-pkgconfig \
     --enable-shared \
     --disable-static \
     --disable-allstatic \
