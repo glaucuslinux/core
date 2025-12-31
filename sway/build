@@ -8,6 +8,7 @@
 
 configure() {
   glaucus-muon \
+    -Ddefault-wallpaper=false \
     -Dzsh-completions=false \
     -Dbash-completions=false \
     -Dfish-completions=false \
@@ -26,9 +27,9 @@ build() {
 
 check() {
   muon \
+    -C build \
     test \
-    -R \
-    -C build
+    -R
 }
 
 package() {

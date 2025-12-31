@@ -6,7 +6,8 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="1.10.1"
-url="https://github.com/swaywm/sway/releases/download/1.10.1/sway-1.10.1.tar.gz"
-sum="9cc246853dd1ee69607a7600fc844b72"
+ver="1.11"
+url="https://github.com/swaywm/sway/releases/download/1.11/sway-1.11.tar.gz"
+sum="995021bad610f53dc5fc6417b690370e"
 bld="cairo json-c muon pango pcre2 wayland wayland-protocols wlroots"
+lic="MIT"
