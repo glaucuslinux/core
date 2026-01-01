@@ -27,6 +27,7 @@ configure() {
     --disable-static \
     --disable-allstatic \
     --enable-pkgconfig \
+    --enable-utmp \
     --enable-libc-includes
 }
 

@@ -21,6 +21,9 @@ configure() {
     --bindir=/usr/bin \
     --libexecdir=/usr/lib \
     --libdir=/usr/lib \
+    --sysconfdir=/etc \
+    --pkgconfdir=/usr/lib/pkgconfig \
+    --with-pkgconfig \
     --with-sysdeps="$cross"/usr/lib/skalibs/sysdeps \
     --with-include="$cross"/usr/include \
     --with-lib="$cross"/usr/lib \
@@ -28,6 +31,8 @@ configure() {
     --enable-shared \
     --disable-static \
     --disable-allstatic \
+    --enable-pkgconfig \
+    --enable-utmp \
     --enable-libc-includes
 }
 
