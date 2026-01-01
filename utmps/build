@@ -20,9 +20,13 @@ configure() {
     --bindir=/usr/bin \
     --libexecdir=/usr/lib \
     --libdir=/usr/lib \
+    --sysconfdir=/etc \
+    --pkgconfdir=/usr/lib/pkgconfig \
+    --with-pkgconfig \
     --enable-shared \
     --disable-static \
     --disable-allstatic \
+    --enable-pkgconfig \
     --enable-libc-includes
 }
 
@@ -35,7 +39,4 @@ package() {
   make \
     DESTDIR="$dir" \
     install
-
-  mkdir -p "$dir"/usr/lib/pkgconfig
-  cp -fPp "$core"/$nom/files/$nom.pc "$dir"/usr/lib/pkgconfig
 }

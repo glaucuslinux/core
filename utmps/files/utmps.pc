@@ -1,7 +1,0 @@
-Name: utmps
-Description: A secure implementation of the utmp mechanism.
-URL: https://skarnet.org/software/utmps/
-Version: 0.1.2.3
-Requires.private: skalibs >= 2.14.3.0
-Libs: -lutmps
-Cflags: -I/usr/include/utmps

@@ -14,7 +14,7 @@ prepare() {
 
 configure() {
   ./configure \
-    --host=$CTARGET \
+    --host=$host \
     --prefix=/usr \
     --exec-prefix=/usr \
     --dynlibdir=/usr/lib \
@@ -40,6 +40,4 @@ package() {
   make \
     DESTDIR="$cross" \
     install
-
-  cp -fPp "$core"/$nom/files/$nom.pc "$PKG_CONFIG_LIBDIR"
 }

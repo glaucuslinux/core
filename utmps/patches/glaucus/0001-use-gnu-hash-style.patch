@@ -1,6 +1,6 @@
 --- configure
 +++ configure
-@@ -367,7 +367,7 @@
+@@ -436,7 +436,7 @@
  fi
  
  if $shared ; then
