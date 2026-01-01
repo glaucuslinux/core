@@ -7,15 +7,18 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 build() {
-  $CC $CFLAGS $LDFLAGS main_posix.c -o $nom
+  make \
+    LINUX_CFLAGS="$CFLAGS -fno-builtin -fno-stack-protector" \
+    LINUX_LIBS="$LDFLAGS -nostdlib" \
+    pkg-config-linux-amd64
 }
 
 package() {
   mkdir -p "$dir"/usr/bin
-  mv -f $nom "$dir"/usr/bin
+  mv -f pkg-config-linux-amd64 "$dir"/usr/bin/$nom
 
   # Compatibility symlinks
-  for i in pkg-config $TARGET-pkg-config; do
+  for i in pkg-config $target-pkg-config; do
     ln -fs $nom "$dir"/usr/bin/$i
   done
 

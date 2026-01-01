@@ -6,6 +6,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="ed37452"
+ver="c526f59"
 url="https://github.com/skeeto/u-config"
-opt="no-check"
+opt="no-check no-lto"
+lic="Unlicense"

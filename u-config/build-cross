@@ -7,14 +7,18 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 build() {
-  $CC $CFLAGS $LDFLAGS main_posix.c -o $nom
+  make \
+    CC=$CC \
+    LINUX_CFLAGS="$CFLAGS -fno-builtin -fno-stack-protector" \
+    LINUX_LIBS="$LDFLAGS -nostdlib" \
+    pkg-config-linux-amd64
 }
 
 package() {
-  mv -f $nom "$cross"/usr/bin
+  mv -f pkg-config-linux-amd64 "$cross"/usr/bin/$nom
 
   # Compatibility symlinks
-  for i in pkg-config $CTARGET-pkg-config; do
+  for i in pkg-config $host-pkg-config; do
     ln -fs $nom "$cross"/usr/bin/$i
   done
 
