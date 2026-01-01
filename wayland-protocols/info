@@ -6,7 +6,8 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="1.41"
-url="https://gitlab.freedesktop.org/wayland/wayland-protocols/-/archive/1.41/wayland-protocols-1.41.tar.gz"
-sum="ce1994ce4e468d11eaae524214aa7afc"
+ver="1.47"
+url="https://gitlab.freedesktop.org/wayland/wayland-protocols/-/archive/1.47/wayland-protocols-1.47.tar.gz"
+sum="e4a866eb79967a237b5d602545f4f798"
 bld="muon wayland"
+lic="MIT"

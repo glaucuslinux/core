@@ -25,9 +25,9 @@ build() {
 
 check() {
   muon \
+    -C build \
     test \
-    -R \
-    -C build
+    -R
 }
 
 package() {
