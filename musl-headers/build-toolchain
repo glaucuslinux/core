@@ -10,7 +10,7 @@ prepare() {
   cd "$tmp"/musl/musl-$ver
 
   patch \
-    -i "$core"/musl/patches/glaucus/0001-fix-utmp-file-path.patch \
+    -i "$core"/musl/patches/glaucus/0001-fix-utmp-wtmp-paths.patch \
     -p 0
 
   for i in \
@@ -39,6 +39,8 @@ package() {
     DESTDIR="$cross" \
     install-headers
 
-  # `utmps` provides `utmpx.h`
-  rm -fv "$cross"/usr/include/utmpx.h
+  # `utmps` provides both `utmp.h` and `utmpx.h`
+  rm -fv \
+    "$cross"/usr/include/utmp.h \
+    "$cross"/usr/include/utmpx.h
 }

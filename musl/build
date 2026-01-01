@@ -8,7 +8,7 @@
 
 prepare() {
   patch \
-    -i "$core"/$nom/patches/glaucus/0001-fix-utmp-file-path.patch \
+    -i "$core"/$nom/patches/glaucus/0001-fix-utmp-wtmp-paths.patch \
     -p 0
 
   for i in \
@@ -64,8 +64,10 @@ package() {
     cp -fPp "$core"/$nom/files/true "$dir"/usr/bin/$i
   done
 
-  # `utmps` provides `utmpx.h`
-  rm -fv "$dir"/usr/include/utmpx.h
+  # `utmps` provides both `utmp.h` and `utmpx.h`
+  rm -fv \
+    "$dir"/usr/include/utmp.h \
+    "$dir"/usr/include/utmpx.h
 
   ln -fs libc.so "$dir"/usr/lib/ld-$nom-x86_64.so.1
 }
