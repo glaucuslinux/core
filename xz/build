@@ -7,11 +7,9 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
-  for i in default-threading io-size minor-optimization speedup; do
-    patch \
-      -i "$core"/$nom/patches/clear/$i.patch \
-      -p 1
-  done
+  patch \
+    -i "$core"/$nom/patches/clear/0001-optimizations.patch \
+    -p 0
 
   ./autogen.sh --no-po4a
 }

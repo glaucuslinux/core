@@ -1,0 +1,107 @@
+--- src/liblzma/lz/lz_encoder_mf.c
++++ src/liblzma/lz/lz_encoder_mf.c
+@@ -464,21 +464,22 @@
+ 
+ 	uint32_t len0 = 0;
+ 	uint32_t len1 = 0;
++	uint32_t len2 = 0;
+ 
+ 	while (true) {
+ 		const uint32_t delta = pos - cur_match;
++		uint32_t len = len2;
+ 		if (depth-- == 0 || delta >= cyclic_size) {
+ 			*ptr0 = EMPTY_HASH_VALUE;
+ 			*ptr1 = EMPTY_HASH_VALUE;
+ 			return matches;
+ 		}
+ 
++		const uint8_t *const pb = cur - delta;
+ 		uint32_t *const pair = son + ((cyclic_pos - delta
+ 				+ (delta > cyclic_pos ? cyclic_size : 0))
+ 				<< 1);
+ 
+-		const uint8_t *const pb = cur - delta;
+-		uint32_t len = my_min(len0, len1);
+ 
+ 		if (pb[len] == cur[len]) {
+ 			len = lzma_memcmplen(pb, cur, len + 1, len_limit);
+@@ -502,11 +503,13 @@
+ 			ptr1 = pair + 1;
+ 			cur_match = *ptr1;
+ 			len1 = len;
++			len2 = my_min(len0, len1);
+ 		} else {
+ 			*ptr0 = cur_match;
+ 			ptr0 = pair;
+ 			cur_match = *ptr0;
+ 			len0 = len;
++			len2 = my_min(len0, len1);
+ 		}
+ 	}
+ }
+--- src/liblzma/rangecoder/range_encoder.h
++++ src/liblzma/rangecoder/range_encoder.h
+@@ -127,6 +127,7 @@
+ static inline void
+ rc_flush(lzma_range_encoder *rc)
+ {
++	_Pragma("GCC unroll 5")
+ 	for (size_t i = 0; i < 5; ++i)
+ 		rc->symbols[rc->count++] = RC_FLUSH;
+ }
+@@ -139,7 +140,7 @@
+ 	if ((uint32_t)(rc->low) < (uint32_t)(0xFF000000)
+ 			|| (uint32_t)(rc->low >> 32) != 0) {
+ 		do {
+-			if (*out_pos == out_size)
++			if (__builtin_expect((*out_pos == out_size), 0))
+ 				return true;
+ 
+ 			out[*out_pos] = rc->cache + (uint8_t)(rc->low >> 32);
+@@ -186,7 +187,6 @@
+ 	return false;
+ }
+ 
+-
+ static inline bool
+ rc_encode(lzma_range_encoder *rc,
+ 		uint8_t *out, size_t *out_pos, size_t out_size)
+@@ -278,7 +278,7 @@
+ 
+ 	while (true) {
+ 		// Normalize
+-		if (range < RC_TOP_VALUE) {
++		if (__builtin_expect((range < RC_TOP_VALUE), 0)) {
+ 			if (rc_shift_low_dummy(&low, &cache_size, &cache,
+ 					&out_pos, out_limit))
+ 				return true;
+@@ -330,6 +330,7 @@
+ 	// Flush the last bytes. This isn't in rc->symbols[] so we do
+ 	// it after the above loop to take into account the size of
+ 	// the flushing that will be done at the end of the stream.
++	_Pragma("GCC unroll 5")
+ 	for (pos = 0; pos < 5; ++pos) {
+ 		if (rc_shift_low_dummy(&low, &cache_size,
+ 				&cache, &out_pos, out_limit))
+--- src/xz/args.c
++++ src/xz/args.c
+@@ -316,6 +316,8 @@
+ 	};
+ 
+ 	int c;
++	
++	hardware_threads_set(0);
+ 
+ 	while ((c = getopt_long(argc, argv, short_opts, long_opts, NULL))
+ 			!= -1) {
+--- src/xz/file_io.h
++++ src/xz/file_io.h
+@@ -14,7 +14,7 @@
+ #if BUFSIZ <= 1024
+ #	define IO_BUFFER_SIZE 8192
+ #else
+-#	define IO_BUFFER_SIZE (BUFSIZ & ~7U)
++#	define IO_BUFFER_SIZE ((BUFSIZ * 8) & ~7U)
+ #endif
+ 
+ #ifdef _MSC_VER
