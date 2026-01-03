@@ -6,8 +6,9 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="20.1.2"
-url="https://github.com/llvm/llvm-project/releases/download/llvmorg-20.1.2/llvm-project-20.1.2.src.tar.xz"
-sum="89085e030c4baed745db7d47c3499391"
+ver="21.1.6"
+url="https://github.com/llvm/llvm-project/releases/download/llvmorg-21.1.6/llvm-project-21.1.6.src.tar.xz"
+sum="7d36f3c564d5c2a8b7c2a4c8870b309c"
 bld="cmake zlib-ng zstd"
 opt="no-check"
+lic="Apache-2.0"
