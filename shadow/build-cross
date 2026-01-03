@@ -21,8 +21,8 @@ configure() {
   LIBS=-lutmps \
   shadow_cv_utmpdir=/run/utmps \
   "$core"/autoconf/files/glaucus-configure \
-    --build=$BUILD \
-    --host=$CTARGET \
+    --build=$build \
+    --host=$host \
     --disable-static \
     --enable-pic \
     --enable-lastlog \

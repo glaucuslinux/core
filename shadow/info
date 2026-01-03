@@ -6,8 +6,9 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="4.17.4"
-url="https://github.com/shadow-maint/shadow/releases/download/4.17.4/shadow-4.17.4.tar.gz"
-sum="c463066a612eb0668e12a87f841fb0e6"
+ver="4.18.0"
+url="https://github.com/shadow-maint/shadow/releases/download/4.18.0/shadow-4.18.0.tar.gz"
+sum="f03372f6c9ec7fbceacfa274931c045a"
 bld="acl attr libcap utmps"
 run="utmps"
+lic="BSD-3-Clause"
