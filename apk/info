@@ -6,8 +6,8 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="3.0.0_rc7"
-url="https://gitlab.alpinelinux.org/alpine/apk-tools/-/archive/v3.0.0_rc7/apk-tools-v3.0.0_rc7.tar.gz"
-sum="e9fd5f8048170adc58ad4d3d77d2cb63"
+ver="3.0.3"
+url="https://gitlab.alpinelinux.org/alpine/apk-tools/-/archive/v3.0.3/apk-tools-v3.0.3.tar.gz"
+sum="adbd8077d247e3852e3b0aaff82d3340"
 opt="no-check"
 lic="GPL-2.0-or-later"
