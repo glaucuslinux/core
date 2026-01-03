@@ -14,6 +14,7 @@ configure() {
     -Dlua=disabled \
     -Dpython=disabled \
     -Dtests=disabled \
+    -Dzstd=enabled \
     build
 }
 
