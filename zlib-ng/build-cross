@@ -20,6 +20,7 @@ configure() {
     --libdir=/usr/lib \
     --sharedlibdir=/usr/lib \
     --zlib-compat \
+    --without-vpclmulqdq \
     --without-armv6 \
     --without-armv8 \
     --without-neon \
