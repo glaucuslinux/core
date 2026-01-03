@@ -19,7 +19,16 @@ configure() {
     --libdir=/usr/lib \
     --sharedlibdir=/usr/lib \
     --zlib-compat \
-    --force-sse2
+    --without-armv6 \
+    --without-armv8 \
+    --without-neon \
+    --without-rvv \
+    --without-zbc \
+    --without-altivec \
+    --without-power8 \
+    --without-power9 \
+    --without-crc32-vx \
+    --without-crc32-la
 }
 
 build() {
