@@ -6,9 +6,9 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="0.9.2"
-url="https://github.com/labwc/labwc/archive/0.9.2.tar.gz"
-sum="6016050208b2592fea1b612a6f52ef94"
+ver="0.9.3"
+url="https://github.com/labwc/labwc/archive/0.9.3.tar.gz"
+sum="bb6322ba254a3ff496cf88972e902138"
 bld="muon wayland-protocols wlroots"
 run="cairo glib libinput libpng libxkbcommon libxml2 pango wayland wlroots"
 opt="no-check"
