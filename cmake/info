@@ -6,9 +6,9 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="4.1.2"
-url="https://cmake.org/files/v4.1/cmake-4.1.2.tar.gz"
-sum="971b581d9bb5d8916128f9b7f3bc5117"
+ver="4.2.1"
+url="https://cmake.org/files/v4.2/cmake-4.2.1.tar.gz"
+sum="f9800bb30f03c949f47da6e2d104a8d1"
 bld="bzip2 curl expat libarchive xz zlib-ng zstd"
 opt="bootstrap no-lto"
 lic="BSD-3-Clause"
