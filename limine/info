@@ -6,9 +6,9 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="10.3.0"
-url="https://codeberg.org/Limine/Limine/releases/download/v10.3.0/limine-10.3.0.tar.zst"
-sum="8cd66ce08dc0c43fef702c263d766947"
+ver="10.6.0"
+url="https://codeberg.org/Limine/Limine/releases/download/v10.6.0/limine-10.6.0.tar.gz"
+sum="5aebdc7bc352fdc0316d7496c78dde85"
 bld="mtools nasm"
 opt="no-check"
 lic="BSD-2-Clause"
