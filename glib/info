@@ -6,9 +6,9 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="2.87.0"
-url="https://download.gnome.org/sources/glib/2.87/glib-2.87.0.tar.xz"
-sum="6d0abc3b2f1382b44e4ca90340e6300a"
+ver="2.87.1"
+url="https://download.gnome.org/sources/glib/2.87/glib-2.87.1.tar.xz"
+sum="871158783c30156b6203ca1b7ceec259"
 bld="libffi muon pcre2 util-linux"
 opt="no-check"
 lic="LGPL-2.1-or-later"
