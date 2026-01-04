@@ -6,7 +6,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="43fd014"
+ver="302626b"
 url="https://git.sr.ht/~lattis/muon"
 run="u-config"
 opt="bootstrap no-check"
