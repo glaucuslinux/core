@@ -6,9 +6,9 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="12.2.0"
-url="https://github.com/harfbuzz/harfbuzz/releases/download/12.2.0/harfbuzz-12.2.0.tar.xz"
-sum="f9b3ae2853a7b7686d062cc2a8dde710"
+ver="12.3.0"
+url="https://github.com/harfbuzz/harfbuzz/archive/12.3.0.tar.gz"
+sum="b832142c9266528c1e8e1a6c60a30574"
 bld="freetype glib"
 opt="no-check"
 lic="MIT"
