@@ -7,7 +7,7 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
-  "$tmp"/$nom/$nom-$nom-$ver
+  cd "$tmp"/$nom/$nom-$nom-$ver
 }
 
 configure() {
