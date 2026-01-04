@@ -6,7 +6,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="5.4"
-url="https://fping.org/dist/fping-5.4.tar.gz"
-sum="484fa522270407b3d51e0abc2f3eab18"
+ver="5.5"
+url="https://fping.org/dist/fping-5.5.tar.gz"
+sum="0da11cf44f896efd22e35fd23e1780c5"
 lic="BSD-4.3TAHOE"
