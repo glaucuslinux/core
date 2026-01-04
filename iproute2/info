@@ -6,9 +6,9 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="6.17.0"
-url="https://cdn.kernel.org/pub/linux/utils/net/iproute2/iproute2-6.17.0.tar.gz"
-sum="7a6cb02a755adf2fea2df97d3312a549"
+ver="6.18.0"
+url="https://cdn.kernel.org/pub/linux/utils/net/iproute2/iproute2-6.18.0.tar.gz"
+sum="abac058f95f5739606848664b3249959"
 bld="libcap"
 opt="no-check"
 lic="GPL-2.0-or-later"
