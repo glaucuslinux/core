@@ -6,8 +6,8 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="3.17.3"
-url="https://github.com/NetworkConfiguration/openresolv/archive/v3.17.3.tar.gz"
-sum="d83110576c9ca27867828b44576be8d8"
+ver="3.17.4"
+url="https://github.com/NetworkConfiguration/openresolv/archive/v3.17.4.tar.gz"
+sum="11be91223b281ddedb153d7152a8eae1"
 opt="no-check"
 lic="BSD-2-Clause"
