@@ -6,8 +6,9 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="3.13.2"
-url="https://python.org/ftp/python/3.13.2/Python-3.13.2.tgz"
-sum="9e963724d025c9fdb6a1fefebace4705"
+ver="3.14.2"
+url="https://python.org/ftp/python/3.14.2/Python-3.14.2.tgz"
+sum="4521c04f42a61ce58b11d9c638d3534b"
 bld="expat libffi mpdecimal"
 opt="no-check"
+lic="PSF-2.0"
