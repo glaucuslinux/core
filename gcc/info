@@ -9,6 +9,6 @@
 ver="15.2.0"
 url="https://ftpmirror.gnu.org/gcc/gcc-15.2.0/gcc-15.2.0.tar.gz"
 sum="241b3c1537004839233f80711e758555"
-bld="binutils gmp isl libarchive mpc mpfr zstd"
+bld="binutils gmp libarchive mpc mpfr zstd"
 opt="no-check no-lto"
 lic="GPL-3.0-or-later"
