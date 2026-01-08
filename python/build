@@ -30,7 +30,6 @@ configure() {
     --with-system-libmpdec \
     --with-dbmliborder=gdbm:ndbm \
     --without-doc-strings \
-    --with-mimalloc \
     --with-pymalloc \
     --with-readline=editline \
     --with-computed-gotos \
