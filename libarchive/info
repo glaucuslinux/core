@@ -6,9 +6,9 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="3.8.4"
-url="https://github.com/libarchive/libarchive/releases/download/v3.8.4/libarchive-3.8.4.tar.gz"
-sum="c95a2630263d3a3e2b447c283878d6f3"
+ver="3.8.5"
+url="https://github.com/libarchive/libarchive/releases/download/v3.8.5/libarchive-3.8.5.tar.gz"
+sum="b083496ea04245e0a3bbd409b80cffe3"
 bld="acl attr aws-lc bzip2 expat lz4 xz zlib-ng zstd"
 run="expat"
 lic="BSD-2-Clause"
