@@ -1,12 +1,13 @@
 # SPDX-License-Identifier: MPL-2.0
 
-# Copyright © 2018-2025 Firas Khana
+# Copyright © 2018-2026 Firas Khana
 
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="2.41"
-url="https://cdn.kernel.org/pub/linux/utils/util-linux/v2.41/util-linux-2.41.tar.gz"
-sum="35e26542ff60eadfec4ea8b7fe5ee187"
+ver="2.41.3"
+url="https://cdn.kernel.org/pub/linux/utils/util-linux/v2.41/util-linux-2.41.3.tar.gz"
+sum="47ebd2c66e20f63e54bf2f580e297183"
 bld="libedit libudev-zero netbsd-curses zlib-ng"
+lic=""
