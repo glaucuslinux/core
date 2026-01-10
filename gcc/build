@@ -47,6 +47,7 @@ configure() {
     --enable-decimal-float=bid \
     --disable-fixed-point \
     --enable-threads=posix \
+    --disable-tm-clone-registry \
     --enable-tls \
     --enable-languages=c,c++ \
     --disable-rpath \
