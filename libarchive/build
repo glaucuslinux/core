@@ -10,9 +10,6 @@ prepare() {
   patch \
     -i "$core"/$nom/patches/glaucus/0001-fix-pkg-config-file.patch \
     -p 0
-  patch \
-    -i "$core"/$nom/patches/void/filter-xz-enable-threads.patch \
-    -p 1
 
   ./build/autogen.sh
 }
