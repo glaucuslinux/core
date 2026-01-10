@@ -69,7 +69,6 @@ configure() {
     --disable-gnu-indirect-function \
     --enable-initfini-array \
     --disable-gnu-unique-object \
-    --enable-linker-build-id \
     --disable-libsanitizer \
     --disable-libssp \
     --enable-default-ssp \
@@ -81,10 +80,14 @@ configure() {
     --disable-cet \
     --disable-werror \
     --disable-symvers \
+    --disable-libstdcxx-verbose \
     --disable-libstdcxx-pch \
     --enable-clocale=generic \
-    --enable-libstdcxx-time=rt \
+    --disable-libstdcxx-time \
     --enable-libstdcxx-threads \
+    --disable-libstdcxx-filesystem-ts \
+    --with-libstdcxx-lock-policy=atomic \
+    --without-libstdcxx-zoneinfo \
     --with-arch=x86-64-v3 \
     --with-sysroot="$cross" \
     --with-pkgversion="$PRETTY_NAME" \
