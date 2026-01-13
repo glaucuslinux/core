@@ -1,0 +1,113 @@
+From 05b462e0a6de90c0d69a48ed9c58a6f76158344e Mon Sep 17 00:00:00 2001
+From: Rich Felker <dalias@aerifal.cx>
+Date: Fri, 25 Jul 2025 02:41:46 -0700
+Subject: [PATCH] static PIE: ensure -static reaches the linker
+
+on some targets, the logic for the compiler option -static seems not
+to be processed when -pie is present. rather than playing
+whack-a-mole, just ensure LD_PIE_SPEC specs always pass -static to ld
+if either -static or -static-pie is present on the compiler driver
+command line.
+
+this may produce redundant -static arguments but it doesn't matter.
+---
+ gcc/common.opt        |  4 ++--
+ gcc/config/gnu-user.h | 17 ++++++++---------
+ gcc/gcc.cc            |  6 +++---
+ 3 files changed, 13 insertions(+), 14 deletions(-)
+
+diff --git a/gcc/common.opt b/gcc/common.opt
+index e65a575d9f8..7ad38711f6e 100644
+--- a/gcc/common.opt
++++ b/gcc/common.opt
+@@ -3968,11 +3968,11 @@ Driver
+ 
+ no-pie
+ Driver RejectNegative Negative(shared)
+-Don't create a dynamically linked position independent executable.
++Don't create a position independent executable.
+ 
+ pie
+ Driver RejectNegative Negative(no-pie)
+-Create a dynamically linked position independent executable.
++Create a position independent executable.
+ 
+ static-pie
+ Driver RejectNegative Negative(pie)
+diff --git a/gcc/config/gnu-user.h b/gcc/config/gnu-user.h
+index 0426efdb8c3..866c8bd77f2 100644
+--- a/gcc/config/gnu-user.h
++++ b/gcc/config/gnu-user.h
+@@ -51,13 +51,12 @@ see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
+ #define GNU_USER_TARGET_STARTFILE_SPEC \
+   "%{shared:; \
+      pg|p|profile:%{static-pie:grcrt1.o%s;:gcrt1.o%s}; \
+-     static:crt1.o%s; \
+-     static-pie:rcrt1.o%s; \
++     static|static-pie:%{" PIE_SPEC ":rcrt1.o%s;:crt1.o%s}; \
+      " PIE_SPEC ":Scrt1.o%s; \
+      :crt1.o%s} " \
+    GNU_USER_TARGET_CRTI " \
+-   %{static:crtbeginT.o%s; \
+-     shared|static-pie|" PIE_SPEC ":crtbeginS.o%s; \
++   %{shared|" PIE_SPEC ":crtbeginS.o%s; \
++     static:crtbeginT.o%s; \
+      :crtbegin.o%s} \
+    %{fvtable-verify=none:%s; \
+      fvtable-verify=preinit:vtv_start_preinit.o%s; \
+@@ -73,11 +72,11 @@ see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
+    GNU userspace "finalizer" file, `crtn.o'.  */
+ 
+ #define GNU_USER_TARGET_ENDFILE_SPEC \
+-  "%{!static:%{fvtable-verify=none:%s; \
++  "%{static|static-pie:; \
++     fvtable-verify=none:%s; \
+      fvtable-verify=preinit:vtv_end_preinit.o%s; \
+-     fvtable-verify=std:vtv_end.o%s}} \
+-   %{static:crtend.o%s; \
+-     shared|static-pie|" PIE_SPEC ":crtendS.o%s; \
++     fvtable-verify=std:vtv_end.o%s} \
++   %{shared|" PIE_SPEC ":crtendS.o%s; \
+      :crtend.o%s} " \
+    GNU_USER_TARGET_CRTN " " \
+    CRTOFFLOADEND
+@@ -106,7 +105,7 @@ see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
+ #define LIB_SPEC GNU_USER_TARGET_LIB_SPEC
+ 
+ #if defined(HAVE_LD_EH_FRAME_HDR)
+-#define LINK_EH_SPEC "%{!static|static-pie:--eh-frame-hdr} "
++#define LINK_EH_SPEC "%{!static|" PIE_SPEC ":--eh-frame-hdr} "
+ #endif
+ 
+ #if !defined(LINK_LIBATOMIC_SPEC) && defined(ENABLE_AUTOLINK_LIBATOMIC)
+diff --git a/gcc/gcc.cc b/gcc/gcc.cc
+index e9f78f0f4c1..767ff65f348 100644
+--- a/gcc/gcc.cc
++++ b/gcc/gcc.cc
+@@ -1056,7 +1056,7 @@ proper position among the other output files.  */
+ #define NO_FPIE_AND_FPIC_SPEC	NO_FPIE_SPEC "|" NO_FPIC_SPEC
+ #define FPIE_OR_FPIC_SPEC	NO_FPIE_AND_FPIC_SPEC ":;"
+ #else
+-#define PIE_SPEC		"pie"
++#define PIE_SPEC		"pie|static-pie"
+ #define FPIE1_SPEC		"fpie"
+ #define NO_FPIE1_SPEC		FPIE1_SPEC ":;"
+ #define FPIE2_SPEC		"fPIE"
+@@ -1080,12 +1080,12 @@ proper position among the other output files.  */
+ #ifndef LINK_PIE_SPEC
+ #ifdef HAVE_LD_PIE
+ #ifndef LD_PIE_SPEC
+-#define LD_PIE_SPEC "-pie"
++#define LD_PIE_SPEC "-pie %{static|static-pie:--no-dynamic-linker -z text -Bsymbolic -static}"
+ #endif
+ #else
+ #define LD_PIE_SPEC ""
+ #endif
+-#define LINK_PIE_SPEC "%{static|shared|r:;" PIE_SPEC ":" LD_PIE_SPEC "} "
++#define LINK_PIE_SPEC "%{shared|r:;" PIE_SPEC ":" LD_PIE_SPEC "} "
+ #endif
+ 
+ #ifndef LINK_BUILDID_SPEC
+-- 
+2.50.1
+
