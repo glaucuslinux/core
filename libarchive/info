@@ -9,6 +9,6 @@
 ver="3.8.5"
 url="https://github.com/libarchive/libarchive/releases/download/v3.8.5/libarchive-3.8.5.tar.gz"
 sum="b083496ea04245e0a3bbd409b80cffe3"
-bld="acl attr aws-lc bzip2 expat lz4 xz zlib-ng zstd"
+bld="acl attr bzip2 expat libressl lz4 xz zlib-ng zstd"
 run="expat"
 lic="BSD-2-Clause"
