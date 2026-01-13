@@ -9,5 +9,5 @@
 ver="0.8.13"
 url="https://landley.net/toybox/downloads/toybox-0.8.13.tar.gz"
 sum="ac18ce5f61b132d54f0c31b592f22006"
-bld="aws-lc utmps"
+bld="libressl utmps"
 lic="0BSD"
