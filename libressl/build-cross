@@ -1,0 +1,40 @@
+# SPDX-License-Identifier: MPL-2.0
+
+# Copyright © 2018-2026 Firas Khana
+
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
+prepare() {
+  autoreconf -vfis
+}
+
+configure() {
+  "$core"/autoconf/files/glaucus-configure \
+    --build=$build \
+    --host=$host \
+    --enable-pic \
+    --disable-static \
+    --disable-tests \
+    --enable-nc \
+    --with-openssldir=/etc/ssl
+}
+
+build() {
+  make
+}
+
+package() {
+  make \
+    DESTDIR="$cross" \
+    install-strip
+
+  ln -fs ../../cert.pem "$cross"/etc/ssl/certs/ca-certificates.crt
+
+  # Remove libtool archives
+  rm -fv \
+    "$cross"/usr/lib/libcrypto.la \
+    "$cross"/usr/lib/libssl.la \
+    "$cross"/usr/lib/libtls.la
+}
