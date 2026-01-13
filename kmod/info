@@ -9,6 +9,6 @@
 ver="34.2"
 url="https://cdn.kernel.org/pub/linux/utils/kernel/kmod/kmod-34.2.tar.gz"
 sum="1b453b17953d134d1c1ba1d115fd9c38"
-bld="aws-lc muon xz zlib-ng zstd"
+bld="libressl muon xz zlib-ng zstd"
 opt="empty no-check"
 lic="GPL-2.0-or-later LGPL-2.1-or-later"
