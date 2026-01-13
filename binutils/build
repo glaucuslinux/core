@@ -27,22 +27,30 @@ configure() {
     --localstatedir=/var \
     --libdir=/usr/lib \
     --disable-multilib \
-    --enable-install-libiberty \
+    --enable-shared \
+    --disable-static \
     --enable-plugins \
     --enable-64-bit-bfd \
     --enable-targets=x86_64-pep \
+    --disable-install-libbfd \
     --enable-deterministic-archives \
     --enable-colored-disassembly \
     --disable-gprofng \
-    --disable-compressed-debug-sections \
+    --enable-x86-relax-relocations \
     --enable-new-dtags \
     --enable-relro \
+    --enable-separate-code \
+    --enable-rosegment \
     --disable-default-execstack \
     --enable-default-hash-style=gnu \
     --enable-initfini-array \
     --disable-werror \
     --disable-nls \
     --disable-rpath \
+    --disable-install-libiberty \
+    --disable-cet \
+    --enable-host-shared \
+    --enable-host-pie \
     --with-pic \
     --with-mmap \
     --with-lib-path=/usr/lib \
@@ -50,7 +58,8 @@ configure() {
     --with-bugurl=https://github.com/glaucuslinux/glaucus/issues \
     --without-debuginfod \
     --with-system-zlib \
-    --with-zstd
+    --with-zstd \
+    --without-msgpack
 }
 
 build() {
