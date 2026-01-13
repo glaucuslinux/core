@@ -8,8 +8,8 @@
 
 prepare() {
   patch \
-    -i "$core"/$nom/patches/chimera/make.patch \
-    -p 1
+    -i "$core"/$nom/patches/glaucus/0001-optimize-more.patch \
+    -p 0
 }
 
 build() {
