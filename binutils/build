@@ -37,6 +37,8 @@ configure() {
     --enable-colored-disassembly \
     --disable-gprofng \
     --enable-x86-relax-relocations \
+    --disable-generate-build-notes \
+    --disable-x86-used-note \
     --enable-new-dtags \
     --enable-relro \
     --enable-separate-code \
