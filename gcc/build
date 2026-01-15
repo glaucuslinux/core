@@ -48,29 +48,36 @@ configure() {
     --enable-decimal-float=bid \
     --disable-fixed-point \
     --enable-threads=posix \
-    --disable-tm-clone-registry \
     --enable-tls \
     --enable-languages=c,c++ \
     --disable-rpath \
     --disable-nls \
+    --disable-static \
     --disable-gnu-indirect-function \
     --enable-initfini-array \
     --disable-gnu-unique-object \
-    --disable-libsanitizer \
+    --disable-linker-build-id \
     --disable-libssp \
     --enable-default-ssp \
     --enable-link-serialization=1 \
+    --enable-plugin \
     --enable-host-shared \
     --enable-host-pie \
     --enable-host-bind-now \
     --enable-default-pie \
-    --disable-cet \
     --disable-werror \
+    --disable-cet \
     --disable-symvers \
+    --disable-gcov \
+    --disable-tm-clone-registry \
+    --disable-install-libiberty \
+    --disable-libsanitizer \
     --disable-libstdcxx-verbose \
     --disable-libstdcxx-pch \
     --enable-clocale=generic \
-    --disable-libstdcxx-time \
+    --enable-libstdcxx-allocator=malloc \
+    --enable-cxx-flags="$CFLAGS" \
+    --enable-libstdcxx-time \
     --enable-libstdcxx-threads \
     --disable-libstdcxx-filesystem-ts \
     --with-libstdcxx-lock-policy=atomic \
