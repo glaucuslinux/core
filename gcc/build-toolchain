@@ -43,6 +43,7 @@ prepare() {
 }
 
 configure() {
+  gcc_cv_libc_gnustack=no \
   ../configure \
     --prefix= \
     --exec-prefix= \
@@ -91,7 +92,6 @@ configure() {
     --disable-libstdcxx-pch \
     --enable-clocale=generic \
     --enable-libstdcxx-allocator=malloc \
-    --enable-cxx-flags="$CFLAGS" \
     --enable-libstdcxx-time \
     --enable-libstdcxx-threads \
     --disable-libstdcxx-filesystem-ts \

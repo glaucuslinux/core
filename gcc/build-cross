@@ -43,6 +43,7 @@ prepare() {
 }
 
 configure() {
+  gcc_cv_libc_gnustack=no \
   ../configure \
     --prefix=/usr \
     --exec-prefix=/usr \
