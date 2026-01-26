@@ -29,8 +29,10 @@ package() {
   cp -fPp \
     "$core"/$nom/files/passwd \
     "$core"/$nom/files/profile \
+    "$core"/$nom/files/protocols \
     "$core"/$nom/files/resolv.conf \
     "$core"/$nom/files/securetty \
+    "$core"/$nom/files/services \
     "$core"/$nom/files/shadow \
     "$core"/$nom/files/shells \
     "$cross"/etc
