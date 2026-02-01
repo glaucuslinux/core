@@ -45,7 +45,8 @@ package() {
   ldconfig \
   makeinfo \
   po4a \
-  texi2dvi texi2pdf; do
+  texi2dvi texi2pdf \
+  yodl2man; do
     cp -fPp "$core"/$nom/files/true "$cross"/usr/bin/$i
   done
 
