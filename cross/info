@@ -6,4 +6,4 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-run="fs core expat linux-headers netbsd-curses u-config skalibs execline mdevd s6 utmps attr acl libcap libressl shadow zlib-ng bzip2 pigz lz4 xz zstd libarchive autoconf binutils file gcc gettext-tiny libedit m4 make mawk pcre2 reflex slibtool dash grep kmod libudev-zero toybox util-linux xxhash s6-linux-init s6-rc s6-boot-scripts linux-cachyos"
+run="fs core expat linux-headers netbsd-curses u-config skalibs execline mdevd s6 utmps attr acl libcap libressl shadow zlib-ng bzip2 pigz lz4 xz zstd libarchive autoconf binutils file flex gcc gettext-tiny libedit m4 make mawk pcre2 slibtool dash grep kmod libudev-zero toybox util-linux xxhash s6-linux-init s6-rc s6-boot-scripts linux-cachyos"
