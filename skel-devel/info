@@ -6,4 +6,4 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-run="autoconf automake bash binutils byacc cmake curl gcc gettext-tiny gmp gperf linux-headers m4 make mawk mpc mpfr muon perl pigz reflex skel slibtool u-config"
+run="autoconf automake bash binutils byacc cmake curl flex gcc gettext-tiny gmp gperf linux-headers m4 make mawk mpc mpfr muon perl pigz skel slibtool u-config"
