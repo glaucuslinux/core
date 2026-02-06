@@ -6,4 +6,4 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-run="bkeymaps busybox curl eiwd hwdata neatvi openresolv pciutils sdhcp skel tmux"
+run="busybox curl eiwd hwdata kbd neatvi openresolv pciutils sdhcp skel tmux"
