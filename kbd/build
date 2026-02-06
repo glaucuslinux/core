@@ -1,0 +1,45 @@
+# SPDX-License-Identifier: MPL-2.0
+
+# Copyright © 2018-2026 Firas Khana
+
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
+prepare() {
+  autoreconf -vfis
+}
+
+configure() {
+  glaucus-configure \
+    --disable-static \
+    --enable-pic \
+    --disable-nls \
+    --disable-rpath \
+    --enable-optional-progs \
+    --disable-vlock \
+    --disable-tests
+}
+
+build() {
+  make
+}
+
+check() {
+  make \
+    check
+}
+
+package() {
+  make \
+    DESTDIR="$dir" \
+    install-strip
+
+  ln -fs openvt "$dir"/usr/bin/open
+
+  rm -fRv \
+    "$dir"/usr/share/keymaps/amiga \
+    "$dir"/usr/share/keymaps/atari \
+    "$dir"/usr/share/keymaps/i386/qwerty/ro_win.map.gz \
+    "$dir"/usr/share/keymaps/sun
+}
