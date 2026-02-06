@@ -1,0 +1,42 @@
+# SPDX-License-Identifier: MPL-2.0
+
+# Copyright © 2018-2026 Firas Khana
+
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
+prepare() {
+  ./autogen.sh
+
+  touch doc/$nom.1
+}
+
+configure() {
+  ac_cv_func_malloc_0_nonnull=yes \
+  ac_cv_func_realloc_0_nonnull=yes \
+  "$core"/autoconf/files/glaucus-configure \
+    --build=$build \
+    --host=$host \
+    --disable-static \
+    --enable-pic \
+    --disable-nls \
+    --disable-rpath \
+    --disable-libfl \
+    --disable-bootstrap
+}
+
+build() {
+  make
+}
+
+package() {
+  make \
+    DESTDIR="$cross" \
+    install-strip
+
+  ln -fs $nom "$cross"/usr/bin/lex
+
+  # Remove libtool archive
+  rm -fv "$cross"/usr/lib/libfl.la
+}
