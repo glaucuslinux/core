@@ -30,7 +30,6 @@ configure() {
     --host=$build \
     --target=$host \
     --disable-multilib \
-    --enable-shared \
     --disable-static \
     --enable-plugins \
     --enable-64-bit-bfd \
