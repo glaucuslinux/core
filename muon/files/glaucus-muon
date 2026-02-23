@@ -20,7 +20,7 @@ exec muon setup \
   -Dauto_features=disabled \
   -Ddebug=false \
   -Ddefault_library=shared \
-  -Doptimization=2 \
+  -Doptimization=s \
   -Dstrip=true \
   -Dwrap_mode=nodownload \
   -Db_lto=true \

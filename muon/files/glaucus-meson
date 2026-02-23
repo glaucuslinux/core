@@ -19,7 +19,7 @@ exec meson setup \
   -Dlibdir=/usr/lib \
   -Dauto_features=disabled \
   -Ddebug=false \
-  -Doptimization=2 \
+  -Doptimization=s \
   -Dstrip=true \
   -Dwrap_mode=nodownload \
   -Db_lto=true \
