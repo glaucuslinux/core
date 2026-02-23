@@ -7,10 +7,9 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
-  # patch \
-  #   -i "$core"/$nom/patches/glaucus/0001-optimize-more.patch \
-  #   -p 0
-  :
+  patch \
+    -i "$core"/$nom/patches/glaucus/0001-optimize-more.patch \
+    -p 0
 }
 
 build() {
