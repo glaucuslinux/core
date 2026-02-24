@@ -76,7 +76,6 @@ configure() {
     --disable-libssp \
     --enable-default-ssp \
     --enable-link-serialization=1 \
-    --enable-plugin \
     --enable-host-shared \
     --enable-host-pie \
     --enable-host-bind-now \
