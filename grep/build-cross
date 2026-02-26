@@ -7,7 +7,9 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
-  autoreconf -vfis
+  touch \
+    aclocal.m4 \
+    Makefile.in
 }
 
 configure() {
