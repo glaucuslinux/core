@@ -37,6 +37,9 @@ configure() {
 
 build() {
   make \
+    AR=$AR \
+    RANLIB=$RANLIB \
+    STRIP=$STRIP \
     strip
 }
 
