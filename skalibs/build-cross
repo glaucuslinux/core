@@ -33,6 +33,7 @@ configure() {
 
 build() {
   make \
+    STRIP=$STRIP \
     strip
 }
 
