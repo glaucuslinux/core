@@ -11,6 +11,7 @@ prepare() {
 }
 
 configure() {
+  LIBS=-lterminfo \
   "$core"/autoconf/files/glaucus-configure \
     --build=$build \
     --host=$host \
