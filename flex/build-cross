@@ -27,7 +27,8 @@ configure() {
 }
 
 build() {
-  make
+  make \
+    -j 1
 }
 
 package() {

@@ -9,4 +9,5 @@
 ver="bf254c7"
 url="https://github.com/westes/flex"
 run="m4"
+opt="no-parallel"
 lic="BSD-3-Clause-flex"
