@@ -23,6 +23,8 @@ build() {
 package() {
   find usr/include ! -name '*.h' -type f -delete
 
+  mkdir -p "$cross"/usr
+
   cp -fPpR usr/include "$cross"/usr
   rm -fRv "$cross"/usr/include/drm
 }
