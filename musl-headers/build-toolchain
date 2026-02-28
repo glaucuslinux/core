@@ -7,7 +7,7 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
-  cd "$tmp"/musl/musl-$ver
+  cd "$tmp"/$nom/musl-$ver
 
   patch \
     -i "$core"/musl/patches/glaucus/0001-fix-utmp-wtmp-paths.patch \
