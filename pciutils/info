@@ -6,10 +6,10 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="3.14.0"
-url="https://mj.ucw.cz/download/linux/pci/pciutils-3.14.0.tar.gz"
-sum="6431baf90f409568bef6e93ef6f0c581"
-bld="kmod libudev-zero"
-run="hwdata kmod libudev-zero"
-opt="no-check"
-lic="GPL-2.0-or-later"
+ver='3.14.0'
+url='https://mj.ucw.cz/download/linux/pci/pciutils-3.14.0.tar.gz'
+sum='6431baf90f409568bef6e93ef6f0c581'
+bld='kmod libudev-zero'
+run='hwdata kmod libudev-zero'
+opt='no-check'
+lic='GPL-2.0-or-later'

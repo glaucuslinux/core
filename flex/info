@@ -6,8 +6,8 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="bf254c7"
-url="https://github.com/westes/flex"
-run="m4"
-opt="no-parallel"
-lic="BSD-3-Clause-flex"
+ver='bf254c7'
+url='https://github.com/westes/flex'
+run='m4'
+opt='no-parallel'
+lic='BSD-3-Clause-flex'

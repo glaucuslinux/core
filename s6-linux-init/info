@@ -6,9 +6,9 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="30fa2a0"
-url="https://github.com/skarnet/s6-linux-init"
-bld="execline s6 skalibs utmps"
-run="execline s6 skalibs utmps"
-opt="no-check"
-lic="ISC"
+ver='30fa2a0'
+url='https://github.com/skarnet/s6-linux-init'
+bld='execline s6 skalibs utmps'
+run='execline s6 skalibs utmps'
+opt='no-check'
+lic='ISC'

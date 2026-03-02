@@ -6,7 +6,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="3.01"
-url="https://nasm.us/pub/nasm/releasebuilds/3.01/nasm-3.01.tar.gz"
-sum="72e3a4c13db065bba97e48e13e7b7421"
-lic="BSD-2-Clause"
+ver='3.01'
+url='https://nasm.us/pub/nasm/releasebuilds/3.01/nasm-3.01.tar.gz'
+sum='72e3a4c13db065bba97e48e13e7b7421'
+lic='BSD-2-Clause'

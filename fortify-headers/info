@@ -7,6 +7,6 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 ver='latest'
-url='https://git.sr.ht/~emersion/basu'
-bld='gperf libcap muon python'
-lic='LGPL-2.1-or-later'
+url='https://github.com/jvoisin/fortify-headers'
+opt='no-check'
+lic='0BSD'

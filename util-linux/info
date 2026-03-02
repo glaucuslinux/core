@@ -6,8 +6,8 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="2.41.3"
-url="https://cdn.kernel.org/pub/linux/utils/util-linux/v2.41/util-linux-2.41.3.tar.gz"
-sum="47ebd2c66e20f63e54bf2f580e297183"
-bld="libedit libudev-zero netbsd-curses zlib-ng"
-lic=""
+ver='2.41.3'
+url='https://cdn.kernel.org/pub/linux/utils/util-linux/v2.41/util-linux-2.41.3.tar.gz'
+sum='47ebd2c66e20f63e54bf2f580e297183'
+bld='libedit libudev-zero netbsd-curses zlib-ng'
+lic=''

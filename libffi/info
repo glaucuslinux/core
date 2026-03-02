@@ -6,7 +6,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="3.5.2"
-url="https://github.com/libffi/libffi/releases/download/v3.5.2/libffi-3.5.2.tar.gz"
-sum="80e0ec052496827516dbeaca1135218c"
-lic="MIT"
+ver='3.5.2'
+url='https://github.com/libffi/libffi/releases/download/v3.5.2/libffi-3.5.2.tar.gz'
+sum='80e0ec052496827516dbeaca1135218c'
+lic='MIT'

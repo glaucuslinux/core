@@ -6,9 +6,9 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="0.46.4"
-url="https://gitlab.freedesktop.org/pixman/pixman/-/archive/pixman-0.46.4/pixman-pixman-0.46.4.tar.gz"
-sum="f8de431496c59e3a15dbb6467ff9cbeb"
-bld="libpng muon"
-opt="no-check"
-lic="MIT"
+ver='0.46.4'
+url='https://gitlab.freedesktop.org/pixman/pixman/-/archive/pixman-0.46.4/pixman-pixman-0.46.4.tar.gz'
+sum='f8de431496c59e3a15dbb6467ff9cbeb'
+bld='libpng muon'
+opt='no-check'
+lic='MIT'

@@ -6,9 +6,9 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="34.2"
-url="https://cdn.kernel.org/pub/linux/utils/kernel/kmod/kmod-34.2.tar.gz"
-sum="1b453b17953d134d1c1ba1d115fd9c38"
-bld="libressl muon xz zlib-ng zstd"
-opt="empty no-check"
-lic="GPL-2.0-or-later LGPL-2.1-or-later"
+ver='34.2'
+url='https://cdn.kernel.org/pub/linux/utils/kernel/kmod/kmod-34.2.tar.gz'
+sum='1b453b17953d134d1c1ba1d115fd9c38'
+bld='libressl muon xz zlib-ng zstd'
+opt='empty no-check'
+lic='GPL-2.0-or-later LGPL-2.1-or-later'

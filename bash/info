@@ -6,9 +6,9 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="5.3"
-url="https://ftpmirror.gnu.org/bash/bash-5.3.tar.gz"
-sum="7e926a020ae3cc8d45c2dc672e3a139e"
-bld="byacc libedit netbsd-curses"
-opt="bootstrap"
-lic=""
+ver='5.3'
+url='https://ftpmirror.gnu.org/bash/bash-5.3.tar.gz'
+sum='7e926a020ae3cc8d45c2dc672e3a139e'
+bld='byacc libedit netbsd-curses'
+opt='bootstrap'
+lic=''

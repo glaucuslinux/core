@@ -6,9 +6,9 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="b105fc4"
-url="https://github.com/skarnet/s6-rc"
-bld="execline s6 skalibs"
-run="execline s6 skalibs"
-opt="no-check"
-lic="ISC"
+ver='b105fc4'
+url='https://github.com/skarnet/s6-rc'
+bld='execline s6 skalibs'
+run='execline s6 skalibs'
+opt='no-check'
+lic='ISC'

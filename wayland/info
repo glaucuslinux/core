@@ -6,9 +6,9 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="1.24.0"
-url="https://gitlab.freedesktop.org/wayland/wayland/-/archive/1.24.0/wayland-1.24.0.tar.gz"
-sum="20465fc72a32b3361a4dcb9f6aff0494"
-bld="expat libffi libxml2 muon"
-opt="no-check"
-lic="MIT"
+ver='1.24.0'
+url='https://gitlab.freedesktop.org/wayland/wayland/-/archive/1.24.0/wayland-1.24.0.tar.gz'
+sum='20465fc72a32b3361a4dcb9f6aff0494'
+bld='expat libffi libxml2 muon'
+opt='no-check'
+lic='MIT'

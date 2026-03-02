@@ -6,9 +6,9 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver="8.17.0"
-url="https://curl.se/download/curl-8.17.0.tar.gz"
-sum="2a951c4075d1368db89dd5defbef2800"
-bld="libressl zlib-ng zstd"
-opt="bootstrap"
-lic="curl"
+ver='8.17.0'
+url='https://curl.se/download/curl-8.17.0.tar.gz'
+sum='2a951c4075d1368db89dd5defbef2800'
+bld='libressl zlib-ng zstd'
+opt='bootstrap'
+lic='curl'
