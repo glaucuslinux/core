@@ -6,7 +6,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver='2.2.6'
-url='https://github.com/nim-lang/Nim/archive/v2.2.6.tar.gz'
-sum='89c8d9d942df8821d1f0e09634a6e70c'
+ver='2.2.8'
+url='https://github.com/nim-lang/Nim/archive/v2.2.8.tar.gz'
+sum='070e55c4ee3981b06bbaf08f8fbf3bbb'
 lic='MIT'
