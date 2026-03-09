@@ -35,7 +35,9 @@ configure() {
     --disable-uuidd \
     --disable-nls \
     --disable-rpath \
-    --enable-lto
+    --enable-lto \
+    --without-udev-rules-dir \
+    --without-systemd-unit-dir
 }
 
 build() {
@@ -50,14 +52,9 @@ check() {
 package() {
   make \
     DESTDIR="$dir" \
-    install-strip \
-    install-libs
+    install-strip
 
   rm -fv \
     "$dir"/usr/bin/chattr \
-    "$dir"/usr/bin/lsattr \
-    "$dir"/usr/lib/libcom_err.a \
-    "$dir"/usr/lib/libe2p.a \
-    "$dir"/usr/lib/libext2fs.a \
-    "$dir"/usr/lib/libss.a
+    "$dir"/usr/bin/lsattr
 }
