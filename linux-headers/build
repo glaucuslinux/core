@@ -7,10 +7,11 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
-  cd "$tmp"/$nom/linux-$ver
+  cd "$tmp/$nom/linux-$ver"
 
   make \
     ARCH=x86_64 \
+    CC=clang \
     mrproper
 }
 
