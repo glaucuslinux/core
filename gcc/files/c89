@@ -13,7 +13,7 @@ f=-std=c89
 for i; do
   case $i in
     -ansi | -std=c90 | $f | -std=iso9899:1990) f= ;;
-    -std=* | -fgnu89-inline) echo "c89 called with non ANSI/ISO C option $i" >&2; exit 1 ;;
+    -std=* | -fgnu89-inline) printf -- '%s\n' "c89 called with non ANSI/ISO C option $i" >&2; exit 1 ;;
   esac
 done
 
