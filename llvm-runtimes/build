@@ -7,27 +7,27 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
-  cd "$tmp"/$nom/llvm-project-$ver.src/$nom
+  cd "$tmp/$nom/llvm-project-$ver.src/runtimes"
 }
 
 configure() {
   glaucus-cmake \
     -B build \
     -DBENCHMARK_INSTALL_DOCS=OFF \
-    -DCMAKE_ASM_COMPILER=clang \
-    -DCMAKE_ASM_COMPILER_TARGET=$host \
+    -DCMAKE_ASM_COMPILER="$CC" \
+    -DCMAKE_ASM_COMPILER_TARGET="$host" \
     -DCMAKE_BUILD_TYPE=Release \
-    -DCMAKE_C_COMPILER=clang \
-    -DCMAKE_C_COMPILER_TARGET=$host \
+    -DCMAKE_C_COMPILER="$CC" \
+    -DCMAKE_C_COMPILER_TARGET="$host" \
     -DCMAKE_C_COMPILER_WORKS=ON \
-    -DCMAKE_CXX_COMPILER=clang++ \
-    -DCMAKE_CXX_COMPILER_TARGET=$host \
+    -DCMAKE_CXX_COMPILER="$CXX" \
+    -DCMAKE_CXX_COMPILER_TARGET="$host" \
     -DCMAKE_CXX_COMPILER_WORKS=ON \
-    -DCMAKE_FIND_ROOT_PATH="$cross" \
+    -DCMAKE_FIND_ROOT_PATH="$dir" \
     -DCMAKE_FIND_ROOT_PATH_MODE_INCLUDE=ONLY \
     -DCMAKE_FIND_ROOT_PATH_MODE_LIBRARY=ONLY \
     -DCMAKE_FIND_ROOT_PATH_MODE_PROGRAM=NEVER \
-    -DCMAKE_SYSROOT="$cross" \
+    -DCMAKE_SYSROOT="$dir" \
     -DLIBCXXABI_ENABLE_SHARED=ON \
     -DLIBCXXABI_ENABLE_STATIC=ON \
     -DLIBCXXABI_USE_COMPILER_RT=ON \
@@ -53,9 +53,9 @@ configure() {
     -DLIBUNWIND_INSTALL_SHARED_LIBRARY=ON \
     -DLIBUNWIND_INSTALL_STATIC_LIBRARY=ON \
     -DLIBUNWIND_USE_COMPILER_RT=ON \
-    -DLLVM_DEFAULT_TARGET_TRIPLE=$host \
+    -DLLVM_DEFAULT_TARGET_TRIPLE="$host" \
     -DLLVM_ENABLE_PER_TARGET_RUNTIME_DIR=ON \
-    -DLLVM_ENABLE_RUNTIMES="libunwind;libcxxabi;libcxx"
+    -DLLVM_ENABLE_RUNTIMES='libunwind;libcxxabi;libcxx'
 }
 
 build() {
@@ -66,6 +66,6 @@ build() {
 package() {
   make \
     -C build \
-    DESTDIR="$cross" \
+    DESTDIR="$dir" \
     install/strip
 }
