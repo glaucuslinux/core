@@ -8,7 +8,7 @@
 
 prepare() {
   patch \
-    -i "$core"/$nom/patches/glaucus/0001-fix-utmp-wtmp-paths.patch \
+    -i "$core/$nom/patches/glaucus/0001-fix-utmp-wtmp-paths.patch" \
     -p 0
 
   for i in \
@@ -17,7 +17,7 @@ prepare() {
   0003-iconv-harden-UTF-8-output-code-path-against-input-decoder-bugs \
   0004-stdio-skip-empty-iovec-when-buffering-is-disabled; do
     patch \
-      -i "$core"/$nom/patches/upstream/$i.patch \
+      -i "$core/$nom/patches/upstream/$i.patch" \
       -p 1
   done
 
@@ -27,14 +27,29 @@ prepare() {
 }
 
 configure() {
-  ./configure \
-    --prefix=/usr \
-    --exec-prefix=/usr \
-    --bindir=/usr/bin \
-    --libdir=/usr/lib \
-    --syslibdir=/usr/lib \
-    --disable-wrapper \
-    --disable-static
+  if [ -z "${bootstrap-}" ]; then
+    ./configure \
+      --prefix=/usr \
+      --exec-prefix=/usr \
+      --bindir=/usr/bin \
+      --libdir=/usr/lib \
+      --syslibdir=/usr/lib \
+      --disable-wrapper \
+      --disable-static
+  else
+    ARCH=x86_64 \
+    CROSS_COMPILE="$host-" \
+    LIBCC="$dir"/usr/lib/linux/libclang_rt.builtins-x86_64.a \
+    ./configure \
+      --host="$host" \
+      --prefix=/usr \
+      --exec-prefix=/usr \
+      --bindir=/usr/bin \
+      --libdir=/usr/lib \
+      --syslibdir=/usr/lib \
+      --disable-wrapper \
+      --disable-static
+  fi
 }
 
 build() {
@@ -50,9 +65,9 @@ package() {
     "$dir"/etc \
     "$dir"/usr/bin
 
-  cp -fPp "$core"/$nom/files/ld-$nom-x86_64.path "$dir"/etc
+  cp -fPp "$core/$nom/files/ld-$nom-x86_64.path" "$dir"/etc
 
-  cp -fPp "$core"/$nom/files/ldd "$dir"/usr/bin
+  cp -fPp "$core/$nom/files/ldd" "$dir"/usr/bin
   for i in \
   a2x asciidoc \
   gtkdocize \
@@ -60,9 +75,9 @@ package() {
   ldconfig \
   makeinfo \
   po4a \
-  texi2dvi texi2pdf \
+  texi2dvi texi2html texi2pdf \
   yodl2man; do
-    cp -fPp "$core"/$nom/files/true "$dir"/usr/bin/$i
+    cp -fPp "$core/$nom/files/true" "$dir/usr/bin/$i"
   done
 
   # `utmps` provides both `utmp.h` and `utmpx.h`
@@ -70,5 +85,5 @@ package() {
     "$dir"/usr/include/utmp.h \
     "$dir"/usr/include/utmpx.h
 
-  ln -fs libc.so "$dir"/usr/lib/ld-$nom-x86_64.so.1
+  ln -fs libc.so "$dir/usr/lib/ld-$nom-x86_64.so.1"
 }
