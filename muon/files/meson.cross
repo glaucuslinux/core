@@ -1,19 +1,26 @@
 [binaries]
-ar = 'x86_64-glaucus-linux-musl-gcc-ar'
-as = 'x86_64-glaucus-linux-musl-as'
-c = 'x86_64-glaucus-linux-musl-gcc'
-c_ld = 'bfd'
-cpp = 'x86_64-glaucus-linux-musl-g++'
-cpp_ld = 'bfd'
-ld = 'x86_64-glaucus-linux-musl-ld.bfd'
-nm = 'x86_64-glaucus-linux-musl-gcc-nm'
-objcopy = 'x86_64-glaucus-linux-musl-objcopy'
-objdump = 'x86_64-glaucus-linux-musl-objdump'
+ar = 'llvm-ar'
+as = 'llvm-mc'
+c = 'clang'
+c_ld = 'lld'
+cpp = 'clang++'
+cpp_ld = 'lld'
+ld = 'ld.lld'
+nm = 'llvm-nm'
+objcopy = 'llvm-objcopy'
+objdump = 'llvm-objdump'
 pkg-config = 'pkg-config'
-ranlib = 'x86_64-glaucus-linux-musl-gcc-ranlib'
-readelf = 'x86_64-glaucus-linux-musl-readelf'
-size = 'x86_64-glaucus-linux-musl-size'
-strip = 'x86_64-glaucus-linux-musl-strip'
+ranlib = 'llvm-ranlib'
+readelf = 'llvm-readelf'
+size = 'llvm-size'
+strip = 'llvm-strip'
+
+[properties]
+sys_root = '/home/firasuke/Git/glaucus/cross'
+
+[built-in options]
+c_args = ['--target=x86_64-pc-linux-musl', '--sysroot=/home/firasuke/Git/glaucus/cross', '-rtlib=compiler-rt', '-unwindlib=libunwind', '-stdlib=libc++']
+c_link_args = ['--target=x86_64-pc-linux-musl', '--sysroot=/home/firasuke/Git/glaucus/cross', '-rtlib=compiler-rt', '-unwindlib=libunwind', '-stdlib=libc++']
 
 [host_machine]
 cpu = 'x86_64'
