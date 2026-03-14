@@ -11,7 +11,7 @@ prepare() {
 
   make \
     ARCH=x86_64 \
-    CC=clang \
+    CC="$CC" \
     mrproper
 }
 
