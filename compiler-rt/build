@@ -7,26 +7,26 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
-  cd "$tmp"/$nom/llvm-project-$ver.src/$nom
+  cd "$tmp/$nom/llvm-project-$ver.src/$nom"
 }
 
 configure() {
   glaucus-cmake \
     -B build \
     -DBENCHMARK_INSTALL_DOCS=OFF \
-    -DCMAKE_ASM_COMPILER=clang \
-    -DCMAKE_ASM_COMPILER_TARGET=$host \
-    -DCMAKE_C_COMPILER=clang \
-    -DCMAKE_C_COMPILER_TARGET=$host \
+    -DCMAKE_ASM_COMPILER="$CC" \
+    -DCMAKE_ASM_COMPILER_TARGET="$host" \
+    -DCMAKE_C_COMPILER="$CC" \
+    -DCMAKE_C_COMPILER_TARGET="$host" \
     -DCMAKE_C_COMPILER_WORKS=ON \
-    -DCMAKE_CXX_COMPILER=clang++ \
-    -DCMAKE_CXX_COMPILER_TARGET=$host \
+    -DCMAKE_CXX_COMPILER="$CXX" \
+    -DCMAKE_CXX_COMPILER_TARGET="$host" \
     -DCMAKE_CXX_COMPILER_WORKS=ON \
-    -DCMAKE_FIND_ROOT_PATH="$cross" \
+    -DCMAKE_FIND_ROOT_PATH="$dir" \
     -DCMAKE_FIND_ROOT_PATH_MODE_INCLUDE=ONLY \
     -DCMAKE_FIND_ROOT_PATH_MODE_LIBRARY=ONLY \
     -DCMAKE_FIND_ROOT_PATH_MODE_PROGRAM=NEVER \
-    -DCMAKE_SYSROOT="$cross" \
+    -DCMAKE_SYSROOT="$dir" \
     -DCOMPILER_RT_BUILD_BUILTINS=ON \
     -DCOMPILER_RT_BUILD_CTX_PROFILE=OFF \
     -DCOMPILER_RT_BUILD_GWP_ASAN=OFF \
@@ -62,6 +62,6 @@ build() {
 package() {
   make \
     -C build \
-    DESTDIR="$cross" \
+    DESTDIR="$dir" \
     install/strip
 }
