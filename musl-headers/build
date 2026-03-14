@@ -6,8 +6,18 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver='1.2.5'
-url='https://musl.libc.org/releases/musl-1.2.5.tar.gz'
-sum='dd5c34dc388cbf46c40babd17793e923'
-opt='bootstrap'
-lic='MIT'
+prepare() {
+  cd "$tmp/$nom/musl-$ver"
+}
+
+package() {
+  make \
+    exec_prefix=/usr \
+    bindir=/usr/bin \
+    prefix=/usr \
+    libdir=/usr/lib \
+    syslibdir=/usr/lib \
+    ARCH=x86_64 \
+    DESTDIR="$dir" \
+    install-headers
+}
