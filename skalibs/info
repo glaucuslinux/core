@@ -8,5 +8,5 @@
 
 ver='45137c6'
 url='https://github.com/skarnet/skalibs'
-opt='no-check'
+opt='bootstrap no-check'
 lic='ISC'
