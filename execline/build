@@ -8,7 +8,7 @@
 
 prepare() {
   patch \
-    -i "$core"/$nom/patches/glaucus/0001-use-gnu-hash-style.patch \
+    -i "$core/$nom/patches/glaucus/0001-use-gnu-hash-style.patch" \
     -p 0
 }
 
