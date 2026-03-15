@@ -8,14 +8,22 @@
 
 prepare() {
   patch \
-    -i "$core"/$nom/patches/alpine/$nom-basename.patch \
+    -i "$core/$nom/patches/alpine/$nom-basename.patch" \
     -p 1
 
   autoreconf -vfis
 }
 
 configure() {
+  set --
+  if [ -n "${bootstrap-}" ]; then
+    set -- \
+        --build="$build" \
+        --host="$host"
+  fi
+
   glaucus-configure \
+    "$@" \
     --disable-static \
     --enable-pic \
     --disable-nls \
