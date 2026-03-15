@@ -13,19 +13,33 @@ prepare() {
 }
 
 configure() {
+  set --
+  if [ -n "${bootstrap-}" ]; then
+    set -- \
+        --host="$host" \
+        --with-include="$dir"/usr/include \
+        --with-lib="$dir"/usr/lib \
+        --with-dynlib="$dir"/usr/lib \
+        --with-sysdep-devurandom=yes \
+        --with-sysdep-posixspawnearlyreturn=no \
+        --with-sysdep-procselfexe=/proc/self/exe
+  fi
+
   ./configure \
+    "$@" \
     --prefix=/usr \
     --dynlibdir=/usr/lib \
     --libdir=/usr/lib \
     --sysconfdir=/etc \
     --pkgconfdir=/usr/lib/pkgconfig \
-    --sysdepdir=/usr/lib/$nom/sysdeps \
+    --sysdepdir=/usr/lib/"$nom"/sysdeps \
     --disable-static \
     --enable-pkgconfig
 }
 
 build() {
   make \
+    STRIP="$STRIP" \
     strip
 }
 
