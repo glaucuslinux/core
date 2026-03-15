@@ -8,12 +8,23 @@
 
 prepare() {
   patch \
-    -i "$core"/$nom/patches/glaucus/0001-use-gnu-hash-style.patch \
+    -i "$core/$nom/patches/glaucus/0001-use-gnu-hash-style.patch" \
     -p 0
 }
 
 configure() {
+  set --
+  if [ -n "${bootstrap-}" ]; then
+    set -- \
+        --host="$host" \
+        --with-sysdeps="$dir"/usr/lib/skalibs/sysdeps \
+        --with-include="$dir"/usr/include \
+        --with-lib="$dir"/usr/lib \
+        --with-dynlib="$dir"/usr/lib
+  fi
+
   ./configure \
+    "$@" \
     --prefix=/usr \
     --exec-prefix=/usr \
     --dynlibdir=/usr/lib \
@@ -32,6 +43,9 @@ configure() {
 
 build() {
   make \
+    AR="$AR" \
+    RANLIB="$RANLIB" \
+    STRIP="$STRIP" \
     strip
 }
 
