@@ -8,5 +8,5 @@
 
 ver='c526f59'
 url='https://github.com/skeeto/u-config'
-opt='no-check no-lto'
+opt='bootstrap no-check no-lto'
 lic='Unlicense'

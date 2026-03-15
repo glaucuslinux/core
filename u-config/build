@@ -8,6 +8,7 @@
 
 build() {
   make \
+    CC="$CC" \
     LINUX_CFLAGS="$CFLAGS -fno-builtin -fno-stack-protector" \
     LINUX_LIBS="$LDFLAGS -nostdlib" \
     pkg-config-linux-amd64
@@ -18,10 +19,10 @@ package() {
   mv -f pkg-config-linux-amd64 "$dir"/usr/bin/$nom
 
   # Compatibility symlinks
-  for i in pkg-config $target-pkg-config; do
-    ln -fs $nom "$dir"/usr/bin/$i
+  for i in pkg-config "$target-pkg-config"; do
+    ln -fs "$nom" "$dir/usr/bin/$i"
   done
 
   mkdir -p "$dir"/usr/share/aclocal
-  cp -fPp "$core"/$nom/files/pkg.m4 "$dir"/usr/share/aclocal
+  cp -fPp "$core/$nom/files/pkg.m4" "$dir"/usr/share/aclocal
 }
