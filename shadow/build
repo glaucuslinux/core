@@ -8,19 +8,30 @@
 
 prepare() {
   patch \
-    -i "$core"/$nom/patches/glaucus/0001-customize-login-defaults.patch \
+    -i "$core/$nom/patches/glaucus/0001-customize-login-defaults.patch" \
     -p 0
   patch \
-    -i "$core"/$nom/patches/glaucus/0002-customize-useradd-defaults.patch \
+    -i "$core/$nom/patches/glaucus/0002-customize-useradd-defaults.patch" \
     -p 0
 
   autoreconf -vfis
 }
 
 configure() {
+  set --
+  if [ -n "${bootstrap-}" ]; then
+    set -- \
+        --build="$build" \
+        --host="$host"
+  else
+    set -- \
+        --with-fcaps
+  fi
+
   LIBS=-lutmps \
   shadow_cv_utmpdir=/run/utmps \
   glaucus-configure \
+    "$@" \
     --disable-static \
     --enable-pic \
     --enable-lastlog \
@@ -36,8 +47,7 @@ configure() {
     --with-yescrypt \
     --without-nscd \
     --without-su \
-    --without-libbsd \
-    --with-fcaps
+    --without-libbsd
 }
 
 build() {
