@@ -8,6 +8,7 @@
 
 build() {
   make \
+    CC="$CC" \
     CFLAGS="$CFLAGS" \
     LDFLAGS="$LDFLAGS"
 }
@@ -19,7 +20,7 @@ check() {
 
 package() {
   mkdir -p "$dir"/usr/bin
-  mv -f $nom "$dir"/usr/bin
-  ln -fs $nom "$dir"/usr/bin/gzip
-  ln -fs $nom "$dir"/usr/bin/un$nom
+  mv -f "$nom" "$dir"/usr/bin
+  ln -fs "$nom" "$dir"/usr/bin/gzip
+  ln -fs "$nom" "$dir/usr/bin/un$nom"
 }
