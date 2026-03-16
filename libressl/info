@@ -9,4 +9,5 @@
 ver='4.2.1'
 url='https://cdn.openbsd.org/pub/OpenBSD/LibreSSL/libressl-4.2.1.tar.gz'
 sum='a668d294d55640ccef8ae231566f4683'
+opt='bootstrap'
 lic='ISC OpenSSL'
