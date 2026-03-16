@@ -8,11 +8,17 @@
 
 prepare() {
   patch \
-    -i "$core"/$nom/patches/glaucus/0001-disable-static.patch \
+    -i "$core/$nom/patches/glaucus/0001-disable-static.patch" \
     -p 0
 }
 
 configure() {
+  set --
+  if [ -n "${bootstrap-}" ]; then
+    set -- env CHOST="$host"
+  fi
+
+  "$@" \
   ./configure \
     --prefix=/usr \
     --eprefix=/usr \
