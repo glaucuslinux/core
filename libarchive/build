@@ -8,14 +8,22 @@
 
 prepare() {
   patch \
-    -i "$core"/$nom/patches/glaucus/0001-fix-pkg-config-file.patch \
+    -i "$core/$nom/patches/glaucus/0001-fix-pkg-config-file.patch" \
     -p 0
 
   ./build/autogen.sh
 }
 
 configure() {
+  set --
+  if [ -n "${bootstrap-}" ]; then
+    set -- \
+        --build="$build" \
+        --host="$host"
+  fi
+
   glaucus-configure \
+    "$@" \
     --disable-static \
     --disable-bsdcpio \
     --disable-rpath \
