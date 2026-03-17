@@ -11,7 +11,15 @@ prepare() {
 }
 
 configure() {
-  glaucus-configure
+  set --
+  if [ -n "${bootstrap-}" ]; then
+    set -- \
+        --build="$build" \
+        --host="$host"
+  fi
+
+  glaucus-configure \
+    "$@"
 }
 
 build() {
