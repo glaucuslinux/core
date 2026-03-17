@@ -7,7 +7,15 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 configure() {
+  set --
+  if [ -n "${bootstrap-}" ]; then
+    set -- \
+        --build="$build" \
+        --host="$host"
+  fi
+
   glaucus-configure \
+    "$@" \
     --without-man2html \
     --without-builtin-regex
 }
