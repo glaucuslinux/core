@@ -9,4 +9,5 @@
 ver='5.8.2'
 url='https://github.com/tukaani-project/xz/releases/download/v5.8.2/xz-5.8.2.tar.gz'
 sum='f85fa7a8f22aa989b60f00f7f1158641'
+opt='bootstrap'
 lic='0BSD GPL-2.0-or-later GPL-3.0-or-later LGPL-2.1-or-later'
