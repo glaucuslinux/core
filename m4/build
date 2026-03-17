@@ -7,13 +7,21 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
-  ./bootstrap \
-    --skip-git \
-    --skip-po
+  touch \
+    aclocal.m4 \
+    Makefile.in
 }
 
 configure() {
+  set --
+  if [ -n "${bootstrap-}" ]; then
+    set -- \
+        --build="$build" \
+        --host="$host"
+  fi
+
   glaucus-configure \
+    "$@" \
     --enable-threads=posix \
     --disable-rpath \
     --enable-changeword \
