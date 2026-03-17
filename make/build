@@ -7,11 +7,23 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
+  patch \
+    -i "$core/$nom/patches/alpine/getopt-gcc15.patch" \
+    -p 1
+
   autoreconf -vfis
 }
 
 configure() {
+  set --
+  if [ -n "${bootstrap-}" ]; then
+    set -- \
+        --build="$build" \
+        --host="$host"
+  fi
+
   glaucus-configure \
+    "$@" \
     --disable-nls \
     --disable-rpath \
     --without-guile
