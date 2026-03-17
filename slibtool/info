@@ -9,5 +9,5 @@
 ver='f329ef3'
 url='https://git.foss21.org/slibtool'
 bld='m4'
-opt='no-check'
+opt='bootstrap no-check'
 lic='MIT'
