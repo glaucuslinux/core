@@ -27,8 +27,12 @@ prepare() {
 }
 
 configure() {
-  if [ -z "${bootstrap-}" ]; then
+  if [ -n "${bootstrap-}" ]; then
+    ARCH=x86_64 \
+    CROSS_COMPILE="$host-" \
+    LIBCC="$dir"/usr/lib/linux/libclang_rt.builtins-x86_64.a \
     ./configure \
+      --host="$host" \
       --prefix=/usr \
       --exec-prefix=/usr \
       --bindir=/usr/bin \
@@ -37,11 +41,7 @@ configure() {
       --disable-wrapper \
       --disable-static
   else
-    ARCH=x86_64 \
-    CROSS_COMPILE="$host-" \
-    LIBCC="$dir"/usr/lib/linux/libclang_rt.builtins-x86_64.a \
     ./configure \
-      --host="$host" \
       --prefix=/usr \
       --exec-prefix=/usr \
       --bindir=/usr/bin \
