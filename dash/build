@@ -11,11 +11,21 @@ prepare() {
 }
 
 configure() {
+  set --
+  if [ -n "${bootstrap-}" ]; then
+    set -- \
+        --build="$build" \
+        --host="$host"
+  fi
+
+  LIBS="-lterminfo -ledit" \
   glaucus-configure \
+    "$@" \
     --with-libedit
 }
 
 build() {
+  LIBS="-lterminfo -ledit" \
   make
 }
 
@@ -32,4 +42,8 @@ package() {
     install-strip
 
   ln -fs $nom "$dir"/usr/bin/sh
+
+  if [ -n "${bootstrap-}" ]; then
+    ln -fs $nom "$dir"/usr/bin/yash
+  fi
 }
