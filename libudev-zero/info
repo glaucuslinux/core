@@ -8,5 +8,5 @@
 
 ver='latest'
 url='https://github.com/illiliti/libudev-zero'
-opt='no-check'
+opt='bootstrap no-check'
 lic='ISC'
