@@ -7,7 +7,19 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 configure() {
-  glaucus-muon \
+  set --
+  if [ -n "${bootstrap-}" ]; then
+    set -- \
+        glaucus-meson \
+        --cross-file="$core"/muon/files/meson.cross \
+        -Dxz=disabled \
+        -Dzlib=disabled
+  else
+    set -- \
+        glaucus-muon
+  fi
+
+    "$@" \
     -Ddistconfdir=/usr/lib \
     -Dmoduledir=/usr/lib/modules \
     -Dbashcompletiondir=no \
@@ -18,15 +30,27 @@ configure() {
 }
 
 build() {
-  samu \
-    -C build
+  if [ -n "${bootstrap-}" ]; then
+    meson compile \
+      -C build
+  else
+    samu \
+      -C build
+  fi
+
 }
 
 package() {
-  DESTDIR="$dir" \
-  muon \
-    -C build \
-    install
+  if [ -n "${bootstrap-}" ]; then
+    DESTDIR="$dir" \
+    meson install \
+      -C build
+  else
+    DESTDIR="$dir" \
+    muon \
+      -C build \
+      install
+  fi
 
   cp -fPp "$core"/$nom/files/search.conf "$dir"/usr/lib/depmod.d
 }
