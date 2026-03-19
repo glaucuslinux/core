@@ -7,10 +7,10 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
-  cd "$tmp"/$nom/xxHash-$ver
+  cd "$tmp/$nom/xxHash-$ver"
 
   patch \
-    -i "$core"/$nom/patches/glaucus/0001-disable-static.patch \
+    -i "$core/$nom/patches/glaucus/0001-disable-static.patch" \
     -p 0
 }
 
