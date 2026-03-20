@@ -7,9 +7,12 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 package() {
-  mkdir -p "$dir"/boot
-  mv -f "$tmp"/$nom/usr "$dir"
-  mv -f "$dir"/usr/lib/modules/$ver-cachyos/vmlinuz "$dir"/boot
+  mkdir -p \
+    "$dir"/boot \
+    "$dir"/usr/lib
 
-  depmod -b "$dir" $ver-cachyos
+  mv -f "$tmp/$nom/usr/lib/modules/$ver-cachyos/vmlinuz" "$dir"/boot
+  mv -f "$tmp/$nom/usr/lib/modules" "$dir"/usr/lib
+
+  depmod -b "$dir" "$ver"-cachyos
 }
