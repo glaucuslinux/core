@@ -1,0 +1,53 @@
+# SPDX-License-Identifier: MPL-2.0
+
+# Copyright © 2018-2026 Firas Khana
+
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
+prepare() {
+  cp -fPpR "$tmp"/nim-csources/csources_v3 "$tmp/$nom/Nim-$ver"
+
+  cd "$tmp/$nom/Nim-$ver"/csources_v3
+}
+
+build() {
+  make \
+    CFLAGS="-Ic_code -w -fmax-errors=3 -fno-strict-aliasing -fno-ident -fno-math-errno $CFLAGS" \
+    LDFLAGS="-ldl -lm -lrt $LDFLAGS"
+
+  cd "$tmp/$nom/Nim-$ver"
+
+  bin/"$nom" compile \
+    -d:release \
+    -d:useMalloc \
+    -d:strip \
+    --os:linux \
+    --cpu:amd64 \
+    --passC:"$CFLAGS" \
+    --passL:"$LDFLAGS" \
+    --skipUserCfg \
+    --skipParentCfg \
+    --noNimblePath \
+    koch
+
+  ./koch boot \
+    -d:release \
+    -d:leanCompiler \
+    -d:useMalloc \
+    -d:strip \
+    --os:linux \
+    --cpu:amd64 \
+    --passC:"$CFLAGS" \
+    --passL:"$LDFLAGS" \
+    --skipUserCfg \
+    --skipParentCfg \
+    --noNimblePath
+}
+
+package() {
+  ./koch install "$dir"/usr/lib
+
+  ln -fs ../lib/"$nom/bin/$nom" "$dir"/usr/bin
+}
