@@ -28,9 +28,6 @@ package() {
     "$tmp"/$nom/etc/s6/current/scripts/runlevel \
     "$dir"/etc/s6/skel
 
-  rm -fRv "$dir"/etc/s6/rc/compiled
-  s6-rc-compile "$dir"/etc/s6/rc/compiled "$dir"/etc/s6/sv
-
   mkdir -p "$dir"/var/log/wtmpd
   for i in btmp faillog lastlog wtmp; do
     ln -fs wtmpd/$i "$dir"/var/log/$i
@@ -42,5 +39,10 @@ package() {
     "$dir"/var/log/wtmpd/lastlog \
     "$dir"/var/log/wtmpd/wtmp
 
-  chown -R utmp:utmp "$dir"/var/log/wtmpd
+  if [ -z "${bootstrap-}" ]; then
+    rm -fRv "$dir"/etc/s6/rc/compiled
+    s6-rc-compile "$dir"/etc/s6/rc/compiled "$dir"/etc/s6/sv
+
+    chown -R utmp:utmp "$dir"/var/log/wtmpd
+  fi
 }
