@@ -7,11 +7,13 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 build() {
+    # --gcc.exe:clang \
+    # --gcc.linkerexe:clang \
   glaucus-nim \
-    src/$nom.nim
+    src/"$nom".nim
 }
 
 package() {
   mkdir -p "$dir"/usr/bin
-  mv -f src/$nom "$dir"/usr/bin
+  mv -f src/"$nom" "$dir"/usr/bin
 }
