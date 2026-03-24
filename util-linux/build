@@ -8,16 +8,25 @@
 
 prepare() {
   patch \
-    -i "$core"/$nom/patches/glaucus/0001-fix-utmp-file-path.patch \
+    -i "$core/$nom/patches/glaucus/0001-fix-utmp-file-path.patch" \
     -p 0
 
   autoreconf -vfis
 }
 
 configure() {
-  LDFLAGS="$LDFLAGS -lutmps" \
+  set --
+  if [ -n "${bootstrap-}" ]; then
+    set -- \
+        --build="$build" \
+        --host="$host"
+  fi
+
+  LIBS="-lterminfo -lutmps" \
+  LDFLAGS="$LDFLAGS -lterminfo -lutmps" \
   ADJTIME_PATH=/var/lib/hwclock/adjtime \
   glaucus-configure \
+    "$@" \
     --disable-static \
     --enable-pic \
     --disable-symvers \
