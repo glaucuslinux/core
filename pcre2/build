@@ -11,7 +11,16 @@ prepare() {
 }
 
 configure() {
+  set --
+  if [ -n "${bootstrap-}" ]; then
+    set -- \
+        --build="$build" \
+        --host="$host"
+  fi
+
+  LIBS=-lterminfo \
   glaucus-configure \
+    "$@" \
     --disable-static \
     --enable-pic \
     --disable-symvers \
@@ -25,6 +34,7 @@ configure() {
 }
 
 build() {
+  LIBS=-lterminfo \
   make
 }
 
