@@ -8,25 +8,58 @@
 
 prepare() {
   patch \
-    -i "$core"/$nom/patches/glaucus/0001-extend-long-iso-format.patch \
+    -i "$core/$nom/patches/glaucus/0001-extend-long-iso-format.patch" \
     -p 0
 }
 
 configure() {
-  cp -fPp "$core"/$nom/files/glaucus.config .config
+  cp -fPp "$core/$nom/files/glaucus.config" .config
 }
 
 build() {
   make \
-    LDFLAGS="$LDFLAGS -lutmps"
+    -j 1 \
+    CROSS_COMPILE= \
+    LDFLAGS="-lutmps"
+
+  # make \
+  #   LDFLAGS="$LDFLAGS -lutmps"
 }
 
 package() {
   mkdir -p "$dir"/usr/bin
 
-  for i in $(./$nom); do
+  for i in \
+  [ \
+  base32 base64 basename \
+  cat chattr chgrp chmod chown chroot cksum cmp comm cp cpio cut \
+  date dd df diff dirname du \
+  echo env expand expr \
+  factor false find fmt fold free \
+  getconf groups \
+  head hostid hostname \
+  iconv id install \
+  killall \
+  link ln logname ls lsattr \
+  md5sum mkdir mkfifo mknod mktemp mv \
+  nice nl nohup nproc \
+  od \
+  paste patch pgrep pidof pkill pmap printenv printf ps pwd pwdx \
+  readlink realpath rm rmdir \
+  sed seq sha1sum sha224sum sha256sum sha384sum sha512sum shred shuf sleep \
+  sort split stat stty su sync sysctl \
+  tac tail tee test time timeout touch tr true truncate tsort tty \
+  uname uniq unlink uptime \
+  vmstat \
+  w watch wc which who whoami \
+  xargs \
+  yes; do
     ln -fs $nom "$dir"/usr/bin/$i
   done
+
+  # for i in $(./$nom); do
+  #   ln -fs $nom "$dir"/usr/bin/$i
+  # done
 
   mv -f $nom "$dir"/usr/bin
 }
