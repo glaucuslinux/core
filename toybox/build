@@ -36,7 +36,7 @@ package() {
   date dd df diff dirname du \
   echo env expand expr \
   factor false find fmt fold free \
-  getconf groups \
+  getconf grep groups \
   head hostid hostname \
   iconv id install \
   killall \
