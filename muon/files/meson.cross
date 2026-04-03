@@ -19,8 +19,8 @@ strip = 'llvm-strip'
 sys_root = '/home/firasuke/Git/glaucus/cross'
 
 [built-in options]
-c_args = ['--target=x86_64-pc-linux-musl', '--sysroot=/home/firasuke/Git/glaucus/cross', '-rtlib=compiler-rt', '-unwindlib=libunwind', '-stdlib=libc++']
-c_link_args = ['--target=x86_64-pc-linux-musl', '--sysroot=/home/firasuke/Git/glaucus/cross', '-rtlib=compiler-rt', '-unwindlib=libunwind', '-stdlib=libc++']
+c_args = ['--target=x86_64-pc-linux-musl', '--sysroot=/home/firasuke/Git/glaucus/cross', '--rtlib=compiler-rt', '-unwindlib=libunwind', '--stdlib=libc++']
+c_link_args = ['--target=x86_64-pc-linux-musl', '--sysroot=/home/firasuke/Git/glaucus/cross', '--rtlib=compiler-rt', '-unwindlib=libunwind', '--stdlib=libc++']
 
 [host_machine]
 cpu = 'x86_64'
