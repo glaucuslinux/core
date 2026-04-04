@@ -7,7 +7,7 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 configure() {
-  cp -fPp "$core"/$nom/files/glaucus.config .config
+  cp -fPp "$core/$nom/files/glaucus.config" .config
 }
 
 build() {
@@ -18,9 +18,9 @@ build() {
 package() {
   mkdir -p "$dir"/usr/bin
 
-  for i in $(./$nom); do
-    ln -fs $nom "$dir"/usr/bin/$i
+  for i in $(./"$nom"); do
+    ln -fs "$nom" "$dir/usr/bin/$i"
   done
 
-  mv -f $nom "$dir"/usr/bin
+  mv -f "$nom" "$dir"/usr/bin
 }
