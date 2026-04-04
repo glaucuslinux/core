@@ -31,6 +31,7 @@ package() {
 
   for i in \
   [ \
+  awk \
   base32 base64 basename \
   cat chattr chgrp chmod chown chroot cksum cmp comm cp cpio cut \
   date dd df diff dirname du \
