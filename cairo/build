@@ -8,7 +8,7 @@
 
 prepare() {
   patch \
-    -i "$core"/$nom/patches/alpine/musl-stacksize.patch \
+    -i "$core/$nom/patches/alpine/musl-stacksize.patch" \
     -p 1
 }
 
