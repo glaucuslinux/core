@@ -41,8 +41,8 @@ configure() {
     --without-audit \
     --without-libpam \
     --without-selinux \
-    --with-acl \
-    --with-attr \
+    --without-acl \
+    --without-attr \
     --without-tcb \
     --with-yescrypt \
     --without-nscd \

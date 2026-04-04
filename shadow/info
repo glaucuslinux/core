@@ -9,7 +9,7 @@
 ver='4.19.0'
 url='https://github.com/shadow-maint/shadow/releases/download/4.19.0/shadow-4.19.0.tar.gz'
 sum='fb5cb328fbb4247ea2bdc0df2e07cbcf'
-bld='acl attr libcap utmps'
+bld='libcap utmps'
 run='utmps'
 opt='bootstrap'
 lic='BSD-3-Clause'
