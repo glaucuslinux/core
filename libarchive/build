@@ -28,8 +28,8 @@ configure() {
     --disable-bsdcpio \
     --disable-rpath \
     --enable-posix-regex-lib=libpcre2posix \
-    --enable-xattr \
-    --enable-acl \
+    --disable-xattr \
+    --disable-acl \
     --with-pic \
     --without-libb2 \
     --without-iconv \
