@@ -12,19 +12,19 @@ prepare() {
 
 configure() {
   set --
+
   if [ -n "${bootstrap-}" ]; then
     set -- \
         --build="$build" \
         --host="$host"
   fi
 
-  glaucus-configure \
-    "$@"
+  glaucus-configure "$@"
 }
 
 build() {
   touch \
-    man/$nom.1.t \
+    man/"$nom".1.t \
     man/autoheader.1.t \
     man/autom4te.1.t \
     man/autoreconf.1.t \
@@ -40,5 +40,5 @@ package() {
     DESTDIR="$dir" \
     install-strip
 
-  cp -fPp "$core"/$nom/files/glaucus-configure "$dir"/usr/bin
+  cp -fPp "$core/$nom/files/glaucus-configure" "$dir"/usr/bin
 }
