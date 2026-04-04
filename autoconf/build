@@ -19,7 +19,8 @@ configure() {
         --host="$host"
   fi
 
-  glaucus-configure "$@"
+  glaucus-configure \
+    "$@"
 }
 
 build() {
