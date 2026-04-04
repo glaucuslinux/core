@@ -8,7 +8,7 @@
 
 prepare() {
   patch \
-    -i "$core"/$nom/patches/glaucus/0001-pure64.patch \
+    -i "$core/$nom/patches/glaucus/0001-pure64.patch" \
     -p 0
 }
 
@@ -16,8 +16,8 @@ configure() {
   ./bootstrap \
     --prefix=/usr \
     --bindir=bin \
-    --datadir=share/$nom \
-    --docdir=share/doc/$nom \
+    --datadir=share/"$nom" \
+    --docdir=share/doc/"$nom" \
     --parallel=5 \
     --system-libs \
     --no-system-cppdap \
@@ -48,5 +48,5 @@ package() {
     DESTDIR="$dir" \
     install
 
-  cp -fPp "$core"/$nom/files/glaucus-$nom "$dir"/usr/bin
+  cp -fPp "$core/$nom/files/glaucus-$nom" "$dir"/usr/bin
 }
