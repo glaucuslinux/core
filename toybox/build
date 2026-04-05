@@ -32,7 +32,7 @@ package() {
   for i in \
   [ \
   awk \
-  base32 base64 basename \
+  base32 base64 basename bc \
   cat chattr chgrp chmod chown chroot cksum cmp comm cp cpio cut \
   date dd df diff dirname du \
   echo env expand expr \
