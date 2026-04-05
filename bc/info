@@ -7,7 +7,7 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 ver='7.1.0'
-url='https://github.com/gavinhoward/bc/releases/download/7.1.0/bc-7.1.0.tar.gz'
-sum='b561f64e8a7668486fe3b75771e91768'
+url='https://github.com/gavinhoward/bc/releases/download/7.1.0/bc-7.1.0.tar.xz'
+sum='145e7fbab4a9b88af35d1f297182a5c9'
 bld='libedit netbsd-curses'
 lic='BSD-2-Clause'
