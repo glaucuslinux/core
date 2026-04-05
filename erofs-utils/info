@@ -9,5 +9,5 @@
 ver='1.8.10'
 url='https://git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git/snapshot/erofs-utils-1.8.10.tar.gz'
 sum='655d08e1f29a46b7d3475a4980f8554f'
-bld='lz4 util-linux xxhash xz zlib-ng zstd'
+bld='libz lz4 util-linux xxhash xz zstd'
 lic='Apache-2.0 GPL-2.0-or-later'
