@@ -7,41 +7,27 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 package() {
-  ln -fs usr/bin "$dir"/bin
-
   mkdir -p \
     "$dir"/boot \
-    "$dir"/dev
-
-  mkdir -p "$dir"/etc
-  cp -fPp "$core"/$nom/files/fstab "$dir"/etc
-  ln -fs lsb-release "$dir"/etc/glaucus-release
-  cp -fPp \
-    "$core"/$nom/files/group \
-    "$core"/$nom/files/hostname \
-    "$core"/$nom/files/hosts \
-    "$core"/$nom/files/issue \
-    "$dir"/etc
-  sed -e "s/^DISTRIB_RELEASE=/&$(date +%Y%m%d)/" \
-    -e "s/^DISTRIB_DESCRIPTION=/&$PRETTY_NAME/" \
-    "$core"/$nom/files/lsb-release > "$dir"/etc/lsb-release
-  ln -fs ../usr/lib/os-release "$dir"/etc
-  cp -fPp \
-    "$core"/$nom/files/passwd \
-    "$core"/$nom/files/profile \
-    "$core"/$nom/files/protocols \
-    "$core"/$nom/files/resolv.conf \
-    "$core"/$nom/files/securetty \
-    "$core"/$nom/files/services \
-    "$core"/$nom/files/shadow \
-    "$core"/$nom/files/shells \
-    "$dir"/etc
-
-  mkdir -p "$dir"/home
-
-  ln -fs usr/lib "$dir"/lib
-
-  mkdir -p "$dir"/mnt
+    "$dir"/dev \
+    "$dir"/etc \
+    "$dir"/home \
+    "$dir"/mnt \
+    "$dir"/run \
+    "$dir"/usr/bin \
+    "$dir"/usr/lib \
+    "$dir"/usr/lib/pkgconfig \
+    "$dir"/usr/share \
+    "$dir"/var/cache/rad/pkg \
+    "$dir"/var/cache/rad/src \
+    "$dir"/var/lib/hwclock \
+    "$dir"/var/lib/misc \
+    "$dir"/var/lib/rad/pkg \
+    "$dir"/var/lib/rad/repo \
+    "$dir"/var/log/rad \
+    "$dir"/var/mail \
+    "$dir"/var/spool \
+    "$dir"/var/tmp/rad
 
   mkdir -m 555 -p \
     "$dir"/proc \
@@ -49,40 +35,48 @@ package() {
 
   mkdir -m 750 -p "$dir"/root
 
-  mkdir -p "$dir"/run
-
-  ln -fs usr/bin "$dir"/sbin
-
   mkdir -m 1777 -p \
     "$dir"/tmp \
     "$dir"/var/tmp
 
-  mkdir -p \
-    "$dir"/usr/bin \
-    "$dir"/usr/lib
+  ln -fs usr/bin "$dir"/bin
+  ln -fs usr/lib "$dir"/lib
+  ln -fs usr/bin "$dir"/sbin
+  ln -fs lib "$dir"/usr/libexec
+  ln -fs bin "$dir"/usr/sbin
+
+  ln -fs ../lib/pkgconfig "$dir"/usr/share
+  ln -fs ../run/lock "$dir"/var/lock
+  ln -fs ../run "$dir"/var/run
+  ln -fs ../mail "$dir"/var/spool/mail
+
+  cp -fPp \
+    "$core/$nom/files/fstab" \
+    "$core/$nom/files/group" \
+    "$core/$nom/files/hostname" \
+    "$core/$nom/files/hosts" \
+    "$core/$nom/files/issue" \
+    "$core/$nom/files/passwd" \
+    "$core/$nom/files/profile" \
+    "$core/$nom/files/protocols" \
+    "$core/$nom/files/resolv.conf" \
+    "$core/$nom/files/securetty" \
+    "$core/$nom/files/services" \
+    "$core/$nom/files/shadow" \
+    "$core/$nom/files/shells" \
+    "$dir"/etc
+
+  sed -e "s/^DISTRIB_RELEASE=/&$(date +%Y%m%d)/" \
+    -e "s/^DISTRIB_DESCRIPTION=/&$PRETTY_NAME/" \
+    "$core/$nom/files/lsb-release" > "$dir"/etc/lsb-release
+
   sed -e "s/^VERSION=/&$(date +%Y%m%d)/" \
     -e "s/^VERSION_ID=/&$(date +%Y%m%d)/" \
     -e "s/^PRETTY_NAME=/&$PRETTY_NAME/" \
-    "$core"/$nom/files/os-release > "$dir"/usr/lib/os-release
-  mkdir -p "$dir"/usr/lib/pkgconfig
-  ln -fs lib "$dir"/usr/libexec
-  ln -fs bin "$dir"/usr/sbin
-  mkdir -p "$dir"/usr/share
-  ln -fs ../lib/pkgconfig "$dir"/usr/share
+    "$core/$nom/files/os-release" > "$dir"/usr/lib/os-release
 
-  mkdir -p \
-    "$dir"/var/cache/rad/pkg \
-    "$dir"/var/cache/rad/src \
-    "$dir"/var/lib/hwclock \
-    "$dir"/var/lib/misc \
-    "$dir"/var/lib/rad/repo \
-    "$dir"/var/lib/rad/pkg
-  ln -fs ../run/lock "$dir"/var/lock
-  mkdir -p \
-    "$dir"/var/log/rad \
-    "$dir"/var/mail
-  ln -fs ../run "$dir"/var/run
-  mkdir -p "$dir"/var/spool
-  ln -fs ../mail "$dir"/var/spool/mail
-  mkdir -p "$dir"/var/tmp/rad
+  ln -fs lsb-release "$dir"/etc/glaucus-release
+  ln -fs ../usr/lib/os-release "$dir"/etc
+
+  cp -fPpR "$core" "$dir"/var/lib/rad/repo
 }
