@@ -9,5 +9,5 @@
 ver='5.42.0'
 url='https://cpan.org/src/5.0/perl-5.42.0.tar.gz'
 sum='4b92254b04206b881a4daee303d375bc'
-bld='bzip2 zlib-ng'
+bld='bzip2 libz'
 opt='bootstrap'
