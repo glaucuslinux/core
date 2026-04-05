@@ -9,6 +9,6 @@
 ver='1.18.4'
 url='https://gitlab.freedesktop.org/cairo/cairo/-/archive/1.18.4/cairo-1.18.4.tar.gz'
 sum='f2538525b61e4cbfa4ca2ab1e5e51e64'
-bld='fontconfig freetype-harfbuzz glib libpng muon pixman zlib-ng'
+bld='fontconfig freetype-harfbuzz glib libpng libz muon pixman'
 opt='no-check'
 lic='LGPL-2.1-or-later MPL-1.1'
