@@ -7,8 +7,8 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 ver='2.72'
-url='https://ftpmirror.gnu.org/autoconf/autoconf-2.72.tar.gz'
-sum='4a4828c246dbc9515b81e16a6d8fb6a7'
+url='https://ftpmirror.gnu.org/autoconf/autoconf-2.72.tar.xz'
+sum='df046d1eedab5855c7d7c19a763b0172'
 bld='m4 perl'
 run='m4 perl'
 opt='bootstrap no-check'
