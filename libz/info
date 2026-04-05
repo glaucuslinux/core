@@ -1,0 +1,13 @@
+# SPDX-License-Identifier: MPL-2.0
+
+# Copyright © 2018-2026 Firas Khana
+
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
+ver='1.2.8.2025.03.07'
+url='https://pub.sortix.org/libz/libz-1.2.8.2025.03.07.tar.gz'
+sum='70ef67e03ae9a5f8cfef3bd402300c84'
+opt='bootstrap no-check'
+lic='Zlib'

@@ -1,0 +1,42 @@
+# SPDX-License-Identifier: MPL-2.0
+
+# Copyright © 2018-2026 Firas Khana
+
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
+configure() {
+  set --
+
+  if [ -n "${bootstrap-}" ]; then
+    set -- \
+        --build="$build" \
+        --host="$host"
+  fi
+
+  set -- \
+      --prefix=/usr \
+      --exec-prefix=/usr \
+      --bindir=/usr/bin \
+      --sbindir=/usr/bin \
+      --libexecdir=/usr/lib \
+      --sysconfdir=/etc \
+      --sharedstatedir=/var/lib \
+      --localstatedir=/var \
+      --libdir=/usr/lib \
+      "$@" \
+      --disable-static
+
+  ./configure "$@"
+}
+
+build() {
+  make
+}
+
+package() {
+  make \
+    DESTDIR="$dir" \
+    install
+}
