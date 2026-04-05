@@ -9,6 +9,6 @@
 ver='5.46'
 url='https://astron.com/pub/file/file-5.46.tar.gz'
 sum='6fa7305c7d4ecb09713ac4fa46cf9f92'
-bld='bzip2 xz zlib-ng zstd'
+bld='bzip2 libz xz zstd'
 opt='bootstrap'
 lic='BSD-2-Clause'
