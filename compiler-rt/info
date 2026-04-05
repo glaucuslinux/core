@@ -9,6 +9,6 @@
 ver='21.1.8'
 url='https://github.com/llvm/llvm-project/releases/download/llvmorg-21.1.8/llvm-project-21.1.8.src.tar.xz'
 sum='0c0323071df882603830540d5a50a80b'
-bld='cmake musl-headers zlib-ng zstd'
+bld='cmake libz musl-headers zstd'
 opt='bootstrap no-check'
 lic='Apache-2.0'
