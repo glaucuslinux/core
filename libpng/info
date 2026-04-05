@@ -9,5 +9,5 @@
 ver='1.6.50'
 url='https://github.com/pnggroup/libpng/archive/v1.6.50.tar.gz'
 sum='0d842160e56213c9001034e0d25a2a36'
-bld='zlib-ng'
+bld='libz'
 lic='libpng-2.0'
