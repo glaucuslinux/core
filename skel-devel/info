@@ -6,4 +6,4 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-run='autoconf automake bash byacc cmake curl flex gettext-tiny gperf linux-headers m4 make muon perl pigz skel slibtool u-config'
+run='autoconf automake bash byacc cmake curl flex gettext-tiny gperf linux-headers m4 make muon perl skel slibtool u-config'
