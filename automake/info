@@ -7,8 +7,8 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 ver='1.18.1'
-url='https://ftpmirror.gnu.org/automake/automake-1.18.1.tar.gz'
-sum='2eb4b10c84c5458fe68dd413a27893a5'
+url='https://ftpmirror.gnu.org/automake/automake-1.18.1.tar.xz'
+sum='ad88c7e64996cc2711adc505fbb2e594'
 bld='autoconf perl'
 run='autoconf perl'
 opt='bootstrap no-check'
