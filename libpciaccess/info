@@ -9,6 +9,6 @@
 ver='0.18.1'
 url='https://gitlab.freedesktop.org/xorg/lib/libpciaccess/-/archive/libpciaccess-0.18.1/libpciaccess-libpciaccess-0.18.1.tar.gz'
 sum='75416369604808e82a5e4ba7a7b2898d'
-bld='muon zlib-ng'
+bld='libz muon'
 run='hwdata'
 lic='MIT'
