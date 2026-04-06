@@ -15,7 +15,6 @@ package() {
     "$dir"/mnt \
     "$dir"/run \
     "$dir"/usr/bin \
-    "$dir"/usr/lib \
     "$dir"/usr/lib/pkgconfig \
     "$dir"/usr/share \
     "$dir"/var/cache/rad/pkg \
@@ -26,8 +25,7 @@ package() {
     "$dir"/var/lib/rad/repo \
     "$dir"/var/log/rad \
     "$dir"/var/mail \
-    "$dir"/var/spool \
-    "$dir"/var/tmp/rad
+    "$dir"/var/spool
 
   mkdir -m 555 -p \
     "$dir"/proc \
@@ -38,6 +36,8 @@ package() {
   mkdir -m 1777 -p \
     "$dir"/tmp \
     "$dir"/var/tmp
+  
+  mkdir -p "$dir"/var/tmp/rad
 
   ln -fs usr/bin "$dir"/bin
   ln -fs usr/lib "$dir"/lib
