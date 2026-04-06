@@ -13,7 +13,7 @@ build() {
     PKGCONFIGDIR=/usr/lib/pkgconfig \
     libudev.so.1
 
-  $CC $CFLAGS $LDFLAGS contrib/helper.c -o $nom-helper
+  $CC $CFLAGS $LDFLAGS contrib/helper.c -o "$nom"-helper
 }
 
 package() {
@@ -25,5 +25,5 @@ package() {
     install-shared
 
   mkdir -p "$dir"/usr/bin
-  mv -f $nom-helper "$dir"/usr/bin
+  mv -f "$nom"-helper "$dir"/usr/bin
 }
