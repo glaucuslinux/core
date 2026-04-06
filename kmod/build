@@ -8,6 +8,7 @@
 
 configure() {
   set --
+
   if [ -n "${bootstrap-}" ]; then
     set -- \
         glaucus-meson \
@@ -52,5 +53,5 @@ package() {
       install
   fi
 
-  cp -fPp "$core"/$nom/files/search.conf "$dir"/usr/lib/depmod.d
+  cp -fPp "$core/$nom/files/search.conf" "$dir"/usr/lib/depmod.d
 }

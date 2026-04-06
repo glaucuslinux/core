@@ -7,8 +7,8 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 ver='34.2'
-url='https://cdn.kernel.org/pub/linux/utils/kernel/kmod/kmod-34.2.tar.gz'
-sum='1b453b17953d134d1c1ba1d115fd9c38'
+url='https://cdn.kernel.org/pub/linux/utils/kernel/kmod/kmod-34.2.tar.xz'
+sum='3d6d516cf011fb85ecbbb4c7a0a72dc2'
 bld='libressl libz muon xz zstd'
 opt='bootstrap empty no-check'
 lic='GPL-2.0-or-later LGPL-2.1-or-later'
