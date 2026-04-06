@@ -7,6 +7,6 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 ver='2.6.4'
-url='https://cdn.kernel.org/pub/linux/utils/kbd/kbd-2.6.4.tar.gz'
-sum='a83d10470a0b7ff3842b2925ada4d2e7'
+url='https://cdn.kernel.org/pub/linux/utils/kbd/kbd-2.6.4.tar.xz'
+sum='23cdacfd24021d2a08c5f01ef0e58f87'
 bld='flex'
