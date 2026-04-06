@@ -29,7 +29,7 @@ package() {
     install-strip
 
   # Compatibility symlink
-  ln -fs $nom "$dir"/usr/bin/${nom}6
+  ln -fs $nom "$dir/usr/bin/${nom}6"
 
-  cp -fPp "$core"/$nom/files/ping "$dir"/usr/bin
+  cp -fPp "$core/$nom/files/ping" "$dir"/usr/bin
 }
