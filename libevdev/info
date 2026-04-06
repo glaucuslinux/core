@@ -7,7 +7,7 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 ver='1.13.6'
-url='https://gitlab.freedesktop.org/libevdev/libevdev/-/archive/libevdev-1.13.6/libevdev-libevdev-1.13.6.tar.gz'
-sum='369cb4f4cf3270a08594727f6c565ffa'
+url='https://gitlab.freedesktop.org/libevdev/libevdev/-/archive/libevdev-1.13.6/libevdev-libevdev-1.13.6.tar.bz2'
+sum='d2715dafcbfee2e8b6e4a49dbede14ed'
 bld='python'
 lic='MIT'
