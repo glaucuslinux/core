@@ -27,7 +27,7 @@ package() {
     DESTDIR="$dir" \
     install
 
-  cp -fPp "$core"/$nom/files/config.rpath "$dir"/usr/share/$nom
+  cp -fPp "$core/$nom/files/config.rpath" "$dir/usr/share/$nom"
 
-  ln -fs $nom "$dir"/usr/share/gettext
+  ln -fs "$nom" "$dir"/usr/share/gettext
 }
