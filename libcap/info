@@ -7,7 +7,7 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 ver='2.77'
-url='https://cdn.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.77.tar.gz'
-sum='87c254a4b4244147f8eedcf1ade4e9cb'
+url='https://cdn.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.77.tar.xz'
+sum='72bb2c515015920a6cb8764d865da9e2'
 opt='bootstrap no-parallel'
 lic='BSD-3-Clause GPL-2.0-only'
