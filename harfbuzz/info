@@ -7,8 +7,8 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 ver='12.3.0'
-url='https://github.com/harfbuzz/harfbuzz/archive/12.3.0.tar.gz'
-sum='b832142c9266528c1e8e1a6c60a30574'
+url='https://github.com/harfbuzz/harfbuzz/releases/download/12.3.0/harfbuzz-12.3.0.tar.xz'
+sum='1040e98017d768540f48f2654dea0cce'
 bld='freetype glib'
 opt='no-check'
 lic='MIT'
