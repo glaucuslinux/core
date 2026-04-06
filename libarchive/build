@@ -16,13 +16,14 @@ prepare() {
 
 configure() {
   set --
+
   if [ -n "${bootstrap-}" ]; then
     set -- \
         --build="$build" \
         --host="$host"
   fi
 
-  glaucus-configure \
+  set -- \
     "$@" \
     --disable-static \
     --disable-bsdcpio \
@@ -35,6 +36,9 @@ configure() {
     --without-iconv \
     --without-cng \
     --without-xml2
+
+  glaucus-configure \
+    "$@"
 }
 
 build() {
