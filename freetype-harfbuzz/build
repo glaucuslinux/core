@@ -12,7 +12,7 @@ prepare() {
   0002-Enable-subpixel-rendering \
   0003-Enable-long-PCF-family-names; do
     patch \
-      -i "$core"/freetype/patches/arch/$i.patch \
+      -i "$core/freetype/patches/arch/$i.patch" \
       -p 1
   done
 
