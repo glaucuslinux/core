@@ -7,7 +7,7 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
-  cd "$tmp"/$nom/$nom-vulkan-sdk-$ver
+  cd "$tmp/$nom/$nom-vulkan-sdk-$ver"
 }
 
 configure() {
@@ -30,5 +30,5 @@ package() {
     DESTDIR="$dir" \
     install/strip
 
-  ln -fs $nom "$dir"/usr/bin/${nom}Validator
+  ln -fs "$nom" "$dir/usr/bin/${nom}Validator"
 }
