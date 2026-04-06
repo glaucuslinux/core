@@ -7,8 +7,8 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 ver='6.18.0'
-url='https://cdn.kernel.org/pub/linux/utils/net/iproute2/iproute2-6.18.0.tar.gz'
-sum='abac058f95f5739606848664b3249959'
+url='https://cdn.kernel.org/pub/linux/utils/net/iproute2/iproute2-6.18.0.tar.xz'
+sum='ad80bca21202ea978036f6b9b1a8e991'
 bld='libcap'
 opt='no-check'
 lic='GPL-2.0-or-later'
