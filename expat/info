@@ -7,7 +7,7 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 ver='2.7.3'
-url='https://github.com/libexpat/libexpat/releases/download/R_2_7_3/expat-2.7.3.tar.gz'
-sum='def332b69acea21eff15c578ec94946b'
+url='https://github.com/libexpat/libexpat/releases/download/R_2_7_3/expat-2.7.3.tar.xz'
+sum='ccf6f75b2b3b3f89a9b1c44cd6abb85d'
 opt='bootstrap'
 lic='MIT'

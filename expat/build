@@ -12,20 +12,24 @@ prepare() {
 
 configure() {
   set --
+
   if [ -n "${bootstrap-}" ]; then
     set -- \
         --build="$build" \
         --host="$host"
   fi
 
+  set -- \
+      "$@" \
+      --disable-static \
+      --enable-pic \
+      --without-xmlwf \
+      --without-examples \
+      --without-tests \
+      --without-docbook
+
   glaucus-configure \
-    "$@" \
-    --disable-static \
-    --enable-pic \
-    --without-xmlwf \
-    --without-examples \
-    --without-tests \
-    --without-docbook
+    "$@"
 }
 
 build() {
