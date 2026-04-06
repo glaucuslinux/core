@@ -7,7 +7,7 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
-  cd "$tmp"/$nom/iwd-$ver
+  cd "$tmp/$nom/iwd-$ver"
 
   autoreconf -vfis
 }
@@ -43,7 +43,7 @@ package() {
     install-strip
 
   mkdir -p "$dir"/etc/iwd
-  cp -fPp "$core"/$nom/files/main.conf "$dir"/etc/iwd
+  cp -fPp "$core/$nom/files/main.conf" "$dir"/etc/iwd
 
-  cp -fPp "$core"/$nom/files/iwd_passphrase "$dir"/usr/bin
+  cp -fPp "$core/$nom/files/iwd_passphrase" "$dir"/usr/bin
 }
