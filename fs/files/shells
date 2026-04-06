@@ -1,10 +1,7 @@
 /usr/bin/bash
-/usr/bin/dash
 /usr/bin/ksh
-/usr/bin/loksh
 /usr/bin/oksh
 /usr/bin/rbash
 /usr/bin/rksh
 /usr/bin/sh
 /usr/bin/yash
-/usr/bin/zsh
