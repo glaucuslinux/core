@@ -7,8 +7,8 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 ver='1.18.4'
-url='https://gitlab.freedesktop.org/cairo/cairo/-/archive/1.18.4/cairo-1.18.4.tar.gz'
-sum='f2538525b61e4cbfa4ca2ab1e5e51e64'
+url='https://gitlab.freedesktop.org/cairo/cairo/-/archive/1.18.4/cairo-1.18.4.tar.bz2'
+sum='c4a8c60a7b93a8c9ce282e1a4024b288'
 bld='fontconfig freetype-harfbuzz glib libpng libz muon pixman'
 opt='no-check'
 lic='LGPL-2.1-or-later MPL-1.1'
