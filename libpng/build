@@ -8,7 +8,7 @@
 
 prepare() {
   patch \
-    -i "$core"/$nom/patches/upstream/$nom-$ver-apng.patch \
+    -i "$core/$nom/patches/upstream/$nom-$ver-apng.patch" \
     -p 1
 
   autoreconf -vfis
