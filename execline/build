@@ -14,6 +14,7 @@ prepare() {
 
 configure() {
   set --
+
   if [ -n "${bootstrap-}" ]; then
     set -- \
         --host="$host" \
@@ -23,7 +24,7 @@ configure() {
         --with-dynlib="$dir"/usr/lib
   fi
 
-  ./configure \
+  set -- \
     "$@" \
     --prefix=/usr \
     --exec-prefix=/usr \
@@ -40,6 +41,9 @@ configure() {
     --disable-allstatic \
     --enable-pkgconfig \
     --enable-multicall
+
+  ./configure \
+    "$@"
 }
 
 build() {
