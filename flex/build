@@ -9,11 +9,12 @@
 prepare() {
   ./autogen.sh
 
-  touch doc/$nom.1
+  touch doc/"$nom".1
 }
 
 configure() {
   set --
+
   if [ -n "${bootstrap-}" ]; then
     set -- env \
         ac_cv_func_malloc_0_nonnull=yes \
@@ -49,5 +50,5 @@ package() {
     DESTDIR="$dir" \
     install-strip
 
-  ln -fs $nom "$dir"/usr/bin/lex
+  ln -fs "$nom" "$dir"/usr/bin/lex
 }
