@@ -19,23 +19,27 @@ prepare() {
 
 configure() {
   set --
+
   if [ -n "${bootstrap-}" ]; then
     set -- \
         --build="$build" \
         --host="$host"
   fi
 
+  set -- \
+      "$@" \
+      --enable-zlib \
+      --enable-bzlib \
+      --enable-xzlib \
+      --enable-zstdlib \
+      --disable-lzlib \
+      --disable-lrziplib \
+      --disable-libseccomp \
+      --enable-fsect-man5 \
+      --enable-pic
+
   glaucus-configure \
-    "$@" \
-    --enable-zlib \
-    --enable-bzlib \
-    --enable-xzlib \
-    --enable-zstdlib \
-    --disable-lzlib \
-    --disable-lrziplib \
-    --disable-libseccomp \
-    --enable-fsect-man5 \
-    --enable-pic
+    "$@"
 }
 
 build() {
