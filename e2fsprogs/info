@@ -7,7 +7,7 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 ver='1.47.3'
-url='https://cdn.kernel.org/pub/linux/kernel/people/tytso/e2fsprogs/v1.47.3/e2fsprogs-1.47.3.tar.gz'
-sum='411bbd308f324d356d36c3a707d7566c'
+url='https://cdn.kernel.org/pub/linux/kernel/people/tytso/e2fsprogs/v1.47.3/e2fsprogs-1.47.3.tar.xz'
+sum='a9c4ebed55d44f6b0fe836b55b46a836'
 bld='util-linux'
 lic='BSD-3-Clause GPL-2.0-or-later LGPL-2.0-or-later MIT'
