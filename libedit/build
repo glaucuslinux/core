@@ -12,17 +12,17 @@ prepare() {
 
 configure() {
   CFLAGS="$CFLAGS -D__STDC_ISO_10646__" \
-  LIBS=-lterminfo \
+  LIBS='-lterminfo' \
   glaucus-configure \
-    --build=$build \
-    --host=$host \
+    --build="$build" \
+    --host="$host" \
     --disable-static \
     --enable-pic \
     --disable-examples
 }
 
 build() {
-  LIBS=-lterminfo \
+  LIBS='-lterminfo' \
   make
 }
 
@@ -54,7 +54,7 @@ package() {
   # done
 
   # ln -fs $nom.so "$dir"/usr/lib/libhistory.so
-  ln -fs $nom.so "$dir"/usr/lib/libreadline.so
+  ln -fs "$nom".so "$dir"/usr/lib/libreadline.so
 
-  ln -fs $nom.pc "$dir"/usr/lib/pkgconfig/readline.pc
+  ln -fs "$nom".pc "$dir"/usr/lib/pkgconfig/readline.pc
 }
