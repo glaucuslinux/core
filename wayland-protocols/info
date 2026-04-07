@@ -7,7 +7,7 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 ver='1.47'
-url='https://gitlab.freedesktop.org/wayland/wayland-protocols/-/archive/1.47/wayland-protocols-1.47.tar.gz'
-sum='e4a866eb79967a237b5d602545f4f798'
+url='https://gitlab.freedesktop.org/wayland/wayland-protocols/-/releases/1.47/downloads/wayland-protocols-1.47.tar.xz'
+sum='582db959a6353e9fd3794928e5afe4da'
 bld='muon wayland'
 lic='MIT'
