@@ -16,7 +16,7 @@ build() {
 
 package() {
   mkdir -p "$dir"/usr/bin
-  mv -f pkg-config-linux-amd64 "$dir"/usr/bin/$nom
+  mv -f pkg-config-linux-amd64 "$dir/usr/bin/$nom"
 
   # Compatibility symlinks
   for i in pkg-config "$target-pkg-config"; do
