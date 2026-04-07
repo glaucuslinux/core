@@ -7,6 +7,6 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 ver='1.1.7'
-url='https://bitmath.org/code/mtdev/mtdev-1.1.7.tar.gz'
-sum='963fdfbe40229960d505f3d62f9bc7c6'
+url='https://bitmath.se/org/code/mtdev/mtdev-1.1.7.tar.bz2'
+sum='fee1b4da0324ce9b5799be396ca5ff98'
 lic='MIT'
