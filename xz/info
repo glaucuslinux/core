@@ -7,7 +7,7 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 ver='5.8.2'
-url='https://github.com/tukaani-project/xz/releases/download/v5.8.2/xz-5.8.2.tar.gz'
-sum='f85fa7a8f22aa989b60f00f7f1158641'
+url='https://github.com/tukaani-project/xz/releases/download/v5.8.2/xz-5.8.2.tar.xz'
+sum='035b1ef44d19067df57ccd4e57981313'
 opt='bootstrap'
 lic='0BSD GPL-2.0-or-later GPL-3.0-or-later LGPL-2.1-or-later'
