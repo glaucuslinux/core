@@ -7,8 +7,8 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 ver='1.24.0'
-url='https://gitlab.freedesktop.org/wayland/wayland/-/archive/1.24.0/wayland-1.24.0.tar.gz'
-sum='20465fc72a32b3361a4dcb9f6aff0494'
+url='https://gitlab.freedesktop.org/wayland/wayland/-/releases/1.24.0/downloads/wayland-1.24.0.tar.xz'
+sum='b37614c84d3f8d092d381bd91c9c9a5d'
 bld='expat libffi libxml2 muon'
 opt='no-check'
 lic='MIT'
