@@ -8,15 +8,19 @@
 
 configure() {
   set --
+
   if [ -n "${bootstrap-}" ]; then
     set -- \
         --build="$build" \
         --host="$host"
   fi
 
+  set -- \
+      "$@" \
+      --disable-static
+
   glaucus-configure \
-    "$@" \
-    --disable-static
+    "$@"
 }
 
 build() {
@@ -28,32 +32,32 @@ package() {
     DESTDIR="$dir" \
     install
 
-  ln -fs ../share/$nom/$nom.sh "$dir"/usr/bin/libtool
-  cp -fPp "$core"/$nom/files/libtoolize "$dir"/usr/bin
+  ln -fs "../share/$nom/$nom.sh" "$dir"/usr/bin/libtool
+  cp -fPp "$core/$nom/files/libtoolize" "$dir"/usr/bin
 
   mkdir -p \
     "$dir"/usr/share/aclocal \
     "$dir"/usr/share/libtool/build-aux
 
   cp -fPp \
-    "$core"/$nom/files/libtool.m4 \
-    "$core"/$nom/files/ltargz.m4 \
-    "$core"/$nom/files/ltdl.m4 \
-    "$core"/$nom/files/lt~obsolete.m4 \
-    "$core"/$nom/files/ltoptions.m4 \
-    "$core"/$nom/files/ltsugar.m4 \
-    "$core"/$nom/files/ltversion.m4 \
+    "$core/$nom/files/libtool.m4" \
+    "$core/$nom/files/ltargz.m4" \
+    "$core/$nom/files/ltdl.m4" \
+    "$core/$nom/files/lt~obsolete.m4" \
+    "$core/$nom/files/ltoptions.m4" \
+    "$core/$nom/files/ltsugar.m4" \
+    "$core/$nom/files/ltversion.m4" \
     "$dir"/usr/share/aclocal
 
   cp -fPp \
-    "$core"/$nom/files/compile \
-    "$core"/$nom/files/config.guess \
-    "$core"/$nom/files/config.sub \
-    "$core"/$nom/files/depcomp \
-    "$core"/$nom/files/install-sh \
-    "$core"/$nom/files/ltmain.sh \
-    "$core"/$nom/files/missing \
+    "$core/$nom/files/compile" \
+    "$core/$nom/files/config.guess" \
+    "$core/$nom/files/config.sub" \
+    "$core/$nom/files/depcomp" \
+    "$core/$nom/files/install-sh" \
+    "$core/$nom/files/ltmain.sh" \
+    "$core/$nom/files/missing" \
     "$dir"/usr/share/libtool/build-aux
 
-  ln -fs ../$nom/$nom.m4 "$dir"/usr/share/aclocal
+  ln -fs "../$nom/$nom.m4" "$dir"/usr/share/aclocal
 }
