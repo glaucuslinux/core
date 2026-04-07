@@ -7,8 +7,8 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 ver='10.6.0'
-url='https://codeberg.org/Limine/Limine/releases/download/v10.6.0/limine-10.6.0.tar.gz'
-sum='5aebdc7bc352fdc0316d7496c78dde85'
+url='https://codeberg.org/Limine/Limine/releases/download/v10.6.0/limine-10.6.0.tar.xz'
+sum='f30af1ae697142b48cbc5da18b37c57e'
 bld='mtools nasm'
 opt='no-check'
 lic='BSD-2-Clause'
