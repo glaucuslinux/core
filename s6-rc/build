@@ -8,12 +8,13 @@
 
 prepare() {
   patch \
-    -i "$core"/$nom/patches/glaucus/0001-use-gnu-hash-style.patch \
+    -i "$core/$nom/patches/glaucus/0001-use-gnu-hash-style.patch" \
     -p 0
 }
 
 configure() {
   set --
+
   if [ -n "${bootstrap-}" ]; then
     set -- \
         --host="$host" \
@@ -23,22 +24,25 @@ configure() {
         --with-dynlib="$dir"/usr/lib
   fi
 
+  set -- \
+      "$@" \
+      --prefix=/usr \
+      --exec-prefix=/usr \
+      --dynlibdir=/usr/lib \
+      --bindir=/usr/bin \
+      --libexecdir=/usr/lib \
+      --libdir=/usr/lib \
+      --sysconfdir=/etc \
+      --pkgconfdir=/usr/lib/pkgconfig \
+      --livedir=/run/s6 \
+      --with-pkgconfig \
+      --enable-shared \
+      --disable-static \
+      --disable-allstatic \
+      --enable-pkgconfig
+
   ./configure \
-    "$@" \
-    --prefix=/usr \
-    --exec-prefix=/usr \
-    --dynlibdir=/usr/lib \
-    --bindir=/usr/bin \
-    --libexecdir=/usr/lib \
-    --libdir=/usr/lib \
-    --sysconfdir=/etc \
-    --pkgconfdir=/usr/lib/pkgconfig \
-    --livedir=/run/s6 \
-    --with-pkgconfig \
-    --enable-shared \
-    --disable-static \
-    --disable-allstatic \
-    --enable-pkgconfig
+    "$@"
 }
 
 build() {
