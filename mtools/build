@@ -8,10 +8,10 @@
 
 prepare() {
   patch \
-    -i "$core"/$nom/patches/alpine/fix-uninitialized.patch \
+    -i "$core/$nom/patches/alpine/fix-uninitialized.patch" \
     -p 1
   patch \
-    -i "$core"/$nom/patches/glaucus/0001-disable-sample-file.patch \
+    -i "$core/$nom/patches/glaucus/0001-disable-sample-file.patch" \
     -p 0
 
   autoreconf -vfis
@@ -37,5 +37,5 @@ package() {
     install
 
   mkdir -p "$dir"/etc
-  mv $nom.conf "$dir"/etc
+  mv "$nom".conf "$dir"/etc
 }
