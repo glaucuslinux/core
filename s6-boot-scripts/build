@@ -8,8 +8,8 @@
 
 package() {
   cp -fPpR \
-    "$tmp"/$nom/etc \
-    "$tmp"/$nom/usr \
+    "$tmp/$nom/etc" \
+    "$tmp/$nom/usr" \
     "$dir"
 
   mkdir -p "$dir"/etc/s6/current/env
@@ -22,15 +22,15 @@ package() {
 
   mkdir -p "$dir"/etc/s6/skel
   cp -fPp \
-    "$tmp"/$nom/etc/s6/current/scripts/rc.init \
-    "$tmp"/$nom/etc/s6/current/scripts/rc.shutdown \
-    "$tmp"/$nom/etc/s6/current/scripts/rc.shutdown.final \
-    "$tmp"/$nom/etc/s6/current/scripts/runlevel \
+    "$tmp/$nom/etc/s6/current/scripts/rc.init" \
+    "$tmp/$nom/etc/s6/current/scripts/rc.shutdown" \
+    "$tmp/$nom/etc/s6/current/scripts/rc.shutdown.final" \
+    "$tmp/$nom/etc/s6/current/scripts/runlevel" \
     "$dir"/etc/s6/skel
 
   mkdir -p "$dir"/var/log/wtmpd
   for i in btmp faillog lastlog wtmp; do
-    ln -fs wtmpd/$i "$dir"/var/log/$i
+    ln -fs wtmpd/"$i" "$dir"/var/log/"$i"
   done
 
   touch \
