@@ -9,7 +9,7 @@
 prepare() {
   ./bootstrap.sh build-bootstrap
 
-  build-bootstrap/$nom-bootstrap setup \
+  build-bootstrap/"$nom"-bootstrap setup \
     -Dwrap_mode=nodownload \
     -Dlibcurl=disabled \
     -Dlibarchive=disabled \
@@ -22,14 +22,14 @@ prepare() {
     -Dwebsite=disabled \
     build-bootstrap
 
-  build-bootstrap/$nom-bootstrap \
+  build-bootstrap/"$nom"-bootstrap \
     -C build-bootstrap \
     samu
 }
 
 configure() {
   PATH="$tmp/$nom/build-bootstrap:$PATH" \
-  "$core"/$nom/files/glaucus-$nom \
+  "$core/$nom/files/glaucus-$nom" \
     -Dlibcurl=disabled \
     -Dlibarchive=disabled \
     -Dpkgconfig=exec \
@@ -43,24 +43,24 @@ configure() {
 }
 
 build() {
-  build-bootstrap/$nom \
+  build-bootstrap/"$nom" \
     -C build \
     samu
 }
 
 package() {
   DESTDIR="$dir" \
-  build/$nom \
+  build/"$nom" \
     -C build \
     install
 
   cp -fPp \
-    "$core"/$nom/files/glaucus-meson \
-    "$core"/$nom/files/glaucus-$nom \
-    "$core"/$nom/files/samu \
+    "$core/$nom/files/glaucus-meson" \
+    "$core/$nom/files/glaucus-$nom" \
+    "$core/$nom/files/samu" \
     "$dir"/usr/bin
 
   # Compatibility symlinks
-  ln -fs $nom "$dir"/usr/bin/meson
+  ln -fs "$nom" "$dir"/usr/bin/meson
   ln -fs samu "$dir"/usr/bin/ninja
 }
