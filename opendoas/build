@@ -8,13 +8,13 @@
 
 prepare() {
   patch \
-    -i "$core"/$nom/patches/alpine/rowhammer.patch \
+    -i "$core/$nom/patches/alpine/rowhammer.patch" \
     -p 1
   patch \
-    -i "$core"/$nom/patches/glaucus/0001-inherit-more-variables.patch \
+    -i "$core/$nom/patches/glaucus/0001-inherit-more-variables.patch" \
     -p 0
   patch \
-    -i "$core"/$nom/patches/glaucus/0002-remove-chown.patch \
+    -i "$core/$nom/patches/glaucus/0002-remove-chown.patch" \
     -p 0
 }
 
@@ -38,10 +38,10 @@ package() {
     install
 
   mkdir -p "$dir"/etc
-  cp -fPp "$core"/$nom/files/doas.conf "$dir"/etc
+  cp -fPp "$core/$nom/files/doas.conf" "$dir"/etc
   chmod 400 "$dir"/etc/doas.conf
 
-  mv -f "$dir"/usr/bin/doas "$dir"/usr/bin/$nom
-  ln -fs $nom "$dir"/usr/bin/doas
-  ln -fs $nom "$dir"/usr/bin/sudo
+  mv -f "$dir"/usr/bin/doas "$dir/usr/bin/$nom"
+  ln -fs "$nom" "$dir"/usr/bin/doas
+  ln -fs "$nom" "$dir"/usr/bin/sudo
 }
