@@ -8,12 +8,13 @@
 
 prepare() {
   patch \
-    -i "$core"/$nom/patches/glaucus/0001-use-gnu-hash-style.patch \
+    -i "$core/$nom/patches/glaucus/0001-use-gnu-hash-style.patch" \
     -p 0
 }
 
 configure() {
   set --
+
   if [ -n "${bootstrap-}" ]; then
     set -- \
       --host="$host" \
@@ -23,25 +24,28 @@ configure() {
       --with-dynlib="$dir"/usr/lib
   fi
 
+  set -- \
+      "$@" \
+      --prefix=/usr \
+      --exec-prefix=/usr \
+      --dynlibdir=/usr/lib \
+      --bindir=/usr/bin \
+      --libexecdir=/usr/lib \
+      --libdir=/usr/lib \
+      --sysconfdir=/etc \
+      --pkgconfdir=/usr/lib/pkgconfig \
+      --skeldir=/etc/s6/skel \
+      --tmpfsdir=/run \
+      --scandir=sv \
+      --with-pkgconfig \
+      --enable-shared \
+      --disable-static \
+      --disable-allstatic \
+      --enable-pkgconfig \
+      --enable-utmps
+
   ./configure \
-    "$@" \
-    --prefix=/usr \
-    --exec-prefix=/usr \
-    --dynlibdir=/usr/lib \
-    --bindir=/usr/bin \
-    --libexecdir=/usr/lib \
-    --libdir=/usr/lib \
-    --sysconfdir=/etc \
-    --pkgconfdir=/usr/lib/pkgconfig \
-    --skeldir=/etc/s6/skel \
-    --tmpfsdir=/run \
-    --scandir=sv \
-    --with-pkgconfig \
-    --enable-shared \
-    --disable-static \
-    --disable-allstatic \
-    --enable-pkgconfig \
-    --enable-utmps
+    "$@"
 }
 
 build() {
