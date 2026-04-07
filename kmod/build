@@ -12,15 +12,15 @@ configure() {
   if [ -n "${bootstrap-}" ]; then
     set -- \
         glaucus-meson \
-        --cross-file="$core"/muon/files/meson.cross \
-        -Dxz=disabled \
-        -Dzlib=disabled
+          --cross-file="$core"/muon/files/meson.cross \
+          -Dxz=disabled \
+          -Dzlib=disabled
   else
     set -- \
         glaucus-muon
   fi
 
-    "$@" \
+  "$@" \
     -Ddistconfdir=/usr/lib \
     -Dmoduledir=/usr/lib/modules \
     -Dbashcompletiondir=no \
