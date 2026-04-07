@@ -34,5 +34,5 @@ package() {
     install
 
   # Remove static library
-  rm -fv "$dir"/usr/lib/lib$nom.a
+  rm -fv "$dir/usr/lib/lib$nom.a"
 }
