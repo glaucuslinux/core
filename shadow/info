@@ -7,8 +7,8 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 ver='4.19.0'
-url='https://github.com/shadow-maint/shadow/releases/download/4.19.0/shadow-4.19.0.tar.gz'
-sum='fb5cb328fbb4247ea2bdc0df2e07cbcf'
+url='https://github.com/shadow-maint/shadow/releases/download/4.19.0/shadow-4.19.0.tar.xz'
+sum='039079ccbb281b9042f69b0cab2df69a'
 bld='libcap utmps'
 run='utmps'
 opt='bootstrap'

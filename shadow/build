@@ -19,6 +19,7 @@ prepare() {
 
 configure() {
   set --
+
   if [ -n "${bootstrap-}" ]; then
     set -- \
         --build="$build" \
@@ -28,26 +29,29 @@ configure() {
         --with-fcaps
   fi
 
+  set -- \
+      "$@" \
+      --disable-static \
+      --enable-pic \
+      --enable-lastlog \
+      --disable-logind \
+      --disable-nls \
+      --disable-rpath \
+      --without-audit \
+      --without-libpam \
+      --without-selinux \
+      --without-acl \
+      --without-attr \
+      --without-tcb \
+      --with-yescrypt \
+      --without-nscd \
+      --without-su \
+      --without-libbsd
+
   LIBS=-lutmps \
   shadow_cv_utmpdir=/run/utmps \
   glaucus-configure \
-    "$@" \
-    --disable-static \
-    --enable-pic \
-    --enable-lastlog \
-    --disable-logind \
-    --disable-nls \
-    --disable-rpath \
-    --without-audit \
-    --without-libpam \
-    --without-selinux \
-    --without-acl \
-    --without-attr \
-    --without-tcb \
-    --with-yescrypt \
-    --without-nscd \
-    --without-su \
-    --without-libbsd
+    "$@"
 }
 
 build() {
