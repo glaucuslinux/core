@@ -7,7 +7,7 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 ver='5.42.0'
-url='https://cpan.org/src/5.0/perl-5.42.0.tar.gz'
-sum='4b92254b04206b881a4daee303d375bc'
+url='https://cpan.org/src/5.0/perl-5.42.0.tar.xz'
+sum='8659c65176d762bc0107899935fe5419'
 bld='bzip2 libz'
 opt='bootstrap'

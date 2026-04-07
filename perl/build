@@ -8,10 +8,10 @@
 
 prepare() {
   patch \
-    -i "$core"/$nom/patches/alpine/digest-sha-cflags.patch \
+    -i "$core/$nom/patches/alpine/digest-sha-cflags.patch" \
     -p 1
   patch \
-    -i "$core"/$nom/patches/alpine/dont-write-packlist.patch \
+    -i "$core/$nom/patches/alpine/dont-write-packlist.patch" \
     -p 1
 }
 
@@ -23,8 +23,8 @@ configure() {
   USE_ZLIB_NG=1 \
   ./Configure \
     -des \
-    -Darchlib=/usr/lib/${nom}5/core_$nom \
-    -Dcc=$CC \
+    -Darchlib="/usr/lib/${nom}5/core_$nom" \
+    -Dcc="$CC" \
     -Dcf_by="$PRETTY_NAME" \
     -Dd_sockaddr_in6=define \
     -Dinc_version_list=none \
@@ -36,13 +36,13 @@ configure() {
     -Doptimize="$CFLAGS" \
     -Dpager='/usr/bin/less -is' \
     -Dprefix=/usr \
-    -Dprivlib=/usr/share/${nom}5/core_$nom \
-    -Dsitearch=/usr/lib/${nom}5/site_$nom \
-    -Dsitelib=/usr/share/${nom}5/site_$nom \
+    -Dprivlib="/usr/share/${nom}5/core_$nom" \
+    -Dsitearch="/usr/lib/${nom}5/site_$nom" \
+    -Dsitelib="/usr/share/${nom}5/site_$nom" \
     -Duseshrplib \
     -Dusethreads \
-    -Dvendorarch=/usr/lib/${nom}5/vendor_$nom \
-    -Dvendorlib=/usr/share/${nom}5/vendor_$nom \
+    -Dvendorarch="/usr/lib/${nom}5/vendor_$nom" \
+    -Dvendorlib="/usr/share/${nom}5/vendor_$nom" \
     -Dvendorprefix=/usr
 }
 
@@ -60,6 +60,6 @@ package() {
     DESTDIR="$dir" \
     install-strip
 
-  ln -fs $nom "$dir"/usr/bin/$nom$ver
-  ln -fs ${nom}bug "$dir"/usr/bin/${nom}thanks
+  ln -fs "$nom" "$dir/usr/bin/$nom$ver"
+  ln -fs "$nom"bug "$dir/usr/bin/${nom}thanks"
 }
