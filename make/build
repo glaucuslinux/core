@@ -12,30 +12,34 @@ prepare() {
 
 configure() {
   set --
+
   if [ -n "${bootstrap-}" ]; then
     set -- \
         --build="$build" \
         --host="$host"
   fi
 
+  set -- \
+      "$@" \
+      --disable-nls \
+      --disable-rpath \
+      --without-guile
+
   glaucus-configure \
-    "$@" \
-    --disable-nls \
-    --disable-rpath \
-    --without-guile
+    "$@"
 }
 
 build() {
-  $nom
+  "$nom"
 }
 
 check() {
-  $nom \
+  "$nom" \
     check
 }
 
 package() {
-  $nom \
+  "$nom" \
     DESTDIR="$dir" \
     install-strip
 }
