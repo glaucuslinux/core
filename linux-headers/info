@@ -7,7 +7,7 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 ver='6.18.3'
-url='https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.18.3.tar.gz'
-sum='d3b8ea8425ba7fe38af136e96181b8fb'
+url='https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.18.3.tar.xz'
+sum='6a76b37ff5b782d1b5c83f79fbaafa43'
 opt='bootstrap no-check'
 lic='GPL-2.0-only'
