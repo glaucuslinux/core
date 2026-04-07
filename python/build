@@ -7,10 +7,10 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
-  cd "$tmp"/$nom/Python-$ver
+  cd "$tmp/$nom/Python-$ver"
 
   patch \
-    -i "$core"/$nom/patches/openbsd/Modules__hashopenssl_c.patch \
+    -i "$core/$nom/patches/openbsd/Modules__hashopenssl_c.patch" \
     -p 0
 
   rm -fRv \
@@ -45,6 +45,6 @@ package() {
     DESTDIR="$dir" \
     install
 
-  ln -fs ${nom}3 "$dir"/usr/bin/$nom
-  ln -fs ${nom}3-config "$dir"/usr/bin/$nom-config
+  ln -fs "$nom"3 "$dir/usr/bin/$nom"
+  ln -fs "$nom"3-config "$dir/usr/bin/$nom-config"
 }
