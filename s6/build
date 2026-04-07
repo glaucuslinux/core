@@ -14,6 +14,7 @@ prepare() {
 
 configure() {
   set --
+
   if [ -n "${bootstrap-}" ]; then
     set -- \
         --host="$host" \
@@ -23,22 +24,25 @@ configure() {
         --with-dynlib="$dir"/usr/lib
   fi
 
+  set -- \
+      "$@" \
+      --prefix=/usr \
+      --exec-prefix=/usr \
+      --dynlibdir=/usr/lib \
+      --bindir=/usr/bin \
+      --libexecdir=/usr/lib \
+      --libdir=/usr/lib \
+      --sysconfdir=/etc \
+      --pkgconfdir=/usr/lib/pkgconfig \
+      --with-pkgconfig \
+      --enable-shared \
+      --disable-static \
+      --disable-allstatic \
+      --enable-pkgconfig \
+      --disable-aliases-symlinks
+
   ./configure \
-    "$@" \
-    --prefix=/usr \
-    --exec-prefix=/usr \
-    --dynlibdir=/usr/lib \
-    --bindir=/usr/bin \
-    --libexecdir=/usr/lib \
-    --libdir=/usr/lib \
-    --sysconfdir=/etc \
-    --pkgconfdir=/usr/lib/pkgconfig \
-    --with-pkgconfig \
-    --enable-shared \
-    --disable-static \
-    --disable-allstatic \
-    --enable-pkgconfig \
-    --disable-aliases-symlinks
+    "$@"
 }
 
 build() {
