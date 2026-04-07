@@ -50,5 +50,5 @@ package() {
     "$dir"/usr/share/hwdata
 
   # Fix library permissions
-  chmod 755 "$dir"/usr/lib/libpci.so.$ver
+  chmod 755 "$dir/usr/lib/libpci.so.$ver"
 }
