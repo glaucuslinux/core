@@ -7,7 +7,7 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 ver='0.19.2'
-url='https://gitlab.freedesktop.org/wlroots/wlroots/-/archive/0.19.2/wlroots-0.19.2.tar.gz'
-sum='8e440ba6b0fe06efb3b7499009d1aa7c'
+url='https://gitlab.freedesktop.org/wlroots/wlroots/-/archive/0.19.2/wlroots-0.19.2.tar.bz2'
+sum='5c9ccb59682ad365ead9de854e76bc50'
 bld='hwdata libdrm libinput libudev-zero libxkbcommon mesa muon pixman seatd wayland'
 lic='MIT'
