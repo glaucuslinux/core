@@ -19,31 +19,21 @@ build() {
 
   cd "$tmp/$nom/Nim-$ver"
 
-  bin/"$nom" compile \
-    -d:release \
-    -d:useMalloc \
-    -d:strip \
-    --os:linux \
-    --cpu:amd64 \
-    --passC:"$CFLAGS" \
-    --passL:"$LDFLAGS" \
-    --skipUserCfg \
-    --skipParentCfg \
-    --noNimblePath \
-    koch
+  set -- \
+      -d:release \
+      -d:useMalloc \
+      -d:strip \
+      --os:linux \
+      --cpu:amd64 \
+      --passC:"$CFLAGS" \
+      --passL:"$LDFLAGS" \
+      --skipUserCfg \
+      --skipParentCfg \
+      --noNimblePath
 
-  ./koch boot \
-    -d:release \
-    -d:leanCompiler \
-    -d:useMalloc \
-    -d:strip \
-    --os:linux \
-    --cpu:amd64 \
-    --passC:"$CFLAGS" \
-    --passL:"$LDFLAGS" \
-    --skipUserCfg \
-    --skipParentCfg \
-    --noNimblePath
+  bin/"$nom" compile "$@" koch
+
+  ./koch boot -d:leanCompiler "$@"
 }
 
 package() {
