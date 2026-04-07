@@ -7,7 +7,7 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
-  cd "$tmp"/$nom/SPIRV-Tools-vulkan-sdk-$ver
+  cd "$tmp/$nom/SPIRV-Tools-vulkan-sdk-$ver"
 }
 
 configure() {
