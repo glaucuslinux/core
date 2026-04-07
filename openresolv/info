@@ -7,7 +7,7 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 ver='3.17.4'
-url='https://github.com/NetworkConfiguration/openresolv/archive/v3.17.4.tar.gz'
-sum='11be91223b281ddedb153d7152a8eae1'
+url='https://github.com/NetworkConfiguration/openresolv/releases/download/v3.17.4/openresolv-3.17.4.tar.xz'
+sum='1d4315f91309de56307fbee731c50058'
 opt='no-check'
 lic='BSD-2-Clause'

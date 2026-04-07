@@ -8,7 +8,7 @@
 
 prepare() {
   patch \
-    -i "$core"/$nom/patches/alpine/detect_init-remove-irrelevant.patch \
+    -i "$core/$nom/patches/alpine/detect_init-remove-irrelevant.patch" \
     -p 1
 }
 
