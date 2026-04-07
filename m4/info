@@ -7,8 +7,8 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 ver='1.4.20'
-url='https://ftpmirror.gnu.org/m4/m4-1.4.20.tar.gz'
-sum='8c9d111235f453e0cf6fdc23c28454a4'
+url='https://ftpmirror.gnu.org/m4/m4-1.4.20.tar.xz'
+sum='59be102ae9003c0b0f75e0444a282b66'
 bld='gperf'
 opt='bootstrap'
 lic='GPL-3.0-or-later'

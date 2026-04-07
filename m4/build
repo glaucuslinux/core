@@ -14,20 +14,24 @@ prepare() {
 
 configure() {
   set --
+
   if [ -n "${bootstrap-}" ]; then
     set -- \
         --build="$build" \
         --host="$host"
   fi
 
+  set -- \
+      "$@" \
+      --enable-threads=posix \
+      --disable-rpath \
+      --enable-changeword \
+      --disable-nls \
+      --with-packager="$PRETTY_NAME" \
+      --with-packager-bug-reports=https://github.com/glaucuslinux/glaucus/issues
+
   glaucus-configure \
-    "$@" \
-    --enable-threads=posix \
-    --disable-rpath \
-    --enable-changeword \
-    --disable-nls \
-    --with-packager="$PRETTY_NAME" \
-    --with-packager-bug-reports=https://github.com/glaucuslinux/glaucus/issues
+    "$@"
 }
 
 build() {
