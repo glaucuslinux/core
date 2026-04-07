@@ -7,8 +7,8 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 ver='2.41.3'
-url='https://cdn.kernel.org/pub/linux/utils/util-linux/v2.41/util-linux-2.41.3.tar.gz'
-sum='47ebd2c66e20f63e54bf2f580e297183'
+url='https://cdn.kernel.org/pub/linux/utils/util-linux/v2.41/util-linux-2.41.3.tar.xz'
+sum='491a22a8c14cb6764e72a599d64c730b'
 bld='libedit libudev-zero libz netbsd-curses'
 opt='bootstrap'
 lic=''

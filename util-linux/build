@@ -16,48 +16,52 @@ prepare() {
 
 configure() {
   set --
+
   if [ -n "${bootstrap-}" ]; then
     set -- \
         --build="$build" \
         --host="$host"
   fi
 
-  LIBS="-lterminfo -lutmps" \
+  set -- \
+      "$@" \
+      --disable-static \
+      --enable-pic \
+      --disable-symvers \
+      --disable-nls \
+      --disable-rpath \
+      --disable-asciidoc \
+      --disable-poman \
+      --disable-liblastlog2 \
+      --disable-pam-lastlog2 \
+      --disable-setpriv \
+      --enable-fdformat \
+      --enable-tunelp \
+      --enable-line \
+      --disable-raw \
+      --disable-chfn-chsh \
+      --disable-login \
+      --disable-nologin \
+      --disable-su \
+      --disable-runuser \
+      --disable-more \
+      --enable-write \
+      --disable-bash-completion \
+      --disable-pylibmount \
+      --enable-fs-paths-default=/usr/bin \
+      --enable-usrdir-path \
+      --disable-makeinstall-chown \
+      --without-cap-ng \
+      --without-systemd \
+      --without-econf \
+      --with-vendordir=/usr/lib \
+      --without-python
+
+  LIBS='-lterminfo -lutmps' \
   LDFLAGS="$LDFLAGS -lterminfo -lutmps" \
-  ADJTIME_PATH=/var/lib/hwclock/adjtime \
+  ADJTIME_PATH='/var/lib/hwclock/adjtime' \
   glaucus-configure \
-    "$@" \
-    --disable-static \
-    --enable-pic \
-    --disable-symvers \
-    --disable-nls \
-    --disable-rpath \
-    --disable-asciidoc \
-    --disable-poman \
-    --disable-liblastlog2 \
-    --disable-pam-lastlog2 \
-    --disable-setpriv \
-    --enable-fdformat \
-    --enable-tunelp \
-    --enable-line \
-    --disable-raw \
-    --disable-chfn-chsh \
-    --disable-login \
-    --disable-nologin \
-    --disable-su \
-    --disable-runuser \
-    --disable-more \
-    --enable-write \
-    --disable-bash-completion \
-    --disable-pylibmount \
-    --enable-fs-paths-default=/usr/bin \
-    --enable-usrdir-path \
-    --disable-makeinstall-chown \
-    --without-cap-ng \
-    --without-systemd \
-    --without-econf \
-    --with-vendordir=/usr/lib \
-    --without-python
+    "$@"
 }
 
 build() {
