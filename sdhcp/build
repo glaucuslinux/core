@@ -8,16 +8,16 @@
 
 prepare() {
   patch \
-    -i "$core"/$nom/patches/smaclennan/0001-optimize-strlcpy.patch \
+    -i "$core/$nom/patches/smaclennan/0001-optimize-strlcpy.patch" \
     -p 0
   patch \
-    -i "$core"/$nom/patches/upstream/0001-statify-some-variables.patch \
+    -i "$core/$nom/patches/upstream/0001-statify-some-variables.patch" \
     -p 0
   patch \
-    -i "$core"/$nom/patches/zeppe-lin/0001-remove-congratz-message.patch \
+    -i "$core/$nom/patches/zeppe-lin/0001-remove-congratz-message.patch" \
     -p 1
   patch \
-    -i "$core"/$nom/patches/zeppe-lin/0002-remove-unused-enprintf-function.patch \
+    -i "$core/$nom/patches/zeppe-lin/0002-remove-unused-enprintf-function.patch" \
     -p 1
 }
 
@@ -29,5 +29,5 @@ build() {
 
 package() {
   mkdir -p "$dir"/usr/bin
-  mv -f $nom "$dir"/usr/bin
+  mv -f "$nom" "$dir"/usr/bin
 }
