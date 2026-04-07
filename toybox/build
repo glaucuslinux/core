@@ -20,7 +20,7 @@ build() {
   make \
     -j 1 \
     CROSS_COMPILE= \
-    LDFLAGS="-lutmps"
+    LDFLAGS='-lutmps'
 
   # make \
   #   LDFLAGS="$LDFLAGS -lutmps"
@@ -55,12 +55,12 @@ package() {
   w watch wc which who whoami \
   xargs \
   yes; do
-    ln -fs $nom "$dir"/usr/bin/$i
+    ln -fs "$nom" "$dir/usr/bin/$i"
   done
 
-  # for i in $(./$nom); do
-  #   ln -fs $nom "$dir"/usr/bin/$i
+  # for i in $(./"$nom"); do
+  #   ln -fs "$nom" "$dir/usr/bin/$i"
   # done
 
-  mv -f $nom "$dir"/usr/bin
+  mv -f "$nom" "$dir"/usr/bin
 }
