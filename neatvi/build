@@ -8,7 +8,7 @@
 
 prepare() {
   patch \
-    -i "$core"/$nom/patches/glaucus/0001-support-arrow-keys.patch \
+    -i "$core/$nom/patches/glaucus/0001-support-arrow-keys.patch" \
     -p 0
 }
 
@@ -25,7 +25,7 @@ check() {
 
 package() {
   mkdir -p "$dir"/usr/bin
-  mv -f vi "$dir"/usr/bin/$nom
-  ln -fs $nom "$dir"/usr/bin/ex
-  ln -fs $nom "$dir"/usr/bin/vi
+  mv -f vi "$dir"/usr/bin/"$nom"
+  ln -fs "$nom" "$dir"/usr/bin/ex
+  ln -fs "$nom" "$dir"/usr/bin/vi
 }
