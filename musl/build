@@ -30,8 +30,8 @@ configure() {
   set --
   
   if [ -n "${bootstrap-}" ]; then
-    set -- \
-      ARCH=x86_64 \
+    set -- env \
+      ARCH='x86_64' \
       CROSS_COMPILE="$host-" \
       LIBCC="$dir"/usr/lib/linux/libclang_rt.builtins-x86_64.a \
       ./configure \
