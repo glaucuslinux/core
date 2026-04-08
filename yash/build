@@ -54,4 +54,6 @@ package() {
   make \
     DESTDIR="$dir" \
     install-strip
+
+  ln -fs "$nom" "$dir"/usr/bin/sh 
 }
