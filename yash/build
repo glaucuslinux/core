@@ -13,21 +13,32 @@ prepare() {
 }
 
 configure() {
+  set --
+
+  if [ -n "${bootstrap-}" ]; then
+    set -- \
+        --host="$host"
+  fi
+
+  set -- \
+      "$@" \
+      --prefix=/usr \
+      --exec-prefix=/usr \
+      --bindir=/usr/bin \
+      --enable-array \
+      --enable-dirstack \
+      --enable-double-bracket \
+      --enable-help \
+      --enable-history \
+      --enable-lineedit \
+      --disable-nls \
+      --enable-printf \
+      --enable-socket \
+      --enable-test \
+      --enable-ulimit
+
   ./configure \
-    --prefix=/usr \
-    --exec-prefix=/usr \
-    --bindir=/usr/bin \
-    --enable-array \
-    --enable-dirstack \
-    --enable-double-bracket \
-    --enable-help \
-    --enable-history \
-    --enable-lineedit \
-    --disable-nls \
-    --enable-printf \
-    --enable-socket \
-    --enable-test \
-    --enable-ulimit
+    "$@"
 }
 
 build() {
