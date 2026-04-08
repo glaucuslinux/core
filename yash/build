@@ -55,5 +55,5 @@ package() {
     DESTDIR="$dir" \
     install-strip
 
-  ln -fs "$nom" "$dir"/usr/bin/sh 
+  ln -fs "$nom" "$dir"/usr/bin/sh
 }
