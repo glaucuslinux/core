@@ -37,7 +37,7 @@ package() {
   date dd df diff dirname du \
   echo env expand expr \
   factor false find fmt fold free \
-  getconf grep groups \
+  getconf grep groups gunzip gzip \
   head hostid hostname \
   iconv id install \
   killall \
@@ -54,7 +54,8 @@ package() {
   vmstat \
   w watch wc which who whoami \
   xargs \
-  yes; do
+  yes \
+  zcat; do
     ln -fs "$nom" "$dir/usr/bin/$i"
   done
 
