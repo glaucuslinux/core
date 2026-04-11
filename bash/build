@@ -14,14 +14,12 @@ prepare() {
 
 configure() {
   glaucus-configure \
-    --enable-extended-glob \
-    --enable-history \
-    --enable-job-control \
     --enable-readline \
     --disable-nls \
     --enable-threads=posix \
     --disable-rpath \
     --without-bash-malloc \
+    --with-curses \
     --with-installed-readline \
     --without-included-gettext
 }
@@ -46,6 +44,4 @@ package() {
   make \
     DESTDIR="$dir" \
     install-strip
-
-  ln -fs $nom "$dir/usr/bin/r$nom"
 }
