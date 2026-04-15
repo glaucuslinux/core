@@ -6,7 +6,9 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver='latest'
-url='https://github.com/jvoisin/fortify-headers'
-opt='bootstrap no-check'
-lic='0BSD'
+package() {
+  make \
+    PREFIX=/usr \
+    DESTDIR="$dir" \
+    install
+}
