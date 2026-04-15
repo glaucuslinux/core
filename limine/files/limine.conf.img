@@ -5,4 +5,3 @@ quiet: yes
     protocol: linux
     cmdline: init=/usr/bin/init quiet root=/dev/sda2 rootfstype=ext4
     path: boot():/vmlinuz
-    module_path: boot():/initramfs
