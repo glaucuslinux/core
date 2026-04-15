@@ -30,6 +30,6 @@ package() {
     install
 
   # Compatibility symlinks
-  ln -fs "$nom" "$dir"/usr/bin/bison
-  ln -fs "$nom" "$dir"/usr/bin/yacc
+  ln -fs "$nom" "$dir/usr/bin/bison"
+  ln -fs "$nom" "$dir/usr/bin/yacc"
 }
