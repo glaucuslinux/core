@@ -16,11 +16,11 @@ build() {
 }
 
 package() {
-  mkdir -p "$dir"/usr/bin
+  mkdir -p "$dir/usr/bin"
 
-  for i in $(./"$nom"); do
+  for i in $("./$nom"); do
     ln -fs "$nom" "$dir/usr/bin/$i"
   done
 
-  mv -f "$nom" "$dir"/usr/bin
+  mv -f "$nom" "$dir/usr/bin"
 }
