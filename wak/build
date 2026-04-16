@@ -16,6 +16,10 @@ build() {
 }
 
 package() {
-  mkdir -p "$dir"/usr/bin
-  mv -f "$nom" "$dir"/usr/bin
+  mkdir -p "$dir/usr/bin"
+  mv -f "$nom" "$dir/usr/bin"
+
+  # Compatibility symlinks
+  ln -fs "$nom" "$dir/usr/bin/awk"
+  ln -fs "$nom" "$dir/usr/bin/gawk"
 }
