@@ -8,7 +8,7 @@
 
 prepare() {
   patch \
-    -i "$core"/$nom/patches/glaucus/0001-disable-static.patch \
+    -i "$core/$nom/patches/glaucus/0001-disable-static.patch" \
     -p 0
 }
 
@@ -19,7 +19,13 @@ build() {
     sbin=bin \
     prefix=/usr \
     exec_prefix=/usr \
-    KERNEL_HEADERS=/usr/include \
+    KERNEL_HEADERS="$dir"/usr/include \
+    CC="$CC" \
+    BUILD_CC=gcc \
+    OBJCOPY="$OBJCOPY" \
+    AR="$AR" \
+    RANLIB="$RANLIB" \
+    LDFLAGS=" " \
     PAM_CAP=no \
     DYNAMIC=yes \
     GOLANG=no
@@ -37,7 +43,13 @@ package() {
     sbin=bin \
     prefix=/usr \
     exec_prefix=/usr \
-    KERNEL_HEADERS=/usr/include \
+    KERNEL_HEADERS="$dir"/usr/include \
+    CC="$CC" \
+    BUILD_CC=gcc \
+    OBJCOPY="$OBJCOPY" \
+    AR="$AR" \
+    RANLIB="$RANLIB" \
+    LDFLAGS=" " \
     PAM_CAP=no \
     DYNAMIC=yes \
     GOLANG=no \
