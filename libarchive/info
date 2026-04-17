@@ -9,6 +9,6 @@
 ver='3.8.5'
 url='https://github.com/libarchive/libarchive/releases/download/v3.8.5/libarchive-3.8.5.tar.xz'
 sum='131fe1c839113c0977a207e057a7a382'
-bld='bzip2 expat libressl libz lz4 xz zstd'
+bld='bzip2 expat libressl libz lz4 pcre2 xz zstd'
 run='expat'
 lic='BSD-2-Clause'
