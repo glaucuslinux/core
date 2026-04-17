@@ -68,4 +68,9 @@ package() {
     -C build \
     DESTDIR="$dir" \
     install/strip
+
+  cp -fPpR "$dir"/usr/lib/$host/* "$dir"/usr/lib
+  # ln -fs "$host"/libc++.so.1.0 "$dir"/usr/lib
+  # ln -fs "$host"/libc++abi.so.1.0 "$dir"/usr/lib
+  # ln -fs "$host"/libunwind.so.1.0 "$dir"/usr/lib
 }
