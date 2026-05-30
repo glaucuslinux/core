@@ -1,0 +1,13 @@
+# SPDX-License-Identifier: MPL-2.0
+
+# Copyright © 2018-2026 Firas Khana
+
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
+ver='6.18.33-0-lts'
+url='https://dl-cdn.alpinelinux.org/alpine/v3.24/main/x86_64/linux-lts-6.18.33-r0.apk'
+sum='cacdf075a08d70b66738355f468bf8be'
+opt='bootstrap no-check'
+lic='GPL-2.0-only'

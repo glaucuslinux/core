@@ -1,0 +1,18 @@
+# SPDX-License-Identifier: MPL-2.0
+
+# Copyright © 2018-2026 Firas Khana
+
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
+package() {
+  mkdir -p \
+    "$dir/boot" \
+    "$dir/usr/lib"
+
+  mv -f "$tmp/$nom/boot/vmlinuz-lts" "$dir/boot/vmlinuz"
+  mv -f "$tmp/$nom/usr/lib/modules" "$dir/usr/lib"
+
+  depmod -b "$dir" "$ver"
+}
