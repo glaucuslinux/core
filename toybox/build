@@ -38,14 +38,14 @@ package() {
   factor false find fmt fold free \
   getconf grep groups gunzip gzip \
   head hostid hostname \
-  iconv id install \
+  iconv id insmod install \
   killall \
-  link ln logname ls lsattr \
-  md5sum mkdir mkfifo mknod mktemp mv \
+  link ln logname ls lsattr lsmod \
+  md5sum mkdir mkfifo mknod mktemp modinfo modprobe mv \
   nice nl nohup nproc \
   od \
   paste patch pgrep pidof pkill pmap printenv printf ps pwd pwdx \
-  readlink realpath rm rmdir \
+  readlink realpath rm rmdir rmmod \
   sed seq sha1sum sha224sum sha256sum sha384sum sha512sum shred shuf sleep \
   sort split stat stty su sync sysctl \
   tac tail tee test time timeout touch tr true truncate tsort tty \
