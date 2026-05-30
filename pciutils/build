@@ -12,7 +12,7 @@ build() {
     ZLIB=no \
     DNS=yes \
     SHARED=yes \
-    LIBKMOD=yes \
+    LIBKMOD=no \
     HWDB=yes \
     PREFIX=/usr \
     BINDIR=/usr/bin \
@@ -30,7 +30,7 @@ package() {
     ZLIB=no \
     DNS=yes \
     SHARED=yes \
-    LIBKMOD=yes \
+    LIBKMOD=no \
     HWDB=yes \
     PREFIX=/usr \
     BINDIR=/usr/bin \
