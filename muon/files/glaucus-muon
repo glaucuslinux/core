@@ -24,5 +24,6 @@ exec muon setup \
   -Dstrip=true \
   -Dwrap_mode=nodownload \
   -Db_lto=true \
+  -Db_ndebug=true \
   -Db_pie=true \
   "$@"
