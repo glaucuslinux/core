@@ -46,8 +46,8 @@ package() {
 
   # ids are provided by `hwdata`
   rm -fRv \
-    "$dir"/usr/bin/update-pciids \
-    "$dir"/usr/share/hwdata
+    "$dir/usr/bin/update-pciids" \
+    "$dir/usr/share/hwdata"
 
   # Fix library permissions
   chmod 755 "$dir/usr/lib/libpci.so.$ver"
