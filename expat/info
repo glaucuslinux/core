@@ -6,8 +6,8 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver='2.7.3'
-url='https://github.com/libexpat/libexpat/releases/download/R_2_7_3/expat-2.7.3.tar.xz'
-sum='ccf6f75b2b3b3f89a9b1c44cd6abb85d'
+ver='2.8.4'
+url='https://github.com/libexpat/libexpat/releases/download/R_2_8_4/expat-2.8.4.tar.xz'
+sum='577d260e36b1a925a003a89899994ccd'
 opt='bootstrap'
 lic='MIT'
