@@ -9,7 +9,7 @@
 prepare() {
   ./autogen.sh
 
-  touch doc/"$nom".1
+  touch "doc/$nom.1"
 }
 
 configure() {
@@ -51,5 +51,5 @@ package() {
     DESTDIR="$dir" \
     install-strip
 
-  ln -fs "$nom" "$dir"/usr/bin/lex
+  ln -fs "$nom" "$dir/usr/bin/lex"
 }
