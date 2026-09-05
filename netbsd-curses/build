@@ -28,16 +28,16 @@ package() {
     DESTDIR="$dir" \
     install-dynamic
 
-  ln -fs tic "$dir"/usr/bin/captoinfo
-  ln -fs tic "$dir"/usr/bin/infotocap
+  ln -fs tic "$dir/usr/bin/captoinfo"
+  ln -fs tic "$dir/usr/bin/infotocap"
 
   chmod 755 \
-    "$dir"/usr/lib/libcurses.so \
-    "$dir"/usr/lib/libform.so \
-    "$dir"/usr/lib/libmenu.so \
-    "$dir"/usr/lib/libpanel.so \
-    "$dir"/usr/lib/libterminfo.so
+    "$dir/usr/lib/libcurses.so" \
+    "$dir/usr/lib/libform.so" \
+    "$dir/usr/lib/libmenu.so" \
+    "$dir/usr/lib/libpanel.so" \
+    "$dir/usr/lib/libterminfo.so"
 
   # `util-linux` and `yash` link against this
-  ln -fs libterminfo.so "$dir"/usr/lib/libtinfo.so
+  ln -fs libterminfo.so "$dir/usr/lib/libtinfo.so"
 }
