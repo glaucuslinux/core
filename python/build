@@ -45,6 +45,6 @@ package() {
     DESTDIR="$dir" \
     install
 
-  ln -fs "$nom"3 "$dir/usr/bin/$nom"
-  ln -fs "$nom"3-config "$dir/usr/bin/$nom-config"
+  ln -fs "${nom}3" "$dir/usr/bin/$nom"
+  ln -fs "${nom}3-config" "$dir/usr/bin/$nom-config"
 }
