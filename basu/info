@@ -6,7 +6,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver='latest'
+ver='315664a'
 url='https://git.sr.ht/~emersion/basu'
 bld='gperf libcap muon python'
 lic='LGPL-2.1-or-later'
