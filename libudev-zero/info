@@ -6,7 +6,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver='latest'
+ver='8f1d3d0'
 url='https://github.com/illiliti/libudev-zero'
 opt='bootstrap no-check'
 lic='ISC'
