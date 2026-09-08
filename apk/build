@@ -8,10 +8,10 @@
 
 configure() {
   glaucus-muon \
-    -Dcompressed-help=false \
     -Ddocs=disabled \
-    -Dhelp=disabled \
+    -Dhelp=enabled \
     -Dlua=disabled \
+    -Dminimal=true \
     -Dpython=disabled \
     -Dtests=disabled \
     -Dzstd=enabled \
@@ -28,4 +28,6 @@ package() {
   muon \
     -C build \
     install
+
+  rm -fRv "$dir/usr/include/$nom"
 }
