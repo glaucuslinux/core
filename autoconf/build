@@ -20,7 +20,8 @@ configure() {
   fi
 
   glaucus-configure \
-    "$@"
+    "$@" \
+    --without-lispdir
 }
 
 build() {
