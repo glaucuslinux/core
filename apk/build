@@ -28,6 +28,4 @@ package() {
   muon \
     -C build \
     install
-
-  rm -fRv "$dir/usr/include/$nom"
 }
