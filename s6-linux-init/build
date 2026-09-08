@@ -6,22 +6,16 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-prepare() {
-  patch \
-    -i "$core/$nom/patches/glaucus/0001-use-gnu-hash-style.patch" \
-    -p 0
-}
-
 configure() {
   set --
 
   if [ -n "${bootstrap-}" ]; then
     set -- \
       --host="$host" \
-      --with-sysdeps="$dir"/usr/lib/skalibs/sysdeps \
-      --with-include="$dir"/usr/include \
-      --with-lib="$dir"/usr/lib \
-      --with-dynlib="$dir"/usr/lib
+      --with-sysdeps="$dir/usr/lib/skalibs/sysdeps" \
+      --with-include="$dir/usr/include" \
+      --with-lib="$dir/usr/lib" \
+      --with-dynlib="$dir/usr/lib"
   fi
 
   set -- \
