@@ -22,8 +22,4 @@ package() {
   make \
     DESTDIR="$dir" \
     install-strip
-
-  # Replace hard links with symbolic links
-  ln -fs aclocal "$dir/usr/bin/aclocal-$ver"
-  ln -fs "$nom" "$dir/usr/bin/$nom-$ver"
 }
