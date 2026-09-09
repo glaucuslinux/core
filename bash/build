@@ -19,23 +19,13 @@ configure() {
 }
 
 build() {
-  # parallel build workarounds
-  make \
-    y.tab.c
-
-  make \
-    builtins/libbuiltins.a
-
   make
-}
-
-check() {
-  make \
-    test
 }
 
 package() {
   make \
     DESTDIR="$dir" \
     install-strip
+
+  rm -fv "$dir/usr/bin/${nom}bug"
 }
