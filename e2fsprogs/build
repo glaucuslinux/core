@@ -55,6 +55,6 @@ package() {
     install-strip
 
   rm -fv \
-    "$dir"/usr/bin/chattr \
-    "$dir"/usr/bin/lsattr
+    "$dir/usr/bin/chattr" \
+    "$dir/usr/bin/lsattr"
 }
