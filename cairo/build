@@ -41,4 +41,8 @@ package() {
   muon \
     -C build \
     install
+
+  rm -fRv \
+    "$dir/usr/bin/$nom-trace" \
+    "$dir/usr/lib/$nom"
 }
