@@ -59,7 +59,7 @@ package() {
   rm -fR \
     "$dir/usr/doc" \
     "$dir/usr/share/bash-completion" \
-    "$dir/usr/share/cmake"*/Help \
+    "$dir/usr/share/$nom"*/Help \
     "$dir/usr/share/emacs" \
     "$dir/usr/share/vim"
 }
