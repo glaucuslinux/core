@@ -16,8 +16,8 @@ configure() {
   ./bootstrap \
     --prefix=/usr \
     --bindir=bin \
-    --datadir="share/$nom" \
-    --docdir="share/doc/$nom" \
+    --datadir="/share/$nom" \
+    --docdir="/share/doc/$nom" \
     --parallel=5 \
     --system-libs \
     --no-system-cppdap \
@@ -32,7 +32,18 @@ configure() {
     --system-libarchive \
     --no-system-librhash \
     --no-system-libuv \
-    --no-debugger
+    --no-qt-gui \
+    --no-debugger \
+    -- \
+    -DBUILD_CursesDialog=OFF \
+    -DBUILD_TESTING=OFF \
+    -DCMake_BUILD_LTO=ON \
+    -DCMAKE_BUILD_TYPE=MinSizeRel \
+    -DCMAKE_C_FLAGS="$CFLAGS" \
+    -DCMAKE_CXX_FLAGS="$CXXFLAGS" \
+    -DCMAKE_EXE_LINKER_FLAGS="$LDFLAGS" \
+    -DCMAKE_POSITION_INDEPENDENT_CODE=ON \
+    -DCMAKE_SKIP_RPATH=ON
 }
 
 build() {
