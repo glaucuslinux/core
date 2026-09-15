@@ -15,27 +15,84 @@ configure() {
     --disable-debug \
     --enable-optimize \
     --disable-curldebug \
+    --enable-symbol-hiding \
     --disable-ares \
+    --disable-rt \
+    --disable-httpsrr \
+    --disable-ech \
+    --disable-ssls-export \
     --disable-static \
     --enable-pic \
+    --enable-http \
+    --disable-ftp \
+    --enable-file \
+    --disable-ipfs \
     --disable-ldap \
     --disable-ldaps \
+    --disable-rtsp \
+    --enable-proxy \
+    --disable-dict \
+    --disable-telnet \
+    --disable-tftp \
+    --disable-pop3 \
+    --disable-imap \
+    --disable-smb \
+    --disable-smtp \
+    --disable-gopher \
+    --disable-mqtt \
     --disable-manual \
     --disable-docs \
+    --disable-libcurl-option \
     --enable-ipv6 \
+    --disable-openssl-auto-load-config \
+    --disable-ca-search \
     --disable-versioned-symbols \
     --enable-threaded-resolver \
+    --enable-verbose \
+    --disable-sspi \
+    --disable-kerberos-auth \
+    --disable-negotiate-auth \
+    --disable-aws \
+    --disable-ntlm \
+    --disable-tls-srp \
     --enable-unix-sockets \
-    --enable-websockets \
+    --enable-cookies \
+    --enable-socketpair \
+    --enable-http-auth \
+    --disable-doh \
+    --enable-mime \
+    --enable-bindlocal \
+    --disable-form-api \
+    --enable-dateparse \
+    --disable-netrc \
+    --enable-progress-meter \
+    --enable-dnsshuffle \
+    --disable-get-easy-options \
+    --disable-alt-svc \
+    --enable-headers-api \
+    --enable-hsts \
+    --disable-websockets \
+    --without-schannel \
+    --without-amissl \
     --with-openssl \
+    --without-gnutls \
+    --without-mbedtls \
+    --without-wolfssl \
+    --without-rustls \
+    --without-apple-sectrust \
     --with-zlib \
     --without-brotli \
     --with-zstd \
+    --without-gssapi \
     --with-ca-bundle=/etc/ssl/cert.pem \
     --with-ca-path=/etc/ssl/certs \
-    --with-ca-embed=/etc/ssl/cert.pem \
+    --without-ca-fallback \
+    --without-ca-embed \
     --without-libpsl \
     --without-libgsasl \
+    --without-libssh2 \
+    --without-libssh \
+    --without-ldap \
     --without-librtmp \
     --without-winidn \
     --without-apple-idn \
@@ -45,7 +102,6 @@ configure() {
     --without-openssl-quic \
     --without-nghttp3 \
     --without-quiche \
-    --without-msh3 \
     --without-libuv \
     --without-zsh-functions-dir \
     --without-fish-functions-dir
@@ -55,13 +111,14 @@ build() {
   make
 }
 
-check() {
-  make \
-    test
-}
-
 package() {
   make \
     DESTDIR="$dir" \
     install-strip
+}
+
+purge() {
+  rm -f \
+    "$dir/usr/bin/$nom-config" \
+    "$dir/usr/bin/w$nom"
 }
