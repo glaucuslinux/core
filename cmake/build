@@ -45,18 +45,17 @@ build() {
   make
 }
 
-check() {
-  bin/ctest
-}
-
 package() {
   make \
     DESTDIR="$dir" \
     install
 
   cp -fPp "$core/$nom/files/glaucus-$nom" "$dir/usr/bin"
+}
 
-  rm -fR \
+purge() {
+  rm -fRv \
+    "$dir/usr/bin/ctest" \
     "$dir/usr/doc" \
     "$dir/usr/share/bash-completion" \
     "$dir/usr/share/$nom"*/Help \
