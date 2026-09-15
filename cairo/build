@@ -41,7 +41,9 @@ package() {
   muon \
     -C build \
     install
+}
 
+purge() {
   rm -fRv \
     "$dir/usr/bin/$nom-trace" \
     "$dir/usr/lib/$nom"
