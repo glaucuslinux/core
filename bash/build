@@ -26,6 +26,11 @@ package() {
   make \
     DESTDIR="$dir" \
     install-strip
+}
 
-  rm -fv "$dir/usr/bin/${nom}bug"
+purge() {
+  rm -fR \
+    "$dir/usr/bin/${nom}bug" \
+    "$dir/usr/include" \
+    "$dir/usr/lib/pkgconfig"
 }
