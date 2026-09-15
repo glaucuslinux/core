@@ -28,15 +28,30 @@ configure() {
     --enable-symlink-build \
     --enable-elf-shlibs \
     --disable-bsd-shlibs \
+    --enable-hardening \
     --disable-testio-debug \
     --disable-libuuid \
     --disable-libblkid \
+    --disable-backtrace \
+    --disable-debugfs \
+    --disable-imager \
+    --disable-defrag \
     --disable-fsck \
+    --enable-e2initrd-helper \
+    --disable-tls \
     --disable-uuidd \
+    --disable-mmp \
+    --disable-tdb \
+    --disable-bmap-stats \
     --disable-nls \
     --disable-rpath \
+    --disable-fuse2fs \
     --enable-lto \
+    --without-libiconv-prefix \
+    --without-libintl-prefix \
+    --without-libarchive \
     --without-udev-rules-dir \
+    --without-crond-dir \
     --without-systemd-unit-dir
 }
 
@@ -44,16 +59,13 @@ build() {
   make
 }
 
-check() {
-  make \
-    check
-}
-
 package() {
   make \
     DESTDIR="$dir" \
     install-strip
+}
 
+purge() {
   rm -fv \
     "$dir/usr/bin/chattr" \
     "$dir/usr/bin/lsattr"
