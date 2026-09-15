@@ -9,7 +9,7 @@
 configure() {
   glaucus-muon \
     -Ddocs=disabled \
-    -Dhelp=enabled \
+    -Dhelp=disabled \
     -Dlua=disabled \
     -Dminimal=true \
     -Dpython=disabled \
@@ -28,4 +28,10 @@ package() {
   muon \
     -C build \
     install
+}
+
+purge() {
+  rm -fR \
+    "$dir/usr/include" \
+    "$dir/usr/lib/pkgconfig"
 }
