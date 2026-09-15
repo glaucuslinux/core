@@ -118,7 +118,7 @@ package() {
 }
 
 purge() {
-  rm -f \
+  rm -fv \
     "$dir/usr/bin/$nom-config" \
     "$dir/usr/bin/w$nom"
 }
