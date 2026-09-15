@@ -29,7 +29,7 @@ package() {
 }
 
 purge() {
-  rm -fR \
+  rm -fRv \
     "$dir/usr/bin/${nom}bug" \
     "$dir/usr/include" \
     "$dir/usr/lib/pkgconfig"
