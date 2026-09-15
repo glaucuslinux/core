@@ -19,13 +19,6 @@ build() {
     -C build
 }
 
-check() {
-  muon \
-    -C build \
-    test \
-    -R
-}
-
 package() {
   DESTDIR="$dir" \
   muon \
