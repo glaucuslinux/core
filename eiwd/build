@@ -17,24 +17,16 @@ configure() {
     --enable-pic \
     --enable-pie \
     --disable-dbus \
-    --enable-client \
+    --disable-client \
+    --disable-monitor \
     --disable-dbus-policy \
     --disable-systemd-service \
     --disable-manual-pages \
-    --enable-libedit \
-    --enable-wired \
-    --enable-hwsim \
-    --enable-tools \
-    --enable-ofono
+    --enable-libedit
 }
 
 build() {
   make
-}
-
-check() {
-  make \
-    check
 }
 
 package() {
@@ -42,8 +34,6 @@ package() {
     DESTDIR="$dir" \
     install-strip
 
-  mkdir -p "$dir"/etc/iwd
-  cp -fPp "$core/$nom/files/main.conf" "$dir"/etc/iwd
-
-  cp -fPp "$core/$nom/files/iwd_passphrase" "$dir"/usr/bin
+  mkdir -p "$dir/etc/iwd"
+  cp -fPp "$core/$nom/files/main.conf" "$dir/etc/iwd"
 }
