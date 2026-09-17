@@ -19,26 +19,23 @@ configure() {
         --host="$host"
   fi
 
-  set -- \
-      "$@" \
-      --disable-static \
-      --enable-pic \
-      --without-xmlwf \
-      --without-examples \
-      --without-tests \
-      --without-docbook
-
   glaucus-configure \
-    "$@"
+    "$@" \
+    --disable-static \
+    --enable-pic \
+    --without-xmlwf \
+    --without-examples \
+    --without-tests \
+    --without-arc4random \
+    --without-arc4random-buf \
+    --without-getentropy \
+    --with-getrandom \
+    --without-sys-getrandom \
+    --without-docbook
 }
 
 build() {
   make
-}
-
-check() {
-  make \
-    check
 }
 
 package() {
