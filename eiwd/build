@@ -21,8 +21,7 @@ configure() {
     --disable-monitor \
     --disable-dbus-policy \
     --disable-systemd-service \
-    --disable-manual-pages \
-    --enable-libedit
+    --disable-manual-pages
 }
 
 build() {
