@@ -26,33 +26,30 @@ configure() {
         --host="$host"
   fi
 
-  set -- \
-      "$@" \
-      --enable-zlib \
-      --enable-bzlib \
-      --enable-xzlib \
-      --enable-zstdlib \
-      --disable-lzlib \
-      --disable-lrziplib \
-      --disable-libseccomp \
-      --enable-fsect-man5 \
-      --enable-pic
-
   glaucus-configure \
-    "$@"
+    "$@" \
+    --disable-zlib \
+    --disable-bzlib \
+    --disable-xzlib \
+    --disable-zstdlib \
+    --disable-lzlib \
+    --disable-lrziplib \
+    --disable-libseccomp \
+    --enable-pic
 }
 
 build() {
   make
 }
 
-check() {
-  make \
-    check
-}
-
 package() {
   make \
     DESTDIR="$dir" \
     install-strip
+}
+
+purge() {
+  rm -fRv \
+    "$dir/usr/include" \
+    "$dir/usr/lib/pkgconfig"
 }
