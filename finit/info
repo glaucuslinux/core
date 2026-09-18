@@ -1,0 +1,14 @@
+# SPDX-License-Identifier: MPL-2.0
+
+# Copyright © 2018-2026 Firas Khana
+
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
+ver='5.0-rc1'
+url='https://github.com/finit-project/finit/releases/download/5.0-rc1/finit-5.0-rc1.tar.gz'
+sum='2f3566b08e76bfb581de73203c311d9f'
+bld='libite libuev util-linux'
+opt='bootstrap'
+lic='MIT'
