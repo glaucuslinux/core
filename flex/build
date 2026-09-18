@@ -13,8 +13,6 @@ prepare() {
 }
 
 configure() {
-  set --
-
   if [ -n "${bootstrap-}" ]; then
     set -- env \
         ac_cv_func_malloc_0_nonnull=yes \
@@ -33,17 +31,13 @@ configure() {
     --disable-nls \
     --disable-rpath \
     --disable-libfl \
-    --disable-bootstrap
+    --disable-bootstrap \
+    --without-libiconv-prefix \
+    --without-libintl-prefix
 }
 
 build() {
-  make \
-    -j 1
-}
-
-check() {
-  make \
-    check
+  make
 }
 
 package() {
@@ -52,4 +46,8 @@ package() {
     install-strip
 
   ln -fs "$nom" "$dir/usr/bin/lex"
+}
+
+purge() {
+  rm -fRv "$dir/usr/include"
 }
