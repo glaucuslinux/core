@@ -8,5 +8,5 @@
 
 ver='e7c8662'
 url='https://github.com/jvoisin/fortify-headers'
-opt='bootstrap no-check'
+opt='bootstrap'
 lic='0BSD'
