@@ -6,23 +6,23 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-prepare() {
-  NOCONFIGURE=yes \
-  ./autogen.sh
-}
-
 configure() {
-  glaucus-configure \
-    --enable-pic \
-    --disable-deprecated
+  glaucus-muon \
+    -Ddeprecated=false \
+    -Ddocs=false \
+    -Dbin=false \
+    -Dtests=false \
+    build
 }
 
 build() {
-  make
+  samu \
+    -C build
 }
 
 package() {
-  make \
-    DESTDIR="$dir" \
+  DESTDIR="$dir" \
+  muon \
+    -C build \
     install
 }
