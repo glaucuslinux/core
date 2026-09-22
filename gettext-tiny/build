@@ -12,7 +12,7 @@ build() {
     bindir=/usr/bin \
     libdir=/usr/lib \
     sysconfdir=/etc \
-    LIBINTL=MUSL \
+    LIBINTL=NONE \
     CFLAGS="$CFLAGS" \
     LDFLAGS="$LDFLAGS"
 }
@@ -23,11 +23,11 @@ package() {
     bindir=/usr/bin \
     libdir=/usr/lib \
     sysconfdir=/etc \
-    LIBINTL=MUSL \
+    LIBINTL=NONE \
     DESTDIR="$dir" \
     install
 
   cp -fPp "$core/$nom/files/config.rpath" "$dir/usr/share/$nom"
 
-  ln -fs "$nom" "$dir"/usr/share/gettext
+  ln -fs "$nom" "$dir/usr/share/gettext"
 }
