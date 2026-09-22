@@ -16,16 +16,13 @@ configure() {
     --disable-static \
     --enable-pic \
     --disable-nls \
-    --disable-rpath
+    --disable-rpath \
+    --without-libiconv-prefix \
+    --without-libintl-prefix
 }
 
 build() {
   make
-}
-
-check() {
-  make \
-    check
 }
 
 package() {
