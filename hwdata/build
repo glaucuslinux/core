@@ -6,12 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-prepare() {
-  patch \
-    -i "$core/$nom/patches/glaucus/0001-fix-pkg-config-directory.patch" \
-    -p 0
-}
-
 configure() {
   ./configure \
     --prefix=/usr \
@@ -21,11 +15,6 @@ configure() {
     --sysconfdir=/etc \
     --libdir=/usr/lib \
     --disable-blacklist
-}
-
-check() {
-  make \
-    check
 }
 
 package() {
