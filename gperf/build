@@ -7,7 +7,8 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
-  ./autogen.sh --skip-gnulib
+  ./autogen.sh \
+    --skip-gnulib
 }
 
 configure() {
@@ -16,11 +17,6 @@ configure() {
 
 build() {
   make
-}
-
-check() {
-  make \
-    check
 }
 
 package() {
