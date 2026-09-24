@@ -11,8 +11,10 @@ configure() {
     -B build \
     -DBUILD_APPS=OFF \
     -DBUILD_STATIC_LIBS=OFF \
-    -DBUILD_TESTING=OFF \
+    -DCMAKE_POLICY_DEFAULT_CMP0219=OLD \
     -DDISABLE_EXTRA_LIBS=ON \
+    -DDISABLE_JSON_POINTER=ON \
+    -DDISABLE_WERROR=ON \
     -DENABLE_RDRAND=ON \
     -DENABLE_THREADING=ON
 }
@@ -27,4 +29,8 @@ package() {
     -C build \
     DESTDIR="$dir" \
     install/strip
+}
+
+purge() {
+  rm -fRv "$dir/usr/lib/cmake"
 }
