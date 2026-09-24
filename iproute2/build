@@ -6,15 +6,8 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-prepare() {
-  patch \
-    -i "$core/$nom/patches/glaucus/0001-remove-arpd.patch" \
-    -p 0
-}
-
 configure() {
   ./configure \
-    --color=always \
     --libdir=/usr/lib \
     --libbpf_force=off \
     --prefix=/usr
@@ -29,4 +22,25 @@ package() {
     SBINDIR=/usr/bin \
     DESTDIR="$dir" \
     install
+}
+
+purge() {
+  rm -fRv \
+    "$dir/usr/bin/ctstat" \
+    "$dir/usr/bin/dcb" \
+    "$dir/usr/bin/devlink" \
+    "$dir/usr/bin/genl" \
+    "$dir/usr/bin/ifstat" \
+    "$dir/usr/bin/lnstat" \
+    "$dir/usr/bin/netshaper" \
+    "$dir/usr/bin/nstat" \
+    "$dir/usr/bin/rdma" \
+    "$dir/usr/bin/routel" \
+    "$dir/usr/bin/rtacct" \
+    "$dir/usr/bin/rtmon" \
+    "$dir/usr/bin/rtstat" \
+    "$dir/usr/bin/tipc" \
+    "$dir/usr/bin/vdpa" \
+    "$dir/usr/include" \
+    "$dir/usr/share/bash-completion"
 }
