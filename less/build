@@ -13,23 +13,19 @@ prepare() {
 configure() {
   glaucus-configure \
     --with-secure \
-    --with-regex=pcre2
+    --with-regex=posix
 }
 
 build() {
   make
 }
 
-check() {
-  make \
-    check
-}
-
 package() {
   make \
     DESTDIR="$dir" \
     install-strip
+}
 
-  # Compatibility symlink
-  ln -fs $nom "$dir"/usr/bin/more
+purge() {
+  rm -fv "$dir/usr/bin/${nom}key"
 }

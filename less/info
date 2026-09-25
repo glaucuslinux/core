@@ -9,6 +9,5 @@
 ver='685'
 url='https://greenwoodsoftware.com/less/less-685.tar.gz'
 sum='7fb7495f86f05c2433323b19ce7463c8'
-bld='netbsd-curses pcre2'
-run='pcre2'
+bld='netbsd-curses'
 lic='BSD-2-Clause GPL-3.0-or-later'
