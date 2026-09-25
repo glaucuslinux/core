@@ -1,7 +1,0 @@
---- build/pkgconfig/libarchive.pc.in
-+++ build/pkgconfig/libarchive.pc.in
-@@ -10,4 +10,3 @@
- Cflags.private: -DLIBARCHIVE_STATIC
- Libs: -L${libdir} -larchive
- Libs.private: @LIBS@
--Requires.private: @LIBSREQUIRED@

@@ -7,10 +7,6 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
-  patch \
-    -i "$core/$nom/patches/glaucus/0001-fix-pkg-config-file.patch" \
-    -p 0
-
   ./build/autogen.sh
 }
 
@@ -23,31 +19,28 @@ configure() {
         --host="$host"
   fi
 
-  set -- \
+  glaucus-configure \
     "$@" \
     --disable-static \
+    --enable-pic \
+    --enable-bsdtar=shared \
+    --disable-bsdcat \
     --disable-bsdcpio \
+    --enable-bsdunzip=shared \
     --disable-rpath \
-    --enable-posix-regex-lib=libpcre2posix \
+    --enable-posix-regex-lib=libc \
     --disable-xattr \
     --disable-acl \
-    --with-pic \
     --without-libb2 \
     --without-iconv \
+    --without-libiconv-prefix \
     --without-cng \
-    --without-xml2
-
-  glaucus-configure \
-    "$@"
+    --without-xml2 \
+    --without-expat
 }
 
 build() {
   make
-}
-
-check() {
-  make \
-    check
 }
 
 package() {
@@ -56,6 +49,6 @@ package() {
     install-strip
 
   # Compatibility symlinks
-  ln -fs bsdtar "$dir"/usr/bin/tar
-  ln -fs bsdunzip "$dir"/usr/bin/unzip
+  ln -fs bsdtar "$dir/usr/bin/tar"
+  ln -fs bsdunzip "$dir/usr/bin/unzip"
 }
