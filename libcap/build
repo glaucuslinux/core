@@ -19,9 +19,11 @@ build() {
     OBJCOPY="$OBJCOPY" \
     LDFLAGS=" " \
     USE_GPERF=no \
+    INDENT= \
     DYNAMIC=yes \
     PAM_CAP=no \
-    GOLANG=no
+    GOLANG=no \
+    CAPSH_SHELL='-DSHELL=\"/bin/sh\"'
 }
 
 package() {
@@ -37,8 +39,10 @@ package() {
     OBJCOPY="$OBJCOPY" \
     LDFLAGS=" " \
     USE_GPERF=no \
+    INDENT= \
     DYNAMIC=yes \
     PAM_CAP=no \
     GOLANG=no \
+    CAPSH_SHELL='-DSHELL=\"/bin/sh\"' \
     install
 }
