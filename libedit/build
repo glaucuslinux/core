@@ -11,11 +11,18 @@ prepare() {
 }
 
 configure() {
+  set --
+
+  if [ -n "${bootstrap-}" ]; then
+    set -- \
+        --build="$build" \
+        --host="$host"
+  fi
+
   CFLAGS="$CFLAGS -D__STDC_ISO_10646__" \
   LIBS='-lterminfo' \
   glaucus-configure \
-    --build="$build" \
-    --host="$host" \
+    "$@" \
     --disable-static \
     --enable-pic \
     --disable-examples
@@ -26,35 +33,22 @@ build() {
   make
 }
 
-check() {
-  make \
-    check
-}
-
 package() {
   make \
     DESTDIR="$dir" \
     install-strip
 
-  mkdir -p "$dir"/etc
-  cp -fPp \
-    "$core/$nom/files/editrc" \
-    "$core/$nom/files/inputrc" \
-    "$dir"/etc
+  mkdir -p "$dir/etc"
+  cp -fPp "$core/$nom/files/editrc" "$dir/etc"
 
-  # Replace `readline`
-  mkdir -p "$dir"/usr/include/readline
-  touch \
-    "$dir"/usr/include/readline/history.h \
-    "$dir"/usr/include/readline/tilde.h
-  ln -fs ../editline/readline.h "$dir"/usr/include/readline
+  mkdir -p "$dir/usr/include/readline"
+  for i in history readline tilde; do
+    ln -fs ../editline/readline.h "$dir/usr/include/readline/$i.h"
+  done
 
-  # for i in history readline tilde; do
-  #   ln -fs ../editline/readline.h "$dir"/usr/include/readline/$i.h
-  # done
+  ln -fs "$nom.so" "$dir/usr/lib/libhistory.so"
+  ln -fs "$nom.so" "$dir/usr/lib/libreadline.so"
 
-  # ln -fs $nom.so "$dir"/usr/lib/libhistory.so
-  ln -fs "$nom".so "$dir"/usr/lib/libreadline.so
-
-  ln -fs "$nom".pc "$dir"/usr/lib/pkgconfig/readline.pc
+  ln -fs "$nom.pc" "$dir/usr/lib/pkgconfig/history.pc"
+  ln -fs "$nom.pc" "$dir/usr/lib/pkgconfig/readline.pc"
 }
