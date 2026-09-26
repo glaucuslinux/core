@@ -13,21 +13,15 @@ build() {
     sbin=bin \
     prefix=/usr \
     exec_prefix=/usr \
-    KERNEL_HEADERS="$dir"/usr/include \
     CC="$CC" \
-    BUILD_CC=gcc \
-    OBJCOPY="$OBJCOPY" \
     AR="$AR" \
     RANLIB="$RANLIB" \
+    OBJCOPY="$OBJCOPY" \
     LDFLAGS=" " \
-    PAM_CAP=no \
+    USE_GPERF=no \
     DYNAMIC=yes \
+    PAM_CAP=no \
     GOLANG=no
-}
-
-check() {
-  make \
-    test
 }
 
 package() {
@@ -37,15 +31,14 @@ package() {
     sbin=bin \
     prefix=/usr \
     exec_prefix=/usr \
-    KERNEL_HEADERS="$dir"/usr/include \
     CC="$CC" \
-    BUILD_CC=gcc \
-    OBJCOPY="$OBJCOPY" \
     AR="$AR" \
     RANLIB="$RANLIB" \
+    OBJCOPY="$OBJCOPY" \
     LDFLAGS=" " \
-    PAM_CAP=no \
+    USE_GPERF=no \
     DYNAMIC=yes \
+    PAM_CAP=no \
     GOLANG=no \
     install
 }
