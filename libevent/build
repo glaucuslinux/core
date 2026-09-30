@@ -8,31 +8,38 @@
 
 prepare() {
   cd "$tmp/$nom/$nom-$ver-stable"
-
-  ./autogen.sh
 }
 
 configure() {
-  glaucus-configure \
-    --disable-debug-mode \
-    --disable-libevent-regress \
-    --disable-samples \
-    --disable-static \
-    --enable-pic \
-    --disable-doxygen-html
+  glaucus-cmake \
+    -B build \
+    -DCMAKE_POLICY_DEFAULT_CMP0069=NEW \
+    -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
+    -DEVENT__DISABLE_BENCHMARK=ON \
+    -DEVENT__DISABLE_DEBUG_MODE=ON \
+    -DEVENT__DISABLE_MM_REPLACEMENT=ON \
+    -DEVENT__DISABLE_REGRESS=ON \
+    -DEVENT__DISABLE_SAMPLES=ON \
+    -DEVENT__DISABLE_TESTS=ON \
+    -DEVENT__ENABLE_GCC_FUNCTION_SECTIONS=ON \
+    -DEVENT__ENABLE_GCC_HARDENING=ON \
+    -DEVENT__LIBRARY_TYPE=SHARED
 }
 
 build() {
-  make
-}
-
-check() {
   make \
-    check
+    -C build
 }
 
 package() {
   make \
+    -C build \
     DESTDIR="$dir" \
-    install-strip
+    install/strip
+}
+
+purge() {
+  rm -fRv \
+    "$dir/usr/bin/event_rpcgen.py" \
+    "$dir/usr/lib/cmake"
 }
