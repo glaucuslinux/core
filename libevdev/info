@@ -9,5 +9,5 @@
 ver='1.13.6'
 url='https://gitlab.freedesktop.org/libevdev/libevdev/-/archive/libevdev-1.13.6/libevdev-libevdev-1.13.6.tar.bz2'
 sum='d2715dafcbfee2e8b6e4a49dbede14ed'
-bld='python'
+bld='muon python'
 lic='MIT'

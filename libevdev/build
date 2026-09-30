@@ -8,28 +8,24 @@
 
 prepare() {
   cd "$tmp/$nom/$nom-$nom-$ver"
-
-  NOCONFIGURE=yes \
-  ./autogen.sh
 }
 
 configure() {
-  glaucus-configure \
-    --disable-static \
-    --enable-pic
+  glaucus-muon \
+    -Dtests=disabled \
+    -Dtools=disabled \
+    -Ddocumentation=disabled \
+    build
 }
 
 build() {
-  make
-}
-
-check() {
-  make \
-    check
+  samu \
+    -C build
 }
 
 package() {
-  make \
-    DESTDIR="$dir" \
-    install-strip
+  DESTDIR="$dir" \
+  muon \
+    -C build \
+    install
 }
