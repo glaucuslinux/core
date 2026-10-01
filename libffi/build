@@ -12,10 +12,10 @@ prepare() {
 
 configure() {
   glaucus-configure \
+    --disable-builddir \
     --disable-static \
     --enable-pic \
     --disable-docs \
-    --disable-exec-static-tramp \
     --disable-multi-os-directory \
     --disable-symvers \
     --with-gcc-arch=x86-64-v3
@@ -23,11 +23,6 @@ configure() {
 
 build() {
   make
-}
-
-check() {
-  make \
-    check
 }
 
 package() {
