@@ -9,9 +9,11 @@
 configure() {
   glaucus-muon \
     -Dlibwacom=false \
+    -Dmtdev=false \
     -Ddebug-gui=false \
     -Dtests=false \
     -Dzshcompletiondir=no \
+    -Dlua-plugins=disabled \
     build
 }
 
@@ -25,4 +27,8 @@ package() {
   muon \
     -C build \
     install
+}
+
+purge() {
+  rm -fRv "$dir/usr/lib/$nom"
 }
