@@ -19,25 +19,17 @@ configure() {
         --host="$host"
   fi
 
-  set -- \
-      "$@" \
-      --enable-pic \
-      --disable-static \
-      --disable-tests \
-      --enable-nc \
-      --with-openssldir=/etc/ssl
-
   glaucus-configure \
-    "$@"
+    "$@" \
+    --enable-pic \
+    --disable-static \
+    --disable-tests \
+    --enable-nc \
+    --with-openssldir=/etc/ssl
 }
 
 build() {
   make
-}
-
-check() {
-  make \
-    check
 }
 
 package() {
@@ -45,5 +37,5 @@ package() {
     DESTDIR="$dir" \
     install-strip
 
-  ln -fs ../../cert.pem "$dir"/etc/ssl/certs/ca-certificates.crt
+  ln -fs ../cert.pem "$dir/etc/ssl/certs/ca-certificates.crt"
 }
