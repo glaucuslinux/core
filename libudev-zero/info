@@ -8,5 +8,5 @@
 
 ver='8f1d3d0'
 url='https://github.com/illiliti/libudev-zero'
-opt='bootstrap no-check'
+opt='bootstrap muon'
 lic='ISC'
