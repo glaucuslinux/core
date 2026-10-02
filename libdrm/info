@@ -7,7 +7,7 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 ver='2.4.131'
-url='https://gitlab.freedesktop.org/mesa/libdrm/-/archive/libdrm-2.4.131/libdrm-libdrm-2.4.131.tar.bz2'
-sum='e575bb56f081a0e3e990a824b5ee9f2b'
+url='https://dri.freedesktop.org/libdrm/libdrm-2.4.131.tar.xz'
+sum='da3a748fab7b4bdbc75c52dfcd2e223d'
 bld='libpciaccess muon python'
 lic='MIT'
