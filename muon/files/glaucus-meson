@@ -19,6 +19,8 @@ exec meson setup \
   -Dlibdir=/usr/lib \
   -Dauto_features=disabled \
   -Ddebug=false \
+  -Ddefault_both_libraries=shared \
+  -Ddefault_library=shared \
   -Doptimization=s \
   -Dstrip=true \
   -Dwrap_mode=nodownload \
