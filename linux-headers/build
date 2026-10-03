@@ -9,6 +9,13 @@
 prepare() {
   cd "$tmp/$nom/linux-$ver"
 
+  patch \
+    -i "$core/$nom/patches/alpine/0003-remove-inclusion-of-sysinfo.h-in-kernel.h.patch" \
+    -p 1
+  patch \
+    -i "$core/$nom/patches/alpine/revert-broken-uapi.patch" \
+    -p 1
+
   make \
     ARCH=x86_64 \
     CC="$CC" \
@@ -24,7 +31,7 @@ build() {
 package() {
   find usr/include ! -name '*.h' -type f -delete
 
-  mkdir -p "$dir"/usr
-  mv -f usr/include "$dir"/usr
-  rm -fRv "$dir"/usr/include/drm
+  mkdir -p "$dir/usr"
+  mv -f usr/include "$dir/usr"
+  rm -fRv "$dir/usr/include/drm"
 }
