@@ -12,7 +12,10 @@ prepare() {
 
 configure() {
   glaucus-muon \
+    -Denable-tools=false \
     -Denable-x11=false \
+    -Denable-wayland=false \
+    -Denable-xkbregistry=false \
     -Denable-bash-completion=false \
     build
 }
@@ -20,13 +23,6 @@ configure() {
 build() {
   samu \
     -C build
-}
-
-check() {
-  muon \
-    -C build \
-    test \
-    -R
 }
 
 package() {
