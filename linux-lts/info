@@ -9,5 +9,5 @@
 ver='6.18.33-0-lts'
 url='https://dl-cdn.alpinelinux.org/alpine/v3.24/main/x86_64/linux-lts-6.18.33-r0.apk'
 sum='cacdf075a08d70b66738355f468bf8be'
-opt='bootstrap no-check'
+opt='bootstrap'
 lic='GPL-2.0-only'

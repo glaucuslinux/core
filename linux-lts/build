@@ -14,5 +14,5 @@ package() {
   mv -f "$tmp/$nom/boot/vmlinuz-lts" "$dir/boot/vmlinuz"
   mv -f "$tmp/$nom/usr/lib/modules" "$dir/usr/lib"
 
-  depmod -b "$dir" "$ver"
+  rm -fv "$dir/usr/lib/modules/$ver/kernel-suffix"
 }
