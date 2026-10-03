@@ -15,20 +15,18 @@ configure() {
         --host="$host"
   fi
 
-  set -- \
-      --prefix=/usr \
-      --exec-prefix=/usr \
-      --bindir=/usr/bin \
-      --sbindir=/usr/bin \
-      --libexecdir=/usr/lib \
-      --sysconfdir=/etc \
-      --sharedstatedir=/var/lib \
-      --localstatedir=/var \
-      --libdir=/usr/lib \
-      "$@" \
-      --disable-static
-
-  ./configure "$@"
+  ./configure \
+    --prefix=/usr \
+    --exec-prefix=/usr \
+    --bindir=/usr/bin \
+    --sbindir=/usr/bin \
+    --libexecdir=/usr/lib \
+    --sysconfdir=/etc \
+    --sharedstatedir=/var/lib \
+    --localstatedir=/var \
+    --libdir=/usr/lib \
+    "$@" \
+    --disable-static
 }
 
 build() {

@@ -9,5 +9,5 @@
 ver='1.2.8.2025.03.07'
 url='https://pub.sortix.org/libz/libz-1.2.8.2025.03.07.tar.gz'
 sum='70ef67e03ae9a5f8cfef3bd402300c84'
-opt='bootstrap no-check'
+opt='bootstrap'
 lic='Zlib'
