@@ -7,27 +7,23 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 build() {
-  make \
-    BUILD_STATIC=no \
-    DESTDIR="$dir" \
-    PREFIX=/usr \
-    EXEC_PREFIX=/usr \
-    BINDIR=/usr/bin \
-    PKGCONFIGDIR=/usr/lib/pkgconfig
+  glaucus-muon \
+    -Dalign-test=false \
+    -Ddebug-level=0 \
+    -Dfast-dec-loop=enabled \
+    -Dossfuzz=false \
+    -Dprograms=true \
+    build
 }
 
-check() {
-  make \
-    check
+build() {
+  samu \
+    -C build
 }
 
 package() {
-  make \
-    BUILD_STATIC=no \
-    DESTDIR="$dir" \
-    PREFIX=/usr \
-    EXEC_PREFIX=/usr \
-    BINDIR=/usr/bin \
-    PKGCONFIGDIR=/usr/lib/pkgconfig \
+  DESTDIR="$dir" \
+  muon \
+    -C build \
     install
 }
