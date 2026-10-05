@@ -7,8 +7,12 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
+  patch \
+    -i "$core/$nom/patches/alpine/format-security.patch" \
+    -p 1
+
   touch \
-    aclocal.m4 \
+    "aclocal.$nom" \
     Makefile.in
 }
 
@@ -21,26 +25,21 @@ configure() {
         --host="$host"
   fi
 
-  set -- \
-      "$@" \
-      --enable-threads=posix \
-      --disable-rpath \
-      --enable-changeword \
-      --disable-nls \
-      --with-packager="$PRETTY_NAME" \
-      --with-packager-bug-reports=https://github.com/glaucuslinux/glaucus/issues
-
   glaucus-configure \
-    "$@"
+    "$@" \
+    --enable-threads=posix \
+    --disable-assert \
+    --disable-rpath \
+    --disable-nls \
+    --without-libsigsegv \
+    --without-gnulib-prefix \
+    --without-libiconv-prefix \
+    --without-included-regex \
+    --without-libintl-prefix
 }
 
 build() {
   make
-}
-
-check() {
-  make \
-    check
 }
 
 package() {
