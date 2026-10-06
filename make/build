@@ -19,27 +19,26 @@ configure() {
         --host="$host"
   fi
 
-  set -- \
-      "$@" \
-      --disable-nls \
-      --disable-rpath \
-      --without-guile
-
   glaucus-configure \
-    "$@"
+    "$@" \
+    --disable-nls \
+    --disable-rpath \
+    --disable-load \
+    --without-guile \
+    --without-libiconv-prefix \
+    --without-libintl-prefix
 }
 
 build() {
   "$nom"
 }
 
-check() {
-  "$nom" \
-    check
-}
-
 package() {
   "$nom" \
     DESTDIR="$dir" \
     install-strip
+}
+
+purge() {
+  rm -fRv "$dir/usr/include"
 }
