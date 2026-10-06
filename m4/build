@@ -7,10 +7,6 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
-  patch \
-    -i "$core/$nom/patches/alpine/format-security.patch" \
-    -p 1
-
   touch \
     "aclocal.$nom" \
     Makefile.in
