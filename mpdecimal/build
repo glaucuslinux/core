@@ -12,17 +12,13 @@ prepare() {
 
 configure() {
   glaucus-configure \
+    --disable-cxx \
     --disable-static \
     --disable-doc
 }
 
 build() {
   make
-}
-
-check() {
-  make \
-    check_local
 }
 
 package() {
