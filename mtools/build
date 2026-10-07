@@ -7,18 +7,13 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
-  patch \
-    -i "$core/$nom/patches/alpine/fix-uninitialized.patch" \
-    -p 1
-  patch \
-    -i "$core/$nom/patches/glaucus/0001-disable-sample-file.patch" \
-    -p 0
-
   autoreconf -vfis
 }
 
 configure() {
   glaucus-configure \
+    --disable-xdf \
+    --disable-floppyd \
     --without-x
 }
 
@@ -26,16 +21,8 @@ build() {
   make
 }
 
-check() {
-  make \
-    check
-}
-
 package() {
   make \
     DESTDIR="$dir" \
     install
-
-  mkdir -p "$dir"/etc
-  mv "$nom".conf "$dir"/etc
 }
