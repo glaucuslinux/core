@@ -31,3 +31,7 @@ package() {
     DESTDIR="$dir" \
     install
 }
+
+purge() {
+  rm -fv "$dir/usr/bin/ndisasm"
+}
