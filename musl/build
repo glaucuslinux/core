@@ -7,10 +7,6 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
-  patch \
-    -i "$core/$nom/patches/glaucus/0001-fix-utmp-wtmp-paths.patch" \
-    -p 0
-
   for i in \
   0001-isatty-do-not-collapse-all-non-EBADF-errors-to-ENOTTY \
   0002-iconv-fix-erroneous-input-validation-in-EUC-KR-decoder \
@@ -27,18 +23,16 @@ prepare() {
 }
 
 configure() {
-  set --
-  
   if [ -n "${bootstrap-}" ]; then
     set -- env \
-      ARCH='x86_64' \
-      CROSS_COMPILE="$host-" \
-      LIBCC="$dir/usr/lib/linux/libclang_rt.builtins-x86_64.a" \
-      ./configure \
-        --host="$host"
+        ARCH=x86_64 \
+        CROSS_COMPILE="$host-" \
+        LIBCC="$dir/usr/lib/linux/libclang_rt.builtins-x86_64.a" \
+        ./configure \
+          --host="$host"
   else
     set -- \
-      ./configure
+        ./configure
   fi
 
   "$@" \
@@ -47,7 +41,9 @@ configure() {
     --bindir=/usr/bin \
     --libdir=/usr/lib \
     --syslibdir=/usr/lib \
+    --enable-optimize=size \
     --disable-wrapper \
+    --enable-shared \
     --disable-static
 }
 
@@ -61,8 +57,8 @@ package() {
     install
 
   mkdir -p \
-    "$dir"/etc \
-    "$dir"/usr/bin
+    "$dir/etc" \
+    "$dir/usr/bin"
 
   cp -fPp "$core/$nom/files/ld-$nom-x86_64.path" "$dir/etc"
 
@@ -78,11 +74,6 @@ package() {
   yodl2man; do
     cp -fPp "$core/$nom/files/true" "$dir/usr/bin/$i"
   done
-
-  # `utmps` provides both `utmp.h` and `utmpx.h`
-  rm -fv \
-    "$dir/usr/include/utmp.h" \
-    "$dir/usr/include/utmpx.h"
 
   ln -fs libc.so "$dir/usr/lib/ld-$nom-x86_64.so.1"
 }
