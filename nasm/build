@@ -12,21 +12,22 @@ prepare() {
 
 configure() {
   glaucus-configure \
-    --enable-lto
+    --disable-gdb \
+    --disable-pdf-compression \
+    --enable-lto \
+    --with-zlib \
+    --without-nsis
 }
 
 build() {
   make
 }
 
-check() {
-  make \
-    test
-}
-
 package() {
   make \
+    strip
+
+  make \
     DESTDIR="$dir" \
-    strip \
     install
 }
