@@ -15,7 +15,7 @@ configure() {
     --disable-gdb \
     --disable-pdf-compression \
     --enable-lto \
-    --with-zlib \
+    --without-zlib \
     --without-nsis
 }
 
