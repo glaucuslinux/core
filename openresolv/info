@@ -9,5 +9,4 @@
 ver='3.17.4'
 url='https://github.com/NetworkConfiguration/openresolv/releases/download/v3.17.4/openresolv-3.17.4.tar.xz'
 sum='1d4315f91309de56307fbee731c50058'
-opt='no-check'
 lic='BSD-2-Clause'

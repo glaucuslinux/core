@@ -6,20 +6,15 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-prepare() {
-  patch \
-    -i "$core/$nom/patches/alpine/detect_init-remove-irrelevant.patch" \
-    -p 1
-}
-
 configure() {
   ./configure \
+    --os=linux \
     --disable-debug \
     --prefix=/usr \
     --sysconfdir=/etc \
     --bindir=/usr/bin \
     --libexecdir=/usr/lib/resolvconf \
-    --statedir=/var \
+    --localstatedir=/var \
     --rundir=/run \
     --libdir=/usr/lib
 }
@@ -32,4 +27,16 @@ package() {
   make \
     DESTDIR="$dir" \
     install
+}
+
+purge() {
+  rm -fRv \
+    "$dir/usr/lib/resolvconf/dnsmasq" \
+    "$dir/usr/lib/resolvconf/libc.d" \
+    "$dir/usr/lib/resolvconf/named" \
+    "$dir/usr/lib/resolvconf/pdnsd" \
+    "$dir/usr/lib/resolvconf/pdns_recursor" \
+    "$dir/usr/lib/resolvconf/resolvectl" \
+    "$dir/usr/lib/resolvconf/systemd-resolved" \
+    "$dir/usr/lib/resolvconf/unbound"
 }
