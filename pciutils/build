@@ -10,10 +10,10 @@ build() {
   make \
     OPT="$CFLAGS" \
     ZLIB=no \
-    DNS=yes \
+    DNS=no \
     SHARED=yes \
     LIBKMOD=no \
-    HWDB=yes \
+    HWDB=no \
     PREFIX=/usr \
     BINDIR=/usr/bin \
     SBINDIR=/usr/bin \
@@ -28,10 +28,10 @@ package() {
   make \
     OPT="$CFLAGS" \
     ZLIB=no \
-    DNS=yes \
+    DNS=no \
     SHARED=yes \
     LIBKMOD=no \
-    HWDB=yes \
+    HWDB=no \
     PREFIX=/usr \
     BINDIR=/usr/bin \
     SBINDIR=/usr/bin \
@@ -44,11 +44,14 @@ package() {
     install \
     install-lib
 
-  # ids are provided by `hwdata`
-  rm -fRv \
-    "$dir/usr/bin/update-pciids" \
-    "$dir/usr/share/hwdata"
-
   # Fix library permissions
   chmod 755 "$dir/usr/lib/libpci.so.$ver"
+}
+
+purge() {
+  # ids are provided by `hwdata`
+  rm -fRv \
+    "$dir/usr/bin/pcilmr" \
+    "$dir/usr/bin/update-pciids" \
+    "$dir/usr/share/hwdata"
 }

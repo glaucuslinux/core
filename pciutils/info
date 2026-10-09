@@ -9,7 +9,5 @@
 ver='3.14.0'
 url='https://mj.ucw.cz/download/linux/pci/pciutils-3.14.0.tar.gz'
 sum='6431baf90f409568bef6e93ef6f0c581'
-bld='libudev-zero'
-run='hwdata libudev-zero'
-opt='no-check'
+run='hwdata'
 lic='GPL-2.0-or-later'
