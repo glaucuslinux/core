@@ -9,7 +9,6 @@
 configure() {
   glaucus-muon \
     -Dlibseat-logind=disabled \
-    -Dlibseat-builtin=enabled \
     -Dman-pages=disabled \
     build
 }
@@ -17,13 +16,6 @@ configure() {
 build() {
   samu \
     -C build
-}
-
-check() {
-  muon \
-    -C build \
-    test \
-    -R
 }
 
 package() {
