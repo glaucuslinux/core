@@ -6,21 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-prepare() {
-  patch \
-    -i "$core/$nom/patches/smaclennan/0001-optimize-strlcpy.patch" \
-    -p 0
-  patch \
-    -i "$core/$nom/patches/upstream/0001-statify-some-variables.patch" \
-    -p 0
-  patch \
-    -i "$core/$nom/patches/zeppe-lin/0001-remove-congratz-message.patch" \
-    -p 1
-  patch \
-    -i "$core/$nom/patches/zeppe-lin/0002-remove-unused-enprintf-function.patch" \
-    -p 1
-}
-
 build() {
   make \
     CFLAGS="$CFLAGS" \
@@ -28,6 +13,6 @@ build() {
 }
 
 package() {
-  mkdir -p "$dir"/usr/bin
-  mv -f "$nom" "$dir"/usr/bin
+  mkdir -p "$dir/usr/bin"
+  mv -f "$nom" "$dir/usr/bin"
 }

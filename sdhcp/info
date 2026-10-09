@@ -8,5 +8,4 @@
 
 ver='5f9956c'
 url='https://github.com/michaelforney/sdhcp'
-opt='no-check'
 lic='MIT'
