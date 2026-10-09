@@ -30,7 +30,6 @@ configure() {
     --without-libsigsegv \
     --without-gnulib-prefix \
     --without-libiconv-prefix \
-    --without-included-regex \
     --without-libintl-prefix
 }
 
