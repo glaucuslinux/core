@@ -8,4 +8,4 @@
 
 ver='51d179d'
 url='https://github.com/sabotage-linux/netbsd-curses'
-opt='bootstrap no-check'
+opt='bootstrap'
