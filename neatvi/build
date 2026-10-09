@@ -19,13 +19,9 @@ build() {
     vi
 }
 
-check() {
-  ./test.sh
-}
-
 package() {
-  mkdir -p "$dir"/usr/bin
-  mv -f vi "$dir"/usr/bin/"$nom"
-  ln -fs "$nom" "$dir"/usr/bin/ex
-  ln -fs "$nom" "$dir"/usr/bin/vi
+  mkdir -p "$dir/usr/bin"
+  mv -f vi "$dir/usr/bin/$nom"
+  ln -fs "$nom" "$dir/usr/bin/ex"
+  ln -fs "$nom" "$dir/usr/bin/vi"
 }
