@@ -19,36 +19,27 @@ configure() {
         --host="$host"
   fi
 
-  set -- \
-      "$@" \
-      --disable-static \
-      --enable-pic \
-      --disable-symvers \
-      --enable-pcre2-16 \
-      --enable-pcre2-32 \
-      --enable-jit \
-      --enable-newline-is-anycrlf \
-      --enable-pcre2grep-libz \
-      --enable-pcre2grep-libbz2 \
-      --enable-pcre2test-libedit
-
-  LIBS=-lterminfo \
   glaucus-configure \
-    "$@"
+    "$@" \
+    --disable-static \
+    --enable-pic \
+    --disable-symvers \
+    --enable-jit \
+    --disable-pcre2grep-callout \
+    --disable-pcre2grep-callout-fork \
+    --enable-pcre2test-libedit
 }
 
 build() {
-  LIBS=-lterminfo \
   make
-}
-
-check() {
-  make \
-    check
 }
 
 package() {
   make \
     DESTDIR="$dir" \
     install-strip
+}
+
+purge() {
+  rm -fRv "$dir/usr/bin"
 }
