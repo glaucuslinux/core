@@ -12,20 +12,18 @@ prepare() {
 
 configure() {
   glaucus-configure \
-    --enable-sixel
+    --with-TERM=tmux-256color
 }
 
 build() {
   make
 }
 
-check() {
-  make \
-    check
-}
-
 package() {
   make \
     DESTDIR="$dir" \
     install-strip
+
+  mkdir -p "$dir/etc"
+  cp -fPp "$core/$nom/files/$nom.conf" "$dir/etc"
 }
