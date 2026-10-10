@@ -15,5 +15,10 @@ build() {
 package() {
   make \
     PREFIX=/usr \
-    DESTDIR="$dir"
+    DESTDIR="$dir" \
+    install
+}
+
+purge() {
+  rm -fv "$dir/usr/lib/$nom/plugins/fzf-find"
 }
