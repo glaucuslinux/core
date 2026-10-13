@@ -10,7 +10,7 @@ configure() {
   glaucus-muon \
     -Dsystem-bus-address=unix:path=/run/dbus/system_bus_socket \
     -Daudit=disabled \
-    -Dlibcap=enabled \
+    -Dlibcap=disabled \
     build
 }
 
@@ -24,4 +24,8 @@ package() {
   muon \
     -C build \
     install
+}
+
+purge() {
+  rm -fv "$dir/usr/bin/${nom}ctl"
 }
