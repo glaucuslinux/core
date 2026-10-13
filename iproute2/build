@@ -14,12 +14,19 @@ configure() {
 }
 
 build() {
-  make
+  make \
+    PREFIX=/usr \
+    SBINDIR=/usr/bin \
+    NETNS_RUN_DIR=/run/netns \
+    HAVE_MNL=n
 }
 
 package() {
   make \
+    PREFIX=/usr \
     SBINDIR=/usr/bin \
+    NETNS_RUN_DIR=/run/netns \
+    HAVE_MNL=n \
     DESTDIR="$dir" \
     install
 }
@@ -27,20 +34,14 @@ package() {
 purge() {
   rm -fRv \
     "$dir/usr/bin/ctstat" \
-    "$dir/usr/bin/dcb" \
-    "$dir/usr/bin/devlink" \
     "$dir/usr/bin/genl" \
     "$dir/usr/bin/ifstat" \
     "$dir/usr/bin/lnstat" \
-    "$dir/usr/bin/netshaper" \
     "$dir/usr/bin/nstat" \
-    "$dir/usr/bin/rdma" \
     "$dir/usr/bin/routel" \
     "$dir/usr/bin/rtacct" \
     "$dir/usr/bin/rtmon" \
     "$dir/usr/bin/rtstat" \
-    "$dir/usr/bin/tipc" \
-    "$dir/usr/bin/vdpa" \
     "$dir/usr/include" \
     "$dir/usr/share/bash-completion"
 }
