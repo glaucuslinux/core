@@ -6,12 +6,6 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-prepare() {
-  patch \
-    -i "$core/$nom/patches/alpine/musl-stacksize.patch" \
-    -p 1
-}
-
 configure() {
   glaucus-muon \
     -Ddwrite=disabled \
@@ -19,13 +13,13 @@ configure() {
     -Dfreetype=enabled \
     -Dpng=enabled \
     -Dquartz=disabled \
-    -Dtee=enabled \
+    -Dtee=disabled \
     -Dxcb=disabled \
     -Dxlib=disabled \
     -Dzlib=enabled \
     -Dtests=disabled \
     -Dlzo=disabled \
-    -Dglib=enabled \
+    -Dglib=disabled \
     -Dspectre=disabled \
     -Dsymbol-lookup=disabled \
     build
