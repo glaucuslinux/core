@@ -1,0 +1,28 @@
+# SPDX-License-Identifier: MPL-2.0
+
+# Copyright © 2018-2026 Firas Khana
+
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
+build() {
+  make \
+    CC="$CC" \
+    CFLAGS="$CFLAGS" \
+    LDLIBS="$LDFLAGS -lcrypt"
+}
+
+package() {
+  mkdir -p \
+    "$dir/etc" \
+    "$dir/usr/bin"
+
+  cp -fPp "$core/$nom/files/$nom.conf" "$dir/etc"
+  chmod 400 "$dir/etc/$nom.conf"
+
+  mv -f bin/pls "$dir/usr/bin/$nom"
+  for i in doas pls sudo; do
+    ln -fs "$nom" "$dir/usr/bin/$i"
+  done
+}
