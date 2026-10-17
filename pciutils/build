@@ -41,8 +41,7 @@ package() {
     PCI_IDS=pci.ids \
     PCI_COMPRESSED_IDS=0 \
     DESTDIR="$dir" \
-    install \
-    install-lib
+    install
 
   chmod 755 "$dir/usr/lib/libpci.so.$ver"
 }
