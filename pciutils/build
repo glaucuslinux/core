@@ -44,12 +44,10 @@ package() {
     install \
     install-lib
 
-  # Fix library permissions
   chmod 755 "$dir/usr/lib/libpci.so.$ver"
 }
 
 purge() {
-  # ids are provided by `hwdata`
   rm -fRv \
     "$dir/usr/bin/pcilmr" \
     "$dir/usr/bin/update-pciids" \
