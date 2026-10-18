@@ -23,7 +23,7 @@ configure() {
   SKIP_WERROR_CHECK=yes \
   glaucus-configure \
     "$@" \
-    --enable-encoders=lzma2,delta,x86 \
+    --enable-encoders=lzma1,lzma2,delta,x86 \
     --enable-match-finders=hc3,hc4,bt4 \
     --disable-lzip-decoder \
     --disable-arm64-crc32 \
