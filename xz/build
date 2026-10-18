@@ -7,11 +7,8 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
-  patch \
-    -i "$core/$nom/patches/clear/0001-optimizations.patch" \
-    -p 0
-
-  ./autogen.sh --no-po4a
+  ./autogen.sh \
+    --no-po4a
 }
 
 configure() {
@@ -23,19 +20,30 @@ configure() {
         --host="$host"
   fi
 
-  set -- \
-      "$@" \
-      --enable-threads=posix \
-      --disable-doc \
-      --disable-static \
-      --enable-pic \
-      --disable-symbol-versions \
-      --disable-nls \
-      --disable-rpath
-
   SKIP_WERROR_CHECK=yes \
   glaucus-configure \
-    "$@"
+    "$@" \
+    --enable-encoders=lzma2,delta,x86 \
+    --enable-match-finders=hc3,hc4,bt4 \
+    --disable-lzip-decoder \
+    --disable-arm64-crc32 \
+    --disable-loongarch-crc32 \
+    --enable-threads=posix \
+    --disable-xzdec \
+    --disable-lzmadec \
+    --disable-lzmainfo \
+    --disable-lzma-links \
+    --disable-scripts \
+    --disable-doc \
+    --disable-sandbox \
+    --disable-static \
+    --enable-pic \
+    --disable-symbol-versions \
+    --disable-nls \
+    --disable-rpath \
+    --enable-unaligned-access \
+    --without-libiconv-prefix \
+    --without-libintl-prefix
 
   patch \
     -i "$core/$nom/patches/alpine/0001-disable-rpath.patch" \
@@ -44,11 +52,6 @@ configure() {
 
 build() {
   make
-}
-
-check() {
-  make \
-    check
 }
 
 package() {
