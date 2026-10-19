@@ -9,6 +9,5 @@
 ver='1.24.0'
 url='https://gitlab.freedesktop.org/wayland/wayland/-/releases/1.24.0/downloads/wayland-1.24.0.tar.xz'
 sum='b37614c84d3f8d092d381bd91c9c9a5d'
-bld='expat libffi libxml2 muon'
-opt='no-check'
+bld='expat libffi muon python'
 lic='MIT'
