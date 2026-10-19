@@ -9,5 +9,5 @@
 ver='1.47'
 url='https://gitlab.freedesktop.org/wayland/wayland-protocols/-/releases/1.47/downloads/wayland-protocols-1.47.tar.xz'
 sum='582db959a6353e9fd3794928e5afe4da'
-bld='muon wayland'
+bld='muon python wayland'
 lic='MIT'
