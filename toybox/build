@@ -19,15 +19,14 @@ configure() {
 build() {
   make \
     -j 1 \
-    CROSS_COMPILE= \
-    LDFLAGS='-lutmps'
+    CROSS_COMPILE=
 
   # make \
-  #   LDFLAGS="$LDFLAGS -lutmps"
+  #   LDFLAGS="$LDFLAGS"
 }
 
 package() {
-  mkdir -p "$dir"/usr/bin
+  mkdir -p "$dir/usr/bin"
 
   for i in \
   [ \
@@ -40,7 +39,7 @@ package() {
   head hostid hostname \
   iconv id insmod install \
   killall \
-  link ln logname ls lsattr lsmod \
+  link ln logname ls lsattr lsmod lspci lsusb \
   md5sum mkdir mkfifo mknod mktemp modinfo modprobe mv \
   nice nl nohup nproc \
   od \
@@ -62,5 +61,5 @@ package() {
   #   ln -fs "$nom" "$dir/usr/bin/$i"
   # done
 
-  mv -f "$nom" "$dir"/usr/bin
+  mv -f "$nom" "$dir/usr/bin"
 }
