@@ -15,14 +15,11 @@ build() {
 }
 
 package() {
-  mkdir -p "$dir"/usr/bin
+  mkdir -p "$dir/usr/bin"
   mv -f pkg-config-linux-amd64 "$dir/usr/bin/$nom"
+  ln -fs "$nom" "$dir/usr/bin/pkg-config"
+  ln -fs "$nom" "$dir/usr/bin/$target-pkg-config"
 
-  # Compatibility symlinks
-  for i in pkg-config "$target-pkg-config"; do
-    ln -fs "$nom" "$dir/usr/bin/$i"
-  done
-
-  mkdir -p "$dir"/usr/share/aclocal
-  cp -fPp "$core/$nom/files/pkg.m4" "$dir"/usr/share/aclocal
+  mkdir -p "$dir/usr/share/aclocal"
+  cp -fPp "$core/$nom/files/pkg.m4" "$dir/usr/share/aclocal"
 }
