@@ -11,6 +11,7 @@ build() {
     PREFIX=/usr \
     BINDIR=/usr/bin \
     LIBDIR=/usr/lib \
+    CROSSCOMPILING=1 \
     all-dynamic
 }
 
@@ -22,10 +23,5 @@ package() {
     DESTDIR="$dir" \
     install-dynamic
 
-  chmod 755 \
-    "$dir/usr/lib/libcurses.so" \
-    "$dir/usr/lib/libform.so" \
-    "$dir/usr/lib/libmenu.so" \
-    "$dir/usr/lib/libpanel.so" \
-    "$dir/usr/lib/libterminfo.so"
+  chmod 755 "$dir/usr/lib/lib"*.so
 }
