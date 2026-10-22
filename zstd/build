@@ -11,21 +11,19 @@ build() {
   make \
     -C lib \
     ZSTD_LEGACY_SUPPORT=0 \
-    HASH=xxhsum \
-    lib$nom
+    HASH='xxhsum -H2' \
+    "lib$nom"
 
   make \
     -C programs \
-    CFLAGS="$CFLAGS -fPIC -DZSTD_NOBENCH -DZSTD_NODICT -DZSTD_NOTRACE -UZSTD_LEGACY_SUPPORT -DZSTD_LEGACY_SUPPORT=0" \
+    CPPFLAGS='-DZSTD_NOBENCH -DZSTD_NODICT -DZSTD_NOTRACE -UZSTD_LEGACY_SUPPORT -DZSTD_LEGACY_SUPPORT=0' \
     HAVE_THREAD=1 \
     ZSTD_LEGACY_SUPPORT=0 \
     HAVE_ZLIB=0 \
     HAVE_LZMA=0 \
     HAVE_LZ4=0 \
-    ZSTD_NOBENCH=0 \
-    ZSTD_NODICT=0 \
     BACKTRACE=0 \
-    $nom-dll
+    "$nom-dll"
 }
 
 package() {
@@ -42,6 +40,6 @@ package() {
 
   mkdir -p "$dir/usr/bin"
 
-  mv -f $nom "$dir/usr/bin"
-  ln -fs $nom "$dir/usr/bin/un$nom"
+  mv -f "programs/$nom" "$dir/usr/bin"
+  ln -fs "$nom" "$dir/usr/bin/un$nom"
 }
