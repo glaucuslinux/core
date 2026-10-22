@@ -11,7 +11,6 @@ build() {
   make \
     -C lib \
     ZSTD_LEGACY_SUPPORT=0 \
-    HASH='xxhsum -H2' \
     "lib$nom"
 
   CPPFLAGS='-DZSTD_NOBENCH -DZSTD_NODICT -DZSTD_NOTRACE -UZSTD_LEGACY_SUPPORT -DZSTD_LEGACY_SUPPORT=0' \
@@ -23,7 +22,6 @@ build() {
     HAVE_LZ4=0 \
     BACKTRACE=0 \
     ZSTD_LEGACY_SUPPORT=0 \
-    HASH='xxhsum -H2' \
     "$nom-dll"
 }
 
