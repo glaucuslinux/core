@@ -20,34 +20,22 @@ configure() {
         --host="$host"
   fi
 
-  set -- \
-      "$@" \
-      --prefix=/usr \
-      --exec-prefix=/usr \
-      --bindir=/usr/bin \
-      --enable-array \
-      --enable-dirstack \
-      --enable-double-bracket \
-      --enable-help \
-      --enable-history \
-      --enable-lineedit \
-      --disable-nls \
-      --enable-printf \
-      --enable-socket \
-      --enable-test \
-      --enable-ulimit
-
   ./configure \
-    "$@"
+    "$@" \
+    --prefix=/usr \
+    --exec-prefix=/usr \
+    --bindir=/usr/bin \
+    --disable-array \
+    --disable-dirstack \
+    --disable-double-bracket \
+    --disable-nls \
+    --disable-doc \
+    --disable-socket \
+    --with-term-lib=terminfo
 }
 
 build() {
   make
-}
-
-check() {
-  make \
-    test
 }
 
 package() {
@@ -55,5 +43,5 @@ package() {
     DESTDIR="$dir" \
     install-strip
 
-  ln -fs "$nom" "$dir"/usr/bin/sh
+  ln -fs "$nom" "$dir/usr/bin/sh"
 }
