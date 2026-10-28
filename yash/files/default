@@ -1,103 +1,67 @@
-# enable bash-like extended expansion
+# set
 set --brace-expand
-
-# enable recursive pathname expansion
+set --emacs
 set --extended-glob
-
-# don't implicitly expand non-existent variables to empty strings
-set --no-unset
-
-# don't save commands starting with a space in history
 set --hist-space
-
-# print job status update ASAP, but only while line-editing
-set --notify-le
-
-# some terminfo data are broken; meta flags have to be ignored for UTF-8
 set --le-no-conv-meta
-
-# enable command line prediction
 set --le-predict
 
-# most users are more familiar with emacs mode than vi mode
-set --emacs
+set +o posixly-correct
 
-# some useful key bindings
-bindkey --emacs '\^[[1;5C' forward-semiword
-bindkey --emacs '\^[[1;5D' backward-semiword
+set -u
 
-bindkey --emacs '\^L' clear-and-redraw-all
+# bind
+bindkey -e '\^[[1;5C' forward-semiword
+bindkey -e '\^[[1;5D' backward-semiword
 
-bindkey --emacs '\^N' beginning-search-forward
-bindkey --emacs '\^P' beginning-search-backward
+bindkey -e '\D' beginning-search-forward
+bindkey -e '\U' beginning-search-backward
 
-bindkey --emacs '\N' complete-next-column
-bindkey --emacs '\P' complete-prev-column
+bindkey -e '\^L' clear-and-redraw-all
 
-bindkey --emacs '\^O' clear-candidates
-bindkey --emacs '\^W' backward-kill-semiword
-bindkey --emacs '\^[[3;5~' delete-semiword
+bindkey -e '\^H' backward-kill-semiword
+bindkey -e '\^W' backward-kill-semiword
 
-bindkey --emacs '\U' beginning-search-backward
-bindkey --emacs '\D' beginning-search-forward
+bindkey -e '\^[[3;5~' delete-semiword
 
-# Home & End key variants across terminal emulators
-# bindkey --emacs '\^[[H' beginning-of-line
-# bindkey --emacs '\^[[1~' beginning-of-line
-# bindkey --emacs '\eOH' beginning-of-line
-# bindkey --emacs '\^[[F' end-of-line
-# bindkey --emacs '\^[[4~' end-of-line
-# bindkey --emacs '\eOF' end-of-line
-
-# ensure job control works as expected
+# trap
 case $- in (*m*)
   trap - TSTP TTIN TTOU
 esac
 
-# define some basic variables if missing
+# env
 : ${EDITOR:=vi} ${PAGER:=less} ${VISUAL:=$EDITOR}
-: ${LOGNAME:=$(logname)} ${HOSTNAME:=$(uname -n)}
-
-# disable confusing treatment of arguments in the echo command
+: ${LOGNAME:=$(id -un)} ${HOSTNAME:=$(uname -n)}
 : ${ECHO_STYLE:=RAW}
 
 export PATH=/usr/bin
 export TERM="${TERM:-linux}"
 export LANG="${LANG:-C.UTF-8}"
 
-# variables needed for command history
-HISTFILE=${XDG_STATE_HOME:-~/.local/state}/yash/history
+# history
+HISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/yash/history"
 
-# create HISTFILE parent directory if missing
 ! [ -d "${HISTFILE%/*}" ] && mkdir -p "${HISTFILE%/*}"
 
 HISTSIZE=100000
 
-# disable mail check
+# mail
 unset MAILCHECK
-# unset MAILCHECK MAIL MAILPATH
 
-# emulate bash's $SHLVL
+# shlvl
 if [ "${_old_shlvl+set}" != set ]; then
   _old_shlvl=${SHLVL-}
 fi
 SHLVL=$((_old_shlvl+1)) 2>/dev/null || SHLVL=1
 export SHLVL
 
-# define prompt
-if [ "$(id -u)" -eq 0 ]; then
-  _uc='\fr.' # red username for root
-else
-  _uc='\fg.' # green username for normal users
-fi
-
-YASH_PS1=$_uc'${LOGNAME}\fd.@\fy.${HOSTNAME%%.*}\fd. ${${${PWD:/~/\~}##*/}:-$PWD} ${{?:/0/}:+\\fr.$?\\fd. }\$ '
+# prompt
+YASH_PS1='\fc.${LOGNAME}\fd.@\fy.${HOSTNAME%%.*}\fd. ${${${PWD:/~/\~}##*/}:-$PWD} ${{?:/0/}:+\\fr.$?\\fd. }\$ '
 YASH_PS1P='\fi.'
-YASH_PS1R='\fc.'
 YASH_PS1S='\fo.'
-unset _uc
-# No escape sequences allowed in the POSIXly-correct mode.
+
 PS1='${LOGNAME}@${HOSTNAME%%.*} '$PS1
 
+# alias
 alias grep='grep --color=auto'
 alias ls='ls -F --color=auto'
