@@ -65,8 +65,8 @@ HISTSIZE=100000
 unset MAIL MAILCHECK MAILPATH
 
 # ps
-YASH_PS1='\fy.$LOGNAME\fd.@\fb.$HOSTNAME\fd. ${PWD##*/} \fir.$?\fD. \$ '
-YASH_PS1P='\fci.'
+YASH_PS1='\fiy.$LOGNAME\fd.@\fb.$HOSTNAME\fd. ${PWD##*/} \fr.$? \$ \fD.'
+YASH_PS1P='\fgi.'
 YASH_PS1R='\fi.$(date "+%r")'
 YASH_PS1S='\fo.'
 
