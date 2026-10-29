@@ -1,14 +1,23 @@
-# set
-set --brace-expand
-set --emacs
-set --extended-glob
-set --hist-space
-set --le-no-conv-meta
-set --le-predict
+# SPDX-License-Identifier: MPL-2.0
 
+# Copyright © 2018-2026 Firas Khana
+
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
+# set
 set +o posixly-correct
 
+set -o brace-expand
+set -o extended-glob
+set -o hist-space
+set -o le-no-conv-meta
+set -o le-predict
+
 set -u
+
+set -o emacs
 
 # bind
 bindkey -e '\^[[1;5C' forward-semiword
@@ -24,44 +33,41 @@ bindkey -e '\^W' backward-kill-semiword
 
 bindkey -e '\^[[3;5~' delete-semiword
 
-# trap
-case $- in (*m*)
-  trap - TSTP TTIN TTOU
-esac
-
-# env
-: ${EDITOR:=vi} ${PAGER:=less} ${VISUAL:=$EDITOR}
-: ${LOGNAME:=$(id -un)} ${HOSTNAME:=$(uname -n)}
-: ${ECHO_STYLE:=RAW}
-
-export PATH=/usr/bin
-export TERM="${TERM:-linux}"
-export LANG="${LANG:-C.UTF-8}"
-
-# history
-HISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/yash/history"
-
-! [ -d "${HISTFILE%/*}" ] && mkdir -p "${HISTFILE%/*}"
-
-HISTSIZE=100000
-
-# mail
-unset MAILCHECK
-
-# shlvl
-if [ "${_old_shlvl+set}" != set ]; then
-  _old_shlvl=${SHLVL-}
-fi
-SHLVL=$((_old_shlvl+1)) 2>/dev/null || SHLVL=1
-export SHLVL
-
-# prompt
-YASH_PS1='\fc.${LOGNAME}\fd.@\fy.${HOSTNAME%%.*}\fd. ${${${PWD:/~/\~}##*/}:-$PWD} ${{?:/0/}:+\\fr.$?\\fd. }\$ '
-YASH_PS1P='\fi.'
-YASH_PS1S='\fo.'
-
-PS1='${LOGNAME}@${HOSTNAME%%.*} '$PS1
-
 # alias
 alias grep='grep --color=auto'
 alias ls='ls -F --color=auto'
+
+# var
+: "${ECHO_STYLE:=RAW}"
+: "${EDITOR:=vi}"
+: "${HOSTNAME:=$(uname -n)}" # do not fork on every source
+: "${LANG:=C}"
+: "${LOGNAME:=$(logname)}" # do not fork on every source
+: "${PAGER:=less}"
+: "${PATH:=/usr/bin}"
+: "${TERM:=linux}"
+: "${VISUAL:=$EDITOR}"
+
+export EDITOR
+export HOSTNAME
+export LANG
+export LOGNAME
+export PAGER
+export PATH
+export TERM
+export VISUAL
+
+# hist
+HISTFILE="$HOME/.yash_history"
+HISTSIZE=100000
+
+# mail
+unset MAIL MAILCHECK MAILPATH
+
+# ps
+YASH_PS1='\fy.$LOGNAME\fd.@\fb.$HOSTNAME\fd. ${PWD##*/} \fr.$?\fd. \$ '
+YASH_PS1P='\fci.'
+YASH_PS1R='\fi.$(date "+%r")'
+YASH_PS1S='\fo.'
+
+PS1='$LOGNAME@$HOSTNAME ${PWD##*/} $? \$ '$PS1
