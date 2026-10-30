@@ -1,16 +1,11 @@
+# SPDX-FileCopyrightText: Copyright (c) 2018-2026 Firas Khana
 # SPDX-License-Identifier: MPL-2.0
-
-# Copyright © 2018-2026 Firas Khana
 
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
-  patch \
-    -i "$core/$nom/patches/glaucus/0001-fix-utmp-file-path.patch" \
-    -p 0
-
   autoreconf -vfis
 }
 
@@ -23,54 +18,45 @@ configure() {
         --host="$host"
   fi
 
-  set -- \
-      "$@" \
-      --disable-static \
-      --enable-pic \
-      --disable-symvers \
-      --disable-nls \
-      --disable-rpath \
-      --disable-asciidoc \
-      --disable-poman \
-      --disable-liblastlog2 \
-      --disable-pam-lastlog2 \
-      --disable-setpriv \
-      --enable-fdformat \
-      --enable-tunelp \
-      --enable-line \
-      --disable-raw \
-      --disable-chfn-chsh \
-      --disable-login \
-      --disable-nologin \
-      --disable-su \
-      --disable-runuser \
-      --disable-more \
-      --enable-write \
-      --disable-bash-completion \
-      --disable-pylibmount \
-      --enable-fs-paths-default=/usr/bin \
-      --enable-usrdir-path \
-      --disable-makeinstall-chown \
-      --without-cap-ng \
-      --without-systemd \
-      --without-econf \
-      --with-vendordir=/usr/lib \
-      --without-python
-
-  LIBS='-lterminfo -lutmps' \
-  LDFLAGS="$LDFLAGS -lterminfo -lutmps" \
-  ADJTIME_PATH='/var/lib/hwclock/adjtime' \
+  LIBS='-lterminfo' \
+  LDFLAGS="$LDFLAGS -lterminfo" \
   glaucus-configure \
-    "$@"
+    "$@" \
+    --disable-static \
+    --enable-pic \
+    --disable-symvers \
+    --disable-nls \
+    --disable-rpath \
+    --disable-asciidoc \
+    --disable-poman \
+    --disable-liblastlog2 \
+    --disable-pam-lastlog2 \
+    --disable-setpriv \
+    --enable-fdformat \
+    --enable-tunelp \
+    --enable-line \
+    --disable-raw \
+    --disable-chfn-chsh \
+    --disable-login \
+    --disable-nologin \
+    --disable-su \
+    --disable-runuser \
+    --disable-more \
+    --enable-write \
+    --disable-bash-completion \
+    --disable-pylibmount \
+    --enable-fs-paths-default=/usr/bin \
+    --enable-usrdir-path \
+    --disable-makeinstall-chown \
+    --without-cap-ng \
+    --without-systemd \
+    --without-econf \
+    --with-vendordir=/usr/lib \
+    --without-python
 }
 
 build() {
   make
-}
-
-check() {
-  make \
-    check
 }
 
 package() {
