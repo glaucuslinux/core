@@ -8,23 +8,7 @@
 prepare() {
   ./bootstrap.sh build-bootstrap
 
-  "build-bootstrap/$nom-bootstrap" setup \
-    -Dwrap_mode=nodownload \
-    -Dlibcurl=disabled \
-    -Dlibarchive=disabled \
-    -Dlibpkgconf=disabled \
-    -Dtracy=disabled \
-    -Dnative_backtrace=disabled \
-    -Dman-pages=disabled \
-    -Ddocs=disabled \
-    -Dmeson-docs=disabled \
-    -Dmeson-tests=disabled \
-    -Dwebsite=disabled \
-    build-bootstrap
-
-  "build-bootstrap/$nom-bootstrap" \
-    -C build-bootstrap \
-    samu
+  mv -f "build-bootstrap/$nom-bootstrap" "build-bootstrap/$nom"
 }
 
 configure() {
@@ -39,6 +23,7 @@ configure() {
     -Ddocs=disabled \
     -Dmeson-docs=disabled \
     -Dmeson-tests=disabled \
+    -Ddisable-test-languages=cpp,objc \
     -Dwebsite=disabled \
     build
 }
