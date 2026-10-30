@@ -1,6 +1,5 @@
+# SPDX-FileCopyrightText: Copyright (c) 2018-2026 Firas Khana
 # SPDX-License-Identifier: MPL-2.0
-
-# Copyright © 2018-2026 Firas Khana
 
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -19,8 +18,7 @@ configure() {
         --host="$host"
   fi
 
-  CFLAGS="$CFLAGS -D__STDC_ISO_10646__" \
-  LIBS='-lterminfo' \
+  CPPFLAGS=-D__STDC_ISO_10646__ \
   glaucus-configure \
     "$@" \
     --disable-static \
@@ -29,7 +27,6 @@ configure() {
 }
 
 build() {
-  LIBS='-lterminfo' \
   make
 }
 
