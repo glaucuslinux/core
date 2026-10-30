@@ -1,6 +1,5 @@
+# SPDX-FileCopyrightText: Copyright (c) 2018-2026 Firas Khana
 # SPDX-License-Identifier: MPL-2.0
-
-# Copyright © 2018-2026 Firas Khana
 
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -11,5 +10,4 @@ url='https://github.com/labwc/labwc/archive/0.9.3.tar.gz'
 sum='bb6322ba254a3ff496cf88972e902138'
 bld='muon wayland-protocols wlroots'
 run='cairo glib libinput libpng libxkbcommon libxml2 pango wayland wlroots'
-opt='no-check'
 lic='GPL-2.0-only'
