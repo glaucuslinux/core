@@ -1,6 +1,5 @@
+# SPDX-FileCopyrightText: Copyright (c) 2018-2026 Firas Khana
 # SPDX-License-Identifier: MPL-2.0
-
-# Copyright © 2018-2026 Firas Khana
 
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -20,19 +19,16 @@ configure() {
         --with-sysdep-procselfexe=/proc/self/exe
   fi
 
-  set -- \
-      "$@" \
-      --prefix=/usr \
-      --dynlibdir=/usr/lib \
-      --libdir=/usr/lib \
-      --sysconfdir=/etc \
-      --pkgconfdir=/usr/lib/pkgconfig \
-      --sysdepdir="/usr/lib/$nom/sysdeps" \
-      --disable-static \
-      --enable-pkgconfig
-
   ./configure \
-    "$@"
+    "$@" \
+    --prefix=/usr \
+    --dynlibdir=/usr/lib \
+    --libdir=/usr/lib \
+    --sysconfdir=/etc \
+    --pkgconfdir=/usr/lib/pkgconfig \
+    --sysdepdir="/usr/lib/$nom/sysdeps" \
+    --disable-static \
+    --enable-pkgconfig
 }
 
 build() {
