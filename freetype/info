@@ -1,6 +1,5 @@
+# SPDX-FileCopyrightText: Copyright (c) 2018-2026 Firas Khana
 # SPDX-License-Identifier: MPL-2.0
-
-# Copyright © 2018-2026 Firas Khana
 
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -10,5 +9,4 @@ ver='2.14.1'
 url='https://download.savannah.nongnu.org/releases/freetype/freetype-2.14.1.tar.xz'
 sum='ffe919ddf8e2744c7aef6aa3a4fffe30'
 bld='bzip2 libpng libz'
-opt='no-check'
 lic='FTL GPL-2.0-or-later'
