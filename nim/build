@@ -1,15 +1,14 @@
+# SPDX-FileCopyrightText: Copyright (c) 2018-2026 Firas Khana
 # SPDX-License-Identifier: MPL-2.0
-
-# Copyright © 2018-2026 Firas Khana
 
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
-  cp -fPpR "$tmp"/nim-csources/csources_v3 "$tmp/$nom/Nim-$ver"
+  cp -fPpR "$tmp/$nom-csources/csources_v3" "$tmp/$nom/Nim-$ver"
 
-  cd "$tmp/$nom/Nim-$ver"/csources_v3
+  cd "$tmp/$nom/Nim-$ver/csources_v3"
 }
 
 build() {
@@ -31,13 +30,13 @@ build() {
       --skipParentCfg \
       --noNimblePath
 
-  bin/"$nom" compile "$@" koch
+  "bin/$nom" compile "$@" koch
 
   ./koch boot -d:leanCompiler "$@"
 }
 
 package() {
-  ./koch install "$dir"/usr/lib
+  ./koch install "$dir/usr/lib"
 
-  ln -fs ../lib/"$nom/bin/$nom" "$dir"/usr/bin
+  ln -fs "../lib/$nom/bin/$nom" "$dir/usr/bin"
 }
