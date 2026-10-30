@@ -1,6 +1,5 @@
+# SPDX-FileCopyrightText: Copyright (c) 2018-2026 Firas Khana
 # SPDX-License-Identifier: MPL-2.0
-
-# Copyright © 2018-2026 Firas Khana
 
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -9,20 +8,21 @@
 prepare() {
   ./bootstrap.sh build-bootstrap
 
-  build-bootstrap/"$nom"-bootstrap setup \
+  "build-bootstrap/$nom-bootstrap" setup \
     -Dwrap_mode=nodownload \
     -Dlibcurl=disabled \
     -Dlibarchive=disabled \
-    -Dpkgconfig=exec \
     -Dlibpkgconf=disabled \
     -Dtracy=disabled \
+    -Dnative_backtrace=disabled \
     -Dman-pages=disabled \
+    -Ddocs=disabled \
     -Dmeson-docs=disabled \
     -Dmeson-tests=disabled \
     -Dwebsite=disabled \
     build-bootstrap
 
-  build-bootstrap/"$nom"-bootstrap \
+  "build-bootstrap/$nom-bootstrap" \
     -C build-bootstrap \
     samu
 }
@@ -32,10 +32,11 @@ configure() {
   "$core/$nom/files/glaucus-$nom" \
     -Dlibcurl=disabled \
     -Dlibarchive=disabled \
-    -Dpkgconfig=exec \
     -Dlibpkgconf=disabled \
     -Dtracy=disabled \
+    -Dnative_backtrace=disabled \
     -Dman-pages=disabled \
+    -Ddocs=disabled \
     -Dmeson-docs=disabled \
     -Dmeson-tests=disabled \
     -Dwebsite=disabled \
@@ -43,14 +44,14 @@ configure() {
 }
 
 build() {
-  build-bootstrap/"$nom" \
+  "build-bootstrap/$nom" \
     -C build \
     samu
 }
 
 package() {
   DESTDIR="$dir" \
-  build/"$nom" \
+  "build/$nom" \
     -C build \
     install
 
@@ -58,9 +59,8 @@ package() {
     "$core/$nom/files/glaucus-meson" \
     "$core/$nom/files/glaucus-$nom" \
     "$core/$nom/files/samu" \
-    "$dir"/usr/bin
+    "$dir/usr/bin"
 
-  # Compatibility symlinks
-  ln -fs "$nom" "$dir"/usr/bin/meson
-  ln -fs samu "$dir"/usr/bin/ninja
+  ln -fs "$nom" "$dir/usr/bin/meson"
+  ln -fs samu "$dir/usr/bin/ninja"
 }
