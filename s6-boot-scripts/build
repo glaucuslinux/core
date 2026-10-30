@@ -1,6 +1,5 @@
+# SPDX-FileCopyrightText: Copyright (c) 2018-2026 Firas Khana
 # SPDX-License-Identifier: MPL-2.0
-
-# Copyright © 2018-2026 Firas Khana
 
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -28,21 +27,8 @@ package() {
     "$tmp/$nom/etc/s6/current/scripts/runlevel" \
     "$dir/etc/s6/skel"
 
-  mkdir -p "$dir/var/log/wtmpd"
-  for i in btmp faillog lastlog wtmp; do
-    ln -fs "wtmpd/$i" "$dir/var/log/$i"
-  done
-
-  touch \
-    "$dir/var/log/wtmpd/btmp" \
-    "$dir/var/log/wtmpd/faillog" \
-    "$dir/var/log/wtmpd/lastlog" \
-    "$dir/var/log/wtmpd/wtmp"
-
   if [ -z "${bootstrap-}" ]; then
     rm -fRv "$dir/etc/s6/rc/compiled"
     s6-rc-compile "$dir/etc/s6/rc/compiled" "$dir/etc/s6/sv"
-
-    chown -R utmp:utmp "$dir/var/log/wtmpd"
   fi
 }
