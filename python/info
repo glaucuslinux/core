@@ -1,6 +1,5 @@
+# SPDX-FileCopyrightText: Copyright (c) 2018-2026 Firas Khana
 # SPDX-License-Identifier: MPL-2.0
-
-# Copyright © 2018-2026 Firas Khana
 
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -10,5 +9,4 @@ ver='3.14.2'
 url='https://python.org/ftp/python/3.14.2/Python-3.14.2.tar.xz'
 sum='619ce25581c5801e03025ef89936ece6'
 bld='expat libffi mpdecimal'
-opt='no-check'
 lic='PSF-2.0'
