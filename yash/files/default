@@ -40,7 +40,7 @@ alias ls='ls -F --color=auto'
 : "${ECHO_STYLE:=RAW}"
 : "${EDITOR:=vi}"
 : "${HOSTNAME:=$(uname -n)}" # do not fork on every source
-: "${LANG:=C}"
+: "${LANG:=C.UTF-8}"
 : "${LOGNAME:=$(logname)}" # do not fork on every source
 : "${PAGER:=less}"
 : "${PATH:=/usr/bin}"
