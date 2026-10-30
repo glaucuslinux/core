@@ -1,12 +1,11 @@
+# SPDX-FileCopyrightText: Copyright (c) 2018-2026 Firas Khana
 # SPDX-License-Identifier: MPL-2.0
-
-# Copyright © 2018-2026 Firas Khana
 
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver='2.6.4'
-url='https://cdn.kernel.org/pub/linux/utils/kbd/kbd-2.6.4.tar.xz'
-sum='23cdacfd24021d2a08c5f01ef0e58f87'
+ver='2.9.0'
+url='https://cdn.kernel.org/pub/linux/utils/kbd/kbd-2.9.0.tar.xz'
+sum='bc5bcef25fd22baaea15d67899db0d71'
 bld='flex'
