@@ -1,6 +1,5 @@
+# SPDX-FileCopyrightText: Copyright (c) 2018-2026 Firas Khana
 # SPDX-License-Identifier: MPL-2.0
-
-# Copyright © 2018-2026 Firas Khana
 
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -10,5 +9,4 @@ ver='1.4.335.0'
 url='https://github.com/KhronosGroup/SPIRV-Tools/archive/vulkan-sdk-1.4.335.0.tar.gz'
 sum='996790df70af742be468983507f65865'
 bld='cmake python spirv-headers'
-opt='no-check'
 lic='Apache-2.0'
