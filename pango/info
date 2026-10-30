@@ -1,14 +1,12 @@
+# SPDX-FileCopyrightText: Copyright (c) 2018-2026 Firas Khana
 # SPDX-License-Identifier: MPL-2.0
-
-# Copyright © 2018-2026 Firas Khana
 
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 ver='1.57.0'
-url='https://download.gnome.org/sources/pango/1.57/pango-1.57.0.tar.xz'
-sum='36fb1d97793d4690fdf7d4f44a6d9e74'
+url='https://gitlab.gnome.org/GNOME/pango/-/archive/1.57.0/pango-1.57.0.tar.bz2'
+sum='7ddb3fd7d4e60506246242e05acf89da'
 bld='cairo fontconfig freetype-harfbuzz fribidi glib muon'
-opt='no-check'
 lic='LGPL-2.1-or-later'
