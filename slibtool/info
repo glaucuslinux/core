@@ -5,7 +5,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver='f329ef3'
+ver='fba3f81'
 url='https://git.foss21.org/slibtool'
 bld='m4'
 opt='bootstrap'

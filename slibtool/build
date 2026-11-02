@@ -15,8 +15,7 @@ configure() {
   fi
 
   glaucus-configure \
-    "$@" \
-    --disable-static
+    "$@"
 }
 
 build() {
