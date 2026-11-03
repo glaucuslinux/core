@@ -27,32 +27,21 @@ package() {
     DESTDIR="$dir" \
     install
 
-  ln -fs "../share/$nom/$nom.sh" "$dir/usr/bin/libtool"
-  cp -fPp "$core/$nom/files/libtoolize" "$dir/usr/bin"
+  ln -fs rlibtool "$dir/usr/bin/libtool"
+  ln -fs "${nom}ize" "$dir/usr/bin/libtoolize"
 
-  mkdir -p \
-    "$dir/usr/share/aclocal" \
-    "$dir/usr/share/libtool/build-aux"
-
-  cp -fPp \
-    "$core/$nom/files/libtool.m4" \
-    "$core/$nom/files/ltargz.m4" \
-    "$core/$nom/files/ltdl.m4" \
-    "$core/$nom/files/lt~obsolete.m4" \
-    "$core/$nom/files/ltoptions.m4" \
-    "$core/$nom/files/ltsugar.m4" \
-    "$core/$nom/files/ltversion.m4" \
-    "$dir/usr/share/aclocal"
-
-  cp -fPp \
-    "$core/$nom/files/compile" \
-    "$core/$nom/files/config.guess" \
-    "$core/$nom/files/config.sub" \
-    "$core/$nom/files/depcomp" \
-    "$core/$nom/files/install-sh" \
-    "$core/$nom/files/ltmain.sh" \
-    "$core/$nom/files/missing" \
-    "$dir/usr/share/libtool/build-aux"
+  mkdir -p "$dir/usr/share/aclocal"
 
   ln -fs "../$nom/$nom.m4" "$dir/usr/share/aclocal"
+  ln -fs "../$nom/$nom.m4" "$dir/usr/share/aclocal/libtool.m4"
+}
+
+purge() {
+  rm -fv \
+    "$dir/usr/bin/clibtool"* \
+    "$dir/usr/bin/dclibtool"* \
+    "$dir/usr/bin/dlibtool"* \
+    "$dir/usr/bin/rclibtool"* \
+    "$dir/usr/bin/rdclibtool"* \
+    "$dir/usr/bin/rdlibtool"*
 }
