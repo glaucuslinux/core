@@ -51,11 +51,11 @@ epmap		135/tcp		loc-srv		# DCE endpoint resolution
 netbios-ns	137/udp				# NETBIOS Name Service
 netbios-dgm	138/udp				# NETBIOS Datagram Service
 netbios-ssn	139/tcp				# NETBIOS session service
-imap2		143/tcp		imap		# Interim Mail Access P 2 and 4
+imap		143/tcp		imap2		# Interim Mail Access P 2 and 4
 snmp		161/tcp				# Simple Net Mgmt Protocol
 snmp		161/udp
-snmp-trap	162/tcp		snmptrap	# Traps for SNMP
-snmp-trap	162/udp		snmptrap
+snmptrap	162/tcp		snmp-trap	# Traps for SNMP
+snmptrap	162/udp		snmp-trap
 cmip-man	163/tcp				# ISO mgmt over IP (CMOT)
 cmip-man	163/udp
 cmip-agent	164/tcp
@@ -65,7 +65,7 @@ xdmcp		177/udp			# X Display Manager Control Protocol
 bgp		179/tcp				# Border Gateway Protocol
 smux		199/tcp				# SNMP Unix Multiplexer
 qmtp		209/tcp				# Quick Mail Transfer Protocol
-z3950		210/tcp		wais		# NISO Z39.50 database
+z39-50		210/tcp		z3950 wais	# NISO Z39.50 database
 ipx		213/udp				# IPX [RFC1234]
 ptp-event	319/udp
 ptp-general	320/udp
@@ -97,9 +97,6 @@ qmqp		628/tcp
 ipp		631/tcp				# Internet Printing Protocol
 ldp		646/tcp				# Label Distribution Protocol
 ldp		646/udp
-#
-# UNIX specific services
-#
 exec		512/tcp
 biff		512/udp		comsat
 login		513/tcp
@@ -126,7 +123,6 @@ tinc		655/tcp				# tinc control port
 tinc		655/udp
 silc		706/tcp
 kerberos-adm	749/tcp				# Kerberos `kadmin' (v5)
-#
 domain-s	853/tcp				# DNS over TLS [RFC7858]
 domain-s	853/udp				# DNS over DTLS [RFC8094]
 rsync		873/tcp
@@ -135,21 +131,6 @@ ftps		990/tcp
 telnets		992/tcp				# Telnet over SSL
 imaps		993/tcp				# IMAP over SSL
 pop3s		995/tcp				# POP-3 over SSL
-#
-# From ``Assigned Numbers'':
-#
-#> The Registered Ports are not controlled by the IANA and on most systems
-#> can be used by ordinary user processes or programs executed by ordinary
-#> users.
-#
-#> Ports are used in the TCP [45,106] to name the ends of logical
-#> connections which carry long term conversations.  For the purpose of
-#> providing services to unknown callers, a service contact port is
-#> defined.  This list specifies the port used by the server process as its
-#> contact port.  While the IANA can not control uses of these ports it
-#> does register or list uses of these ports as a convienence to the
-#> community.
-#
 socks		1080/tcp			# socks proxy server
 proofd		1093/tcp
 rootd		1094/tcp
@@ -160,8 +141,8 @@ lotusnote	1352/tcp	lotusnotes	# Lotus Note
 ms-sql-s	1433/tcp			# Microsoft SQL Server
 ms-sql-m	1434/udp			# Microsoft SQL Monitor
 ingreslock	1524/tcp
-datametrics	1645/tcp	old-radius
-datametrics	1645/udp	old-radius
+sightline	1645/tcp	old-radius
+sightline	1645/udp	old-radius
 sa-msg-port	1646/tcp	old-radacct
 sa-msg-port	1646/udp	old-radacct
 kermit		1649/tcp
@@ -177,7 +158,6 @@ nfs		2049/udp			# Network File System
 gnunet		2086/tcp
 gnunet		2086/udp
 rtcm-sc104	2101/tcp			# RTCM SC-104 IANA 1/29/99
-rtcm-sc104	2101/udp
 gsigatekeeper	2119/tcp
 gris		2135/tcp		# Grid Resource Information Server
 cvspserver	2401/tcp			# CVS client/server operations
@@ -220,8 +200,8 @@ mtn		4691/tcp			# monotone Netsync Protocol
 radmin-port	4899/tcp			# RAdmin Port
 sip		5060/tcp			# Session Initiation Protocol
 sip		5060/udp
-sip-tls		5061/tcp
-sip-tls		5061/udp
+sips		5061/tcp	sip-tls
+sips		5061/udp	sip-tls
 xmpp-client	5222/tcp	jabber-client	# Jabber Client Connection
 xmpp-server	5269/tcp	jabber-server	# Jabber Server Connection
 cfengine	5308/tcp
@@ -307,9 +287,7 @@ iprop		2121/tcp			# incremental propagation
 supfilesrv	871/tcp			# Software Upgrade Protocol server
 supfiledbg	1127/tcp		# Software Upgrade Protocol debugging
 
-#
 # Services added for the Debian GNU/Linux distribution
-#
 poppassd	106/tcp				# Eudora
 moira-db	775/tcp		moira_db	# Moira database
 moira-update	777/tcp		moira_update	# Moira update protocol
@@ -317,7 +295,6 @@ moira-ureg	779/udp		moira_ureg	# Moira user registration
 spamd		783/tcp				# spamassassin daemon
 skkserv		1178/tcp			# skk jisho server port
 predict		1210/udp			# predict -- satellite tracking
-rmtcfg		1236/tcp			# Gracilis Packeten remote config server
 xtel		1313/tcp			# french minitel
 xtelw		1314/tcp			# french minitel
 zebrasrv	2600/tcp			# zebra service
@@ -350,16 +327,8 @@ webmin		10000/tcp
 kamanda		10081/tcp			# amanda backup services (Kerberos)
 amandaidx	10082/tcp			# amanda backup services
 amidxtape	10083/tcp			# amanda backup services
-sgi-cmsd	17001/udp		# Cluster membership services daemon
-sgi-crsd	17002/udp
-sgi-gcd		17003/udp			# SGI Group membership daemon
-sgi-cad		17004/tcp			# Cluster Admin daemon
 binkp		24554/tcp			# binkp fidonet protocol
-asp		27374/tcp			# Address Search Protocol
-asp		27374/udp
 csync2		30865/tcp			# cluster synchronization tool
 dircproxy	57000/tcp			# Detachable IRC Proxy
 tfido		60177/tcp			# fidonet EMSI over telnet
 fido		60179/tcp			# fidonet EMSI over TCP
-
-# Local services
