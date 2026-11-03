@@ -41,7 +41,7 @@ purge() {
     "$dir/usr/bin/clibtool"* \
     "$dir/usr/bin/dclibtool"* \
     "$dir/usr/bin/dlibtool"* \
-    "$dir/usr/bin/rclibtool"* \
-    "$dir/usr/bin/rdclibtool"* \
-    "$dir/usr/bin/rdlibtool"*
+    "$dir/usr/bin/rclibtool" \
+    "$dir/usr/bin/rdclibtool" \
+    "$dir/usr/bin/rdlibtool"
 }
