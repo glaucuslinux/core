@@ -5,7 +5,7 @@ scriptversion=2025-06-18.21; # UTC
 
 # shellcheck disable=SC2006,SC2268 # we must support pre-POSIX shells
 
-# Copyright (C) 1996-2025 Free Software Foundation, Inc.
+# Copyright (C) 1996-2026 Free Software Foundation, Inc.
 # Originally written by Fran,cois Pinard <pinard@iro.umontreal.ca>, 1996.
 
 # This program is free software; you can redistribute it and/or modify
@@ -199,7 +199,7 @@ give_advice ()
       echo "You might want to install the Texinfo package:"
       echo "<$gnu_software_URL/texinfo/>"
       echo "The spurious makeinfo call might also be the consequence of"
-      echo "using a buggy 'make' (AIX, DU, IRIX), in which case you might"
+      echo "using a buggy non-GNU 'make', in which case you might"
       echo "want to install GNU make:"
       echo "<$gnu_software_URL/make/>"
       ;;
