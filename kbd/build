@@ -10,16 +10,23 @@ prepare() {
 }
 
 configure() {
+  ac_cv_lib_bz2_BZ2_bzDecompressInit=no \
   glaucus-configure \
     --disable-static \
     --enable-pic \
     --disable-nls \
     --disable-rpath \
-    --enable-optional-progs \
+    --disable-compress \
     --disable-vlock \
     --disable-tests \
+    --disable-memcheck \
     --without-libiconv-prefix \
-    --without-libintl-prefix
+    --without-libintl-prefix \
+    --without-gcov \
+    --without-zlib \
+    --without-bzip2 \
+    --without-lzma \
+    --without-zstd
 }
 
 build() {
@@ -30,12 +37,23 @@ package() {
   make \
     DESTDIR="$dir" \
     install-strip
+}
 
-  ln -fs openvt "$dir/usr/bin/open"
-
+purge() {
   rm -fRv \
+    "$dir/usr/bin/loadunimap" \
+    "$dir/usr/bin/mapscrn" \
+    "$dir/usr/bin/psf"* \
+    "$dir/usr/bin/resizecons" \
+    "$dir/usr/share/consolefonts/partialfonts" \
+    "$dir/usr/share/consoletrans" \
     "$dir/usr/share/keymaps/amiga" \
     "$dir/usr/share/keymaps/atari" \
-    "$dir/usr/share/keymaps/i386/qwerty/ro_win.map.gz" \
-    "$dir/usr/share/keymaps/sun"
+    "$dir/usr/share/keymaps/mac" \
+    "$dir/usr/share/keymaps/pine" \
+    "$dir/usr/share/keymaps/ppc" \
+    "$dir/usr/share/keymaps/sun" \
+    "$dir/usr/share/unimaps"
+
+  find "$dir/usr/share" -name 'README*' -type f -delete
 }
