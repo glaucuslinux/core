@@ -1,0 +1,31 @@
+# SPDX-FileCopyrightText: Copyright (c) 2018-2026 Firas Khana
+# SPDX-License-Identifier: MPL-2.0
+
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
+prepare() {
+  ./autogen.sh
+}
+
+configure() {
+  glaucus-configure \
+    --disable-static \
+    --enable-pic \
+    --disable-doxygen-doc
+}
+
+build() {
+  make
+}
+
+package() {
+  make \
+    DESTDIR="$dir" \
+    install-strip
+}
+
+purge() {
+  rm -fRv "$dir/usr/share"
+}
