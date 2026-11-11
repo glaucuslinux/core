@@ -13,10 +13,17 @@ configure() {
   glaucus-configure \
     --enable-pic \
     --enable-auto-reload \
+    --enable-fastboot \
+    --disable-logrotate \
     --disable-dbus \
     --disable-doc \
     --disable-contrib \
-    --disable-rescue
+    --disable-rescue \
+    --disable-all-plugins \
+    --enable-rtc-plugin \
+    --enable-urandom-plugin \
+    --without-bash-completion-dir \
+    --with-heading="$PRETTY_NAME"
 }
 
 build() {
@@ -27,4 +34,10 @@ package() {
   make \
     DESTDIR="$dir" \
     install-strip
+}
+
+purge() {
+  rm -fRv \
+    "$dir/usr/include" \
+    "$dir/usr/share"
 }
