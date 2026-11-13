@@ -6,7 +6,7 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 prepare() {
-  autoreconf -vfis
+  ./autogen.sh
 }
 
 configure() {
@@ -14,6 +14,7 @@ configure() {
     --enable-pic \
     --enable-auto-reload \
     --enable-fastboot \
+    --disable-pam \
     --disable-logrotate \
     --disable-dbus \
     --disable-doc \
@@ -25,6 +26,7 @@ configure() {
     --without-bash-completion-dir \
     --with-heading="$PRETTY_NAME" \
     --without-rc-local \
+    --with-hostname=glaucus \
     --without-sulogin \
     --without-watchdog \
     --with-plugin-path="/usr/lib/$nom/plugins"

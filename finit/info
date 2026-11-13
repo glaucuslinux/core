@@ -5,9 +5,9 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-ver='5.0-rc1'
-url='https://github.com/finit-project/finit/releases/download/5.0-rc1/finit-5.0-rc1.tar.gz'
-sum='2f3566b08e76bfb581de73203c311d9f'
-bld='libconfuse libite libuev util-linux'
+ver='f15e95d'
+url='https://github.com/finit-project/finit'
+bld='libcap libconfuse libite libuev util-linux'
+run='libcap libconfuse libite libuev util-linux'
 opt='bootstrap'
 lic='MIT'
