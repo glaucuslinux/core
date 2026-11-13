@@ -23,7 +23,11 @@ configure() {
     --enable-rtc-plugin \
     --enable-urandom-plugin \
     --without-bash-completion-dir \
-    --with-heading="$PRETTY_NAME"
+    --with-heading="$PRETTY_NAME" \
+    --without-rc-local \
+    --without-sulogin \
+    --without-watchdog \
+    --with-plugin-path="/usr/lib/$nom/plugins"
 }
 
 build() {
