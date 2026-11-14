@@ -29,6 +29,7 @@ configure() {
     --with-hostname=glaucus \
     --without-sulogin \
     --without-watchdog \
+    --without-hook-scripts-path \
     --with-plugin-path="/usr/lib/$nom/plugins"
 }
 
