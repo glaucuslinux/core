@@ -5,44 +5,24 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-prepare() {
-  patch \
-    -i "$core/$nom/patches/alpine/digest-sha-cflags.patch" \
-    -p 1
-  patch \
-    -i "$core/$nom/patches/alpine/dont-write-packlist.patch" \
-    -p 1
-}
-
 configure() {
-  BUILD_BZIP2=0 \
-  BZIP2_LIB=/usr/lib \
-  BZIP2_INCLUDE=/usr/include \
-  BUILD_ZLIB=0 \
-  USE_ZLIB_NG=1 \
   ./Configure \
     -des \
-    -Darchlib="/usr/lib/${nom}5/core_$nom" \
+    -Accflags='-DNO_MATHOMS -DNO_TAINT_SUPPORT' \
     -Dcc="$CC" \
     -Dcf_by="$PRETTY_NAME" \
-    -Dd_sockaddr_in6=define \
+    -Dd_sockaddr_in6 \
     -Dinc_version_list=none \
     -Dinstallusrbinperl \
-    -Dman1dir=/usr/share/man/man1 \
-    -Dman1ext=1p \
-    -Dman3dir=/usr/share/man/man3 \
-    -Dman3ext=3pm \
+    -Dnoextensions="Archive/Tar Compress/Raw/Bzip2 Compress/Raw/Zlib DB_File GDBM_File IO/Compress IO/Uncompress IO/Zlib NDBM_File ODBM_File SDBM_File XS/APItest XS/Typemap" \
     -Doptimize="$CFLAGS" \
     -Dpager='/usr/bin/less -is' \
     -Dprefix=/usr \
-    -Dprivlib="/usr/share/${nom}5/core_$nom" \
-    -Dsitearch="/usr/lib/${nom}5/site_$nom" \
-    -Dsitelib="/usr/share/${nom}5/site_$nom" \
     -Duseshrplib \
     -Dusethreads \
-    -Dvendorarch="/usr/lib/${nom}5/vendor_$nom" \
-    -Dvendorlib="/usr/share/${nom}5/vendor_$nom" \
-    -Dvendorprefix=/usr
+    -Dvendorprefix=/usr \
+    -UDEBUGGING \
+    -Uusenm
 }
 
 build() {
@@ -52,8 +32,42 @@ build() {
 package() {
   make \
     DESTDIR="$dir" \
-    install-strip
+    INSTALLFLAGS='-s -f -o -p' \
+    "install.$nom"
+}
 
-  ln -fs "$nom" "$dir/usr/bin/$nom$ver"
-  ln -fs "${nom}bug" "$dir/usr/bin/${nom}thanks"
+purge() {
+  rm -fv \
+    "$dir/usr/bin/corelist" \
+    "$dir/usr/bin/cpan" \
+    "$dir/usr/bin/enc2xs" \
+    "$dir/usr/bin/encguess" \
+    "$dir/usr/bin/h2ph" \
+    "$dir/usr/bin/h2xs" \
+    "$dir/usr/bin/instmodsh" \
+    "$dir/usr/bin/json_pp" \
+    "$dir/usr/bin/libnetcfg" \
+    "$dir/usr/bin/perl5.42.0" \
+    "$dir/usr/bin/perlbug" \
+    "$dir/usr/bin/perldoc" \
+    "$dir/usr/bin/perlivp" \
+    "$dir/usr/bin/perlthanks" \
+    "$dir/usr/bin/piconv" \
+    "$dir/usr/bin/pl2pm" \
+    "$dir/usr/bin/pod2html" \
+    "$dir/usr/bin/pod2man" \
+    "$dir/usr/bin/pod2text" \
+    "$dir/usr/bin/pod2usage" \
+    "$dir/usr/bin/podchecker" \
+    "$dir/usr/bin/prove" \
+    "$dir/usr/bin/ptar" \
+    "$dir/usr/bin/ptardiff" \
+    "$dir/usr/bin/ptargrep" \
+    "$dir/usr/bin/shasum" \
+    "$dir/usr/bin/splain" \
+    "$dir/usr/bin/streamzip" \
+    "$dir/usr/bin/xsubpp" \
+    "$dir/usr/bin/zipdetails"
+
+    find "$dir" \( -name '*.e2x' -o -name '*.pod' \) -type f -delete
 }
