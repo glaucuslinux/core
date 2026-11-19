@@ -54,11 +54,11 @@ purge() {
     "$dir/usr/bin/instmodsh" \
     "$dir/usr/bin/json_pp" \
     "$dir/usr/bin/libnetcfg" \
-    "$dir/usr/bin/perl5.42.0" \
-    "$dir/usr/bin/perlbug" \
-    "$dir/usr/bin/perldoc" \
-    "$dir/usr/bin/perlivp" \
-    "$dir/usr/bin/perlthanks" \
+    "$dir/usr/bin/${nom}$ver" \
+    "$dir/usr/bin/${nom}bug" \
+    "$dir/usr/bin/${nom}doc" \
+    "$dir/usr/bin/${nom}ivp" \
+    "$dir/usr/bin/${nom}thanks" \
     "$dir/usr/bin/piconv" \
     "$dir/usr/bin/pl2pm" \
     "$dir/usr/bin/pod2html" \
@@ -76,5 +76,5 @@ purge() {
     "$dir/usr/bin/xsubpp" \
     "$dir/usr/bin/zipdetails"
 
-    find "$dir" \( -name '*.e2x' -o -name '*.pod' \) -type f -delete
+  find "$dir" \( -name '*.e2x' -o -name '*.pod' \) -type f -delete
 }
