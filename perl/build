@@ -8,7 +8,7 @@
 configure() {
   ./Configure \
     -des \
-    -Accflags='-DNO_MATHOMS -DNO_TAINT_SUPPORT' \
+    -Accflags='-DNO_LOCALE -DNO_MATHOMS -DNO_TAINT_SUPPORT' \
     -Darchlib="/usr/lib/${nom}5/core_$nom" \
     -Dcc="$CC" \
     -Dcf_by="$PRETTY_NAME" \
@@ -29,6 +29,8 @@ configure() {
     -Dvendorprefix=/usr \
     -UDEBUGGING \
     -Ud_csh \
+    -Uusecbacktrace \
+    -Uuselanginfo \
     -Uusenm
 }
 
