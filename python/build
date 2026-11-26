@@ -20,7 +20,6 @@ configure() {
   glaucus-configure \
     --enable-shared \
     --disable-gil \
-    --enable-optimizations \
     --enable-safety \
     --enable-slower-safety \
     --enable-ipv6 \
@@ -33,7 +32,7 @@ configure() {
     --without-doc-strings \
     --with-mimalloc \
     --without-pymalloc \
-    --with-readline=editline \
+    --without-readline \
     --without-computed-gotos \
     --with-tail-call-interp \
     --without-remote-debug \
@@ -57,5 +56,6 @@ purge() {
     "$dir/usr/bin/pydoc"* \
     "$dir/usr/bin/"*-config \
     "$dir/usr/include" \
+    "$dir/usr/lib/${nom}3.14t/ensurepip" \
     "$dir/usr/share"
 }
