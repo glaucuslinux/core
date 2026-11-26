@@ -9,30 +9,36 @@ prepare() {
   cd "$tmp/$nom/Python-$ver"
 
   patch \
+    -i "$core/$nom/patches/alpine/musl-find_library.patch" \
+    -p 1
+  patch \
     -i "$core/$nom/patches/openbsd/Modules__hashopenssl_c.patch" \
     -p 0
-
-  rm -fRv \
-    Modules/_decimal/libmpdec \
-    Modules/expat
 }
 
 configure() {
   glaucus-configure \
     --enable-shared \
-    --enable-loadable-sqlite-extensions \
+    --disable-gil \
+    --enable-optimizations \
+    --enable-safety \
+    --enable-slower-safety \
     --enable-ipv6 \
     --disable-test-modules \
+    --with-pkg-config \
     --without-static-libpython \
-    --with-lto \
+    --with-lto=thin \
     --with-system-expat \
     --with-system-libmpdec \
-    --with-dbmliborder=gdbm:ndbm \
     --without-doc-strings \
-    --with-pymalloc \
+    --with-mimalloc \
+    --without-pymalloc \
     --with-readline=editline \
-    --with-computed-gotos \
-    --without-ensurepip
+    --without-computed-gotos \
+    --with-tail-call-interp \
+    --without-remote-debug \
+    --without-ensurepip \
+    --with-ssl-default-suites=openssl
 }
 
 build() {
@@ -43,7 +49,13 @@ package() {
   make \
     DESTDIR="$dir" \
     install
+}
 
-  ln -fs "${nom}3" "$dir/usr/bin/$nom"
-  ln -fs "${nom}3-config" "$dir/usr/bin/$nom-config"
+purge() {
+  rm -fRv \
+    "$dir/usr/bin/idle"* \
+    "$dir/usr/bin/pydoc"* \
+    "$dir/usr/bin/"*-config \
+    "$dir/usr/include" \
+    "$dir/usr/share"
 }
