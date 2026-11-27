@@ -12,6 +12,9 @@ prepare() {
     -i "$core/$nom/patches/alpine/musl-find_library.patch" \
     -p 1
   patch \
+    -i "$core/$nom/patches/glaucus/0001-libressl-compat.patch" \
+    -p 0
+  patch \
     -i "$core/$nom/patches/openbsd/Modules__hashopenssl_c.patch" \
     -p 0
 }
@@ -50,10 +53,13 @@ package() {
     altbininstall \
     libinstall \
     sharedinstall
-
-  "$STRIP" --strip-unneeded "$dir/usr/lib/${nom}3.14t/lib${nom}3.14t.so.1.0"
 }
 
 purge() {
-  rm -fRv "$dir/usr/lib/${nom}3.14t/ensurepip"
+  rm -fRv \
+    "$dir/usr/lib/${nom}3.14t/ensurepip" \
+    "$dir/usr/lib/${nom}3.14t/idlelib" \
+    "$dir/usr/lib/${nom}3.14t/pydoc"* \
+    "$dir/usr/lib/${nom}3.14t/tkinter" \
+    "$dir/usr/lib/${nom}3.14t/turtle"*
 }

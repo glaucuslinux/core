@@ -1,0 +1,11 @@
+--- Modules/_ssl.c
++++ Modules/_ssl.c
+@@ -3873,7 +3873,7 @@
+     unsigned int host_flags;
+ 
+     ssl_verification_params = SSL_CTX_get0_param(self->ctx);
+-    host_flags = X509_VERIFY_PARAM_get_hostflags(ssl_verification_params);
++    host_flags = 0;
+     return PyLong_FromUnsignedLong(host_flags);
+ }
+ 
