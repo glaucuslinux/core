@@ -47,15 +47,13 @@ build() {
 package() {
   make \
     DESTDIR="$dir" \
-    install
+    altbininstall \
+    libinstall \
+    sharedinstall
+
+  "$STRIP" --strip-unneeded "$dir/usr/lib/${nom}3.14t/lib${nom}3.14t.so.1.0"
 }
 
 purge() {
-  rm -fRv \
-    "$dir/usr/bin/idle"* \
-    "$dir/usr/bin/pydoc"* \
-    "$dir/usr/bin/"*-config \
-    "$dir/usr/include" \
-    "$dir/usr/lib/${nom}3.14t/ensurepip" \
-    "$dir/usr/share"
+  rm -fRv "$dir/usr/lib/${nom}3.14t/ensurepip"
 }
