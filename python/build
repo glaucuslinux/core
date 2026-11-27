@@ -20,6 +20,7 @@ prepare() {
 }
 
 configure() {
+  ac_cv_working_openssl_hashlib=yes \
   glaucus-configure \
     --enable-shared \
     --disable-gil \
