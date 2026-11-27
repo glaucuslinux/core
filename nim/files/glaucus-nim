@@ -15,5 +15,5 @@ exec nim compile \
   --os:linux \
   --cpu:amd64 \
   --passC:'-O2 -flto=thin -march=x86-64-v3 -mtls-dialect=gnu2 -fdata-sections -ffunction-sections -fno-plt -fstack-clash-protection -fstack-protector-strong -fno-asynchronous-unwind-tables -fno-unwind-tables -fno-ident' \
-  --passL:'-Wl,-O2,--as-needed,--gc-sections,--icf=safe,-z,defs,-z,now,-z,separate-code,--build-id=none,--hash-style=gnu,--pack-dyn-relocs=relr,--strip-all -O2 -flto=thin -march=x86-64-v3 -mtls-dialect=gnu2 -fdata-sections -ffunction-sections -fno-plt -fstack-clash-protection -fstack-protector-strong -fno-asynchronous-unwind-tables -fno-unwind-tables -fno-ident' \
+  --passL:'-Wl,-O2,--as-needed,--gc-sections,--icf=safe,-z,now,-z,separate-code,--build-id=none,--hash-style=gnu,--pack-dyn-relocs=relr,--strip-all -O2 -flto=thin -march=x86-64-v3 -mtls-dialect=gnu2 -fdata-sections -ffunction-sections -fno-plt -fstack-clash-protection -fstack-protector-strong -fno-asynchronous-unwind-tables -fno-unwind-tables -fno-ident' \
   "$@"
